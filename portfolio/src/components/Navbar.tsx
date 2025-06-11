@@ -33,11 +33,11 @@ export default function Navbar() {
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
                 isScrolled ? "flex bg-white shadow-lg" : "hidden"
-            } py-3 px-5`}
+            } py-2 xl:py-3 px-3 xl:px-5`}
         >
-            <div className="container mx-auto flex items-center justify-between">
-                <Link href="/" className="ml-3">
-                    <h1 className="text-2xl font-bold">
+            <div className="container mx-auto flex items-center justify-between max-w-7xl">
+                <Link href="/" className="ml-2 xl:ml-3 flex-shrink-0">
+                    <h1 className="text-xl xl:text-2xl font-bold">
                         <span className="text-primary">Woody</span>Lin
                     </h1>
                 </Link>
@@ -65,12 +65,12 @@ export default function Navbar() {
                 </button>
 
                 {/* Desktop menu */}
-                <div className="hidden lg:flex items-center space-x-8">
+                <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
                     {navItems.map((item) => (
                         <Link
                             key={item.href}
                             href={item.href}
-                            className={`px-4 py-2 font-medium transition-colors hover:text-primary ${
+                            className={`px-2 xl:px-3 py-2 font-medium text-sm xl:text-base transition-colors hover:text-primary whitespace-nowrap ${
                                 pathname === item.href
                                     ? "text-primary"
                                     : "text-gray-700"
@@ -81,7 +81,7 @@ export default function Navbar() {
                     ))}
                     <a
                         href="mailto:lin.wancheng001@gmail.com"
-                        className="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition-colors"
+                        className="bg-primary text-white px-4 xl:px-6 py-2 rounded-full hover:bg-primary/90 transition-colors text-sm xl:text-base whitespace-nowrap"
                     >
                         Contact Me
                     </a>
