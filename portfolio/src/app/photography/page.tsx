@@ -1,16 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import DisqusComments from "@/components/DisqusComments";
+import LazyImage from "@/components/LazyImage";
 import Spinner from "@/components/Spinner";
 
 export default function PhotographyPage() {
     const [activeFilter, setActiveFilter] = useState("all");
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
-    const [loadingImages, setLoadingImages] = useState<{
-        [key: string]: boolean;
-    }>({});
     const [selectedImageLoading, setSelectedImageLoading] = useState(false);
 
     const filters = [
@@ -175,18 +173,12 @@ export default function PhotographyPage() {
         },
     ];
 
-    const filteredPhotos =
-        activeFilter === "all"
+    // Memoize filtered photos to prevent unnecessary recalculations
+    const filteredPhotos = useMemo(() => {
+        return activeFilter === "all"
             ? photos
             : photos.filter((photo) => photo.category === activeFilter);
-
-    const handleImageLoadStart = (src: string) => {
-        setLoadingImages((prev) => ({ ...prev, [src]: true }));
-    };
-
-    const handleImageLoad = (src: string) => {
-        setLoadingImages((prev) => ({ ...prev, [src]: false }));
-    };
+    }, [activeFilter]);
 
     const handleImageClick = (src: string) => {
         setSelectedImage(src);
@@ -195,6 +187,16 @@ export default function PhotographyPage() {
 
     const handleSelectedImageLoad = () => {
         setSelectedImageLoading(false);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedImage(null);
+        setSelectedImageLoading(false);
+    };
+
+    // Prioritize loading the first few images
+    const getPriority = (index: number) => {
+        return index < 6; // Load first 6 images with priority
     };
 
     return (
@@ -231,51 +233,35 @@ export default function PhotographyPage() {
                         ))}
                     </div>
 
-                    {/* Photo Grid */}
+                    {/* Photo Count */}
+                    <div className="text-center mb-8">
+                        <p className="text-gray-600 text-sm">
+                            Showing {filteredPhotos.length} photos
+                            {activeFilter !== "all" &&
+                                ` in ${activeFilter} category`}
+                        </p>
+                    </div>
+
+                    {/* Photo Grid with Lazy Loading */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {filteredPhotos.map((photo, index) => (
                             <div
-                                key={index}
+                                key={`${photo.src}-${activeFilter}`}
                                 className="portfolio-item group cursor-pointer relative"
                             >
-                                <div
-                                    className="relative aspect-square overflow-hidden rounded-lg bg-gray-100"
+                                <LazyImage
+                                    src={photo.src}
+                                    alt={photo.alt}
+                                    fill
+                                    className="aspect-square rounded-lg group-hover:scale-110 transition-transform duration-300"
                                     onClick={() => handleImageClick(photo.src)}
-                                >
-                                    {/* Loading spinner overlay */}
-                                    {loadingImages[photo.src] && (
-                                        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
-                                            <Spinner
-                                                size="medium"
-                                                color="primary"
-                                            />
-                                        </div>
-                                    )}
+                                    priority={getPriority(index)}
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                />
 
-                                    <Image
-                                        src={photo.src}
-                                        alt={photo.alt}
-                                        fill
-                                        className={`object-cover transition-all duration-300 group-hover:scale-110 ${
-                                            loadingImages[photo.src]
-                                                ? "opacity-0"
-                                                : "opacity-100"
-                                        }`}
-                                        onLoadStart={() =>
-                                            handleImageLoadStart(photo.src)
-                                        }
-                                        onLoad={() =>
-                                            handleImageLoad(photo.src)
-                                        }
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    />
-
-                                    {/* Hover overlay */}
-                                    {!loadingImages[photo.src] && (
-                                        <div className="portfolio-btn">
-                                            <i className="fa fa-plus text-white text-4xl"></i>
-                                        </div>
-                                    )}
+                                {/* Hover overlay */}
+                                <div className="portfolio-btn opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <i className="fa fa-plus text-white text-4xl"></i>
                                 </div>
                             </div>
                         ))}
@@ -291,22 +277,16 @@ export default function PhotographyPage() {
                 </div>
             </section>
 
-            {/* Lightbox Modal */}
+            {/* Enhanced Lightbox Modal */}
             {selectedImage && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
-                    onClick={() => {
-                        setSelectedImage(null);
-                        setSelectedImageLoading(false);
-                    }}
+                    onClick={handleCloseModal}
                 >
                     <div className="relative max-w-4xl max-h-full">
                         <button
-                            onClick={() => {
-                                setSelectedImage(null);
-                                setSelectedImageLoading(false);
-                            }}
-                            className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
+                            onClick={handleCloseModal}
+                            className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center transition-colors"
                         >
                             <i className="fa fa-times"></i>
                         </button>
@@ -330,6 +310,7 @@ export default function PhotographyPage() {
                             }`}
                             onLoad={handleSelectedImageLoad}
                             priority
+                            quality={90}
                         />
                     </div>
                 </div>

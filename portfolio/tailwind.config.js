@@ -18,6 +18,8 @@ module.exports = {
                 blink: "blink 1s infinite",
                 // Add the spinner-grow animation
                 "spinner-grow": "spinner-grow 0.75s linear infinite",
+                // Add shimmer animation for lazy loading
+                shimmer: "shimmer 1.5s infinite",
             },
             keyframes: {
                 blink: {
@@ -37,6 +39,11 @@ module.exports = {
                         transform: "rotate(360deg)",
                         opacity: "1",
                     },
+                },
+                // Add shimmer effect for lazy loading placeholders
+                shimmer: {
+                    "0%": { "background-position": "-200% 0" },
+                    "100%": { "background-position": "200% 0" },
                 },
             },
         },
