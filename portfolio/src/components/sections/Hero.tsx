@@ -95,8 +95,8 @@ export default function Hero() {
                             </a>
                         </div>
                     </div>
-                    <div className="lg:w-5/12 flex justify-center lg:justify-end">
-                        <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+                    <div className="lg:w-5/12 flex justify-center lg:justify-start lg:-ml-8">
+                        <div className="relative w-96 h-96 lg:w-[450px] lg:h-[450px]">
                             <Image
                                 src="/images/GitHub-Mark.png"
                                 alt="Woody Lin"
