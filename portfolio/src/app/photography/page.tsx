@@ -5,173 +5,173 @@ import Image from "next/image";
 import DisqusComments from "@/components/DisqusComments";
 
 export default function PhotographyPage() {
-    const [activeFilter, setActiveFilter] = useState("*");
+    const [activeFilter, setActiveFilter] = useState("all");
 
     const filters = [
-        { key: "*", label: "All" },
-        { key: "first", label: "Night" },
-        { key: "second", label: "Travel" },
-        { key: "third", label: "Street" },
-        { key: "fourth", label: "Animal" },
-        { key: "fifth", label: "Event" },
+        { key: "all", label: "All" },
+        { key: "night", label: "Night" },
+        { key: "travel", label: "Travel" },
+        { key: "street", label: "Street" },
+        { key: "animal", label: "Animal" },
+        { key: "event", label: "Event" },
     ];
 
     const photos = [
         {
             src: "/images/album/shadow-min.JPG",
-            category: "first",
+            category: "night",
             alt: "Shadow night photography",
         },
         {
             src: "/images/album/comparision-min.jpg",
-            category: "first",
+            category: "night",
             alt: "Comparison night shot",
         },
         {
             src: "/images/album/taxi-min.JPG",
-            category: "second",
+            category: "travel",
             alt: "Taxi travel photography",
         },
         {
             src: "/images/album/mirror-min.JPG",
-            category: "third",
+            category: "street",
             alt: "Mirror street photography",
         },
         {
             src: "/images/album/bike-min.JPG",
-            category: "third",
+            category: "street",
             alt: "Bike street scene",
         },
         {
             src: "/images/album/three-min.JPG",
-            category: "third",
+            category: "street",
             alt: "Three people street",
         },
         {
             src: "/images/album/train-min.JPG",
-            category: "second",
+            category: "travel",
             alt: "Train travel",
         },
         {
             src: "/images/album/starring-min.JPG",
-            category: "second",
+            category: "travel",
             alt: "Starring travel shot",
         },
         {
             src: "/images/album/handsome-min.JPG",
-            category: "fifth",
+            category: "event",
             alt: "Event photography",
         },
         {
             src: "/images/album/summervibe-min.JPG",
-            category: "third",
+            category: "street",
             alt: "Summer vibe street",
         },
         {
             src: "/images/album/god-min.JPG",
-            category: "fifth",
+            category: "event",
             alt: "Event photography",
         },
         {
             src: "/images/album/descending-min.JPG",
-            category: "fifth",
+            category: "event",
             alt: "Descending event",
         },
         {
             src: "/images/album/hog-min.JPG",
-            category: "fourth",
+            category: "animal",
             alt: "Animal photography",
         },
         {
             src: "/images/album/dual-min.JPG",
-            category: "first",
+            category: "night",
             alt: "Dual night shot",
         },
         {
             src: "/images/album/fatherlove-min.JPG",
-            category: "third",
+            category: "street",
             alt: "Father love street",
         },
         {
             src: "/images/album/selling-min.JPG",
-            category: "fifth",
+            category: "event",
             alt: "Selling event",
         },
         {
             src: "/images/album/sparow-min.jpg",
-            category: "fourth",
+            category: "animal",
             alt: "Sparrow animal",
         },
         {
             src: "/images/album/handsup-min.JPG",
-            category: "fifth",
+            category: "event",
             alt: "Hands up event",
         },
         {
             src: "/images/album/kiss1-min.JPG",
-            category: "first",
+            category: "night",
             alt: "Kiss night 1",
         },
         {
             src: "/images/album/kiss2-min.JPG",
-            category: "first",
+            category: "night",
             alt: "Kiss night 2",
         },
         {
             src: "/images/album/lightwave-min.JPG",
-            category: "fifth",
+            category: "event",
             alt: "Light wave event",
         },
         {
             src: "/images/album/maid-min.JPG",
-            category: "fifth",
+            category: "event",
             alt: "Maid event",
         },
         {
             src: "/images/album/piano-min.JPG",
-            category: "fifth",
+            category: "event",
             alt: "Piano event",
         },
         {
             src: "/images/album/shine-min.JPG",
-            category: "second",
+            category: "travel",
             alt: "Shine travel",
         },
         {
             src: "/images/album/window-min.JPG",
-            category: "second",
+            category: "travel",
             alt: "Window travel",
         },
         {
             src: "/images/album/walking-min.JPG",
-            category: "third",
+            category: "street",
             alt: "Walking street",
         },
         {
             src: "/images/album/sunset-min.JPG",
-            category: "third",
+            category: "street",
             alt: "Sunset street",
         },
         {
             src: "/images/album/cannon-min.JPG",
-            category: "second",
+            category: "travel",
             alt: "Cannon travel",
         },
         {
             src: "/images/album/crane-min.JPG",
-            category: "fourth",
+            category: "animal",
             alt: "Crane animal",
         },
         {
             src: "/images/album/capture-min.JPG",
-            category: "first",
+            category: "night",
             alt: "Capture night",
         },
         // Add more photos as needed
     ];
 
     const filteredPhotos =
-        activeFilter === "*"
+        activeFilter === "all"
             ? photos
             : photos.filter((photo) => photo.category === activeFilter);
 
