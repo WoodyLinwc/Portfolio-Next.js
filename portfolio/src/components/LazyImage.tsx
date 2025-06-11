@@ -58,7 +58,7 @@ export default function LazyImage({
     return (
         <div
             ref={elementRef}
-            className={`relative overflow-hidden bg-gray-100 ${className}`}
+            className={`relative overflow-hidden bg-gray-100 cursor-pointer ${className}`}
             onClick={onClick}
         >
             {/* Placeholder when not in view */}

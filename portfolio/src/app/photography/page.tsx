@@ -5,173 +5,12 @@ import Image from "next/image";
 import DisqusComments from "@/components/DisqusComments";
 import LazyImage from "@/components/LazyImage";
 import Spinner from "@/components/Spinner";
+import { photos, filterOptions } from "./photos-data";
 
 export default function PhotographyPage() {
     const [activeFilter, setActiveFilter] = useState("all");
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [selectedImageLoading, setSelectedImageLoading] = useState(false);
-
-    const filters = [
-        { key: "all", label: "All" },
-        { key: "night", label: "Night" },
-        { key: "travel", label: "Travel" },
-        { key: "street", label: "Street" },
-        { key: "animal", label: "Animal" },
-        { key: "event", label: "Event" },
-    ];
-
-    const photos = [
-        {
-            src: "/images/album/shadow-min.JPG",
-            category: "night",
-            alt: "Shadow night photography",
-        },
-        {
-            src: "/images/album/comparision-min.jpg",
-            category: "night",
-            alt: "Comparison night shot",
-        },
-        {
-            src: "/images/album/taxi-min.JPG",
-            category: "travel",
-            alt: "Taxi travel photography",
-        },
-        {
-            src: "/images/album/mirror-min.JPG",
-            category: "street",
-            alt: "Mirror street photography",
-        },
-        {
-            src: "/images/album/bike-min.JPG",
-            category: "street",
-            alt: "Bike street scene",
-        },
-        {
-            src: "/images/album/three-min.JPG",
-            category: "street",
-            alt: "Three people street",
-        },
-        {
-            src: "/images/album/train-min.JPG",
-            category: "travel",
-            alt: "Train travel",
-        },
-        {
-            src: "/images/album/starring-min.JPG",
-            category: "travel",
-            alt: "Starring travel shot",
-        },
-        {
-            src: "/images/album/handsome-min.JPG",
-            category: "event",
-            alt: "Event photography",
-        },
-        {
-            src: "/images/album/summervibe-min.JPG",
-            category: "street",
-            alt: "Summer vibe street",
-        },
-        {
-            src: "/images/album/god-min.JPG",
-            category: "event",
-            alt: "Event photography",
-        },
-        {
-            src: "/images/album/descending-min.JPG",
-            category: "event",
-            alt: "Descending event",
-        },
-        {
-            src: "/images/album/hog-min.JPG",
-            category: "animal",
-            alt: "Animal photography",
-        },
-        {
-            src: "/images/album/dual-min.JPG",
-            category: "night",
-            alt: "Dual night shot",
-        },
-        {
-            src: "/images/album/fatherlove-min.JPG",
-            category: "street",
-            alt: "Father love street",
-        },
-        {
-            src: "/images/album/selling-min.JPG",
-            category: "event",
-            alt: "Selling event",
-        },
-        {
-            src: "/images/album/sparow-min.jpg",
-            category: "animal",
-            alt: "Sparrow animal",
-        },
-        {
-            src: "/images/album/handsup-min.JPG",
-            category: "event",
-            alt: "Hands up event",
-        },
-        {
-            src: "/images/album/kiss1-min.JPG",
-            category: "night",
-            alt: "Kiss night 1",
-        },
-        {
-            src: "/images/album/kiss2-min.JPG",
-            category: "night",
-            alt: "Kiss night 2",
-        },
-        {
-            src: "/images/album/lightwave-min.JPG",
-            category: "event",
-            alt: "Light wave event",
-        },
-        {
-            src: "/images/album/maid-min.JPG",
-            category: "event",
-            alt: "Maid event",
-        },
-        {
-            src: "/images/album/piano-min.JPG",
-            category: "event",
-            alt: "Piano event",
-        },
-        {
-            src: "/images/album/shine-min.JPG",
-            category: "travel",
-            alt: "Shine travel",
-        },
-        {
-            src: "/images/album/window-min.JPG",
-            category: "travel",
-            alt: "Window travel",
-        },
-        {
-            src: "/images/album/walking-min.JPG",
-            category: "street",
-            alt: "Walking street",
-        },
-        {
-            src: "/images/album/sunset-min.JPG",
-            category: "street",
-            alt: "Sunset street",
-        },
-        {
-            src: "/images/album/cannon-min.JPG",
-            category: "travel",
-            alt: "Cannon travel",
-        },
-        {
-            src: "/images/album/crane-min.JPG",
-            category: "animal",
-            alt: "Crane animal",
-        },
-        {
-            src: "/images/album/capture-min.JPG",
-            category: "night",
-            alt: "Capture night",
-        },
-    ];
 
     // Memoize filtered photos to prevent unnecessary recalculations
     const filteredPhotos = useMemo(() => {
@@ -218,7 +57,7 @@ export default function PhotographyPage() {
 
                     {/* Filter Buttons */}
                     <div className="flex flex-wrap justify-center mb-12 gap-2">
-                        {filters.map((filter) => (
+                        {filterOptions.map((filter) => (
                             <button
                                 key={filter.key}
                                 onClick={() => setActiveFilter(filter.key)}
@@ -247,20 +86,20 @@ export default function PhotographyPage() {
                         {filteredPhotos.map((photo, index) => (
                             <div
                                 key={`${photo.src}-${activeFilter}`}
-                                className="portfolio-item group cursor-pointer relative"
+                                className="portfolio-item group relative hover:cursor-pointer"
+                                onClick={() => handleImageClick(photo.src)}
                             >
                                 <LazyImage
                                     src={photo.src}
                                     alt={photo.alt}
                                     fill
                                     className="aspect-square rounded-lg group-hover:scale-110 transition-transform duration-300"
-                                    onClick={() => handleImageClick(photo.src)}
                                     priority={getPriority(index)}
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
 
                                 {/* Hover overlay */}
-                                <div className="portfolio-btn opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="portfolio-btn opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                                     <i className="fa fa-plus text-white text-4xl"></i>
                                 </div>
                             </div>
@@ -277,18 +116,22 @@ export default function PhotographyPage() {
                 </div>
             </section>
 
-            {/* Enhanced Lightbox Modal */}
+            {/* Lightbox Modal */}
             {selectedImage && (
                 <div
-                    className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
+                    className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999] p-4"
                     onClick={handleCloseModal}
                 >
-                    <div className="relative max-w-4xl max-h-full">
+                    <div
+                        className="relative max-w-4xl max-h-full"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Close button */}
                         <button
                             onClick={handleCloseModal}
                             className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center transition-colors"
                         >
-                            <i className="fa fa-times"></i>
+                            ✕
                         </button>
 
                         {/* Loading spinner for lightbox */}
