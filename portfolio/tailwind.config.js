@@ -8,21 +8,19 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: "#0BCEAF",
-                secondary: "#6c757d",
-                dark: "#343a40",
+                primary: "#457efa",
+                secondary: "#0BCEAF",
             },
             fontFamily: {
-                sans: ["Roboto", "sans-serif"],
+                roboto: ["Roboto", "sans-serif"],
             },
             animation: {
-                "bounce-slow": "bounce 2s infinite",
-                "pulse-border": "pulse-border 1.5s ease-out infinite",
+                blink: "blink 1s infinite",
             },
             keyframes: {
-                "pulse-border": {
-                    "0%": { transform: "scale(1)", opacity: "1" },
-                    "100%": { transform: "scale(2)", opacity: "0" },
+                blink: {
+                    "0%, 50%": { opacity: "1" },
+                    "51%, 100%": { opacity: "0" },
                 },
             },
         },

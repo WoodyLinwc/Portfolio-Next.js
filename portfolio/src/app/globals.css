@@ -1,26 +1,180 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Custom utility classes */
+@layer utilities {
+    .stroke-white {
+        -webkit-text-stroke: 4px #ffffff;
+    }
+
+    .text-stroke-3 {
+        -webkit-text-stroke: 3px #ffffff;
+        color: transparent;
+    }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Remove default margins and set font */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    line-height: 1.5;
+    color: #6c757d;
+    background-color: #ffffff;
+}
+
+/* Custom button styles */
+.btn {
+    @apply px-6 py-3 rounded-full transition-all duration-300;
+}
+
+/* Portfolio hover effects */
+.portfolio-item {
+    @apply relative overflow-hidden;
+}
+
+.portfolio-btn {
+    @apply absolute inset-0 bg-primary bg-opacity-90 flex items-center justify-center opacity-0 transition-all duration-500;
+}
+
+.portfolio-item:hover .portfolio-btn {
+    @apply opacity-100;
+}
+
+/* Service box hover effects */
+.service-box {
+    @apply shadow-md p-6 rounded-lg transition-all duration-300;
+}
+
+.service-box:hover {
+    @apply shadow-xl transform -translate-y-1;
+}
+
+/* Back to top animation */
+@keyframes action {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+.animate-action {
+    animation: action 1s infinite alternate;
+}
+
+/* Typed cursor effect */
+.typed-cursor {
+    font-size: 45px;
+    color: #ffffff;
+}
+
+/* Custom animations for hero section */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Progress bar styles for skills section */
+.progress {
+    @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+}
+
+.progress-bar {
+    @apply h-full bg-primary transition-all duration-1000 ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-blue-600;
+}
+
+/* Testimonial carousel styles */
+.testimonial-item {
+    @apply bg-gray-50 rounded-xl p-8 mx-4;
+}
+
+/* Contact form styles */
+.form-control {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:border-primary;
+}
+
+/* Social media buttons */
+.btn-social {
+    @apply w-11 h-11 rounded-full flex items-center justify-center transition-colors;
+}
+
+/* Image hover effects */
+.img-hover-zoom {
+    @apply transition-transform duration-300 hover:scale-105;
+}
+
+/* Custom gradient backgrounds */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #457efa 0%, #0bceaf 100%);
+}
+
+/* Loading spinner */
+.spinner {
+    @apply inline-block w-4 h-4 border-2 border-gray-300 border-t-primary rounded-full animate-spin;
+}
+
+/* Card shadows */
+.card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive text sizes */
+@media (max-width: 768px) {
+    .text-responsive-xl {
+        @apply text-4xl;
+    }
+
+    .text-responsive-2xl {
+        @apply text-5xl;
+    }
+}
+
+@media (min-width: 769px) {
+    .text-responsive-xl {
+        @apply text-6xl;
+    }
+
+    .text-responsive-2xl {
+        @apply text-8xl;
+    }
 }
