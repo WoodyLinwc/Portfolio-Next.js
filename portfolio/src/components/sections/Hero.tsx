@@ -55,7 +55,7 @@ export default function Hero() {
             className="min-h-screen bg-primary flex items-center"
             id="home"
         >
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-8 lg:px-16 xl:px-24">
                 <div className="flex flex-col lg:flex-row items-center">
                     <div className="lg:w-7/12 text-center lg:text-left mb-8 lg:mb-0">
                         <h3 className="text-white font-normal mb-3 text-lg">

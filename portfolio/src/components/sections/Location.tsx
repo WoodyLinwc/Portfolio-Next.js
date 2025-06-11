@@ -1,7 +1,7 @@
 export default function Location() {
     return (
         <section className="py-20">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-8 lg:px-20 xl:px-32">
                 <div className="relative flex items-center justify-center mb-16">
                     <h1 className="text-8xl lg:text-9xl font-bold text-gray-100 uppercase tracking-wider">
                         Location
