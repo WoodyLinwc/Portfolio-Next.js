@@ -37,7 +37,7 @@ export default function Navbar() {
         >
             <div className="container mx-auto flex items-center justify-between max-w-7xl">
                 <Link href="/" className="ml-2 xl:ml-3 flex-shrink-0">
-                    <h1 className="text-xl xl:text-2xl font-bold">
+                    <h1 className="text-2xl xl:text-3xl font-bold">
                         <span className="text-primary">Woody</span>Lin
                     </h1>
                 </Link>
