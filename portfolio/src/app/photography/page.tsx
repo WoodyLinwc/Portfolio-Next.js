@@ -6,6 +6,7 @@ import DisqusComments from "@/components/DisqusComments";
 
 export default function PhotographyPage() {
     const [activeFilter, setActiveFilter] = useState("all");
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     const filters = [
         { key: "all", label: "All" },
@@ -216,7 +217,10 @@ export default function PhotographyPage() {
                                 key={index}
                                 className="portfolio-item group cursor-pointer"
                             >
-                                <div className="relative aspect-square overflow-hidden rounded-lg">
+                                <div
+                                    className="relative aspect-square overflow-hidden rounded-lg"
+                                    onClick={() => setSelectedImage(photo.src)}
+                                >
                                     <Image
                                         src={photo.src}
                                         alt={photo.alt}
@@ -240,6 +244,30 @@ export default function PhotographyPage() {
                     )}
                 </div>
             </section>
+
+            {/* Lightbox Modal */}
+            {selectedImage && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
+                    onClick={() => setSelectedImage(null)}
+                >
+                    <div className="relative max-w-4xl max-h-full">
+                        <button
+                            onClick={() => setSelectedImage(null)}
+                            className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 z-10"
+                        >
+                            <i className="fa fa-times"></i>
+                        </button>
+                        <Image
+                            src={selectedImage}
+                            alt="Enlarged photo"
+                            width={800}
+                            height={600}
+                            className="max-w-full max-h-[90vh] object-contain"
+                        />
+                    </div>
+                </div>
+            )}
 
             {/* Comments Section */}
             <DisqusComments
