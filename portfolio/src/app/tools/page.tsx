@@ -1,4 +1,5 @@
 import DisqusComments from "@/components/DisqusComments";
+import SectionTitle from "@/components/SectionTitle";
 
 export default function ToolsPage() {
     const tools = [
@@ -80,17 +81,13 @@ export default function ToolsPage() {
             <div className="bg-primary min-h-[25vh] flex items-center justify-center mb-20"></div>
 
             {/* Tools Section */}
-            <section className="py-12">
-                <div className="container mx-auto px-8 lg:px-20 xl:px-32">
-                    <div className="relative flex items-center justify-center mb-16">
-                        <h1 className="text-7xl lg:text-8xl font-bold text-gray-100 uppercase tracking-wider">
-                            Productivity
-                        </h1>
-                        <h1 className="absolute text-3xl lg:text-4xl font-bold text-primary uppercase">
-                            Essential Tools
-                        </h1>
-                    </div>
+            <SectionTitle
+                backgroundText="Productivity"
+                foregroundText="Essential Tools"
+            />
 
+            <section className="pb-12">
+                <div className="container mx-auto px-8 lg:px-20 xl:px-32">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {tools.map((tool, index) => (
                             <div

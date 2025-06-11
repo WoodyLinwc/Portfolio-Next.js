@@ -5,6 +5,7 @@ import Image from "next/image";
 import DisqusComments from "@/components/DisqusComments";
 import LazyImage from "@/components/LazyImage";
 import Spinner from "@/components/Spinner";
+import SectionTitle from "@/components/SectionTitle";
 import { photos, filterOptions } from "./photos-data";
 
 export default function PhotographyPage() {
@@ -12,7 +13,6 @@ export default function PhotographyPage() {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [selectedImageLoading, setSelectedImageLoading] = useState(false);
 
-    // Memoize filtered photos to prevent unnecessary recalculations
     const filteredPhotos = useMemo(() => {
         return activeFilter === "all"
             ? photos
@@ -33,9 +33,8 @@ export default function PhotographyPage() {
         setSelectedImageLoading(false);
     };
 
-    // Prioritize loading the first few images
     const getPriority = (index: number) => {
-        return index < 6; // Load first 6 images with priority
+        return index < 6;
     };
 
     return (
@@ -44,17 +43,13 @@ export default function PhotographyPage() {
             <div className="bg-primary min-h-[25vh] flex items-center justify-center mb-20"></div>
 
             {/* Portfolio Section */}
-            <section className="py-12">
-                <div className="container mx-auto px-8 lg:px-20 xl:px-32">
-                    <div className="relative flex items-center justify-center mb-16">
-                        <h1 className="text-7xl lg:text-8xl font-bold text-gray-100 uppercase tracking-wider">
-                            Gallery
-                        </h1>
-                        <h1 className="absolute text-3xl lg:text-4xl font-bold text-primary uppercase">
-                            Photo Album
-                        </h1>
-                    </div>
+            <SectionTitle
+                backgroundText="Gallery"
+                foregroundText="Photo Album"
+            />
 
+            <section className="pb-12">
+                <div className="container mx-auto px-8 lg:px-20 xl:px-32">
                     {/* Filter Buttons */}
                     <div className="flex flex-wrap justify-center mb-12 gap-2">
                         {filterOptions.map((filter) => (
@@ -98,7 +93,6 @@ export default function PhotographyPage() {
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
 
-                                {/* Hover overlay */}
                                 <div className="portfolio-btn opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                                     <i className="fa fa-plus text-white text-4xl"></i>
                                 </div>
@@ -126,7 +120,6 @@ export default function PhotographyPage() {
                         className="relative max-w-4xl max-h-full"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/* Close button */}
                         <button
                             onClick={handleCloseModal}
                             className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center transition-colors"
@@ -134,7 +127,6 @@ export default function PhotographyPage() {
                             ✕
                         </button>
 
-                        {/* Loading spinner for lightbox */}
                         {selectedImageLoading && (
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <Spinner size="large" color="white" />

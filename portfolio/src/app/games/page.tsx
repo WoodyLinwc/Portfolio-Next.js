@@ -3,6 +3,7 @@
 import { useState } from "react";
 import DisqusComments from "@/components/DisqusComments";
 import { LoadingOverlay } from "@/components/Spinner";
+import SectionTitle from "@/components/SectionTitle";
 import GameShowcase from "./GameShowcase";
 
 export default function GamesPage() {
@@ -14,17 +15,13 @@ export default function GamesPage() {
             <div className="bg-primary min-h-[25vh] flex items-center justify-center mb-20"></div>
 
             {/* Games Showcase Section */}
-            <section className="py-12">
-                <div className="container mx-auto px-8 lg:px-20 xl:px-32">
-                    <div className="relative flex items-center justify-center mb-16">
-                        <h1 className="text-6xl lg:text-7xl font-bold text-gray-100 uppercase tracking-wider">
-                            Games & More
-                        </h1>
-                        <h1 className="absolute text-3xl lg:text-4xl font-bold text-primary uppercase">
-                            Let's Play!
-                        </h1>
-                    </div>
+            <SectionTitle
+                backgroundText="Games & More"
+                foregroundText="Let's Play!"
+            />
 
+            <section className="pb-12">
+                <div className="container mx-auto px-8 lg:px-20 xl:px-32">
                     <GameShowcase />
                 </div>
             </section>

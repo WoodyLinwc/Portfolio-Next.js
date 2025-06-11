@@ -4,8 +4,8 @@ import { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
 import DisqusComments from "@/components/DisqusComments";
 import { LoadingOverlay } from "@/components/Spinner";
+import SectionTitle from "@/components/SectionTitle";
 
-// Dynamically import Live2D widget with no SSR
 const Live2DWidget = dynamic(() => import("@/components/Live2DWidget"), {
     ssr: false,
     loading: () => (
@@ -20,7 +20,6 @@ export default function BlogPage() {
     const [shouldLoadLive2D, setShouldLoadLive2D] = useState(false);
 
     useEffect(() => {
-        // Load Live2D after a short delay to prioritize main content
         const timer = setTimeout(() => {
             setShouldLoadLive2D(true);
         }, 1000);
@@ -42,19 +41,14 @@ export default function BlogPage() {
             <div className="bg-primary min-h-[25vh] flex items-center justify-center mb-20"></div>
 
             {/* Blog Section */}
-            <section className="py-12">
-                <div className="container mx-auto px-8 lg:px-20 xl:px-32">
-                    <div className="relative flex items-center justify-center mb-16">
-                        <h1 className="text-7xl lg:text-8xl font-bold text-gray-100 uppercase tracking-wider">
-                            Article
-                        </h1>
-                        <h1 className="absolute text-3xl lg:text-4xl font-bold text-primary uppercase">
-                            Personal Blog
-                        </h1>
-                    </div>
+            <SectionTitle
+                backgroundText="Article"
+                foregroundText="Personal Blog"
+            />
 
-                    {/* Blog Iframe */}
-                    <div className="max-w-6xl mx-auto mb-20 relative">
+            <section className="pb-12">
+                <div className="container mx-auto px-8 lg:px-20 xl:px-32">
+                    <div className="max-w-6xl mx-auto relative">
                         <LoadingOverlay
                             isVisible={!blogLoaded}
                             message="Loading blog content..."
@@ -71,7 +65,7 @@ export default function BlogPage() {
                 </div>
             </section>
 
-            {/* Dynamically loaded Live2D Widget - only loads when needed */}
+            {/* Dynamically loaded Live2D Widget */}
             {shouldLoadLive2D && (
                 <Suspense
                     fallback={
