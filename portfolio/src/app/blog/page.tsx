@@ -15,20 +15,8 @@ const Live2DWidget = dynamic(() => import("@/components/Live2DWidget"), {
     ),
 });
 
-// Extend Window interface for Twitter widgets
-declare global {
-    interface Window {
-        twttr: {
-            widgets: {
-                load: () => void;
-            };
-        };
-    }
-}
-
 export default function BlogPage() {
     const [blogLoaded, setBlogLoaded] = useState(false);
-    const [flashcardsLoaded, setFlashcardsLoaded] = useState(false);
     const [shouldLoadLive2D, setShouldLoadLive2D] = useState(false);
 
     useEffect(() => {
@@ -78,31 +66,6 @@ export default function BlogPage() {
                             }`}
                             title="Woody's Blog"
                             onLoad={() => setBlogLoaded(true)}
-                        />
-                    </div>
-
-                    {/* Flashcards Section */}
-                    <div className="relative flex items-center justify-center mb-16">
-                        <h1 className="text-7xl lg:text-8xl font-bold text-gray-100 uppercase tracking-wider">
-                            Flashcards
-                        </h1>
-                        <h1 className="absolute text-3xl lg:text-4xl font-bold text-primary uppercase">
-                            Temporary Notes
-                        </h1>
-                    </div>
-
-                    <div className="max-w-6xl mx-auto mb-20 relative">
-                        <LoadingOverlay
-                            isVisible={!flashcardsLoaded}
-                            message="Loading flashcards..."
-                        />
-                        <iframe
-                            src="https://woodylinwc.github.io/Flashcards/"
-                            className={`w-full h-96 lg:h-[600px] border-0 rounded-lg shadow-lg transition-opacity duration-300 ${
-                                flashcardsLoaded ? "opacity-100" : "opacity-0"
-                            }`}
-                            title="Flashcards"
-                            onLoad={() => setFlashcardsLoaded(true)}
                         />
                     </div>
                 </div>
