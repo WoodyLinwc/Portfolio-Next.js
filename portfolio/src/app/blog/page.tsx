@@ -5,42 +5,29 @@ import DisqusComments from "@/components/DisqusComments";
 
 export default function BlogPage() {
     useEffect(() => {
-        // Weather widget script
-        const script = document.createElement("script");
-        script.src = "https://weatherwidget.io/js/widget.min.js";
-        script.id = "weatherwidget-io-js";
-        document.body.appendChild(script);
-
-        return () => {
-            // Cleanup
-            const existingScript = document.getElementById(
-                "weatherwidget-io-js"
-            );
-            if (existingScript) {
-                document.body.removeChild(existingScript);
-            }
+        // Live2D widget script - MOVED FROM MOYU PAGE
+        const loadLive2D = () => {
+            const live2dScript = document.createElement("script");
+            live2dScript.src =
+                "https://cdn.jsdelivr.net/gh/WoodyLinwc/live2d-widget@latest/autoload.js";
+            live2dScript.async = true;
+            live2dScript.onload = () => {
+                console.log("Live2D widget loaded successfully");
+            };
+            live2dScript.onerror = () => {
+                console.error("Failed to load Live2D widget");
+            };
+            document.body.appendChild(live2dScript);
         };
+
+        // Load Live2D widget
+        loadLive2D();
     }, []);
 
     return (
         <>
             {/* Header */}
             <div className="bg-primary min-h-[25vh] flex items-center justify-center mb-20"></div>
-
-            {/* Weather Widget */}
-            <div className="container mx-auto px-4 mb-12">
-                <div className="flex justify-center">
-                    <a
-                        className="weatherwidget-io"
-                        href="https://forecast7.com/en/42d36n71d06/boston/"
-                        data-label_1="BOSTON"
-                        data-label_2="WEATHER"
-                        data-theme="default"
-                    >
-                        BOSTON WEATHER
-                    </a>
-                </div>
-            </div>
 
             {/* Blog Section */}
             <section className="py-12">

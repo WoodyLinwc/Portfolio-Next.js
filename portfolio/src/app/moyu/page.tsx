@@ -34,38 +34,24 @@ export default function MoyuPage() {
     ];
 
     useEffect(() => {
-        // Weather widget script
-        const script = document.createElement("script");
-        script.src = "https://weatherwidget.io/js/widget.min.js";
-        script.id = "weatherwidget-io-js";
-        document.body.appendChild(script);
-
         // Twitter widget script
-        const twitterScript = document.createElement("script");
-        twitterScript.src = "https://platform.twitter.com/widgets.js";
-        twitterScript.async = true;
-        twitterScript.charset = "utf-8";
-        document.body.appendChild(twitterScript);
+        const loadTwitterWidget = () => {
+            if (!window.twttr) {
+                const twitterScript = document.createElement("script");
+                twitterScript.src = "https://platform.twitter.com/widgets.js";
+                twitterScript.async = true;
+                twitterScript.charset = "utf-8";
+                document.body.appendChild(twitterScript);
+            }
+        };
 
-        // Live2D widget script
-        const live2dScript = document.createElement("script");
-        live2dScript.src =
-            "https://cdn.jsdelivr.net/gh/WoodyLinwc/live2d-widget@latest/autoload.js";
-        document.body.appendChild(live2dScript);
+        // Load Twitter widget
+        loadTwitterWidget();
 
         // Generate initial content
         generateRandomTweet();
         generateRandomImage();
         loadRandomKpopImage();
-
-        return () => {
-            // Cleanup scripts
-            const scripts = ["weatherwidget-io-js"];
-            scripts.forEach((id) => {
-                const script = document.getElementById(id);
-                if (script) document.body.removeChild(script);
-            });
-        };
     }, []);
 
     const generateRandomTweet = () => {
@@ -99,22 +85,6 @@ export default function MoyuPage() {
         <>
             {/* Header */}
             <div className="bg-primary min-h-[25vh] flex items-center justify-center mb-20"></div>
-
-            {/* Weather Widget */}
-            <div className="container mx-auto px-4 mb-12">
-                <div className="flex justify-center">
-                    <a
-                        className="weatherwidget-io"
-                        href="https://forecast7.com/zh/42d36n71d06/boston/"
-                        data-label_1="BOSTON"
-                        data-label_2="WEATHER"
-                        data-font="微软雅黑 (Microsoft Yahei)"
-                        data-theme="bright"
-                    >
-                        BOSTON WEATHER
-                    </a>
-                </div>
-            </div>
 
             {/* Main Content */}
             <section className="py-12">
