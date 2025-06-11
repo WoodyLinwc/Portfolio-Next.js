@@ -1,13 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import dynamic from "next/dynamic";
 import DisqusComments from "@/components/DisqusComments";
 import { LoadingOverlay } from "@/components/Spinner";
 
-// Extend Window interface for Live2D and Twitter widgets
+// Dynamically import Live2D widget with no SSR
+const Live2DWidget = dynamic(() => import("@/components/Live2DWidget"), {
+    ssr: false,
+    loading: () => (
+        <div className="fixed bottom-4 left-4 bg-blue-500 text-white px-3 py-2 rounded text-sm z-40">
+            Loading Live2D...
+        </div>
+    ),
+});
+
+// Extend Window interface for Twitter widgets
 declare global {
     interface Window {
-        L2Dwidget: any;
         twttr: {
             widgets: {
                 load: () => void;
@@ -19,61 +29,24 @@ declare global {
 export default function BlogPage() {
     const [blogLoaded, setBlogLoaded] = useState(false);
     const [flashcardsLoaded, setFlashcardsLoaded] = useState(false);
+    const [shouldLoadLive2D, setShouldLoadLive2D] = useState(false);
 
     useEffect(() => {
-        // Live2D widget script - ONLY FOR BLOG PAGE
-        const loadLive2D = () => {
-            // Check if Live2D is already loaded
-            if (document.getElementById("live2d-widget-script")) {
-                return; // Already loaded
-            }
+        // Load Live2D after a short delay to prioritize main content
+        const timer = setTimeout(() => {
+            setShouldLoadLive2D(true);
+        }, 1000);
 
-            const live2dScript = document.createElement("script");
-            live2dScript.src =
-                "https://cdn.jsdelivr.net/gh/WoodyLinwc/live2d-widget@latest/autoload.js";
-            live2dScript.id = "live2d-widget-script";
-            live2dScript.async = true;
-            live2dScript.onload = () => {
-                console.log("Live2D widget loaded successfully on blog page");
-            };
-            live2dScript.onerror = () => {
-                console.error("Failed to load Live2D widget");
-            };
-            document.body.appendChild(live2dScript);
-        };
-
-        // Load Live2D widget
-        loadLive2D();
-
-        return () => {
-            // Cleanup: Remove Live2D when leaving blog page
-            const live2dWidget = document.getElementById("L2Dwidget");
-            if (live2dWidget) {
-                live2dWidget.remove();
-            }
-
-            // Remove the canvas element if it exists
-            const live2dCanvas = document.querySelector('canvas[id*="live2d"]');
-            if (live2dCanvas) {
-                live2dCanvas.remove();
-            }
-
-            // Remove any Live2D related elements
-            const live2dContainer = document.querySelector("#live2d-widget");
-            if (live2dContainer) {
-                live2dContainer.remove();
-            }
-
-            // Clear any Live2D global variables
-            if (window.L2Dwidget) {
-                try {
-                    window.L2Dwidget = undefined;
-                } catch (e) {
-                    console.log("Live2D cleanup completed");
-                }
-            }
-        };
+        return () => clearTimeout(timer);
     }, []);
+
+    const handleLive2DLoad = () => {
+        console.log("Live2D widget loaded successfully on blog page");
+    };
+
+    const handleLive2DError = (error: Error) => {
+        console.error("Live2D widget failed to load:", error);
+    };
 
     return (
         <>
@@ -134,6 +107,22 @@ export default function BlogPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Dynamically loaded Live2D Widget - only loads when needed */}
+            {shouldLoadLive2D && (
+                <Suspense
+                    fallback={
+                        <div className="fixed bottom-4 left-4 bg-gray-500 text-white px-3 py-2 rounded text-sm z-40">
+                            Preparing Live2D...
+                        </div>
+                    }
+                >
+                    <Live2DWidget
+                        onLoad={handleLive2DLoad}
+                        onError={handleLive2DError}
+                    />
+                </Suspense>
+            )}
 
             {/* Comments Section */}
             <DisqusComments
