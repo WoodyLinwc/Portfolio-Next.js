@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { games, type Game } from "./games-data";
+import { games, type Game } from "@/data/games";
 
 interface GameShowcaseProps {
     className?: string;

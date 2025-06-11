@@ -6,7 +6,7 @@ import DisqusComments from "@/components/DisqusComments";
 import LazyImage from "@/components/LazyImage";
 import Spinner from "@/components/Spinner";
 import SectionTitle from "@/components/SectionTitle";
-import { photos, filterOptions } from "./photos-data";
+import { photos, filterOptions } from "@/data/photos";
 
 export default function PhotographyPage() {
     const [activeFilter, setActiveFilter] = useState("all");
