@@ -24,8 +24,8 @@ export default function Navbar() {
         { href: "/#project", label: "Projects & Experience" },
         { href: "/tools", label: "Productivity" },
         { href: "/photography", label: "Photography" },
-        { href: "/games", label: "Game" },
-        { href: "/blog", label: "Blog" },
+        // { href: "/games", label: "Game" },
+        // { href: "/blog", label: "Blog" },
         // { href: "/moyu", label: "Moyu" },
     ];
 
