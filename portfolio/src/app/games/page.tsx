@@ -1,56 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import DisqusComments from "@/components/DisqusComments";
 import { LoadingOverlay } from "@/components/Spinner";
+import GameShowcase from "./GameShowcase";
 
 export default function GamesPage() {
-    const [currentGame, setCurrentGame] = useState(0);
     const [gameNewsLoaded, setGameNewsLoaded] = useState(false);
-
-    const games = [
-        {
-            title: "Space Invader",
-            description:
-                "🛰The objective of the game is to control a small spaceship at the bottom of the screen and shoot down rows of invading aliens that move side to side and gradually move closer to the player's spaceship.🚀",
-            image: "/images/space.png",
-            link: "https://woodylinwc.github.io/Space-Invaders",
-            subtitle: "arcade-style shoot 'em up game",
-        },
-        {
-            title: "Minesweeper",
-            description:
-                "🔎The objective of the game is to clear a board containing hidden mines without detonating any of them.💣",
-            image: "/images/minesweeper.png",
-            link: "https://woodylinwc.github.io/Minesweeper/",
-            subtitle: "classic puzzle game",
-        },
-        {
-            title: "Snake",
-            description:
-                "🐍The objective of the game is to achieve the highest score possible by eating as much food as possible without crashing into obstacles or the snake's own tail.🍎",
-            image: "/images/snake.png",
-            link: "https://woodylinwc.github.io/Snake",
-            subtitle: "classic arcade-style game",
-        },
-        {
-            title: "The Aviator",
-            description:
-                "🛫The objective is to fly as far as possible and stay away from the rock.🏅",
-            image: "/images/plane.png",
-            link: "https://woodylinwc.github.io/TheAviator",
-            subtitle: "dodge obstacles game",
-        },
-    ];
-
-    const nextGame = () => {
-        setCurrentGame((prev) => (prev + 1) % games.length);
-    };
-
-    const prevGame = () => {
-        setCurrentGame((prev) => (prev - 1 + games.length) % games.length);
-    };
 
     return (
         <>
@@ -69,69 +25,7 @@ export default function GamesPage() {
                         </h1>
                     </div>
 
-                    {/* Game Carousel */}
-                    <div className="max-w-4xl mx-auto">
-                        <div className="bg-gray-50 rounded-xl p-8 text-center relative">
-                            <button
-                                onClick={prevGame}
-                                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-100 transition-colors"
-                            >
-                                <i className="fa fa-chevron-left text-primary"></i>
-                            </button>
-
-                            <button
-                                onClick={nextGame}
-                                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-100 transition-colors"
-                            >
-                                <i className="fa fa-chevron-right text-primary"></i>
-                            </button>
-
-                            <i className="fa fa-3x fa-quote-left text-primary mb-6"></i>
-
-                            <h4 className="font-light mb-6 text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                                {games[currentGame].description}
-                            </h4>
-
-                            <div className="w-20 h-20 mx-auto mb-4 relative">
-                                <Image
-                                    src={games[currentGame].image}
-                                    alt={games[currentGame].title}
-                                    fill
-                                    className="rounded-full object-cover"
-                                />
-                            </div>
-
-                            <a
-                                href={games[currentGame].link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-block hover:text-primary transition-colors"
-                            >
-                                <h5 className="font-bold text-xl mb-2">
-                                    → {games[currentGame].title} ←
-                                </h5>
-                            </a>
-
-                            <p className="text-gray-600">
-                                {games[currentGame].subtitle}
-                            </p>
-
-                            {/* Dots indicator */}
-                            <div className="flex justify-center mt-6 space-x-2">
-                                {games.map((_, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() => setCurrentGame(index)}
-                                        className={`w-3 h-3 rounded-full transition-colors ${
-                                            index === currentGame
-                                                ? "bg-primary"
-                                                : "bg-gray-300"
-                                        }`}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+                    <GameShowcase />
                 </div>
             </section>
 
