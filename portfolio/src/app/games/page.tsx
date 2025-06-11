@@ -3,9 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import DisqusComments from "@/components/DisqusComments";
+import { LoadingOverlay } from "@/components/Spinner";
 
 export default function GamesPage() {
     const [currentGame, setCurrentGame] = useState(0);
+    const [gameNewsLoaded, setGameNewsLoaded] = useState(false);
 
     const games = [
         {
@@ -136,13 +138,24 @@ export default function GamesPage() {
             {/* Game News Iframe */}
             <section className="py-12">
                 <div className="container mx-auto px-8 lg:px-16 xl:px-24">
-                    <div className="max-w-6xl mx-auto">
+                    <div className="max-w-6xl mx-auto relative">
+                        <LoadingOverlay
+                            isVisible={!gameNewsLoaded}
+                            message="Loading game news..."
+                        />
                         <iframe
                             src="https://www.gamespot.com/news/"
-                            className="w-full h-96 lg:h-[600px] border-0 rounded-lg shadow-lg"
+                            className={`w-full h-96 lg:h-[600px] border-0 rounded-lg shadow-lg transition-opacity duration-300 ${
+                                gameNewsLoaded ? "opacity-100" : "opacity-0"
+                            }`}
                             title="GameSpot News"
+                            onLoad={() => setGameNewsLoaded(true)}
                         />
-                        <div className="text-center mt-4">
+                        <div
+                            className={`text-center mt-4 transition-opacity duration-300 ${
+                                gameNewsLoaded ? "opacity-100" : "opacity-0"
+                            }`}
+                        >
                             <p className="text-gray-600">Credit: GameSpot</p>
                         </div>
                     </div>

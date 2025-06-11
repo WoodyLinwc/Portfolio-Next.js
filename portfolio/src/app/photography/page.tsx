@@ -3,10 +3,15 @@
 import { useState } from "react";
 import Image from "next/image";
 import DisqusComments from "@/components/DisqusComments";
+import Spinner from "@/components/Spinner";
 
 export default function PhotographyPage() {
     const [activeFilter, setActiveFilter] = useState("all");
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [loadingImages, setLoadingImages] = useState<{
+        [key: string]: boolean;
+    }>({});
+    const [selectedImageLoading, setSelectedImageLoading] = useState(false);
 
     const filters = [
         { key: "all", label: "All" },
@@ -168,13 +173,29 @@ export default function PhotographyPage() {
             category: "night",
             alt: "Capture night",
         },
-        // Add more photos as needed
     ];
 
     const filteredPhotos =
         activeFilter === "all"
             ? photos
             : photos.filter((photo) => photo.category === activeFilter);
+
+    const handleImageLoadStart = (src: string) => {
+        setLoadingImages((prev) => ({ ...prev, [src]: true }));
+    };
+
+    const handleImageLoad = (src: string) => {
+        setLoadingImages((prev) => ({ ...prev, [src]: false }));
+    };
+
+    const handleImageClick = (src: string) => {
+        setSelectedImage(src);
+        setSelectedImageLoading(true);
+    };
+
+    const handleSelectedImageLoad = () => {
+        setSelectedImageLoading(false);
+    };
 
     return (
         <>
@@ -215,21 +236,46 @@ export default function PhotographyPage() {
                         {filteredPhotos.map((photo, index) => (
                             <div
                                 key={index}
-                                className="portfolio-item group cursor-pointer"
+                                className="portfolio-item group cursor-pointer relative"
                             >
                                 <div
-                                    className="relative aspect-square overflow-hidden rounded-lg"
-                                    onClick={() => setSelectedImage(photo.src)}
+                                    className="relative aspect-square overflow-hidden rounded-lg bg-gray-100"
+                                    onClick={() => handleImageClick(photo.src)}
                                 >
+                                    {/* Loading spinner overlay */}
+                                    {loadingImages[photo.src] && (
+                                        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
+                                            <Spinner
+                                                size="medium"
+                                                color="primary"
+                                            />
+                                        </div>
+                                    )}
+
                                     <Image
                                         src={photo.src}
                                         alt={photo.alt}
                                         fill
-                                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                        className={`object-cover transition-all duration-300 group-hover:scale-110 ${
+                                            loadingImages[photo.src]
+                                                ? "opacity-0"
+                                                : "opacity-100"
+                                        }`}
+                                        onLoadStart={() =>
+                                            handleImageLoadStart(photo.src)
+                                        }
+                                        onLoad={() =>
+                                            handleImageLoad(photo.src)
+                                        }
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     />
-                                    <div className="portfolio-btn">
-                                        <i className="fa fa-plus text-white text-4xl"></i>
-                                    </div>
+
+                                    {/* Hover overlay */}
+                                    {!loadingImages[photo.src] && (
+                                        <div className="portfolio-btn">
+                                            <i className="fa fa-plus text-white text-4xl"></i>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         ))}
@@ -249,21 +295,41 @@ export default function PhotographyPage() {
             {selectedImage && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
-                    onClick={() => setSelectedImage(null)}
+                    onClick={() => {
+                        setSelectedImage(null);
+                        setSelectedImageLoading(false);
+                    }}
                 >
                     <div className="relative max-w-4xl max-h-full">
                         <button
-                            onClick={() => setSelectedImage(null)}
-                            className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 z-10"
+                            onClick={() => {
+                                setSelectedImage(null);
+                                setSelectedImageLoading(false);
+                            }}
+                            className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
                         >
                             <i className="fa fa-times"></i>
                         </button>
+
+                        {/* Loading spinner for lightbox */}
+                        {selectedImageLoading && (
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <Spinner size="large" color="white" />
+                            </div>
+                        )}
+
                         <Image
                             src={selectedImage}
                             alt="Enlarged photo"
                             width={800}
                             height={600}
-                            className="max-w-full max-h-[90vh] object-contain"
+                            className={`max-w-full max-h-[90vh] object-contain transition-opacity duration-300 ${
+                                selectedImageLoading
+                                    ? "opacity-0"
+                                    : "opacity-100"
+                            }`}
+                            onLoad={handleSelectedImageLoad}
+                            priority
                         />
                     </div>
                 </div>

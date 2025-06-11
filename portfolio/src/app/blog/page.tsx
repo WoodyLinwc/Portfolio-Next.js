@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import DisqusComments from "@/components/DisqusComments";
+import { LoadingOverlay } from "@/components/Spinner";
 
 // Extend Window interface for Live2D and Twitter widgets
 declare global {
@@ -16,6 +17,9 @@ declare global {
 }
 
 export default function BlogPage() {
+    const [blogLoaded, setBlogLoaded] = useState(false);
+    const [flashcardsLoaded, setFlashcardsLoaded] = useState(false);
+
     useEffect(() => {
         // Live2D widget script - ONLY FOR BLOG PAGE
         const loadLive2D = () => {
@@ -89,11 +93,18 @@ export default function BlogPage() {
                     </div>
 
                     {/* Blog Iframe */}
-                    <div className="max-w-6xl mx-auto mb-20">
+                    <div className="max-w-6xl mx-auto mb-20 relative">
+                        <LoadingOverlay
+                            isVisible={!blogLoaded}
+                            message="Loading blog content..."
+                        />
                         <iframe
                             src="https://WoodyLinwc.blogspot.com/"
-                            className="w-full h-96 lg:h-[600px] border-0 rounded-lg shadow-lg"
+                            className={`w-full h-96 lg:h-[600px] border-0 rounded-lg shadow-lg transition-opacity duration-300 ${
+                                blogLoaded ? "opacity-100" : "opacity-0"
+                            }`}
                             title="Woody's Blog"
+                            onLoad={() => setBlogLoaded(true)}
                         />
                     </div>
 
@@ -107,11 +118,18 @@ export default function BlogPage() {
                         </h1>
                     </div>
 
-                    <div className="max-w-6xl mx-auto mb-20">
+                    <div className="max-w-6xl mx-auto mb-20 relative">
+                        <LoadingOverlay
+                            isVisible={!flashcardsLoaded}
+                            message="Loading flashcards..."
+                        />
                         <iframe
                             src="https://woodylinwc.github.io/Flashcards/"
-                            className="w-full h-96 lg:h-[600px] border-0 rounded-lg shadow-lg"
+                            className={`w-full h-96 lg:h-[600px] border-0 rounded-lg shadow-lg transition-opacity duration-300 ${
+                                flashcardsLoaded ? "opacity-100" : "opacity-0"
+                            }`}
                             title="Flashcards"
+                            onLoad={() => setFlashcardsLoaded(true)}
                         />
                     </div>
                 </div>

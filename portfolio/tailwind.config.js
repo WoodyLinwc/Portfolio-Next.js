@@ -16,11 +16,27 @@ module.exports = {
             },
             animation: {
                 blink: "blink 1s infinite",
+                // Add the spinner-grow animation
+                "spinner-grow": "spinner-grow 0.75s linear infinite",
             },
             keyframes: {
                 blink: {
                     "0%, 50%": { opacity: "1" },
                     "51%, 100%": { opacity: "0" },
+                },
+                // Add spinner-grow keyframes
+                "spinner-grow": {
+                    "0%": {
+                        transform: "rotate(0deg)",
+                        opacity: "1",
+                    },
+                    "50%": {
+                        opacity: "0.5",
+                    },
+                    "100%": {
+                        transform: "rotate(360deg)",
+                        opacity: "1",
+                    },
                 },
             },
         },
