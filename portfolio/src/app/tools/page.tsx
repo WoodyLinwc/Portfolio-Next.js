@@ -1,4 +1,4 @@
-import DisqusComments from "@/components/DisqusComments";
+// import DisqusComments from "@/components/DisqusComments";
 import SectionTitle from "@/components/SectionTitle";
 
 export default function ToolsPage() {
