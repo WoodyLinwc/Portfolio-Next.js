@@ -7,7 +7,7 @@ export default function Projects() {
         <>
             <SectionTitle backgroundText="Quality" foregroundText="My Works" />
 
-            <section className="pb-20" id="project">
+            <section id="project">
                 <div className="container mx-auto px-8 lg:px-20 xl:px-32">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         {/* Projects Column */}

@@ -8,7 +8,7 @@ export default function Location() {
                 foregroundText="Work Area"
             />
 
-            <section className="pb-20">
+            <section>
                 <div className="container mx-auto px-8 lg:px-20 xl:px-32">
                     <div className="flex justify-center">
                         <iframe

@@ -9,7 +9,7 @@ export default function About() {
                 foregroundText="About Me"
             />
 
-            <section className="pb-20" id="about">
+            <section id="about">
                 <div className="container mx-auto px-8 lg:px-20 xl:px-32">
                     <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12">
                         <div className="lg:w-5/12">
