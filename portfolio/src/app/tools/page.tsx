@@ -125,11 +125,11 @@ export default function ToolsPage() {
             </section>
 
             {/* Comments Section */}
-            <DisqusComments
+            {/* <DisqusComments
                 url="productivity-section"
                 identifier="productivity-section"
                 title="Productivity Tools"
-            />
+            /> */}
         </>
     );
 }
