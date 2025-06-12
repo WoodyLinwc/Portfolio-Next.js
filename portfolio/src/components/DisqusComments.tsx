@@ -21,7 +21,7 @@ export default function DisqusComments({
                 config: function (this: DisqusConfigFunction) {
                     this.page = {
                         identifier: identifier,
-                        url: `${window.location.origin}/${url}`,
+                        url: window.location.href, // Use current page URL
                         title: title,
                     };
                 },
@@ -30,16 +30,18 @@ export default function DisqusComments({
             // Configure Disqus
             window.disqus_config = function (this: DisqusConfigFunction) {
                 this.page = {
-                    url: `${window.location.origin}/${url}`,
+                    url: window.location.href, // Use current page URL
                     identifier: identifier,
                     title: title,
                 };
             };
 
-            // Load Disqus script
+            // Load Disqus script - REPLACE 'YOUR-SHORTNAME' with your actual Disqus shortname
             const script = document.createElement("script");
-            script.src = `https://${identifier}.disqus.com/embed.js`;
+            const shortname = "https-woody-lin-personal-vercel-app-photography";
+            script.src = `https://${shortname}.disqus.com/embed.js`;
             script.setAttribute("data-timestamp", String(+new Date()));
+            script.async = true;
             document.head.appendChild(script);
         }
     }, [url, identifier, title]);
