@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
 import DisqusComments from "@/components/DisqusComments";
 
@@ -10,28 +10,34 @@ export default function MoyuPage() {
     const [currentKpopImage, setCurrentKpopImage] = useState("");
     const [buttonText, setButtonText] = useState("看看下一个");
 
-    const tweets = [
-        '<blockquote class="twitter-tweet"><p lang="zh" dir="ltr">[衣帽间]：emo时的专属房间。</p>&mdash; 住在山下的山顶洞人 (@Linwo_OCh) <a href="https://twitter.com/Linwo_OCh/status/1615083286086254602?ref_src=twsrc%5Etfw">January 16, 2023</a></blockquote>',
-        '<blockquote class="twitter-tweet"><p lang="zh" dir="ltr">[不会说粤语的广州人]：Can\'tonese。</p>&mdash; 住在山下的山顶洞人 (@Linwo_OCh) <a href="https://twitter.com/Linwo_OCh/status/1618274853265764352?ref_src=twsrc%5Etfw">January 25, 2023</a></blockquote>',
-        '<blockquote class="twitter-tweet"><p lang="zh" dir="ltr">[清仓大甩卖]：花钱买教训，结果买一送一。</p>&mdash; 住在山下的山顶洞人 (@Linwo_OCh) <a href="https://twitter.com/Linwo_OCh/status/1551985181334052864?ref_src=twsrc%5Etfw">July 26, 2022</a></blockquote>',
-        // Add more tweets as needed
-    ];
+    const tweets = useMemo(
+        () => [
+            '<blockquote class="twitter-tweet"><p lang="zh" dir="ltr">[衣帽间]：emo时的专属房间。</p>&mdash; 住在山下的山顶洞人 (@Linwo_OCh) <a href="https://twitter.com/Linwo_OCh/status/1615083286086254602?ref_src=twsrc%5Etfw">January 16, 2023</a></blockquote>',
+            '<blockquote class="twitter-tweet"><p lang="zh" dir="ltr">[不会说粤语的广州人]：Can\'tonese。</p>&mdash; 住在山下的山顶洞人 (@Linwo_OCh) <a href="https://twitter.com/Linwo_OCh/status/1618274853265764352?ref_src=twsrc%5Etfw">January 25, 2023</a></blockquote>',
+            '<blockquote class="twitter-tweet"><p lang="zh" dir="ltr">[清仓大甩卖]：花钱买教训，结果买一送一。</p>&mdash; 住在山下的山顶洞人 (@Linwo_OCh) <a href="https://twitter.com/Linwo_OCh/status/1551985181334052864?ref_src=twsrc%5Etfw">July 26, 2022</a></blockquote>',
+            // Add more tweets as needed
+        ],
+        []
+    );
 
-    const buttonLabels = [
-        "不够看！",
-        "看看下一个",
-        "慢点按~",
-        "还有吗？",
-        "看点其他的",
-        "太少啦~",
-        "灵感爆发中...",
-        "多整点！",
-        "可以可以",
-        "信我，下一个更好",
-        "整挺好~",
-        "还不错吼",
-        "继续发点！",
-    ];
+    const buttonLabels = useMemo(
+        () => [
+            "不够看！",
+            "看看下一个",
+            "慢点按~",
+            "还有吗？",
+            "看点其他的",
+            "太少啦~",
+            "灵感爆发中...",
+            "多整点！",
+            "可以可以",
+            "信我，下一个更好",
+            "整挺好~",
+            "还不错吼",
+            "继续发点！",
+        ],
+        []
+    );
 
     const generateRandomTweet = useCallback(() => {
         const randomIndex = Math.floor(Math.random() * tweets.length);

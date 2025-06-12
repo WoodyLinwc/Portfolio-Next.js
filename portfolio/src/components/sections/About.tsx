@@ -74,7 +74,7 @@ export default function About() {
                                             GPA:
                                         </span>{" "}
                                         <span className="text-gray-600">
-                                            3.72 Dean's List
+                                            3.72 Dean&apos;s List
                                         </span>
                                     </div>
                                 </div>
