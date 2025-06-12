@@ -126,7 +126,7 @@ export default function About() {
                                         Jira
                                     </span>
                                 </div>
-                                <div>
+                                {/* <div>
                                     <span className="font-semibold">
                                         Technical Skills:
                                     </span>
@@ -140,7 +140,7 @@ export default function About() {
                                         <div>■ Scripting and Automation</div>
                                         <div>■ Data Management</div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4">
