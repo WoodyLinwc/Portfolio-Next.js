@@ -9,8 +9,8 @@ export default function Hero() {
     useEffect(() => {
         const typed_strings = [
             "Software Engineer",
+            "Frontend Developer",
             "Android App Developer",
-            "Game Developer",
             "Photographer",
             "林万程",
         ];
