@@ -32,15 +32,15 @@ export default function About() {
                                 combine technical expertise with a drive for
                                 innovation. My experience spans mobile app
                                 development and full-stack web solutions, where
-                                I've successfully delivered projects using React
-                                Native, TypeScript, and cloud technologies. With
-                                an AWS Cloud Practitioner certification and a
-                                strong foundation in computer science, I
-                                continuously embrace new challenges and
-                                technologies to create impactful solutions. My
-                                passion for clean code and problem-solving
-                                drives me to stay at the forefront of
-                                technological advancement.
+                                I&apos;ve successfully delivered projects using
+                                React Native, TypeScript, and cloud
+                                technologies. With an AWS Cloud Practitioner
+                                certification and a strong foundation in
+                                computer science, I continuously embrace new
+                                challenges and technologies to create impactful
+                                solutions. My passion for clean code and
+                                problem-solving drives me to stay at the
+                                forefront of technological advancement.
                             </p>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">

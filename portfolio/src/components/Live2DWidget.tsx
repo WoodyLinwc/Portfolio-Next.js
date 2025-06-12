@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 declare global {
     interface Window {
-        L2Dwidget: any;
+        L2Dwidget: unknown;
     }
 }
 
@@ -97,7 +97,7 @@ export default function Live2DWidget({
             if (window.L2Dwidget) {
                 try {
                     window.L2Dwidget = undefined;
-                } catch (e) {
+                } catch {
                     console.log("Live2D cleanup completed");
                 }
             }

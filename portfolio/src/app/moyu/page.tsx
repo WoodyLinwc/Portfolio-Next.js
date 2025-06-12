@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import DisqusComments from "@/components/DisqusComments";
 
@@ -33,6 +33,33 @@ export default function MoyuPage() {
         "继续发点！",
     ];
 
+    const generateRandomTweet = useCallback(() => {
+        const randomIndex = Math.floor(Math.random() * tweets.length);
+        setCurrentTweet(tweets[randomIndex]);
+
+        const randomLabelIndex = Math.floor(
+            Math.random() * buttonLabels.length
+        );
+        setButtonText(buttonLabels[randomLabelIndex]);
+
+        // Reload Twitter widgets
+        if (window.twttr?.widgets) {
+            window.twttr.widgets.load();
+        }
+    }, [tweets, buttonLabels]);
+
+    const generateRandomImage = useCallback(() => {
+        const randomIndex = Math.floor(Math.random() * 121) + 1;
+        setCurrentImage(`/images/redpanda/red${randomIndex}-min.JPG`);
+    }, []);
+
+    const loadRandomKpopImage = useCallback(() => {
+        const randomIndex = Math.floor(Math.random() * 1414);
+        setCurrentKpopImage(
+            `https://woodylinwc.github.io/Image-Storage/GIDLE/image_${randomIndex}.JPG`
+        );
+    }, []);
+
     useEffect(() => {
         // Twitter widget script
         const loadTwitterWidget = () => {
@@ -52,34 +79,7 @@ export default function MoyuPage() {
         generateRandomTweet();
         generateRandomImage();
         loadRandomKpopImage();
-    }, []);
-
-    const generateRandomTweet = () => {
-        const randomIndex = Math.floor(Math.random() * tweets.length);
-        setCurrentTweet(tweets[randomIndex]);
-
-        const randomLabelIndex = Math.floor(
-            Math.random() * buttonLabels.length
-        );
-        setButtonText(buttonLabels[randomLabelIndex]);
-
-        // Reload Twitter widgets
-        if (window.twttr?.widgets) {
-            window.twttr.widgets.load();
-        }
-    };
-
-    const generateRandomImage = () => {
-        const randomIndex = Math.floor(Math.random() * 121) + 1;
-        setCurrentImage(`/images/redpanda/red${randomIndex}-min.JPG`);
-    };
-
-    const loadRandomKpopImage = () => {
-        const randomIndex = Math.floor(Math.random() * 1414);
-        setCurrentKpopImage(
-            `https://woodylinwc.github.io/Image-Storage/GIDLE/image_${randomIndex}.JPG`
-        );
-    };
+    }, [generateRandomTweet, generateRandomImage, loadRandomKpopImage]);
 
     return (
         <>
@@ -154,11 +154,14 @@ export default function MoyuPage() {
 
                         <div className="flex justify-center mb-6">
                             {currentKpopImage && (
-                                <img
+                                <Image
                                     src={currentKpopImage}
                                     alt="K-pop Image"
+                                    width={800}
+                                    height={600}
                                     className="max-w-[80vw] max-h-[80vh] object-contain cursor-pointer"
                                     onClick={loadRandomKpopImage}
+                                    unoptimized // Since this is an external URL
                                 />
                             )}
                         </div>
