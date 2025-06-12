@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const roboto = Roboto({
     subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
                 <main>{children}</main>
                 <Footer />
                 <ScrollToTop />
+                <SpeedInsights />
             </body>
         </html>
     );
