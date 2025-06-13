@@ -124,10 +124,41 @@ export const photos: Photo[] = [
 
     // Event Photos (from Event.txt)
     {
+        src: "/images/album/Event/cos_three-min.PNG",
+        category: "event",
+        alt: "Cos three event",
+    },
+    {
+        src: "/images/album/Event/hanfu_tree-min.JPG",
+        category: "event",
+        alt: "Hanfu tree event",
+    },
+    {
         src: "/images/album/Event/boat_jialong-min.JPG",
         category: "event",
         alt: "Boat Jialong event",
     },
+    {
+        src: "/images/album/Event/hanfu_pink-min.JPG",
+        category: "event",
+        alt: "Hanfu pink event",
+    },
+    {
+        src: "/images/album/Event/hanfu_couple-min.JPG",
+        category: "event",
+        alt: "Hanfu couple event",
+    },
+    {
+        src: "/images/album/Event/hanfu_aidi-min.JPG",
+        category: "event",
+        alt: "Hanfu Aidi event",
+    },
+    {
+        src: "/images/album/Event/hanfu_man-min.JPG",
+        category: "event",
+        alt: "Hanfu man event",
+    },
+
     {
         src: "/images/album/Event/ab_glasses-min.JPG",
         category: "event",
@@ -139,29 +170,14 @@ export const photos: Photo[] = [
         alt: "AB maid 2 event",
     },
     {
-        src: "/images/album/Event/cos_three-min.PNG",
-        category: "event",
-        alt: "Cos three event",
-    },
-    {
-        src: "/images/album/Event/hanfu_tree-min.JPG",
-        category: "event",
-        alt: "Hanfu tree event",
-    },
-    {
-        src: "/images/album/Event/hanfu_man-min.JPG",
-        category: "event",
-        alt: "Hanfu man event",
-    },
-    {
         src: "/images/album/Event/ab_couple-min.JPG",
         category: "event",
         alt: "AB couple event",
     },
     {
-        src: "/images/album/Event/kpop_piano-min.JPG",
+        src: "/images/album/Event/xinyu_katie-min.JPG",
         category: "event",
-        alt: "Kpop piano event",
+        alt: "Xinyu Katie event",
     },
     {
         src: "/images/album/Event/hanfu_xinyu-min.JPG",
@@ -174,61 +190,22 @@ export const photos: Photo[] = [
         alt: "AB maid event",
     },
     {
-        src: "/images/album/Event/hanfu_aidi-min.JPG",
-        category: "event",
-        alt: "Hanfu Aidi event",
-    },
-    {
-        src: "/images/album/Event/hanfu_couple-min.JPG",
-        category: "event",
-        alt: "Hanfu couple event",
-    },
-    {
-        src: "/images/album/Event/hanfu_pink-min.JPG",
-        category: "event",
-        alt: "Hanfu pink event",
-    },
-    {
         src: "/images/album/Event/kpop_hands-min.JPG",
         category: "event",
         alt: "Kpop hands event",
     },
     {
-        src: "/images/album/Event/xinyu_katie-min.JPG",
+        src: "/images/album/Event/kpop_piano-min.JPG",
         category: "event",
-        alt: "Xinyu Katie event",
+        alt: "Kpop piano event",
     },
 
     // Night Photos (from Night.txt)
-    {
-        src: "/images/album/Night/men_kiss2-min.JPG",
-        category: "night",
-        alt: "Men kiss 2 night",
-    },
+
     {
         src: "/images/album/Night/night_sky-min.JPG",
         category: "night",
         alt: "Night sky",
-    },
-    {
-        src: "/images/album/Night/foodtruck_girl-min.jpg",
-        category: "night",
-        alt: "Food truck girl night",
-    },
-    {
-        src: "/images/album/Night/night_boat-min.JPG",
-        category: "night",
-        alt: "Night boat",
-    },
-    {
-        src: "/images/album/Night/men_kiss-min.JPG",
-        category: "night",
-        alt: "Men kiss night",
-    },
-    {
-        src: "/images/album/Night/night_sky3-min.JPG",
-        category: "night",
-        alt: "Night sky 3",
     },
     {
         src: "/images/album/Night/night_sky2-min.JPG",
@@ -236,21 +213,46 @@ export const photos: Photo[] = [
         alt: "Night sky 2",
     },
     {
+        src: "/images/album/Night/night_sky3-min.JPG",
+        category: "night",
+        alt: "Night sky 3",
+    },
+    {
+        src: "/images/album/Night/men_kiss-min.JPG",
+        category: "night",
+        alt: "Men kiss night",
+    },
+    {
+        src: "/images/album/Night/men_kiss2-min.JPG",
+        category: "night",
+        alt: "Men kiss 2 night",
+    },
+    {
+        src: "/images/album/Night/night_boat-min.JPG",
+        category: "night",
+        alt: "Night boat",
+    },
+    {
         src: "/images/album/Night/night_shadow-min.JPG",
         category: "night",
         alt: "Night shadow",
     },
+    {
+        src: "/images/album/Night/foodtruck_girl-min.jpg",
+        category: "night",
+        alt: "Food truck girl night",
+    },
 
     // Photojournalism Photos (from Photojournalism.txt)
     {
-        src: "/images/album/Photojournalism/museum_bold-min.JPG",
+        src: "/images/album/Photojournalism/protest_man-min.JPG",
         category: "photojournalism",
-        alt: "Museum bold photojournalism",
+        alt: "Protest man photojournalism",
     },
     {
-        src: "/images/album/Photojournalism/museum_girl-min.JPG",
+        src: "/images/album/Photojournalism/protest_flag-min.JPG",
         category: "photojournalism",
-        alt: "Museum girl photojournalism",
+        alt: "Protest flag photojournalism",
     },
     {
         src: "/images/album/Photojournalism/protest_sign-min.JPG",
@@ -258,29 +260,20 @@ export const photos: Photo[] = [
         alt: "Protest sign photojournalism",
     },
     {
-        src: "/images/album/Photojournalism/museum_back-min.JPG",
-        category: "photojournalism",
-        alt: "Museum back photojournalism",
-    },
-    {
         src: "/images/album/Photojournalism/museum_three-min.JPG",
         category: "photojournalism",
         alt: "Museum three photojournalism",
     },
     {
-        src: "/images/album/Photojournalism/god_talking-min.jpg",
+        src: "/images/album/Photojournalism/museum_girl-min.JPG",
         category: "photojournalism",
-        alt: "God talking photojournalism",
+        alt: "Museum girl photojournalism",
     },
+
     {
-        src: "/images/album/Photojournalism/protest_man-min.JPG",
+        src: "/images/album/Photojournalism/museum_back-min.JPG",
         category: "photojournalism",
-        alt: "Protest man photojournalism",
-    },
-    {
-        src: "/images/album/Photojournalism/blue_bike-min.jpg",
-        category: "photojournalism",
-        alt: "Blue bike photojournalism",
+        alt: "Museum back photojournalism",
     },
     {
         src: "/images/album/Photojournalism/museum_criminal-min.JPG",
@@ -288,12 +281,39 @@ export const photos: Photo[] = [
         alt: "Museum criminal photojournalism",
     },
     {
-        src: "/images/album/Photojournalism/protest_flag-min.JPG",
+        src: "/images/album/Photojournalism/museum_bold-min.JPG",
         category: "photojournalism",
-        alt: "Protest flag photojournalism",
+        alt: "Museum bold photojournalism",
+    },
+
+    {
+        src: "/images/album/Photojournalism/god_talking-min.jpg",
+        category: "photojournalism",
+        alt: "God talking photojournalism",
+    },
+
+    {
+        src: "/images/album/Photojournalism/blue_bike-min.jpg",
+        category: "photojournalism",
+        alt: "Blue bike photojournalism",
     },
 
     // Travel Photos (from Travel.txt)
+    {
+        src: "/images/album/Travel/boat_starring-min.JPG",
+        category: "travel",
+        alt: "Boat starring travel",
+    },
+    {
+        src: "/images/album/Travel/square_walk-min.JPG",
+        category: "travel",
+        alt: "Square walk travel",
+    },
+    {
+        src: "/images/album/Travel/taxi_woman-min.JPG",
+        category: "travel",
+        alt: "Taxi woman travel",
+    },
     {
         src: "/images/album/Travel/moon_shadow-min.JPG",
         category: "travel",
@@ -310,9 +330,9 @@ export const photos: Photo[] = [
         alt: "Father love travel",
     },
     {
-        src: "/images/album/Travel/square_walk-min.JPG",
+        src: "/images/album/Travel/train_outside-min.JPG",
         category: "travel",
-        alt: "Square walk travel",
+        alt: "Train outside travel",
     },
     {
         src: "/images/album/Travel/seaport_family-min.JPG",
@@ -345,11 +365,6 @@ export const photos: Photo[] = [
         alt: "Night beach travel",
     },
     {
-        src: "/images/album/Travel/taxi_woman-min.JPG",
-        category: "travel",
-        alt: "Taxi woman travel",
-    },
-    {
         src: "/images/album/Travel/walk_shadow-min.JPG",
         category: "travel",
         alt: "Walk shadow travel",
@@ -368,11 +383,6 @@ export const photos: Photo[] = [
         src: "/images/album/Travel/train_couple-min.jpg",
         category: "travel",
         alt: "Train couple travel",
-    },
-    {
-        src: "/images/album/Travel/boat_starring-min.JPG",
-        category: "travel",
-        alt: "Boat starring travel",
     },
     {
         src: "/images/album/Travel/park_concert-min.JPG",
@@ -408,11 +418,6 @@ export const photos: Photo[] = [
         src: "/images/album/Travel/moon_light-min.JPG",
         category: "travel",
         alt: "Moon light travel",
-    },
-    {
-        src: "/images/album/Travel/traine_outside-min.JPG",
-        category: "travel",
-        alt: "Traine outside travel",
     },
     {
         src: "/images/album/Travel/city_hole-min.JPG",
