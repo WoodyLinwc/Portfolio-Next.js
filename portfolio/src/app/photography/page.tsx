@@ -72,7 +72,11 @@ export default function PhotographyPage() {
                         <p className="text-gray-600 text-sm">
                             Showing {filteredPhotos.length} photos
                             {activeFilter !== "all" &&
-                                ` in ${activeFilter} category`}
+                                ` in ${
+                                    filterOptions.find(
+                                        (f) => f.key === activeFilter
+                                    )?.label
+                                } category`}
                         </p>
                     </div>
 
