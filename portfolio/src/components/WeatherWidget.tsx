@@ -135,18 +135,26 @@ export default function WeatherWidget({ className = "" }: WeatherWidgetProps) {
         return (
             <div className={`max-w-4xl mx-auto ${className}`}>
                 <div className="border-2 border-primary text-primary px-6 py-3 rounded text-center w-full">
-                    <div className="flex items-center justify-center space-x-3 mb-2 text-lg">
-                        <i className="fa fa-map-marker-alt"></i>
-                        <span className="font-medium">Boston, MA</span>
-                        <span className="text-gray-400">•</span>
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
-                        <span className="font-bold">
-                            {loading ? "Loading..." : "Refreshing..."}
+                    <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mb-2 text-lg">
+                        <div className="flex items-center space-x-2">
+                            <i className="fa fa-map-marker-alt"></i>
+                            <span className="font-medium whitespace-nowrap">
+                                Boston, MA
+                            </span>
+                        </div>
+                        <span className="text-gray-400 hidden sm:inline">
+                            •
                         </span>
-                        <span className="capitalize">
-                            {loading ? "weather data" : "weather"}
-                        </span>
-                        <i className="fa fa-refresh animate-spin text-sm"></i>
+                        <div className="flex items-center space-x-2">
+                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
+                            <span className="font-bold whitespace-nowrap">
+                                {loading ? "Loading..." : "Refreshing..."}
+                            </span>
+                            <span className="capitalize whitespace-nowrap">
+                                {loading ? "weather data" : "weather"}
+                            </span>
+                            <i className="fa fa-refresh animate-spin text-sm"></i>
+                        </div>
                     </div>
 
                     <div className="flex items-center justify-center space-x-4 text-sm mb-2">
@@ -186,22 +194,32 @@ export default function WeatherWidget({ className = "" }: WeatherWidgetProps) {
                 disabled={isRefreshing}
                 className="border-2 border-primary text-primary px-6 py-3 rounded hover:bg-primary hover:text-white transition-colors text-center w-full disabled:opacity-50"
             >
-                <div className="flex items-center justify-center space-x-3 mb-2 text-lg">
-                    <i className="fa fa-map-marker-alt"></i>
-                    <span className="font-medium">Boston, MA</span>
-                    <span className="text-gray-400">•</span>
-                    <i
-                        className={`fa ${weather?.icon} ${
-                            isRefreshing ? "animate-pulse" : ""
-                        }`}
-                    ></i>
-                    <span className="font-bold">{weather?.temperature}°C</span>
-                    <span className="capitalize">{weather?.description}</span>
-                    <i
-                        className={`fa fa-refresh text-sm ${
-                            isRefreshing ? "animate-spin" : ""
-                        }`}
-                    ></i>
+                <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mb-2 text-lg">
+                    <div className="flex items-center space-x-2">
+                        <i className="fa fa-map-marker-alt"></i>
+                        <span className="font-medium whitespace-nowrap">
+                            Boston, MA
+                        </span>
+                    </div>
+                    <span className="text-gray-400 hidden sm:inline">•</span>
+                    <div className="flex items-center space-x-2">
+                        <i
+                            className={`fa ${weather?.icon} ${
+                                isRefreshing ? "animate-pulse" : ""
+                            }`}
+                        ></i>
+                        <span className="font-bold whitespace-nowrap">
+                            {weather?.temperature}°C
+                        </span>
+                        <span className="capitalize whitespace-nowrap">
+                            {weather?.description}
+                        </span>
+                        <i
+                            className={`fa fa-refresh text-sm ${
+                                isRefreshing ? "animate-spin" : ""
+                            }`}
+                        ></i>
+                    </div>
                 </div>
 
                 <div className="flex items-center justify-center space-x-4 text-sm mb-2">
