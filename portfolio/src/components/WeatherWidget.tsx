@@ -56,7 +56,8 @@ export default function WeatherWidget({ className = "" }: WeatherWidgetProps) {
                 windSpeed: Math.round(current.wind_speed_10m * 3.6), // Convert m/s to km/h
                 pressure: Math.round(current.surface_pressure),
             });
-        } catch (err) {
+        } catch (error) {
+            console.error("Weather fetch error:", error);
             // Fallback data
             setWeather({
                 temperature: 22,
@@ -79,7 +80,7 @@ export default function WeatherWidget({ className = "" }: WeatherWidgetProps) {
         // Update every 30 minutes
         const interval = setInterval(() => fetchWeather(), 1800000);
         return () => clearInterval(interval);
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const getWeatherInfo = (weatherCode: number) => {
         const weatherMap: {
