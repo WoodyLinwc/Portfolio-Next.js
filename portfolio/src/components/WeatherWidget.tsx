@@ -180,7 +180,7 @@ export default function WeatherWidget({ className = "" }: WeatherWidgetProps) {
                                 : "--:--"}
                         </span>
                         <span className="text-gray-400">•</span>
-                        <span>Powered by Open-Meteo</span>
+                        <span>Powered by Open-Meteo API</span>
                     </div>
                 </div>
             </div>
