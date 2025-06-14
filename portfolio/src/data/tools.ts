@@ -92,14 +92,65 @@ export const tools: Tool[] = [
         link: "https://www.blogger.com/",
         category: "productivity",
     },
+    // New tools added
+    {
+        icon: "fab fa-docker",
+        title: "Docker",
+        description:
+            "Docker is a platform that uses containerization to package applications and their dependencies, ensuring consistent environments across development, testing, and production. Essential for modern software deployment.",
+        link: "https://www.docker.com/",
+        category: "development",
+    },
+    {
+        icon: "fa-paper-plane",
+        title: "Postman",
+        description:
+            "Postman is an API development platform that simplifies testing, documenting, and sharing APIs. It provides a user-friendly interface for making HTTP requests and managing API workflows.",
+        link: "https://www.postman.com/",
+        category: "development",
+    },
+    {
+        icon: "fa-pen-nib",
+        title: "Figma",
+        description:
+            "Figma is a collaborative design tool for creating user interfaces, prototypes, and design systems. It enables real-time collaboration and seamless developer handoffs for web and mobile design.",
+        link: "https://www.figma.com/",
+        category: "design",
+    },
+    {
+        icon: "fa-sticky-note",
+        title: "Notion",
+        description:
+            "Notion is an all-in-one workspace that combines notes, databases, wikis, and project management. It's perfect for organizing projects, documentation, and personal productivity workflows.",
+        link: "https://www.notion.so/",
+        category: "productivity",
+    },
+    {
+        icon: "fab fa-slack",
+        title: "Slack",
+        description:
+            "Slack is a messaging platform for teams that integrates with hundreds of tools, making communication and collaboration seamless. It's essential for remote work and team coordination.",
+        link: "https://slack.com/",
+        category: "collaboration",
+    },
+    {
+        icon: "fa-rocket",
+        title: "Vercel",
+        description:
+            "Vercel is a cloud platform for static sites and serverless functions that provides instant deployment, automatic scaling, and global CDN. Perfect for deploying React, Next.js, and other modern web applications.",
+        link: "https://vercel.com/",
+        category: "cloud",
+    },
 ];
 
 // Helper function to get tools by category
-export const getToolsByCategory = (category: Tool["category"]) => {
+export const getToolsByCategory = (category: NonNullable<Tool["category"]>) => {
     return tools.filter((tool) => tool.category === category);
 };
 
 // Helper function to get unique categories
-export const getToolCategories = () => {
-    return [...new Set(tools.map((tool) => tool.category))].filter(Boolean);
+export const getToolCategories = (): NonNullable<Tool["category"]>[] => {
+    return [...new Set(tools.map((tool) => tool.category))].filter(
+        (cat): cat is NonNullable<Tool["category"]> => cat !== undefined
+    );
 };
