@@ -118,6 +118,35 @@ export default function About() {
                                 </div>
                                 <div>
                                     <span className="font-semibold">
+                                        Certificates:
+                                    </span>
+                                    <div className="text-gray-600 text-sm mt-1 space-y-1">
+                                        <div>
+                                            ■{" "}
+                                            <a
+                                                href="https://www.credly.com/badges/c2d28705-83ee-45ca-ada6-0d6418217e9d/linked_in_profile"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-primary hover:underline"
+                                            >
+                                                AWS Cloud Practitioner CLF-C02
+                                            </a>
+                                        </div>
+                                        <div>
+                                            ■{" "}
+                                            <a
+                                                href="https://www.credly.com/badges/9cab272b-dea0-4ff8-a6bb-80c899f88f6d"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-primary hover:underline"
+                                            >
+                                                SAS Certified Specialist A00-231
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span className="font-semibold">
                                         Relevant Tools:
                                     </span>
                                     <span className="text-gray-600 text-sm block mt-1">
@@ -126,6 +155,7 @@ export default function About() {
                                         Jira
                                     </span>
                                 </div>
+
                                 {/* <div>
                                     <span className="font-semibold">
                                         Technical Skills:
