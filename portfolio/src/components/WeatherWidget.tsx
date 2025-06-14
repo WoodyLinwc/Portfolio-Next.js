@@ -173,7 +173,10 @@ export default function WeatherWidget({ className = "" }: WeatherWidgetProps) {
                         </div>
                     </div>
 
-                    <div className="flex items-center justify-center space-x-4 text-xs opacity-75">
+                    <div
+                        className="flex items-center justify-center space-x-2 text-xs opacity-75"
+                        style={{ fontSize: "10px" }}
+                    >
                         <span>
                             Updated:{" "}
                             {weather?.lastUpdated
@@ -238,7 +241,10 @@ export default function WeatherWidget({ className = "" }: WeatherWidgetProps) {
                     </div>
                 </div>
 
-                <div className="flex items-center justify-center space-x-4 text-xs opacity-75">
+                <div
+                    className="flex items-center justify-center space-x-2 text-xs opacity-75"
+                    style={{ fontSize: "10px" }}
+                >
                     <span>
                         Updated:{" "}
                         {weather?.lastUpdated
