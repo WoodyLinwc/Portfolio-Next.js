@@ -1,6 +1,7 @@
 // import DisqusComments from "@/components/DisqusComments";
 import SectionTitle from "@/components/SectionTitle";
 import { tools } from "@/data/tools";
+import QuoteWidget from "@/components/QuoteWidget";
 
 export default function ToolsPage() {
     const getButtonText = (tool: { title: string }) => {
@@ -29,6 +30,13 @@ export default function ToolsPage() {
                 backgroundText="Productivity"
                 foregroundText="Essential Tools"
             />
+
+            {/* Quote of the Day Widget */}
+            <section className="pb-12">
+                <div className="container mx-auto px-8 lg:px-20 xl:px-32">
+                    <QuoteWidget className="mb-12" />
+                </div>
+            </section>
 
             <section className="pb-12">
                 <div className="container mx-auto px-8 lg:px-20 xl:px-32">
