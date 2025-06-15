@@ -6,7 +6,6 @@ import { fallbackQuotes } from "@/data/fallbackQuotes";
 interface QuoteData {
     text: string;
     author: string;
-    category: string;
 }
 
 interface QuoteWidgetProps {
@@ -62,7 +61,6 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
             setQuote({
                 text: selectedQuote.quote,
                 author: selectedQuote.author,
-                category: "inspirational",
             });
         } catch (error) {
             console.error("Quote fetch error:", error);
@@ -71,7 +69,10 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
                 fallbackQuotes[
                     Math.floor(Math.random() * fallbackQuotes.length)
                 ];
-            setQuote(randomQuote);
+            setQuote({
+                text: randomQuote.text,
+                author: randomQuote.author,
+            });
         } finally {
             setLoading(false);
             setIsRefreshing(false);
@@ -86,22 +87,6 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
         if (!isRefreshing) {
             fetchQuote(true);
         }
-    };
-
-    const getCategoryIcon = (category: string) => {
-        const iconMap: { [key: string]: string } = {
-            programming: "fa-code",
-            technology: "fa-microchip",
-            motivational: "fa-rocket",
-            wisdom: "fa-lightbulb",
-            design: "fa-paint-brush",
-            productivity: "fa-tasks",
-            startup: "fa-chart-line",
-            innovation: "fa-brain",
-            learning: "fa-graduation-cap",
-            philosophy: "fa-quote-right",
-        };
-        return iconMap[category] || "fa-quote-right";
     };
 
     if (loading || isRefreshing) {
@@ -147,20 +132,15 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
                 </div>
 
                 <div className="flex items-center justify-center space-x-3 mb-2">
-                    <i
-                        className={`fa ${getCategoryIcon(
-                            quote?.category || "wisdom"
-                        )} text-sm`}
-                    ></i>
                     <span className="font-bold">— {quote?.author}</span>
                     <i className="fa fa-refresh text-sm hover:animate-spin transition-transform"></i>
                 </div>
 
                 <div
-                    className="text-sm opacity-75 capitalize"
+                    className="text-sm opacity-75"
                     style={{ fontSize: "10px" }}
                 >
-                    Quote of the Day • {quote?.category} • Powered by DummyJSON
+                    Quote of the Day • Powered by DummyJSON
                 </div>
             </button>
         </div>
