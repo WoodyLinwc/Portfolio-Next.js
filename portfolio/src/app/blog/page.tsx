@@ -38,7 +38,7 @@ export default function BlogPage() {
     return (
         <>
             {/* Header */}
-            <div className="bg-primary min-h-[25vh] flex items-center justify-center mb-20"></div>
+            <div className="bg-primary min-h-[25vh] flex items-center justify-center"></div>
 
             {/* Blog Section */}
             <SectionTitle

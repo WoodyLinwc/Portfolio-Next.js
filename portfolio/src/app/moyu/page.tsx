@@ -90,7 +90,7 @@ export default function MoyuPage() {
     return (
         <>
             {/* Header */}
-            <div className="bg-primary min-h-[25vh] flex items-center justify-center mb-20"></div>
+            <div className="bg-primary min-h-[25vh] flex items-center justify-center"></div>
 
             {/* Main Content */}
             <section className="py-12">
