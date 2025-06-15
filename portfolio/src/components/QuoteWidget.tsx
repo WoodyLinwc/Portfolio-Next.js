@@ -13,6 +13,13 @@ interface QuoteWidgetProps {
     className?: string;
 }
 
+interface QuoteResponse {
+    quotes: Array<{
+        quote: string;
+        author: string;
+    }>;
+}
+
 export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
     const [quote, setQuote] = useState<QuoteData | null>(null);
     const [loading, setLoading] = useState(true);
@@ -37,12 +44,10 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
                 throw new Error("Quote data unavailable");
             }
 
-            const data = await response.json();
+            const data = (await response.json()) as QuoteResponse;
 
             // Filter for shorter quotes (less than 80 characters for better fit)
-            const shortQuotes = data.quotes.filter(
-                (q: any) => q.quote.length <= 80
-            );
+            const shortQuotes = data.quotes.filter((q) => q.quote.length <= 80);
 
             // If we have short quotes, use them; otherwise use any quote
             const quotesToChooseFrom =
@@ -75,7 +80,7 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
 
     useEffect(() => {
         fetchQuote();
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    }, []);
 
     const handleRefresh = () => {
         if (!isRefreshing) {
@@ -135,7 +140,7 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
                     <i className="fa fa-quote-left text-2xl flex-shrink-0"></i>
                     <div className="flex-grow">
                         <p className="text-lg font-medium italic leading-relaxed">
-                            "{quote?.text}"
+                            &ldquo;{quote?.text}&rdquo;
                         </p>
                     </div>
                     <i className="fa fa-quote-right text-2xl flex-shrink-0"></i>
