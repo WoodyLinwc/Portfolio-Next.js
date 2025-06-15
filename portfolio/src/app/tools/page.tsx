@@ -26,10 +26,7 @@ export default function ToolsPage() {
             <div className="bg-primary min-h-[25vh] flex items-center justify-center"></div>
 
             {/* Tools Section */}
-            <SectionTitle
-                backgroundText="Productivity"
-                foregroundText="Essential Tools"
-            />
+            <SectionTitle backgroundText="Essential" foregroundText="Toolkit" />
 
             {/* Quote of the Day Widget */}
             <section className="pb-12">
