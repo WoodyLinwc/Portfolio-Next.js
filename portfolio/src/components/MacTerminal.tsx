@@ -11,7 +11,7 @@ export default function MacTerminal() {
             content:
                 "Last login: " + new Date().toLocaleString() + " on ttys000",
         },
-        { type: "output", content: "Welcome to Woody's Terminal!" },
+        { type: "output", content: "Welcome to Woody&apos;s Terminal!" },
         { type: "prompt", content: "woody@MacBook-Pro:~$ " },
     ]);
     const [currentDirectory] = useState("~");
@@ -60,7 +60,10 @@ export default function MacTerminal() {
                             new Date().toLocaleString() +
                             " on ttys000",
                     },
-                    { type: "output", content: "Welcome to Woody's Terminal!" },
+                    {
+                        type: "output",
+                        content: "Welcome to Woody&apos;s Terminal!",
+                    },
                     { type: "prompt", content: "woody@MacBook-Pro:~$ " },
                 ]);
             }, 100);
@@ -97,7 +100,7 @@ export default function MacTerminal() {
         } else {
             newHistory.push({
                 type: "error",
-                content: `zsh: command not found: ${trimmedCmd}\nType 'help' for available commands.`,
+                content: `zsh: command not found: ${trimmedCmd}\nType &apos;help&apos; for available commands.`,
             });
         }
 
@@ -211,7 +214,7 @@ export default function MacTerminal() {
                 {/* Terminal Footer Info */}
                 <div className="bg-gray-700 px-4 py-2 text-xs text-gray-400 flex justify-between">
                     <span>Press Enter to execute commands</span>
-                    <span>Type 'help' for available commands</span>
+                    <span>Type &apos;help&apos; for available commands</span>
                 </div>
             </div>
         </>
