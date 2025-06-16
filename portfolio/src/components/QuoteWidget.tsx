@@ -107,7 +107,7 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
                         className="text-sm opacity-75"
                         style={{ fontSize: "10px" }}
                     >
-                        Quote of the Day • Powered by type.fit
+                        Quote of the Day • Powered by DummyJSON
                     </div>
                 </div>
             </div>
