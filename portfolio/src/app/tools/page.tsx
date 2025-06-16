@@ -1,7 +1,7 @@
 // import DisqusComments from "@/components/DisqusComments";
 import SectionTitle from "@/components/SectionTitle";
 import { tools } from "@/data/tools";
-import QuoteWidget from "@/components/QuoteWidget";
+import QuoteWidget from "@/components/widgets/QuoteWidget";
 
 export default function ToolsPage() {
     const getButtonText = (tool: { title: string }) => {

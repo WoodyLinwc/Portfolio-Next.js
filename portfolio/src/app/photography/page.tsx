@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
-import DisqusComments from "@/components/DisqusComments";
+import DisqusComments from "@/components/widgets/DisqusComments";
 import LazyImage from "@/components/LazyImage";
 import Spinner from "@/components/Spinner";
 import SectionTitle from "@/components/SectionTitle";

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
-import DisqusComments from "@/components/DisqusComments";
+import DisqusComments from "@/components/widgets/DisqusComments";
 
 export default function MoyuPage() {
     const [currentTweet, setCurrentTweet] = useState("");

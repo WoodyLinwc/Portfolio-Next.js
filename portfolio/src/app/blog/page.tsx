@@ -2,19 +2,22 @@
 
 import { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
-import DisqusComments from "@/components/DisqusComments";
+import DisqusComments from "@/components/widgets/DisqusComments";
 import { LoadingOverlay } from "@/components/Spinner";
 import SectionTitle from "@/components/SectionTitle";
 import { personalInfo } from "@/data/me/personal";
 
-const Live2DWidget = dynamic(() => import("@/components/Live2DWidget"), {
-    ssr: false,
-    loading: () => (
-        <div className="fixed bottom-4 left-4 bg-blue-500 text-white px-3 py-2 rounded text-sm z-40">
-            Loading Live2D...
-        </div>
-    ),
-});
+const Live2DWidget = dynamic(
+    () => import("@/components/widgets/Live2DWidget"),
+    {
+        ssr: false,
+        loading: () => (
+            <div className="fixed bottom-4 left-4 bg-blue-500 text-white px-3 py-2 rounded text-sm z-40">
+                Loading Live2D...
+            </div>
+        ),
+    }
+);
 
 export default function BlogPage() {
     const [blogLoaded, setBlogLoaded] = useState(false);

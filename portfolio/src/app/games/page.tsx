@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import DisqusComments from "@/components/DisqusComments";
+import DisqusComments from "@/components/widgets/DisqusComments";
 import { LoadingOverlay } from "@/components/Spinner";
 import SectionTitle from "@/components/SectionTitle";
 import GameShowcase from "./GameShowcase";

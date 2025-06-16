@@ -1,5 +1,5 @@
 import SectionTitle from "@/components/SectionTitle";
-import WeatherWidget from "@/components/WeatherWidget";
+import WeatherWidget from "@/components/widgets/WeatherWidget";
 import { personalInfo } from "@/data/me/personal";
 
 export default function Location() {
