@@ -1,5 +1,6 @@
 import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle";
+import { personalInfo } from "@/data/me/personal";
 
 export default function About() {
     return (
@@ -15,7 +16,7 @@ export default function About() {
                         <div className="lg:w-5/12">
                             <Image
                                 src="/images/me/me.jpg"
-                                alt="Woody Lin"
+                                alt={personalInfo.fullName}
                                 width={500}
                                 height={600}
                                 className="rounded-lg w-full object-cover"
@@ -24,23 +25,10 @@ export default function About() {
 
                         <div className="lg:w-7/12">
                             <h3 className="text-2xl lg:text-3xl font-semibold mb-6 text-gray-800">
-                                A Passionate Software Developer
+                                {personalInfo.about.title}
                             </h3>
                             <p className="text-gray-600 mb-8 leading-relaxed">
-                                As a recent Computer Science graduate from UMass
-                                Boston and an active software developer, I
-                                combine technical expertise with a drive for
-                                innovation. My experience spans mobile app
-                                development and full-stack web solutions, where
-                                I&apos;ve successfully delivered projects using
-                                React Native, TypeScript, and cloud
-                                technologies. With an AWS Cloud Practitioner
-                                certification and a strong foundation in
-                                computer science, I continuously embrace new
-                                challenges and technologies to create impactful
-                                solutions. My passion for clean code and
-                                problem-solving drives me to stay at the
-                                forefront of technological advancement.
+                                {personalInfo.about.description}
                             </p>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
@@ -50,7 +38,7 @@ export default function About() {
                                             Name:
                                         </span>{" "}
                                         <span className="text-gray-600">
-                                            Woody Lin
+                                            {personalInfo.fullName}
                                         </span>
                                     </div>
                                     <div>
@@ -58,7 +46,7 @@ export default function About() {
                                             Location:
                                         </span>{" "}
                                         <span className="text-gray-600">
-                                            Boston, MA
+                                            {personalInfo.location}
                                         </span>
                                     </div>
                                     <div>
@@ -66,7 +54,7 @@ export default function About() {
                                             Email:
                                         </span>{" "}
                                         <span className="text-gray-600">
-                                            lin.wancheng001@gmail.com
+                                            {personalInfo.email}
                                         </span>
                                     </div>
                                     <div>
@@ -74,7 +62,7 @@ export default function About() {
                                             GPA:
                                         </span>{" "}
                                         <span className="text-gray-600">
-                                            3.72 Dean&apos;s List
+                                            {personalInfo.education.gpa}
                                         </span>
                                     </div>
                                 </div>
@@ -85,12 +73,13 @@ export default function About() {
                                         </span>
                                         <div className="text-gray-600 text-sm mt-1">
                                             <div>
-                                                ■ Bachelor degree in Computer
-                                                Science, minor in Mathematics
+                                                ■{" "}
+                                                {personalInfo.education.degree}
                                             </div>
                                             <div>
-                                                ■ University of Massachusetts
-                                                Boston, 2019 - 2023
+                                                ■{" "}
+                                                {personalInfo.education.school},{" "}
+                                                {personalInfo.education.period}
                                             </div>
                                         </div>
                                     </div>
@@ -103,8 +92,7 @@ export default function About() {
                                         Languages:
                                     </span>
                                     <span className="text-gray-600 text-sm block mt-1">
-                                        Java, Python, JavaScript, TypeScript,
-                                        SQL, HTML & CSS, C/C++, Bash
+                                        {personalInfo.skills.languages}
                                     </span>
                                 </div>
                                 <div>
@@ -112,8 +100,7 @@ export default function About() {
                                         Frameworks:
                                     </span>
                                     <span className="text-gray-600 text-sm block mt-1">
-                                        ReactJS, React Native, NestJS, Next.js,
-                                        Spring Boot, Tailwind CSS, Jekyll
+                                        {personalInfo.skills.frameworks}
                                     </span>
                                 </div>
                                 <div>
@@ -121,28 +108,21 @@ export default function About() {
                                         Certificates:
                                     </span>
                                     <div className="text-gray-600 text-sm mt-1 space-y-1">
-                                        <div>
-                                            ■{" "}
-                                            <a
-                                                href="https://www.credly.com/badges/c2d28705-83ee-45ca-ada6-0d6418217e9d/linked_in_profile"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-primary hover:underline"
-                                            >
-                                                AWS Cloud Practitioner CLF-C02
-                                            </a>
-                                        </div>
-                                        <div>
-                                            ■{" "}
-                                            <a
-                                                href="https://www.credly.com/badges/9cab272b-dea0-4ff8-a6bb-80c899f88f6d"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-primary hover:underline"
-                                            >
-                                                SAS Certified Specialist A00-231
-                                            </a>
-                                        </div>
+                                        {personalInfo.certificates.map(
+                                            (cert, index) => (
+                                                <div key={index}>
+                                                    ■{" "}
+                                                    <a
+                                                        href={cert.url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-primary hover:underline"
+                                                    >
+                                                        {cert.name}
+                                                    </a>
+                                                </div>
+                                            )
+                                        )}
                                     </div>
                                 </div>
                                 <div>
@@ -150,32 +130,14 @@ export default function About() {
                                         Relevant Tools:
                                     </span>
                                     <span className="text-gray-600 text-sm block mt-1">
-                                        MongoDB, Git, AWS, Node.js, Miniconda,
-                                        PostgreSQL, Prisma ORM, Redis, Docker,
-                                        Jira
+                                        {personalInfo.skills.tools}
                                     </span>
                                 </div>
-
-                                {/* <div>
-                                    <span className="font-semibold">
-                                        Technical Skills:
-                                    </span>
-                                    <div className="text-gray-600 text-sm mt-1">
-                                        <div>■ Object-oriented programming</div>
-                                        <div>
-                                            ■ Data Structures and Algorithms
-                                        </div>
-                                        <div>■ GitHub Workflow</div>
-                                        <div>■ Functional programming</div>
-                                        <div>■ Scripting and Automation</div>
-                                        <div>■ Data Management</div>
-                                    </div>
-                                </div> */}
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a
-                                    href="https://woodylinwc.github.io/pdf/WoodyLinResume.pdf"
+                                    href={personalInfo.links.resume}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="border-2 border-primary text-primary px-6 py-3 rounded hover:bg-primary hover:text-white transition-colors text-center"

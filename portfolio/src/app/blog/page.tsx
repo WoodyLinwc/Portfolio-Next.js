@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import DisqusComments from "@/components/DisqusComments";
 import { LoadingOverlay } from "@/components/Spinner";
 import SectionTitle from "@/components/SectionTitle";
+import { personalInfo } from "@/data/me/personal";
 
 const Live2DWidget = dynamic(() => import("@/components/Live2DWidget"), {
     ssr: false,
@@ -54,11 +55,11 @@ export default function BlogPage() {
                             message="Loading blog content..."
                         />
                         <iframe
-                            src="https://WoodyLinwc.blogspot.com/"
+                            src={personalInfo.links.blog}
                             className={`w-full h-96 lg:h-[600px] border-0 rounded-lg shadow-lg transition-opacity duration-300 ${
                                 blogLoaded ? "opacity-100" : "opacity-0"
                             }`}
-                            title="Woody's Blog"
+                            title={`${personalInfo.name}'s Blog`}
                             onLoad={() => setBlogLoaded(true)}
                         />
                     </div>

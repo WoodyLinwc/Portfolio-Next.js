@@ -1,6 +1,6 @@
 import SectionTitle from "@/components/SectionTitle";
-import { projects } from "@/data/projects";
-import { experiences } from "@/data/experiences";
+import { projects } from "@/data/me/projects";
+import { experiences } from "@/data/me/experiences";
 
 export default function Projects() {
     return (

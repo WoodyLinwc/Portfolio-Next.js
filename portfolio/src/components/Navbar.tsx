@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { personalInfo } from "@/data/me/personal";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +39,10 @@ export default function Navbar() {
             <div className="container mx-auto flex items-center justify-between max-w-7xl">
                 <Link href="/" className="ml-2 xl:ml-3 flex-shrink-0">
                     <h1 className="text-2xl xl:text-3xl font-bold">
-                        <span className="text-primary">Woody</span>Lin
+                        <span className="text-primary">
+                            {personalInfo.name}
+                        </span>
+                        Lin
                     </h1>
                 </Link>
 
@@ -80,7 +84,7 @@ export default function Navbar() {
                         </Link>
                     ))}
                     <a
-                        href="mailto:lin.wancheng001@gmail.com"
+                        href={`mailto:${personalInfo.email}`}
                         className="bg-primary text-white px-4 xl:px-6 py-2 rounded-full hover:bg-primary/90 transition-colors text-sm xl:text-base whitespace-nowrap"
                     >
                         Contact Me
@@ -107,7 +111,7 @@ export default function Navbar() {
                             </Link>
                         ))}
                         <a
-                            href="mailto:lin.wancheng001@gmail.com"
+                            href={`mailto:${personalInfo.email}`}
                             className="block bg-primary text-white px-4 py-2 rounded-full text-center hover:bg-primary/90 transition-colors"
                         >
                             Contact Me
