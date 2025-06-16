@@ -5,6 +5,7 @@ import { fallbackQuotes } from "@/data/fallbackQuotes";
 
 interface QuoteData {
     text: string;
+    textChinese?: string;
     author: string;
 }
 
@@ -24,15 +25,45 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
     const [loading, setLoading] = useState(true);
     const [isRefreshing, setIsRefreshing] = useState(false);
 
+    const translateText = async (text: string): Promise<string> => {
+        try {
+            const encodedText = encodeURIComponent(text);
+            const response = await fetch(
+                `https://api.mymemory.translated.net/get?q=${encodedText}&langpair=en|zh-CN`
+            );
+
+            if (!response.ok) {
+                throw new Error("Translation failed");
+            }
+
+            const data = await response.json();
+
+            // MyMemory returns translations in responseData.translatedText
+            if (data.responseData && data.responseData.translatedText) {
+                return data.responseData.translatedText;
+            }
+
+            throw new Error("No translation found");
+        } catch (error) {
+            console.error("Translation error:", error);
+            return text; // Return original text if translation fails
+        }
+    };
+
     const fetchQuote = async (isManualRefresh = false) => {
         if (isManualRefresh) {
             setIsRefreshing(true);
         }
 
         try {
+            // Generate a random starting point (DummyJSON has about 1454 quotes)
+            const randomSkip = Math.floor(Math.random() * 1400);
+
             // Start both the API call and minimum delay for manual refresh
             const [response] = await Promise.all([
-                fetch("https://dummyjson.com/quotes?limit=20"), // Get 20 quotes to filter short quote
+                fetch(
+                    `https://dummyjson.com/quotes?limit=30&skip=${randomSkip}`
+                ), // Get 30 quotes from random position
                 // Minimum 1 second delay for manual refresh to show loading state
                 isManualRefresh
                     ? new Promise((resolve) => setTimeout(resolve, 1000))
@@ -45,8 +76,10 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
 
             const data = (await response.json()) as QuoteResponse;
 
-            // Filter for shorter quotes (less than 80 characters for better fit)
-            const shortQuotes = data.quotes.filter((q) => q.quote.length <= 80);
+            // Filter for shorter quotes (less than 100 characters for better variety)
+            const shortQuotes = data.quotes.filter(
+                (q) => q.quote.length <= 100
+            );
 
             // If we have short quotes, use them; otherwise use any quote
             const quotesToChooseFrom =
@@ -58,13 +91,17 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
             );
             const selectedQuote = quotesToChooseFrom[randomIndex];
 
+            // Translate only the quote to Chinese
+            const chineseTranslation = await translateText(selectedQuote.quote);
+
             setQuote({
                 text: selectedQuote.quote,
+                textChinese: chineseTranslation,
                 author: selectedQuote.author,
             });
         } catch (error) {
             console.error("Quote fetch error:", error);
-            // Use fallback quotes from data file
+            // Use fallback quotes from data file - no translation for fallbacks
             const randomQuote =
                 fallbackQuotes[
                     Math.floor(Math.random() * fallbackQuotes.length)
@@ -98,7 +135,7 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
                         <span className="font-medium text-lg">
                             {loading
                                 ? "Loading quote..."
-                                : "Getting new quote..."}
+                                : "Getting new quote & translation..."}
                         </span>
                         <i className="fa fa-refresh animate-spin"></i>
                     </div>
@@ -107,7 +144,8 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
                         className="text-sm opacity-75"
                         style={{ fontSize: "10px" }}
                     >
-                        Quote of the Day • Powered by DummyJSON
+                        Quote of the Day • Provided by DummyJSON • Translated by
+                        MyMemory API
                     </div>
                 </div>
             </div>
@@ -123,10 +161,16 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
             >
                 <div className="flex items-center justify-center space-x-3 mb-3">
                     <i className="fa fa-quote-left text-2xl flex-shrink-0"></i>
-                    <div className="flex-grow">
+                    <div className="flex-grow space-y-3">
                         <p className="text-lg font-medium italic leading-relaxed">
                             &ldquo;{quote?.text}&rdquo;
                         </p>
+                        {quote?.textChinese &&
+                            quote.textChinese !== quote.text && (
+                                <p className="text-lg font-medium italic leading-relaxed text-gray-600 border-t pt-3">
+                                    &ldquo;{quote.textChinese}&rdquo;
+                                </p>
+                            )}
                     </div>
                     <i className="fa fa-quote-right text-2xl flex-shrink-0"></i>
                 </div>
@@ -140,7 +184,10 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
                     className="text-sm opacity-75"
                     style={{ fontSize: "10px" }}
                 >
-                    Quote of the Day • Powered by DummyJSON
+                    Quote of the Day • Provided by DummyJSON{" "}
+                    {quote?.textChinese && quote.textChinese !== quote.text
+                        ? "• Translated by MyMemory API"
+                        : ""}
                 </div>
             </button>
         </div>
