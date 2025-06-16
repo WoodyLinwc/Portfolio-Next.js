@@ -1,58 +1,4 @@
-export interface PersonalInfo {
-    name: string;
-    fullName: string;
-    chineseName: string;
-    email: string;
-    location: string;
-    education: {
-        degree: string;
-        school: string;
-        period: string;
-        gpa: string;
-    };
-    skills: {
-        languages: string;
-        frameworks: string;
-        tools: string;
-    };
-    links: {
-        resume: string;
-        linkedin: string;
-        github: string;
-        gitlab: string;
-        discord: string;
-        steam: string;
-        weibo: string;
-        blog: string;
-        portfolio: string;
-    };
-    hero: {
-        greeting: string;
-        typedStrings: string[];
-    };
-    about: {
-        title: string;
-        description: string;
-    };
-    certificates: Array<{
-        name: string;
-        url: string;
-    }>;
-    locationData: {
-        mapEmbedUrl: string;
-    };
-    footer: {
-        copyright: string;
-        designCredit: {
-            name: string;
-            url: string;
-        };
-        modifiedBy: {
-            name: string;
-            url: string;
-        };
-    };
-}
+import type { PersonalInfo, SocialLink } from "@/types/me";
 
 export const personalInfo: PersonalInfo = {
     name: "Woody",
@@ -127,7 +73,7 @@ export const personalInfo: PersonalInfo = {
 };
 
 // Helper function to get social links as array for components
-export const getSocialLinks = () => [
+export const getSocialLinks = (): SocialLink[] => [
     {
         href: personalInfo.links.linkedin,
         icon: "fab fa-linkedin-in",
