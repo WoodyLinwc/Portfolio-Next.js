@@ -26,7 +26,7 @@ export const cameras: Camera[] = [
         ],
         description:
             "My primary camera body for both photography and videography. Excellent low-light performance and reliable autofocus system.",
-        image: "/images/camera",
+        image: "/images/camera/nikon_z63.jpg",
         purchaseYear: 2025,
         favorite: true,
     },
@@ -45,7 +45,7 @@ export const cameras: Camera[] = [
             "438g weight",
         ],
         description: "My go-to camera for portrait!",
-        image: "/images/camera",
+        image: "/images/camera/fujifilm_xt50.jpeg",
         purchaseYear: 2025,
         favorite: true,
     },
@@ -63,7 +63,7 @@ export const cameras: Camera[] = [
         ],
         description:
             "I love the camera design, the body is crafted from a single block of aluminum!",
-        image: "/images/camera",
+        image: "/images/camera/leica_typ701.jpg",
         purchaseYear: 2023,
         favorite: false,
     },
@@ -81,7 +81,7 @@ export const cameras: Camera[] = [
         ],
         description:
             "I love the camera design, the body is crafted from a single block of aluminum!",
-        image: "/images/camera",
+        image: "/images/camera/nikon_fm2.webp",
         purchaseYear: 2023,
         favorite: false,
     },
