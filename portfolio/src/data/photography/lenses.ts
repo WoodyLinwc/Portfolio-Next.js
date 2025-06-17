@@ -25,7 +25,7 @@ export const lenses: Lens[] = [
         ],
         description:
             "My go-to lens for portraits, events, and general photography. Sharp across the entire zoom range with beautiful bokeh. (Very heavy no gonna lie)",
-        image: "/images/",
+        image: "/images/camera/tamron_35-150f2.8.jpg",
         purchaseYear: 2024,
         favorite: true,
     },
@@ -43,7 +43,7 @@ export const lenses: Lens[] = [
         ],
         description:
             "Perfect for wide angle shooting, like night sky, milky way.",
-        image: "/images/",
+        image: "/images/camera/viltrox_16f1.8.webp",
         purchaseYear: 2024,
     },
     {
@@ -60,7 +60,7 @@ export const lenses: Lens[] = [
         ],
         description:
             "Considering the price, weight and aperture, it is the most suitable lens for X mount.",
-        image: "/images/gear/rf-16-35.jpg",
+        image: "/images/camera/sigma_18-50f2.8.jpg",
         purchaseYear: 2025,
     },
     {
@@ -77,7 +77,7 @@ export const lenses: Lens[] = [
         ],
         description:
             "Considering the price, weight and aperture, it is the most suitable lens for L mount.",
-        image: "/images/gear/rf-16-35.jpg",
+        image: "/images/camera/sigma_18-50f2.8.jpg",
         purchaseYear: 2023,
     },
     {
@@ -94,7 +94,7 @@ export const lenses: Lens[] = [
         ],
         description:
             "Considering the price, weight and aperture, it is the most suitable lens for X mount.",
-        image: "/images/gear/rf-16-35.jpg",
+        image: "/images/camera/nikon_85f1.8.jpg",
         purchaseYear: 2022,
         favorite: true,
     },
