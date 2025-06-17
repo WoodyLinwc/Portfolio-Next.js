@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import LazyImage from "@/components/LazyImage";
 import Spinner from "@/components/Spinner";
-import { photos, filterOptions, type Photo } from "@/data/photography/photos";
+import { photos, filterOptions } from "@/data/photography/photos";
 
 interface PhotoGalleryShowcaseProps {
     className?: string;
