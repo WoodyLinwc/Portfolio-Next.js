@@ -86,13 +86,15 @@ export default function CameraGearShowcase({
                                     // Fallback to placeholder if image fails to load
                                     const target = e.target as HTMLImageElement;
                                     target.style.display = "none";
-                                    target.nextElementSibling?.classList.remove(
-                                        "hidden"
-                                    );
+                                    const fallback =
+                                        target.nextElementSibling as HTMLElement;
+                                    if (fallback) {
+                                        fallback.classList.remove("hidden");
+                                    }
                                 }}
                             />
                             {/* Fallback placeholder (hidden by default) */}
-                            <div className="absolute inset-0 flex items-center justify-center hidden">
+                            <div className="absolute inset-0 hidden items-center justify-center">
                                 <i className="fa fa-camera text-4xl text-gray-400"></i>
                                 <span className="ml-2 text-gray-500 text-sm">
                                     Image Coming Soon
@@ -180,13 +182,15 @@ export default function CameraGearShowcase({
                                         const target =
                                             e.target as HTMLImageElement;
                                         target.style.display = "none";
-                                        target.nextElementSibling?.classList.remove(
-                                            "hidden"
-                                        );
+                                        const fallback =
+                                            target.nextElementSibling as HTMLElement;
+                                        if (fallback) {
+                                            fallback.classList.remove("hidden");
+                                        }
                                     }}
                                 />
                                 {/* Fallback placeholder (hidden by default) */}
-                                <div className="absolute inset-0 flex items-center justify-center hidden">
+                                <div className="absolute inset-0 hidden items-center justify-center">
                                     <i className="fa fa-camera text-6xl text-gray-400"></i>
                                 </div>
                             </div>
