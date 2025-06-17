@@ -11,7 +11,7 @@ export default function MacTerminal() {
             content:
                 "Last login: " + new Date().toLocaleString() + " on ttys000",
         },
-        { type: "output", content: "Welcome to Woody&apos;s Terminal!" },
+        { type: "output", content: "Welcome to Woody's Terminal!" },
         { type: "prompt", content: "woody@MacBook-Pro:~$ " },
     ]);
     const [currentDirectory] = useState("~");
@@ -60,10 +60,7 @@ export default function MacTerminal() {
                             new Date().toLocaleString() +
                             " on ttys000",
                     },
-                    {
-                        type: "output",
-                        content: "Welcome to Woody&apos;s Terminal!",
-                    },
+                    { type: "output", content: "Welcome to Woody's Terminal!" },
                     { type: "prompt", content: "woody@MacBook-Pro:~$ " },
                 ]);
             }, 100);
@@ -100,7 +97,7 @@ export default function MacTerminal() {
         } else {
             newHistory.push({
                 type: "error",
-                content: `zsh: command not found: ${trimmedCmd}\nType &apos;help&apos; for available commands.`,
+                content: `zsh: command not found: ${trimmedCmd}\nType 'help' for available commands.`,
             });
         }
 
@@ -149,8 +146,11 @@ export default function MacTerminal() {
                         <Circle className="w-3 h-3 fill-yellow-500 text-yellow-500" />
                         <Circle className="w-3 h-3 fill-green-500 text-green-500" />
                     </div>
-                    <div className="text-gray-300 text-sm font-medium">
-                        Terminal — woody@MacBook-Pro: {currentDirectory}
+                    <div className="text-gray-300 text-xs sm:text-sm font-medium text-center truncate px-2">
+                        <span className="hidden sm:inline">
+                            Terminal — woody@MacBook-Pro: {currentDirectory}
+                        </span>
+                        <span className="sm:hidden">Terminal — woody@MBP</span>
                     </div>
                     <div className="w-16"></div>
                 </div>
@@ -181,7 +181,7 @@ export default function MacTerminal() {
                             {item.type === "prompt" &&
                                 index === history.length - 1 && (
                                     <div className="flex items-center">
-                                        <span className="text-green-400 mr-2">
+                                        <span className="text-green-400 mr-2 flex-shrink-0">
                                             {item.content}
                                         </span>
                                         <input
@@ -192,11 +192,11 @@ export default function MacTerminal() {
                                                 setInput(e.target.value)
                                             }
                                             onKeyDown={handleKeyDown}
-                                            className="bg-transparent border-none outline-none flex-1 text-white caret-green-400"
+                                            className="bg-transparent border-none outline-none flex-1 text-white caret-green-400 min-w-0"
                                             autoComplete="off"
                                             spellCheck="false"
                                         />
-                                        <span className="text-green-400 animate-pulse">
+                                        <span className="text-green-400 animate-pulse ml-1">
                                             █
                                         </span>
                                     </div>
@@ -214,7 +214,7 @@ export default function MacTerminal() {
                 {/* Terminal Footer Info */}
                 <div className="bg-gray-700 px-4 py-2 text-xs text-gray-400 flex justify-between">
                     <span>Press Enter to execute commands</span>
-                    <span>Type &apos;help&apos; for available commands</span>
+                    <span>Type 'help' for available commands</span>
                 </div>
             </div>
         </>
