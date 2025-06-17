@@ -25,10 +25,27 @@ export default function CameraGearShowcase({
         ...lenses.map((lens) => ({ ...lens, type: "lens" as const })),
     ];
 
+    // Sort by purchase year (newest first), then by name for items without purchase year
+    const sortedGear = cameraGear.sort((a, b) => {
+        // If both have purchase years, sort by year (newest first)
+        if (a.purchaseYear && b.purchaseYear) {
+            return b.purchaseYear - a.purchaseYear;
+        }
+        // If only one has a purchase year, prioritize it
+        if (a.purchaseYear && !b.purchaseYear) {
+            return -1;
+        }
+        if (!a.purchaseYear && b.purchaseYear) {
+            return 1;
+        }
+        // If neither has a purchase year, sort alphabetically by name
+        return a.name.localeCompare(b.name);
+    });
+
     const filteredGear =
         activeFilter === "all"
-            ? cameraGear
-            : cameraGear.filter((gear) => gear.type === activeFilter);
+            ? sortedGear
+            : sortedGear.filter((gear) => gear.type === activeFilter);
 
     const gearCount = filteredGear.length;
 
@@ -63,6 +80,7 @@ export default function CameraGearShowcase({
                         ` in ${
                             activeFilter === "camera" ? "Cameras" : "Lenses"
                         } category`}
+                    {activeFilter === "all" && " (sorted by purchase year)"}
                 </p>
             </div>
 
