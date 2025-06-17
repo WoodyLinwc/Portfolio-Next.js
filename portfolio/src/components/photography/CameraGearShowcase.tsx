@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { cameras, type Camera } from "@/data/photography/cameras";
 import { lenses, type Lens } from "@/data/photography/lenses";
 
@@ -75,22 +76,28 @@ export default function CameraGearShowcase({
                     >
                         {/* Gear Image */}
                         <div className="relative h-48 bg-gray-100">
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <i
-                                    className={`fa fa-camera text-4xl text-gray-400`}
-                                ></i>
-                                <span className="ml-2 text-gray-500 text-sm">
-                                    Image Coming Soon
-                                </span>
-                            </div>
-                            {/* Uncomment when you have actual images */}
-                            {/* <Image
+                            <Image
                                 src={gear.image}
                                 alt={gear.name}
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            /> */}
+                                onError={(e) => {
+                                    // Fallback to placeholder if image fails to load
+                                    const target = e.target as HTMLImageElement;
+                                    target.style.display = "none";
+                                    target.nextElementSibling?.classList.remove(
+                                        "hidden"
+                                    );
+                                }}
+                            />
+                            {/* Fallback placeholder (hidden by default) */}
+                            <div className="absolute inset-0 flex items-center justify-center hidden">
+                                <i className="fa fa-camera text-4xl text-gray-400"></i>
+                                <span className="ml-2 text-gray-500 text-sm">
+                                    Image Coming Soon
+                                </span>
+                            </div>
                         </div>
 
                         {/* Gear Info */}
@@ -163,16 +170,25 @@ export default function CameraGearShowcase({
                         <div className="p-6">
                             {/* Gear Image */}
                             <div className="relative h-64 bg-gray-100 rounded-lg mb-6">
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <i className="fa fa-camera text-6xl text-gray-400"></i>
-                                </div>
-                                {/* Uncomment when you have actual images */}
-                                {/* <Image
+                                <Image
                                     src={selectedGear.image}
                                     alt={selectedGear.name}
                                     fill
                                     className="object-cover rounded-lg"
-                                /> */}
+                                    onError={(e) => {
+                                        // Fallback to placeholder if image fails to load
+                                        const target =
+                                            e.target as HTMLImageElement;
+                                        target.style.display = "none";
+                                        target.nextElementSibling?.classList.remove(
+                                            "hidden"
+                                        );
+                                    }}
+                                />
+                                {/* Fallback placeholder (hidden by default) */}
+                                <div className="absolute inset-0 flex items-center justify-center hidden">
+                                    <i className="fa fa-camera text-6xl text-gray-400"></i>
+                                </div>
                             </div>
 
                             {/* Description */}
