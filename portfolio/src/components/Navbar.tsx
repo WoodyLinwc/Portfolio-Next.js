@@ -27,7 +27,6 @@ export default function Navbar() {
         { href: "/photography", label: "Photography" },
         // { href: "/games", label: "Game" },
         // { href: "/blog", label: "Blog" },
-        // { href: "/moyu", label: "Moyu" },
     ];
 
     return (
