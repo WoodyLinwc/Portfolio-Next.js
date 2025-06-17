@@ -1,4 +1,3 @@
-// src/components/photography/CameraGearShowcase.tsx
 "use client";
 
 import { useState } from "react";
@@ -30,10 +29,12 @@ export default function CameraGearShowcase({
             ? cameraGear
             : cameraGear.filter((gear) => gear.type === activeFilter);
 
+    const gearCount = filteredGear.length;
+
     return (
         <div className={`max-w-6xl mx-auto ${className}`}>
             {/* Filter Buttons */}
-            <div className="flex justify-center mb-8 gap-2">
+            <div className="flex flex-wrap justify-center mb-8 gap-2">
                 {[
                     { key: "all" as const, label: "All Gear" },
                     { key: "camera" as const, label: "Cameras" },
@@ -42,15 +43,26 @@ export default function CameraGearShowcase({
                     <button
                         key={filter.key}
                         onClick={() => setActiveFilter(filter.key)}
-                        className={`px-6 py-2 rounded-full transition-colors ${
+                        className={`px-4 py-2 m-1 text-sm border rounded transition-colors ${
                             activeFilter === filter.key
-                                ? "bg-primary text-white"
-                                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                                ? "bg-primary text-white border-primary"
+                                : "bg-white text-primary border-primary hover:bg-primary hover:text-white"
                         }`}
                     >
                         {filter.label}
                     </button>
                 ))}
+            </div>
+
+            {/* Gear Count */}
+            <div className="text-center mb-8">
+                <p className="text-gray-600 text-sm">
+                    Showing {gearCount} gear items
+                    {activeFilter !== "all" &&
+                        ` in ${
+                            activeFilter === "camera" ? "Cameras" : "Lenses"
+                        } category`}
+                </p>
             </div>
 
             {/* Gear Grid */}
@@ -114,6 +126,15 @@ export default function CameraGearShowcase({
                     </div>
                 ))}
             </div>
+
+            {/* Show message when no gear found */}
+            {filteredGear.length === 0 && (
+                <div className="text-center py-12">
+                    <p className="text-gray-500 text-lg">
+                        No gear found for this category.
+                    </p>
+                </div>
+            )}
 
             {/* Detailed Modal */}
             {selectedGear && (
