@@ -45,7 +45,7 @@ export const cameras: Camera[] = [
             "438g weight",
         ],
         description: "My go-to camera for portrait!",
-        image: "/images/camera/fujifilm_xt50.jpeg",
+        image: "/images/camera/fujifilm_xt50.jpg",
         purchaseYear: 2025,
         favorite: true,
     },

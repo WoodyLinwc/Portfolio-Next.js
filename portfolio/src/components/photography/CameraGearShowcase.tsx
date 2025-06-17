@@ -75,12 +75,12 @@ export default function CameraGearShowcase({
                         onClick={() => setSelectedGear(gear)}
                     >
                         {/* Gear Image */}
-                        <div className="relative h-48 bg-gray-100">
+                        <div className="relative h-48 bg-white flex items-center justify-center p-4">
                             <Image
                                 src={gear.image}
                                 alt={gear.name}
                                 fill
-                                className="object-cover"
+                                className="object-contain"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 onError={(e) => {
                                     // Fallback to placeholder if image fails to load
@@ -171,12 +171,12 @@ export default function CameraGearShowcase({
                         {/* Modal Content */}
                         <div className="p-6">
                             {/* Gear Image */}
-                            <div className="relative h-64 bg-gray-100 rounded-lg mb-6">
+                            <div className="relative h-64 bg-white rounded-lg mb-6 flex items-center justify-center p-4">
                                 <Image
                                     src={selectedGear.image}
                                     alt={selectedGear.name}
                                     fill
-                                    className="object-cover rounded-lg"
+                                    className="object-contain rounded-lg"
                                     onError={(e) => {
                                         // Fallback to placeholder if image fails to load
                                         const target =
