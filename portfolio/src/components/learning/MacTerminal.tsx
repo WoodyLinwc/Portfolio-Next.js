@@ -31,15 +31,13 @@ export default function MacTerminal() {
 
     // Available pages/commands
     const pages = [
-        "home",
-        "about",
-        "projects",
-        "photography",
-        "tools",
-        "games",
-        "blog",
-        "moyu",
-        "learning",
+        "Home",
+        "About",
+        "Projects & Experience",
+        "Productivity",
+        "Photography",
+        "Learning",
+        "Blog",
     ];
 
     const commands: { [key: string]: () => string | null } = {
