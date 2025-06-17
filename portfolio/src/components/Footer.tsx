@@ -21,36 +21,41 @@ export default function Footer() {
                     ))}
                 </div>
 
-                <p className="text-sm">
-                    &copy;{" "}
-                    <a
-                        className="text-white font-bold hover:underline"
-                        href={personalInfo.links.portfolio}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {personalInfo.fullName}
-                    </a>
-                    . {personalInfo.footer.copyright} Designed by{" "}
-                    <a
-                        className="text-white font-bold hover:underline"
-                        href={personalInfo.footer.designCredit.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {personalInfo.footer.designCredit.name}
-                    </a>
-                    . Modified by{" "}
-                    <a
-                        className="text-white font-bold hover:underline"
-                        href={personalInfo.footer.modifiedBy.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {personalInfo.footer.modifiedBy.name}
-                    </a>{" "}
-                    using Next.js.
-                </p>
+                <div className="text-sm space-y-2">
+                    <div>
+                        &copy;{" "}
+                        <a
+                            className="text-white font-bold hover:underline"
+                            href={personalInfo.links.portfolio}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {personalInfo.fullName}
+                        </a>
+                        . {personalInfo.footer.copyright}
+                    </div>
+                    <div>
+                        Created by{" "}
+                        <a
+                            className="text-white font-bold hover:underline"
+                            href={personalInfo.links.portfolio}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {personalInfo.fullName}
+                        </a>{" "}
+                        using TypeScript, Tailwind CSS, and Next.js. Inspired by{" "}
+                        <a
+                            className="text-white font-bold hover:underline"
+                            href={personalInfo.footer.designCredit.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {personalInfo.footer.designCredit.name}
+                        </a>
+                        .
+                    </div>
+                </div>
             </div>
         </footer>
     );
