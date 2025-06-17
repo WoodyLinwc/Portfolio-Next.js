@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { fallbackQuotes } from "@/data/fallbackQuotes";
 
 interface QuoteData {
@@ -25,7 +25,7 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
     const [loading, setLoading] = useState(true);
     const [isRefreshing, setIsRefreshing] = useState(false);
 
-    const translateText = async (text: string): Promise<string> => {
+    const translateText = useCallback(async (text: string): Promise<string> => {
         try {
             const encodedText = encodeURIComponent(text);
             const response = await fetch(
@@ -48,73 +48,78 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
             console.error("Translation error:", error);
             return text; // Return original text if translation fails
         }
-    };
+    }, []);
 
-    const fetchQuote = async (isManualRefresh = false) => {
-        if (isManualRefresh) {
-            setIsRefreshing(true);
-        }
-
-        try {
-            // Generate a random starting point (DummyJSON has about 1454 quotes)
-            const randomSkip = Math.floor(Math.random() * 1400);
-
-            // Start both the API call and minimum delay for manual refresh
-            const [response] = await Promise.all([
-                fetch(
-                    `https://dummyjson.com/quotes?limit=30&skip=${randomSkip}`
-                ), // Get 30 quotes from random position
-                // Minimum 1 second delay for manual refresh to show loading state
-                isManualRefresh
-                    ? new Promise((resolve) => setTimeout(resolve, 1000))
-                    : Promise.resolve(),
-            ]);
-
-            if (!response.ok) {
-                throw new Error("Quote data unavailable");
+    const fetchQuote = useCallback(
+        async (isManualRefresh = false) => {
+            if (isManualRefresh) {
+                setIsRefreshing(true);
             }
 
-            const data = (await response.json()) as QuoteResponse;
+            try {
+                // Generate a random starting point (DummyJSON has about 1454 quotes)
+                const randomSkip = Math.floor(Math.random() * 1400);
 
-            // Filter for shorter quotes (less than 100 characters for better variety)
-            const shortQuotes = data.quotes.filter(
-                (q) => q.quote.length <= 100
-            );
+                // Start both the API call and minimum delay for manual refresh
+                const [response] = await Promise.all([
+                    fetch(
+                        `https://dummyjson.com/quotes?limit=30&skip=${randomSkip}`
+                    ), // Get 30 quotes from random position
+                    // Minimum 1 second delay for manual refresh to show loading state
+                    isManualRefresh
+                        ? new Promise((resolve) => setTimeout(resolve, 1000))
+                        : Promise.resolve(),
+                ]);
 
-            // If we have short quotes, use them; otherwise use any quote
-            const quotesToChooseFrom =
-                shortQuotes.length > 0 ? shortQuotes : data.quotes;
+                if (!response.ok) {
+                    throw new Error("Quote data unavailable");
+                }
 
-            // Get a random quote from the filtered list
-            const randomIndex = Math.floor(
-                Math.random() * quotesToChooseFrom.length
-            );
-            const selectedQuote = quotesToChooseFrom[randomIndex];
+                const data = (await response.json()) as QuoteResponse;
 
-            // Translate only the quote to Chinese
-            const chineseTranslation = await translateText(selectedQuote.quote);
+                // Filter for shorter quotes (less than 100 characters for better variety)
+                const shortQuotes = data.quotes.filter(
+                    (q) => q.quote.length <= 100
+                );
 
-            setQuote({
-                text: selectedQuote.quote,
-                textChinese: chineseTranslation,
-                author: selectedQuote.author,
-            });
-        } catch (error) {
-            console.error("Quote fetch error:", error);
-            // Use fallback quotes from data file - no translation for fallbacks
-            const randomQuote =
-                fallbackQuotes[
-                    Math.floor(Math.random() * fallbackQuotes.length)
-                ];
-            setQuote({
-                text: randomQuote.text,
-                author: randomQuote.author,
-            });
-        } finally {
-            setLoading(false);
-            setIsRefreshing(false);
-        }
-    };
+                // If we have short quotes, use them; otherwise use any quote
+                const quotesToChooseFrom =
+                    shortQuotes.length > 0 ? shortQuotes : data.quotes;
+
+                // Get a random quote from the filtered list
+                const randomIndex = Math.floor(
+                    Math.random() * quotesToChooseFrom.length
+                );
+                const selectedQuote = quotesToChooseFrom[randomIndex];
+
+                // Translate only the quote to Chinese
+                const chineseTranslation = await translateText(
+                    selectedQuote.quote
+                );
+
+                setQuote({
+                    text: selectedQuote.quote,
+                    textChinese: chineseTranslation,
+                    author: selectedQuote.author,
+                });
+            } catch (error) {
+                console.error("Quote fetch error:", error);
+                // Use fallback quotes from data file - no translation for fallbacks
+                const randomQuote =
+                    fallbackQuotes[
+                        Math.floor(Math.random() * fallbackQuotes.length)
+                    ];
+                setQuote({
+                    text: randomQuote.text,
+                    author: randomQuote.author,
+                });
+            } finally {
+                setLoading(false);
+                setIsRefreshing(false);
+            }
+        },
+        [translateText]
+    );
 
     useEffect(() => {
         fetchQuote();
