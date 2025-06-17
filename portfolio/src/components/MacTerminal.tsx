@@ -214,7 +214,7 @@ export default function MacTerminal() {
                 {/* Terminal Footer Info */}
                 <div className="bg-gray-700 px-4 py-2 text-xs text-gray-400 flex justify-between">
                     <span>Press Enter to execute commands</span>
-                    <span>Type 'help' for available commands</span>
+                    <span>Type &apos;help&apos; for available commands</span>
                 </div>
             </div>
         </>
