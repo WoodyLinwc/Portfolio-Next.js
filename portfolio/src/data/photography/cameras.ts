@@ -80,7 +80,7 @@ export const cameras: Camera[] = [
             "540g weight",
         ],
         description:
-            "I love the camera design, the body is crafted from a single block of aluminum!",
+            "In production from 1982-2001, this camera is one the most reliable film cameras. (I play DSLR camera more)",
         image: "/images/camera/nikon_fm2.webp",
         purchaseYear: 2023,
         favorite: false,
