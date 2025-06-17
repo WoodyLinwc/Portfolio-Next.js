@@ -42,7 +42,7 @@ export const lenses: Lens[] = [
             "77mm filter size",
         ],
         description:
-            "Perfect for wide angle shooting, like night sky, milky way.",
+            "Perfect for wide angle shooting, like night sky, milky way. Also, very cost-effective!",
         image: "/images/camera/viltrox_16f1.8.webp",
         purchaseYear: 2024,
     },

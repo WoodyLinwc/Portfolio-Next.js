@@ -85,6 +85,24 @@ export const cameras: Camera[] = [
         purchaseYear: 2023,
         favorite: false,
     },
+    {
+        id: "10",
+        name: "Nikon D5600",
+        brand: "Nikon",
+        model: "D5600",
+        specs: [
+            "24.2 MP DX-format CMOS sensor",
+            "EXPEED 4 processor",
+            "3.2 inch fully articulating touchscreen LCD with 1.04M dots",
+            "5.0 fps continuous shooting",
+            "465g weight",
+        ],
+        description:
+            "My first SLR camera! (I later switched to mirrorless full-frame camera, Nikon ℤ5, for better image quality)",
+        image: "/images/camera/nikon_d5600.jpg",
+        purchaseYear: 2021,
+        favorite: false,
+    },
 
     // Add more cameras here as needed
 ];
