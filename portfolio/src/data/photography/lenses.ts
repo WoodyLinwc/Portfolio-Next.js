@@ -98,4 +98,23 @@ export const lenses: Lens[] = [
         purchaseYear: 2022,
         favorite: true,
     },
+    {
+        id: "11",
+        name: "Nikon 70-300mm f/4.5-5.6G ED VR",
+        brand: "Nikon",
+        model: "F mount 70-300mm f/4.5-5.6",
+        specs: [
+            "70-300mm (105-450mm equivalent) focal length",
+            "f/4.5-5.6 variable aperture",
+            "415 weight",
+            "125 length",
+            "58mm filter size",
+            "Vibration Reduction and Extra-low Dispersion glass",
+        ],
+        description:
+            "This is the perfect lens for Nikon F mount APS-C camera, very good at photographing distant objects.",
+        image: "/images/camera/nikon_70-300f4.5-6.3.jpg",
+        purchaseYear: 2021,
+        favorite: false,
+    },
 ];
