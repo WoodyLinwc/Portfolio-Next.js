@@ -6,18 +6,29 @@ import DisqusComments from "@/components/widgets/DisqusComments";
 import LazyImage from "@/components/LazyImage";
 import Spinner from "@/components/Spinner";
 import SectionTitle from "@/components/SectionTitle";
-import { photos, filterOptions } from "@/data/photos";
+import CameraGearShowcase from "@/components/CameraGearShowcase";
+import { photos, filterOptions } from "@/data/photography/photos";
+import { cameras } from "@/data/photography/cameras";
+import { lenses } from "@/data/photography/lenses";
 
 export default function PhotographyPage() {
     const [activeFilter, setActiveFilter] = useState("all");
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [selectedImageLoading, setSelectedImageLoading] = useState(false);
+    const [activeTab, setActiveTab] = useState<"gallery" | "gear">("gallery");
 
     const filteredPhotos = useMemo(() => {
         return activeFilter === "all"
             ? photos
             : photos.filter((photo) => photo.category === activeFilter);
     }, [activeFilter]);
+
+    // Calculate gear statistics
+    const allGear = [
+        ...cameras.map((camera) => ({ ...camera, type: "camera" as const })),
+        ...lenses.map((lens) => ({ ...lens, type: "lens" as const })),
+    ];
+    const favoriteCount = allGear.filter((gear) => gear.favorite).length;
 
     const handleImageClick = (src: string) => {
         setSelectedImage(src);
@@ -45,70 +56,114 @@ export default function PhotographyPage() {
             {/* Portfolio Section */}
             <SectionTitle
                 backgroundText="Gallery"
-                foregroundText="Photo Album"
+                foregroundText="Photography"
             />
 
             <section className="pb-12">
                 <div className="container mx-auto px-8 lg:px-20 xl:px-32">
-                    {/* Filter Buttons */}
-                    <div className="flex flex-wrap justify-center mb-12 gap-2">
-                        {filterOptions.map((filter) => (
+                    {/* Tab Navigation */}
+                    <div className="flex justify-center mb-8">
+                        <div className="bg-gray-100 rounded-lg p-1 flex">
                             <button
-                                key={filter.key}
-                                onClick={() => setActiveFilter(filter.key)}
-                                className={`px-4 py-2 m-1 text-sm border rounded transition-colors ${
-                                    activeFilter === filter.key
-                                        ? "bg-primary text-white border-primary"
-                                        : "bg-white text-primary border-primary hover:bg-primary hover:text-white"
+                                onClick={() => setActiveTab("gallery")}
+                                className={`px-6 py-2 rounded-md transition-colors ${
+                                    activeTab === "gallery"
+                                        ? "bg-white text-primary shadow-sm font-medium"
+                                        : "text-gray-600 hover:text-gray-800"
                                 }`}
                             >
-                                {filter.label}
+                                <i className="fa fa-image mr-2"></i>
+                                Photo Gallery
                             </button>
-                        ))}
-                    </div>
-
-                    {/* Photo Count */}
-                    <div className="text-center mb-8">
-                        <p className="text-gray-600 text-sm">
-                            Showing {filteredPhotos.length} photos
-                            {activeFilter !== "all" &&
-                                ` in ${
-                                    filterOptions.find(
-                                        (f) => f.key === activeFilter
-                                    )?.label
-                                } category`}
-                        </p>
-                    </div>
-
-                    {/* Photo Grid with Lazy Loading */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {filteredPhotos.map((photo, index) => (
-                            <div
-                                key={`${photo.src}-${activeFilter}`}
-                                className="portfolio-item group relative hover:cursor-pointer"
-                                onClick={() => handleImageClick(photo.src)}
+                            <button
+                                onClick={() => setActiveTab("gear")}
+                                className={`px-6 py-2 rounded-md transition-colors ${
+                                    activeTab === "gear"
+                                        ? "bg-white text-primary shadow-sm font-medium"
+                                        : "text-gray-600 hover:text-gray-800"
+                                }`}
                             >
-                                <LazyImage
-                                    src={photo.src}
-                                    alt={photo.alt}
-                                    fill
-                                    className="aspect-square rounded-lg group-hover:scale-110 transition-transform duration-300"
-                                    priority={getPriority(index)}
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                />
-
-                                <div className="portfolio-btn opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                    <i className="fa fa-plus text-white text-4xl"></i>
-                                </div>
-                            </div>
-                        ))}
+                                <i className="fa fa-camera mr-2"></i>
+                                Camera Gear
+                            </button>
+                        </div>
                     </div>
 
-                    {filteredPhotos.length === 0 && (
-                        <div className="text-center py-12">
-                            <p className="text-gray-500 text-lg">
-                                No photos found for this category.
-                            </p>
+                    {/* Gallery Tab Content */}
+                    {activeTab === "gallery" && (
+                        <div>
+                            {/* Filter Buttons */}
+                            <div className="flex flex-wrap justify-center mb-12 gap-2">
+                                {filterOptions.map((filter) => (
+                                    <button
+                                        key={filter.key}
+                                        onClick={() =>
+                                            setActiveFilter(filter.key)
+                                        }
+                                        className={`px-4 py-2 m-1 text-sm border rounded transition-colors ${
+                                            activeFilter === filter.key
+                                                ? "bg-primary text-white border-primary"
+                                                : "bg-white text-primary border-primary hover:bg-primary hover:text-white"
+                                        }`}
+                                    >
+                                        {filter.label}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Photo Count */}
+                            <div className="text-center mb-8">
+                                <p className="text-gray-600 text-sm">
+                                    Showing {filteredPhotos.length} photos
+                                    {activeFilter !== "all" &&
+                                        ` in ${
+                                            filterOptions.find(
+                                                (f) => f.key === activeFilter
+                                            )?.label
+                                        } category`}
+                                </p>
+                            </div>
+
+                            {/* Photo Grid with Lazy Loading */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {filteredPhotos.map((photo, index) => (
+                                    <div
+                                        key={`${photo.src}-${activeFilter}`}
+                                        className="portfolio-item group relative hover:cursor-pointer"
+                                        onClick={() =>
+                                            handleImageClick(photo.src)
+                                        }
+                                    >
+                                        <LazyImage
+                                            src={photo.src}
+                                            alt={photo.alt}
+                                            fill
+                                            className="aspect-square rounded-lg group-hover:scale-110 transition-transform duration-300"
+                                            priority={getPriority(index)}
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        />
+
+                                        <div className="portfolio-btn opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                            <i className="fa fa-plus text-white text-4xl"></i>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {filteredPhotos.length === 0 && (
+                                <div className="text-center py-12">
+                                    <p className="text-gray-500 text-lg">
+                                        No photos found for this category.
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    {/* Camera Gear Tab Content */}
+                    {activeTab === "gear" && (
+                        <div>
+                            <CameraGearShowcase />
                         </div>
                     )}
                 </div>
