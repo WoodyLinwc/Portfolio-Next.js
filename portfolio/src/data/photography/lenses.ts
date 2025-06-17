@@ -12,7 +12,7 @@ export interface Lens {
 
 export const lenses: Lens[] = [
     {
-        id: "4",
+        id: "5",
         name: "Tamron 35-150mm f/2-2.8 Di III VXD",
         brand: "Tamron",
         model: "Z mount 35-150mm f/2-2.8 Di III VXD",
@@ -30,7 +30,7 @@ export const lenses: Lens[] = [
         favorite: true,
     },
     {
-        id: "5",
+        id: "6",
         name: "Viltrox AF 16mm f/1.8",
         brand: "Viltrox",
         model: "Z mount 16mm f/1.8",
@@ -47,7 +47,7 @@ export const lenses: Lens[] = [
         purchaseYear: 2024,
     },
     {
-        id: "6",
+        id: "7",
         name: "Sigma 18-50mm f/2.8 DC DN Contemporary",
         brand: "Sigma",
         model: "X mount 18-50mm f/2.8",
@@ -64,7 +64,7 @@ export const lenses: Lens[] = [
         purchaseYear: 2025,
     },
     {
-        id: "7",
+        id: "8",
         name: "Sigma 18-50mm f/2.8 DC DN Contemporary",
         brand: "Sigma",
         model: "L mount 18-50mm f/2.8",
@@ -81,7 +81,7 @@ export const lenses: Lens[] = [
         purchaseYear: 2023,
     },
     {
-        id: "8",
+        id: "9",
         name: "Nikon NIKKOR Z 85mm f/1.8 S",
         brand: "Nikon",
         model: "Z mount 85mm f/1.8",
