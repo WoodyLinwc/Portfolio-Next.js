@@ -59,7 +59,7 @@ export const cameras: Camera[] = [
             "3.7-inch touchscreen LCD",
             "Built-in flash",
             "Made in Germany",
-            "339 weight",
+            "339g weight",
         ],
         description:
             "I love the camera design, the body is crafted from a single block of aluminum!",
