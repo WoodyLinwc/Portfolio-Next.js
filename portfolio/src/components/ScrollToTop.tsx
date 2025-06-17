@@ -48,13 +48,15 @@ export default function ScrollToTop() {
         <>
             {/* Scroll down indicator - shows in Hero section */}
             {showDownArrow && (
-                <button
-                    onClick={scrollToNext}
-                    className="fixed left-1/2 transform -translate-x-1/2 bottom-8 z-50 animate-bounce cursor-pointer"
-                    aria-label="Scroll to next section"
-                >
-                    <i className="fa fa-2x fa-angle-down text-white hover:text-gray-300 transition-colors"></i>
-                </button>
+                <div className="fixed inset-x-0 bottom-8 z-50 flex justify-center">
+                    <button
+                        onClick={scrollToNext}
+                        className="animate-bounce cursor-pointer"
+                        aria-label="Scroll to next section"
+                    >
+                        <i className="fa fa-2x fa-angle-down text-white hover:text-gray-300 transition-colors"></i>
+                    </button>
+                </div>
             )}
 
             {/* Back to top button - shows after scrolling */}
