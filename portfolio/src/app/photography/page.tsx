@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import DisqusComments from "@/components/widgets/DisqusComments";
 import LazyImage from "@/components/LazyImage";
@@ -13,7 +12,6 @@ import { photos, filterOptions } from "@/data/photography/photos";
 type TabType = "gallery" | "gear";
 
 export default function PhotographyPage() {
-    const router = useRouter();
     const [activeFilter, setActiveFilter] = useState("all");
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [selectedImageLoading, setSelectedImageLoading] = useState(false);

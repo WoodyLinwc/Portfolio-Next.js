@@ -118,7 +118,7 @@ export default function QuoteWidget({ className = "" }: QuoteWidgetProps) {
 
     useEffect(() => {
         fetchQuote();
-    }, []);
+    }, [fetchQuote]);
 
     const handleRefresh = () => {
         if (!isRefreshing) {
