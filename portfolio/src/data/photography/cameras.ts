@@ -68,7 +68,7 @@ export const cameras: Camera[] = [
         favorite: false,
     },
     {
-        id: "8",
+        id: "4",
         name: "Nikon FM2",
         brand: "Nikon",
         model: "FM2",
