@@ -93,7 +93,7 @@ export const lenses: Lens[] = [
             "67mm filter size",
         ],
         description:
-            "Considering the price, weight and aperture, it is the most suitable lens for X mount.",
+            "Beautiful beautiful bokeh, great for portrait photography!",
         image: "/images/camera/nikon_85f1.8.jpg",
         purchaseYear: 2022,
         favorite: true,
