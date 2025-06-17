@@ -105,7 +105,7 @@ export default function PhotographyPage() {
                     {activeTab === "gallery" && (
                         <div>
                             {/* Filter Buttons */}
-                            <div className="flex flex-wrap justify-center mb-12 gap-2">
+                            <div className="flex flex-wrap justify-center mb-8 gap-2">
                                 {filterOptions.map((filter) => (
                                     <button
                                         key={filter.key}
