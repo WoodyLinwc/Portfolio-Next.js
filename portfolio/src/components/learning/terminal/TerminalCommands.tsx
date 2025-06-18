@@ -8,6 +8,29 @@ import {
 
 export type CommandFunction = (args?: string[]) => string | null;
 
+// Mobile detection utility
+function isMobileDevice(): boolean {
+    return (
+        /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+        ) ||
+        (window.innerWidth <= 768 && "ontouchstart" in window)
+    );
+}
+
+// WebGL support detection
+function hasWebGLSupport(): boolean {
+    try {
+        const canvas = document.createElement("canvas");
+        const gl =
+            canvas.getContext("webgl") ||
+            canvas.getContext("experimental-webgl");
+        return !!(gl && gl instanceof WebGLRenderingContext);
+    } catch (e) {
+        return false;
+    }
+}
+
 export function createCommands(
     setHistory: React.Dispatch<React.SetStateAction<TerminalHistoryItem[]>>,
     widgetLoaded: boolean,
@@ -87,14 +110,24 @@ export function createCommands(
             return "Error: rm: permission denied: you don't have permission to remove files";
         },
 
-        // Widget command to load Live2D widget permanently
+        // Widget command with mobile detection and WebGL support check
         widget: () => {
             if (widgetLoaded) {
                 return "Live2D widget is already loaded and active.";
-            } else {
-                setWidgetLoaded(true);
-                return "Loading Live2D widget... It will stay active once loaded.";
             }
+
+            // Check mobile compatibility
+            if (isMobileDevice()) {
+                return "Sorry, Live2D widget is not supported on mobile devices.\nPlease try on a desktop browser for the best experience.";
+            }
+
+            // Check WebGL support
+            if (!hasWebGLSupport()) {
+                return "Live2D widget requires WebGL support.\nYour browser may not support this feature.";
+            }
+
+            setWidgetLoaded(true);
+            return "Loading Live2D widget... It will stay active once loaded.";
         },
 
         // Keep the woody command functional but hidden from help
