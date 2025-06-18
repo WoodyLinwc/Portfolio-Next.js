@@ -130,7 +130,7 @@ export function createCommands(
             return "Loading Live2D widget... It will stay active once loaded.";
         },
 
-        // Keep the woody command functional but hidden from help
+        // Hey! you found my Easter Egg!
         woody: () => {
             return "Hello, my friend! You found the Easter Egg! 🥚\nAlthough I don't think 'woody' is a Linux command =)\n\nFun fact: This terminal is built with React and TypeScript!";
         },
