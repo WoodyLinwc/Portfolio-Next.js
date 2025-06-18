@@ -21,7 +21,7 @@ export default function LearningPage() {
                     {/* Description */}
                     <div className="text-center mb-8">
                         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                            Welcome to the interactive terminal for my website!
+                            Welcome to the interactive terminal!
                         </p>
                         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
                             You can start it by typing Linux command{" "}
