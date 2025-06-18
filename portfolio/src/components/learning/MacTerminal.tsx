@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Circle } from "lucide-react";
 
 export default function MacTerminal() {
     const [input, setInput] = useState("");
+    const [widgetLoaded, setWidgetLoaded] = useState(false);
     const [history, setHistory] = useState([
         {
             type: "output",
@@ -128,7 +129,7 @@ export default function MacTerminal() {
             return pages.join("  ");
         },
         help: () => {
-            return "Available commands:\n  ls        - list all pages\n  clear     - clear terminal\n  help      - show this help message\n  whoami    - display current user\n  cat       - display page description\n  cd        - change directory (restricted)\n  echo      - prints text to terminal\n  rm        - remove files (restricted)\n  woody     - easter egg command";
+            return "Available commands:\n  ls        - list all pages\n  clear     - clear terminal\n  help      - show this help message\n  whoami    - display current user\n  cat       - display page description\n  cd        - change directory (restricted)\n  echo      - prints text to terminal\n  rm        - remove files (restricted)\n  widget    - load Live2D widget";
         },
         clear: () => {
             // Add a small delay to show the refreshing effect
@@ -199,6 +200,16 @@ export default function MacTerminal() {
             }
             return "Error: rm: permission denied: you don't have permission to remove files";
         },
+        // Widget command to load Live2D widget permanently
+        widget: () => {
+            if (widgetLoaded) {
+                return "Live2D widget is already loaded and active.";
+            } else {
+                setWidgetLoaded(true);
+                return "Loading Live2D widget... It will stay active once loaded.";
+            }
+        },
+        // Keep the woody command functional but hidden from help
         woody: () => {
             return "Hello, my friend! You found the Easter Egg! 🥚\nAlthough I don't think 'woody' is a Linux command =)\n\nFun fact: This terminal is built with React and TypeScript!";
         },
@@ -307,6 +318,15 @@ export default function MacTerminal() {
         }
     };
 
+    // Handle Live2D widget events
+    const handleLive2DLoad = useCallback(() => {
+        console.log("Live2D widget loaded and will stay active");
+    }, []);
+
+    const handleLive2DError = useCallback((error: Error) => {
+        console.error("Live2D widget failed to load:", error);
+    }, []);
+
     return (
         <>
             <style dangerouslySetInnerHTML={{ __html: scrollbarStyles }} />
@@ -323,6 +343,11 @@ export default function MacTerminal() {
                             Terminal — woody@MacBook-Pro: {currentDirectory}
                         </span>
                         <span className="sm:hidden">Terminal — woody@MBP</span>
+                        {widgetLoaded && (
+                            <span className="ml-2 text-green-400">
+                                [Live2D: ACTIVE]
+                            </span>
+                        )}
                     </div>
                     <div className="w-16"></div>
                 </div>
@@ -389,6 +414,59 @@ export default function MacTerminal() {
                     <span>Type &apos;help&apos; for available commands</span>
                 </div>
             </div>
+
+            {/* Live2D Widget - loads once and stays active */}
+            {widgetLoaded && (
+                <Live2DWidgetLoader
+                    onLoad={handleLive2DLoad}
+                    onError={handleLive2DError}
+                />
+            )}
         </>
     );
+}
+
+// Simple widget loader - loads once and stays active
+function Live2DWidgetLoader({
+    onLoad,
+    onError,
+}: {
+    onLoad: () => void;
+    onError: (error: Error) => void;
+}) {
+    const [Widget, setWidget] = useState<React.ComponentType<any> | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        // Load the widget once
+        import("@/components/widgets/Live2DWidget")
+            .then((module) => {
+                setWidget(() => module.default);
+                setIsLoading(false);
+                onLoad();
+            })
+            .catch((error) => {
+                console.error("Failed to load Live2D widget:", error);
+                setIsLoading(false);
+                onError(error);
+            });
+    }, [onLoad, onError]);
+
+    if (isLoading) {
+        return (
+            <div className="fixed bottom-4 left-4 bg-blue-500 text-white px-3 py-2 rounded text-sm z-40">
+                Loading Live2D widget...
+            </div>
+        );
+    }
+
+    if (!Widget) {
+        return (
+            <div className="fixed bottom-4 left-4 bg-red-500 text-white px-3 py-2 rounded text-sm z-40">
+                Failed to load Live2D widget
+            </div>
+        );
+    }
+
+    return <Widget onLoad={onLoad} onError={onError} />;
 }
