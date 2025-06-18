@@ -6,6 +6,8 @@ import { Circle } from "lucide-react";
 export default function MacTerminal() {
     const [input, setInput] = useState("");
     const [widgetLoaded, setWidgetLoaded] = useState(false);
+    const [commandHistory, setCommandHistory] = useState<string[]>([]);
+    const [historyIndex, setHistoryIndex] = useState(-1);
     const [history, setHistory] = useState([
         {
             type: "output",
@@ -224,6 +226,18 @@ export default function MacTerminal() {
     const handleCommand = (cmd: string) => {
         const trimmedCmd = cmd.trim();
 
+        // Add command to history if it's not empty and not the same as the last command
+        if (
+            trimmedCmd &&
+            (commandHistory.length === 0 ||
+                commandHistory[commandHistory.length - 1] !== trimmedCmd)
+        ) {
+            setCommandHistory((prev) => [...prev, trimmedCmd]);
+        }
+
+        // Reset history index
+        setHistoryIndex(-1);
+
         // Remove the current prompt and add the command to history
         const historyWithoutPrompt = history.slice(0, -1);
         const newHistory = [
@@ -298,6 +312,28 @@ export default function MacTerminal() {
         if (e.key === "Enter") {
             handleCommand(input);
             setInput("");
+        } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            if (commandHistory.length > 0) {
+                const newIndex =
+                    historyIndex === -1
+                        ? commandHistory.length - 1
+                        : Math.max(0, historyIndex - 1);
+                setHistoryIndex(newIndex);
+                setInput(commandHistory[newIndex]);
+            }
+        } else if (e.key === "ArrowDown") {
+            e.preventDefault();
+            if (historyIndex >= 0) {
+                const newIndex = historyIndex + 1;
+                if (newIndex >= commandHistory.length) {
+                    setHistoryIndex(-1);
+                    setInput("");
+                } else {
+                    setHistoryIndex(newIndex);
+                    setInput(commandHistory[newIndex]);
+                }
+            }
         }
     };
 
