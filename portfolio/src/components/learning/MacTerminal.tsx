@@ -434,7 +434,10 @@ function Live2DWidgetLoader({
     onLoad: () => void;
     onError: (error: Error) => void;
 }) {
-    const [Widget, setWidget] = useState<React.ComponentType<any> | null>(null);
+    const [Widget, setWidget] = useState<React.ComponentType<{
+        onLoad: () => void;
+        onError: (error: Error) => void;
+    }> | null>(null);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
