@@ -26,7 +26,7 @@ function hasWebGLSupport(): boolean {
             canvas.getContext("webgl") ||
             canvas.getContext("experimental-webgl");
         return !!(gl && gl instanceof WebGLRenderingContext);
-    } catch (e) {
+    } catch {
         return false;
     }
 }
