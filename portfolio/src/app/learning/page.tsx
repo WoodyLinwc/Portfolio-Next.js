@@ -25,7 +25,8 @@ export default function LearningPage() {
                         </p>
                         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
                             You can start it by typing Linux command{" "}
-                            <strong>ls</strong> in the terminal.
+                            <strong>help</strong> or <strong>ls</strong> in the
+                            terminal.
                         </p>
                     </div>
 
