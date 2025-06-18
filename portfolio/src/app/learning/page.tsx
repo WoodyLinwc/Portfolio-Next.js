@@ -2,7 +2,7 @@
 
 import SectionTitle from "@/components/SectionTitle";
 // import DisqusComments from "@/components/widgets/DisqusComments";
-import MacTerminal from "@/components/learning/MacTerminal";
+import MacTerminal from "@/components/learning/terminal/MacTerminal";
 
 export default function LearningPage() {
     return (

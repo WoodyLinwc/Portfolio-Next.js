@@ -2,24 +2,28 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Circle } from "lucide-react";
+import {
+    initialHistory,
+    TERMINAL_CONFIG,
+    TerminalHistoryItem,
+} from "@/data/terminalData";
+import { useTerminalHistory } from "@/hooks/useTerminalHistory";
+import {
+    createCommands,
+    handleUnknownCommand,
+    parseCommand,
+} from "@/components/learning/terminal/TerminalCommands";
 
 export default function MacTerminal() {
     const [input, setInput] = useState("");
     const [widgetLoaded, setWidgetLoaded] = useState(false);
-    const [commandHistory, setCommandHistory] = useState<string[]>([]);
-    const [historyIndex, setHistoryIndex] = useState(-1);
-    const [history, setHistory] = useState([
-        {
-            type: "output",
-            content:
-                "Last login: " + new Date().toLocaleString() + " on ttys000",
-        },
-        { type: "output", content: "Welcome to Woody's Terminal!" },
-        { type: "prompt", content: "woody@MacBook-Pro:~$ " },
-    ]);
-    const [currentDirectory] = useState("~");
+    const [history, setHistory] =
+        useState<TerminalHistoryItem[]>(initialHistory);
     const inputRef = useRef<HTMLInputElement>(null);
     const terminalRef = useRef<HTMLDivElement>(null);
+
+    const { addCommand, navigateHistory } = useTerminalHistory();
+    const commands = createCommands(setHistory, widgetLoaded, setWidgetLoaded);
 
     // Add custom scrollbar styles to hide scrollbar
     const scrollbarStyles = `
@@ -32,231 +36,29 @@ export default function MacTerminal() {
         }
     `;
 
-    // Available pages/commands
-    const pages = [
-        "Home",
-        "About",
-        "Projects & Experience",
-        "Productivity",
-        "Photography",
-        "Learning",
-        "Blog",
-    ];
-
-    // Page descriptions for cat command
-    const pageDescriptions: { [key: string]: string } = {
-        home: "Welcome page with hero section and introduction",
-        about: "Information about Woody Lin - education, skills, and experience",
-        projects: "Showcase of projects and professional experience",
-        productivity:
-            "Collection of essential development and productivity tools",
-        photography: "Photo gallery and camera gear showcase",
-        learning: "Interactive terminal and learning resources",
-        blog: "Personal blog and articles",
-    };
-
-    // Common Linux commands that should show permission denied
-    const restrictedCommands = [
-        "sudo",
-        "su",
-        "chmod",
-        "chown",
-        "mount",
-        "umount",
-        "fdisk",
-        "ifconfig",
-        "iptables",
-        "systemctl",
-        "service",
-        "kill",
-        "killall",
-        "ps",
-        "top",
-        "htop",
-        "netstat",
-        "ss",
-        "lsof",
-        "df",
-        "du",
-        "free",
-        "uname",
-        "uptime",
-        "who",
-        "w",
-        "last",
-        "history",
-        "passwd",
-        "useradd",
-        "userdel",
-        "usermod",
-        "groupadd",
-        "groupdel",
-        "crontab",
-        "vim",
-        "nano",
-        "emacs",
-        "less",
-        "more",
-        "head",
-        "tail",
-        "grep",
-        "find",
-        "locate",
-        "which",
-        "whereis",
-        "file",
-        "ln",
-        "cp",
-        "mv",
-        "mkdir",
-        "rmdir",
-        "tar",
-        "gzip",
-        "gunzip",
-        "zip",
-        "unzip",
-        "wget",
-        "curl",
-        "ssh",
-        "scp",
-        "rsync",
-        "ping",
-        "traceroute",
-        "nslookup",
-        "dig",
-    ];
-
-    const commands: { [key: string]: (args?: string[]) => string | null } = {
-        ls: () => {
-            return pages.join("  ");
-        },
-        help: () => {
-            return "Available commands:\n  ls        - list all pages\n  clear     - clear terminal\n  help      - show this help message\n  whoami    - display current user\n  cat       - display page description\n  cd        - change directory (restricted)\n  echo      - prints text to terminal\n  rm        - remove files (restricted)\n  widget    - load Live2D widget";
-        },
-        clear: () => {
-            // Add a small delay to show the refreshing effect
-            setTimeout(() => {
-                setHistory([
-                    {
-                        type: "output",
-                        content:
-                            "Last login: " +
-                            new Date().toLocaleString() +
-                            " on ttys000",
-                    },
-                    { type: "output", content: "Welcome to Woody's Terminal!" },
-                    { type: "prompt", content: "woody@MacBook-Pro:~$ " },
-                ]);
-            }, 100);
-            return null;
-        },
-        whoami: () => {
-            return "woody";
-        },
-        cat: (args) => {
-            if (!args || args.length === 0) {
-                return (
-                    "cat: missing file operand\nTry 'cat [page]' where page is one of: " +
-                    Object.keys(pageDescriptions).join(", ")
-                );
-            }
-            const page = args[0].toLowerCase();
-            if (pageDescriptions[page]) {
-                return pageDescriptions[page];
-            }
-            return `cat: ${args[0]}: No such file or directory`;
-        },
-        cd: (args) => {
-            if (!args || args.length === 0) {
-                return "Error: cd: missing directory argument";
-            }
-            if (args[0] === "..") {
-                return "Error: cd: permission denied: you don't have permission to go up";
-            }
-            const target = args[0].toLowerCase();
-            if (
-                pages.some((page) =>
-                    page.toLowerCase().replace(/\s+/g, "").includes(target)
-                )
-            ) {
-                return `Error: cd: ${args[0]}: is not a directory (it's a page)`;
-            }
-            return `Error: cd: ${args[0]}: No such file or directory`;
-        },
-        echo: (args) => {
-            if (!args || args.length === 0) {
-                return "";
-            }
-            return args.join(" ");
-        },
-        rm: (args) => {
-            if (!args || args.length === 0) {
-                return "Error: rm: missing file operand";
-            }
-            if (
-                args.includes("-r") ||
-                args.includes("-rf") ||
-                args.includes("-fr")
-            ) {
-                return "Error: rm: permission denied: you don't have permission to remove directories";
-            }
-            return "Error: rm: permission denied: you don't have permission to remove files";
-        },
-        // Widget command to load Live2D widget permanently
-        widget: () => {
-            if (widgetLoaded) {
-                return "Live2D widget is already loaded and active.";
-            } else {
-                setWidgetLoaded(true);
-                return "Loading Live2D widget... It will stay active once loaded.";
-            }
-        },
-        // Keep the woody command functional but hidden from help
-        woody: () => {
-            return "Hello, my friend! You found the Easter Egg! 🥚\nAlthough I don't think 'woody' is a Linux command =)\n\nFun fact: This terminal is built with React and TypeScript!";
-        },
-        date: () => {
-            return new Date().toString();
-        },
-        pwd: () => {
-            return "/home/woody";
-        },
-    };
-
     const handleCommand = (cmd: string) => {
         const trimmedCmd = cmd.trim();
 
-        // Add command to history if it's not empty and not the same as the last command
-        if (
-            trimmedCmd &&
-            (commandHistory.length === 0 ||
-                commandHistory[commandHistory.length - 1] !== trimmedCmd)
-        ) {
-            setCommandHistory((prev) => [...prev, trimmedCmd]);
-        }
-
-        // Reset history index
-        setHistoryIndex(-1);
+        // Add command to history
+        addCommand(cmd);
 
         // Remove the current prompt and add the command to history
         const historyWithoutPrompt = history.slice(0, -1);
-        const newHistory = [
+        const newHistory: TerminalHistoryItem[] = [
             ...historyWithoutPrompt,
-            { type: "input", content: `woody@MacBook-Pro:~$ ${cmd}` },
+            { type: "input", content: `${TERMINAL_CONFIG.prompt}${cmd}` },
         ];
 
         if (trimmedCmd === "") {
             setHistory([
                 ...newHistory,
-                { type: "prompt", content: "woody@MacBook-Pro:~$ " },
+                { type: "prompt", content: TERMINAL_CONFIG.prompt },
             ]);
             return;
         }
 
         // Parse command and arguments
-        const parts = trimmedCmd.split(/\s+/);
-        const command = parts[0].toLowerCase();
-        const args = parts.slice(1);
+        const { command, args } = parseCommand(trimmedCmd);
 
         if (commands[command]) {
             const result = commands[command](args);
@@ -271,37 +73,15 @@ export default function MacTerminal() {
                     newHistory.push({ type: "output", content: result });
                 }
             }
-        } else if (restrictedCommands.includes(command)) {
-            newHistory.push({
-                type: "error",
-                content: `${command}: permission denied: you don't have permission to execute this command`,
-            });
         } else {
-            // Check for common command variations
-            if (command.startsWith("rm")) {
-                newHistory.push({
-                    type: "error",
-                    content:
-                        "rm: permission denied: you don't have permission to remove files",
-                });
-            } else if (command.startsWith("cd")) {
-                newHistory.push({
-                    type: "error",
-                    content:
-                        "cd: permission denied: you don't have permission to change directories",
-                });
-            } else {
-                newHistory.push({
-                    type: "error",
-                    content: `zsh: command not found: ${command}\nType 'help' for available commands.`,
-                });
-            }
+            const errorItem = handleUnknownCommand(command);
+            newHistory.push(errorItem);
         }
 
         if (trimmedCmd !== "clear") {
             newHistory.push({
                 type: "prompt",
-                content: "woody@MacBook-Pro:~$ ",
+                content: TERMINAL_CONFIG.prompt,
             });
         }
 
@@ -314,26 +94,14 @@ export default function MacTerminal() {
             setInput("");
         } else if (e.key === "ArrowUp") {
             e.preventDefault();
-            if (commandHistory.length > 0) {
-                const newIndex =
-                    historyIndex === -1
-                        ? commandHistory.length - 1
-                        : Math.max(0, historyIndex - 1);
-                setHistoryIndex(newIndex);
-                setInput(commandHistory[newIndex]);
+            const prevCommand = navigateHistory("up");
+            if (prevCommand) {
+                setInput(prevCommand);
             }
         } else if (e.key === "ArrowDown") {
             e.preventDefault();
-            if (historyIndex >= 0) {
-                const newIndex = historyIndex + 1;
-                if (newIndex >= commandHistory.length) {
-                    setHistoryIndex(-1);
-                    setInput("");
-                } else {
-                    setHistoryIndex(newIndex);
-                    setInput(commandHistory[newIndex]);
-                }
-            }
+            const nextCommand = navigateHistory("down");
+            setInput(nextCommand);
         }
     };
 
@@ -376,7 +144,8 @@ export default function MacTerminal() {
                     </div>
                     <div className="text-gray-300 text-xs sm:text-sm font-medium text-center truncate px-2">
                         <span className="hidden sm:inline">
-                            Terminal — woody@MacBook-Pro: {currentDirectory}
+                            Terminal — woody@MacBook-Pro:{" "}
+                            {TERMINAL_CONFIG.currentDirectory}
                         </span>
                         <span className="sm:hidden">Terminal — woody@MBP</span>
                         {widgetLoaded && (
