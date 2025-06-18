@@ -40,12 +40,95 @@ export default function MacTerminal() {
         "Blog",
     ];
 
-    const commands: { [key: string]: () => string | null } = {
+    // Page descriptions for cat command
+    const pageDescriptions: { [key: string]: string } = {
+        home: "Welcome page with hero section and introduction",
+        about: "Information about Woody Lin - education, skills, and experience",
+        projects: "Showcase of projects and professional experience",
+        productivity:
+            "Collection of essential development and productivity tools",
+        photography: "Photo gallery and camera gear showcase",
+        learning: "Interactive terminal and learning resources",
+        blog: "Personal blog and articles",
+    };
+
+    // Common Linux commands that should show permission denied
+    const restrictedCommands = [
+        "sudo",
+        "su",
+        "chmod",
+        "chown",
+        "mount",
+        "umount",
+        "fdisk",
+        "ifconfig",
+        "iptables",
+        "systemctl",
+        "service",
+        "kill",
+        "killall",
+        "ps",
+        "top",
+        "htop",
+        "netstat",
+        "ss",
+        "lsof",
+        "df",
+        "du",
+        "free",
+        "uname",
+        "uptime",
+        "who",
+        "w",
+        "last",
+        "history",
+        "passwd",
+        "useradd",
+        "userdel",
+        "usermod",
+        "groupadd",
+        "groupdel",
+        "crontab",
+        "vim",
+        "nano",
+        "emacs",
+        "less",
+        "more",
+        "head",
+        "tail",
+        "grep",
+        "find",
+        "locate",
+        "which",
+        "whereis",
+        "file",
+        "ln",
+        "cp",
+        "mv",
+        "mkdir",
+        "rmdir",
+        "tar",
+        "gzip",
+        "gunzip",
+        "zip",
+        "unzip",
+        "wget",
+        "curl",
+        "ssh",
+        "scp",
+        "rsync",
+        "ping",
+        "traceroute",
+        "nslookup",
+        "dig",
+    ];
+
+    const commands: { [key: string]: (args?: string[]) => string | null } = {
         ls: () => {
             return pages.join("  ");
         },
         help: () => {
-            return "Available commands:\n  ls        - list all pages\n  clear     - clear terminal\n  help      - show this help message\n  whoami    - display current user";
+            return "Available commands:\n  ls        - list all pages\n  clear     - clear terminal\n  help      - show this help message\n  whoami    - display current user\n  cat       - display page description\n  cd        - change directory (restricted)\n  echo      - prints text to terminal\n  rm        - remove files (restricted)\n  woody     - easter egg command";
         },
         clear: () => {
             // Add a small delay to show the refreshing effect
@@ -67,10 +150,68 @@ export default function MacTerminal() {
         whoami: () => {
             return "woody";
         },
+        cat: (args) => {
+            if (!args || args.length === 0) {
+                return (
+                    "cat: missing file operand\nTry 'cat [page]' where page is one of: " +
+                    Object.keys(pageDescriptions).join(", ")
+                );
+            }
+            const page = args[0].toLowerCase();
+            if (pageDescriptions[page]) {
+                return pageDescriptions[page];
+            }
+            return `cat: ${args[0]}: No such file or directory`;
+        },
+        cd: (args) => {
+            if (!args || args.length === 0) {
+                return "Error: cd: missing directory argument";
+            }
+            if (args[0] === "..") {
+                return "Error: cd: permission denied: you don't have permission to go up";
+            }
+            const target = args[0].toLowerCase();
+            if (
+                pages.some((page) =>
+                    page.toLowerCase().replace(/\s+/g, "").includes(target)
+                )
+            ) {
+                return `Error: cd: ${args[0]}: is not a directory (it's a page)`;
+            }
+            return `Error: cd: ${args[0]}: No such file or directory`;
+        },
+        echo: (args) => {
+            if (!args || args.length === 0) {
+                return "";
+            }
+            return args.join(" ");
+        },
+        rm: (args) => {
+            if (!args || args.length === 0) {
+                return "Error: rm: missing file operand";
+            }
+            if (
+                args.includes("-r") ||
+                args.includes("-rf") ||
+                args.includes("-fr")
+            ) {
+                return "Error: rm: permission denied: you don't have permission to remove directories";
+            }
+            return "Error: rm: permission denied: you don't have permission to remove files";
+        },
+        woody: () => {
+            return "Hello, my friend! You found the Easter Egg! 🥚\nAlthough I don't think 'woody' is a Linux command =)\n\nFun fact: This terminal is built with React and TypeScript!";
+        },
+        date: () => {
+            return new Date().toString();
+        },
+        pwd: () => {
+            return "/home/woody";
+        },
     };
 
     const handleCommand = (cmd: string) => {
-        const trimmedCmd = cmd.trim().toLowerCase();
+        const trimmedCmd = cmd.trim();
 
         // Remove the current prompt and add the command to history
         const historyWithoutPrompt = history.slice(0, -1);
@@ -87,16 +228,49 @@ export default function MacTerminal() {
             return;
         }
 
-        if (commands[trimmedCmd]) {
-            const result = commands[trimmedCmd]();
+        // Parse command and arguments
+        const parts = trimmedCmd.split(/\s+/);
+        const command = parts[0].toLowerCase();
+        const args = parts.slice(1);
+
+        if (commands[command]) {
+            const result = commands[command](args);
             if (result !== null) {
-                newHistory.push({ type: "output", content: result });
+                // Check if the result is an error message
+                if (result.startsWith("Error: ")) {
+                    newHistory.push({
+                        type: "error",
+                        content: result.substring(7),
+                    });
+                } else {
+                    newHistory.push({ type: "output", content: result });
+                }
             }
-        } else {
+        } else if (restrictedCommands.includes(command)) {
             newHistory.push({
                 type: "error",
-                content: `zsh: command not found: ${trimmedCmd}\nType 'help' for available commands.`,
+                content: `${command}: permission denied: you don't have permission to execute this command`,
             });
+        } else {
+            // Check for common command variations
+            if (command.startsWith("rm")) {
+                newHistory.push({
+                    type: "error",
+                    content:
+                        "rm: permission denied: you don't have permission to remove files",
+                });
+            } else if (command.startsWith("cd")) {
+                newHistory.push({
+                    type: "error",
+                    content:
+                        "cd: permission denied: you don't have permission to change directories",
+                });
+            } else {
+                newHistory.push({
+                    type: "error",
+                    content: `zsh: command not found: ${command}\nType 'help' for available commands.`,
+                });
+            }
         }
 
         if (trimmedCmd !== "clear") {
