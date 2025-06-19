@@ -98,7 +98,7 @@ export const cameras: Camera[] = [
             "465g weight",
         ],
         description:
-            "My first SLR camera! (I later switched to mirrorless full-frame camera, Nikon ℤ5, for better image quality)",
+            "My first DSLR camera! (I later switched to mirrorless full-frame camera, Nikon ℤ5, for better image quality)",
         image: "/images/camera/nikon_d5600.jpg",
         purchaseYear: 2021,
         favorite: false,
