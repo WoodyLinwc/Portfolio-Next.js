@@ -106,8 +106,8 @@ export const lenses: Lens[] = [
         specs: [
             "70-300mm (105-450mm equivalent) focal length",
             "f/4.5-5.6 variable aperture",
-            "415 weight",
-            "125 length",
+            "415g weight",
+            "125mm length",
             "58mm filter size",
             "Vibration Reduction and Extra-low Dispersion glass",
         ],
@@ -115,6 +115,25 @@ export const lenses: Lens[] = [
             "This is the perfect lens for Nikon F mount APS-C camera, very good at photographing distant objects.",
         image: "/images/camera/nikon_70-300f4.5-6.3.jpg",
         purchaseYear: 2021,
+        favorite: false,
+    },
+    {
+        id: "12",
+        name: "Nikon 50mm f/1.4 AI",
+        brand: "Nikon",
+        model: "F mount 50mm f/1.4",
+        specs: [
+            "50mm focal length",
+            "f1.4 maximum aperture",
+            "246g weight",
+            "40.6mm length",
+            "52mm filter size",
+            "manual focus only",
+        ],
+        description:
+            "The model was introduced in 1977, my first manual focus lens, onion-ring bokeh.",
+        image: "/images/camera/nikon_50f1.4.webp",
+        purchaseYear: 2023,
         favorite: false,
     },
 ];
