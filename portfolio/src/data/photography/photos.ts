@@ -92,6 +92,16 @@ export const photos: Photo[] = [
         alt: "Airport kid travel",
     },
     {
+        src: "/images/album/Travel/zecong_look-min.JPG",
+        category: "travel",
+        alt: "zecong travel",
+    },
+    {
+        src: "/images/album/Travel/horse_look-min.JPG",
+        category: "travel",
+        alt: "horse look",
+    },
+    {
         src: "/images/album/Travel/train_couple-min.jpg",
         category: "travel",
         alt: "Train couple travel",
@@ -120,6 +130,11 @@ export const photos: Photo[] = [
         src: "/images/album/Travel/sailing_view-min.JPG",
         category: "travel",
         alt: "Sailing view travel",
+    },
+    {
+        src: "/images/album/Travel/hill_person-min.JPG",
+        category: "travel",
+        alt: "Hill person travel",
     },
     {
         src: "/images/album/Travel/reflection_walk-min.JPG",
