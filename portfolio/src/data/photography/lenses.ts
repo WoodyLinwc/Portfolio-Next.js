@@ -124,7 +124,7 @@ export const lenses: Lens[] = [
         model: "F mount 50mm f/1.4",
         specs: [
             "50mm focal length",
-            "f1.4 maximum aperture",
+            "f/1.4 maximum aperture",
             "246g weight",
             "40.6mm length",
             "52mm filter size",
