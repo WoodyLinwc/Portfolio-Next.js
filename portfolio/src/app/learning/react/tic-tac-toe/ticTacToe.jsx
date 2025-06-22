@@ -1,139 +1,94 @@
-"use client";
-
+import React from "react";
 import { useState } from "react";
 
 export default function TicTacToe() {
+    // create an array with 9 null elements
     const [board, setBoard] = useState(Array(9).fill(null));
-    const [currentPlayer, setCurrentPlayer] = useState("X");
-    const [winner, setWinner] = useState(null);
-    const [gameOver, setGameOver] = useState(false);
+    const [isXNext, setIsXNext] = useState(true);
+    // 0 1 2
+    // 3 4 5
+    // 6 7 8
 
-    const winningCombinations = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8], // rows
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8], // columns
-        [0, 4, 8],
-        [2, 4, 6], // diagonals
-    ];
+    const calculateWinner = (squares) => {
+        const lines = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ];
 
-    const checkWinner = (newBoard) => {
-        for (const combination of winningCombinations) {
-            const [a, b, c] = combination;
+        // check all winning combination
+        for (let i = 0; i < lines.length; i++) {
+            const [a, b, c] = lines[i];
             if (
-                newBoard[a] &&
-                newBoard[a] === newBoard[b] &&
-                newBoard[a] === newBoard[c]
+                squares[a] &&
+                squares[a] === squares[b] &&
+                squares[a] === squares[c]
             ) {
-                return newBoard[a];
+                return squares[a];
             }
         }
         return null;
     };
 
-    const handleClick = (index) => {
-        if (board[index] || winner || gameOver) return;
-
-        const newBoard = [...board];
-        newBoard[index] = currentPlayer;
-        setBoard(newBoard);
-
-        const gameWinner = checkWinner(newBoard);
-        if (gameWinner) {
-            setWinner(gameWinner);
-            setGameOver(true);
-        } else if (newBoard.every((cell) => cell !== null)) {
-            setGameOver(true);
-        } else {
-            setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
+    const handleClick = (i) => {
+        // return if there's winner or position already filled
+        if (calculateWinner(board) || board[i]) {
+            return;
         }
+        // create a new board
+        const newBoard = board.slice();
+        newBoard[i] = isXNext ? "X" : "O";
+        setBoard(newBoard);
+        setIsXNext(!isXNext);
     };
 
     const resetGame = () => {
         setBoard(Array(9).fill(null));
-        setCurrentPlayer("X");
-        setWinner(null);
-        setGameOver(false);
+        setIsXNext(true);
     };
 
-    const getStatusMessage = () => {
-        if (winner) {
-            return `🎉 Player ${winner} wins!`;
-        } else if (gameOver) {
-            return "🤝 It's a tie!";
-        } else {
-            return `Current player: ${currentPlayer}`;
-        }
+    const winner = calculateWinner(board);
+    const isDraw = !winner && board.every((square) => square !== null);
+    let status;
+    if (winner) {
+        status = `Winner is ${winner}`;
+    } else if (isDraw) {
+        status = "It is a draw";
+    } else {
+        status = `Next player is ${isXNext ? "X" : "O"}`;
+    }
+
+    const renderSquare = (i) => {
+        return (
+            <button
+                className="w-16 h-16 border border-gray-400 bg-white text-xl font-bold hover:bg-gray-100"
+                onClick={() => handleClick(i)}
+            >
+                {board[i]}
+            </button>
+        );
     };
 
     return (
-        <div className="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
-            <h4 className="font-bold text-lg mb-4 text-primary text-center">
-                Tic Tac Toe
-            </h4>
-
-            {/* Game Status */}
-            <div className="text-center mb-4">
-                <p
-                    className={`text-sm font-medium ${
-                        winner
-                            ? "text-green-600"
-                            : gameOver
-                            ? "text-yellow-600"
-                            : "text-gray-600"
-                    }`}
-                >
-                    {getStatusMessage()}
-                </p>
+        <div className="p-4">
+            <h1 className="text-2xl font-bold mb-4">Tic Tac Toe</h1>
+            <div className="mb-4 text-lg">{status}</div>
+            <div className="grid grid-cols-3 gap-1 w-fit mb-4">
+                {Array(9)
+                    .fill(null)
+                    .map((_, i) => renderSquare(i))}
             </div>
-
-            {/* Game Board */}
-            <div className="grid grid-cols-3 gap-2 mb-4">
-                {board.map((cell, index) => (
-                    <button
-                        key={index}
-                        onClick={() => handleClick(index)}
-                        className={`
-                            aspect-square flex items-center justify-center text-2xl font-bold
-                            border-2 border-gray-300 rounded-lg transition-all duration-200
-                            ${
-                                cell
-                                    ? "cursor-not-allowed"
-                                    : "hover:bg-gray-50 hover:border-primary cursor-pointer"
-                            }
-                            ${winner || gameOver ? "cursor-not-allowed" : ""}
-                            ${
-                                cell === "X"
-                                    ? "text-blue-600"
-                                    : cell === "O"
-                                    ? "text-red-600"
-                                    : "text-gray-400"
-                            }
-                        `}
-                        disabled={!!cell || !!winner || gameOver}
-                    >
-                        {cell}
-                    </button>
-                ))}
-            </div>
-
-            {/* Reset Button */}
-            <div className="text-center">
-                <button
-                    onClick={resetGame}
-                    className="bg-primary text-white px-4 py-2 rounded-full hover:bg-primary/90 transition-colors text-sm font-medium"
-                >
-                    <i className="fa fa-refresh mr-2"></i>
-                    New Game
-                </button>
-            </div>
-
-            {/* Game Rules */}
-            <div className="mt-4 text-xs text-gray-500 text-center">
-                <p>Get three in a row to win!</p>
-            </div>
+            <button
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                onClick={resetGame}
+            >
+                Reset Game
+            </button>
         </div>
     );
 }

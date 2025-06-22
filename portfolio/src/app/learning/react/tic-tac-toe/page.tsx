@@ -44,7 +44,7 @@ export default function TicTacToePage() {
                     </div>
 
                     {/* Code Explanation */}
-                    <div className="max-w-4xl mx-auto">
+                    {/* <div className="max-w-4xl mx-auto">
                         <h3 className="text-2xl font-semibold mb-6 text-gray-800 text-center">
                             What You&apos;ll Learn
                         </h3>
@@ -104,7 +104,7 @@ export default function TicTacToePage() {
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Next Steps */}
                     <div className="text-center mt-12">
