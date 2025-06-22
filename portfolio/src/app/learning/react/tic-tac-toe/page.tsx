@@ -46,7 +46,7 @@ export default function TicTacToePage() {
                     {/* Code Explanation */}
                     <div className="max-w-4xl mx-auto">
                         <h3 className="text-2xl font-semibold mb-6 text-gray-800 text-center">
-                            What You'll Learn
+                            What You&apos;ll Learn
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             <div className="bg-white p-6 rounded-lg shadow-md">
