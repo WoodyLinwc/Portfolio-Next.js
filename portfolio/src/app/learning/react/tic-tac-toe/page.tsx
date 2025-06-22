@@ -43,69 +43,6 @@ export default function TicTacToePage() {
                         <TicTacToe />
                     </div>
 
-                    {/* Code Explanation */}
-                    {/* <div className="max-w-4xl mx-auto">
-                        <h3 className="text-2xl font-semibold mb-6 text-gray-800 text-center">
-                            What You&apos;ll Learn
-                        </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <div className="bg-white p-6 rounded-lg shadow-md">
-                                <h4 className="font-bold text-lg mb-2 text-primary">
-                                    React Hooks
-                                </h4>
-                                <p className="text-gray-600 text-sm">
-                                    Learn useState for managing game state,
-                                    current player, and winner detection.
-                                </p>
-                            </div>
-                            <div className="bg-white p-6 rounded-lg shadow-md">
-                                <h4 className="font-bold text-lg mb-2 text-primary">
-                                    Event Handling
-                                </h4>
-                                <p className="text-gray-600 text-sm">
-                                    Handle click events on game squares and
-                                    button interactions.
-                                </p>
-                            </div>
-                            <div className="bg-white p-6 rounded-lg shadow-md">
-                                <h4 className="font-bold text-lg mb-2 text-primary">
-                                    Conditional Rendering
-                                </h4>
-                                <p className="text-gray-600 text-sm">
-                                    Display different UI states based on game
-                                    progress and winner.
-                                </p>
-                            </div>
-                            <div className="bg-white p-6 rounded-lg shadow-md">
-                                <h4 className="font-bold text-lg mb-2 text-primary">
-                                    Array Methods
-                                </h4>
-                                <p className="text-gray-600 text-sm">
-                                    Use JavaScript array methods for game logic
-                                    and state updates.
-                                </p>
-                            </div>
-                            <div className="bg-white p-6 rounded-lg shadow-md">
-                                <h4 className="font-bold text-lg mb-2 text-primary">
-                                    CSS Classes
-                                </h4>
-                                <p className="text-gray-600 text-sm">
-                                    Dynamic CSS classes based on game state and
-                                    player turns.
-                                </p>
-                            </div>
-                            <div className="bg-white p-6 rounded-lg shadow-md">
-                                <h4 className="font-bold text-lg mb-2 text-primary">
-                                    Game Logic
-                                </h4>
-                                <p className="text-gray-600 text-sm">
-                                    Implement win conditions, tie detection, and
-                                    game reset functionality.
-                                </p>
-                            </div>
-                        </div>
-                    </div> */}
-
                     {/* Next Steps */}
                     <div className="text-center mt-12">
                         <h3 className="text-2xl font-semibold mb-4 text-gray-800">
