@@ -1,33 +1,24 @@
-// Run this script to automatically create thumbnails and optimize images
+// scripts/optimize-images.js - Updated with better quality settings
 const sharp = require("sharp");
 const fs = require("fs").promises;
 const path = require("path");
 
-// Configuration
+// Updated Configuration - Better quality thumbnails
 const CONFIG = {
     inputDir: "./public/images/album",
-    outputDir: "./public/images/optimized",
-    thumbnailDir: "./public/images/thumbnails",
+    thumbnailDir: "./public/images/thumbnails", // Now higher quality for grid view
 
-    // Image quality settings
+    // Grid thumbnails - Good quality for browsing (80-120KB target)
     thumbnail: {
-        width: 400,
-        height: 400,
-        quality: 60, // Lower quality for thumbnails (30-50KB target)
-        format: "webp",
-    },
-
-    fullsize: {
-        width: 1200,
-        height: 1200,
-        quality: 80, // Higher quality for lightbox (150-250KB target)
+        width: 600, // Larger size for better grid display
+        height: 600,
+        quality: 78, // Higher quality - good balance
         format: "webp",
     },
 
     // Fallback JPEG versions
     fallback: {
-        thumbnail: { quality: 70 },
-        fullsize: { quality: 85 },
+        thumbnail: { quality: 85 }, // Higher fallback quality
     },
 };
 
@@ -49,9 +40,9 @@ async function optimizeImage(inputPath, outputPath, options) {
     });
 
     if (format === "webp") {
-        pipeline = pipeline.webp({ quality });
+        pipeline = pipeline.webp({ quality, effort: 6 }); // Higher effort for better compression
     } else if (format === "jpeg") {
-        pipeline = pipeline.jpeg({ quality, progressive: true });
+        pipeline = pipeline.jpeg({ quality, progressive: true, mozjpeg: true });
     }
 
     await pipeline.toFile(outputPath);
@@ -67,20 +58,18 @@ async function processImageFile(filePath, relativePath) {
 
     // Create subdirectories
     const thumbnailSubDir = path.join(CONFIG.thumbnailDir, subDir);
-    const fullsizeSubDir = path.join(CONFIG.outputDir, subDir);
 
     await ensureDirectoryExists(thumbnailSubDir);
-    await ensureDirectoryExists(fullsizeSubDir);
 
     try {
-        // Generate thumbnail WebP
+        // Generate optimized thumbnail WebP (for grid display)
         const thumbnailWebP = path.join(thumbnailSubDir, `${fileName}.webp`);
         const thumbnailSize = await optimizeImage(filePath, thumbnailWebP, {
             ...CONFIG.thumbnail,
             format: "webp",
         });
 
-        // Generate thumbnail JPEG fallback
+        // Generate optimized thumbnail JPEG fallback
         const thumbnailJPEG = path.join(thumbnailSubDir, `${fileName}.jpg`);
         await optimizeImage(filePath, thumbnailJPEG, {
             ...CONFIG.thumbnail,
@@ -88,23 +77,8 @@ async function processImageFile(filePath, relativePath) {
             quality: CONFIG.fallback.thumbnail.quality,
         });
 
-        // Generate full-size WebP
-        const fullsizeWebP = path.join(fullsizeSubDir, `${fileName}.webp`);
-        const fullsizeSize = await optimizeImage(filePath, fullsizeWebP, {
-            ...CONFIG.fullsize,
-            format: "webp",
-        });
-
-        // Generate full-size JPEG fallback
-        const fullsizeJPEG = path.join(fullsizeSubDir, `${fileName}.jpg`);
-        await optimizeImage(filePath, fullsizeJPEG, {
-            ...CONFIG.fullsize,
-            format: "jpeg",
-            quality: CONFIG.fallback.fullsize.quality,
-        });
-
         console.log(
-            `✅ ${fileName}: Thumbnail ${thumbnailSize}KB, Full ${fullsizeSize}KB`
+            `✅ ${fileName}: Optimized thumbnail ${thumbnailSize}KB (original for lightbox)`
         );
 
         return {
@@ -113,11 +87,6 @@ async function processImageFile(filePath, relativePath) {
                 webp: thumbnailWebP,
                 jpeg: thumbnailJPEG,
                 size: thumbnailSize,
-            },
-            fullsize: {
-                webp: fullsizeWebP,
-                jpeg: fullsizeJPEG,
-                size: fullsizeSize,
             },
         };
     } catch (error) {
@@ -153,17 +122,15 @@ async function generateManifest(processedImages) {
     const manifest = {
         generated: new Date().toISOString(),
         config: CONFIG,
+        strategy: "optimized_thumbnails_original_lightbox",
+        description:
+            "Thumbnails are optimized for grid display, originals shown in lightbox",
         images: processedImages.filter(Boolean).map((img) => ({
-            original: img.original,
+            original: img.original.replace("./public", ""),
             thumbnail: {
                 webp: img.thumbnail.webp.replace("./public", ""),
                 jpeg: img.thumbnail.jpeg.replace("./public", ""),
                 size: img.thumbnail.size,
-            },
-            fullsize: {
-                webp: img.fullsize.webp.replace("./public", ""),
-                jpeg: img.fullsize.jpeg.replace("./public", ""),
-                size: img.fullsize.size,
             },
         })),
     };
@@ -177,11 +144,13 @@ async function generateManifest(processedImages) {
 }
 
 async function main() {
-    console.log("🚀 Starting image optimization...");
+    console.log("🚀 Starting image optimization (Updated Strategy)...");
+    console.log(
+        "📋 Strategy: Optimized thumbnails for grid + Original images for lightbox"
+    );
 
     // Ensure output directories exist
     await ensureDirectoryExists(CONFIG.thumbnailDir);
-    await ensureDirectoryExists(CONFIG.outputDir);
 
     // Find all image files
     const imageFiles = await findImageFiles(CONFIG.inputDir);
@@ -199,8 +168,7 @@ async function main() {
         const result = await processImageFile(fullPath, relativePath);
         if (result) {
             processedImages.push(result);
-            totalOptimizedSize +=
-                (result.thumbnail.size + result.fullsize.size) * 1024;
+            totalOptimizedSize += result.thumbnail.size * 1024; // Only count thumbnails
         }
     }
 
@@ -208,20 +176,25 @@ async function main() {
     await generateManifest(processedImages);
 
     // Print summary
-    const savings = (
-        ((totalOriginalSize - totalOptimizedSize) / totalOriginalSize) *
-        100
-    ).toFixed(1);
     console.log("\n📊 Optimization Summary:");
+    console.log("============================");
+    console.log(`   Strategy: Better thumbnails + Original lightbox`);
+    console.log(`   Thumbnail quality: Higher (78% WebP, ~80-120KB each)`);
+    console.log(`   Lightbox: Original images (~500KB each)`);
     console.log(
         `   Original total: ${(totalOriginalSize / 1024 / 1024).toFixed(1)}MB`
     );
     console.log(
-        `   Optimized total: ${(totalOptimizedSize / 1024 / 1024).toFixed(1)}MB`
+        `   Grid load size: ${(totalOptimizedSize / 1024 / 1024).toFixed(1)}MB`
     );
-    console.log(`   Space saved: ${savings}%`);
+    console.log(
+        `   Average thumbnail: ${Math.round(
+            totalOptimizedSize / 1024 / processedImages.length
+        )}KB`
+    );
     console.log(`   Images processed: ${processedImages.length}`);
     console.log("\n✅ Image optimization complete!");
+    console.log("🎯 Result: Better quality grid + Full originals on click");
 }
 
 // Run the script

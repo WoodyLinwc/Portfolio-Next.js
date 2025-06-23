@@ -1,4 +1,3 @@
-// src/components/OptimizedImage.tsx
 "use client";
 
 import { useState, useCallback } from "react";
@@ -24,24 +23,20 @@ export default function OptimizedImage({
     const [thumbnailLoaded, setThumbnailLoaded] = useState(false);
     const [hasError, setHasError] = useState(false);
 
-    // Generate optimized image paths
+    // Generate optimized thumbnail paths (higher quality for grid)
     const getOptimizedPaths = (originalPath: string) => {
         const pathParts = originalPath.split("/");
         const fileName = pathParts[pathParts.length - 1];
         const nameWithoutExt = fileName.split(".")[0];
         const directory = pathParts.slice(0, -1).join("/");
 
-        // Remove /images/album/ and replace with optimized paths
+        // Remove /images/album/ and replace with thumbnails path
         const relativePath = directory.replace("/images/album/", "");
 
         return {
             thumbnail: {
                 webp: `/images/thumbnails/${relativePath}/${nameWithoutExt}.webp`,
                 jpeg: `/images/thumbnails/${relativePath}/${nameWithoutExt}.jpg`,
-            },
-            fullsize: {
-                webp: `/images/optimized/${relativePath}/${nameWithoutExt}.webp`,
-                jpeg: `/images/optimized/${relativePath}/${nameWithoutExt}.jpg`,
             },
         };
     };
@@ -105,7 +100,7 @@ export default function OptimizedImage({
                 onLoad={handleThumbnailLoad}
                 onError={handleError}
                 onClick={onClick}
-                quality={75}
+                quality={85} // Higher quality for better grid display
             />
 
             {/* Loading placeholder */}
@@ -120,39 +115,22 @@ export default function OptimizedImage({
     );
 }
 
-// High-quality image component for lightbox
-interface FullQualityImageProps {
+// Original quality image component for lightbox
+interface OriginalImageProps {
     src: string;
     alt: string;
     onLoad?: () => void;
     className?: string;
 }
 
-export function FullQualityImage({
+export function OriginalImage({
     src,
     alt,
     onLoad,
     className = "",
-}: FullQualityImageProps) {
+}: OriginalImageProps) {
     const [imageLoaded, setImageLoaded] = useState(false);
     const [hasError, setHasError] = useState(false);
-
-    const paths =
-        OptimizedImage.prototype.constructor.getOptimizedPaths?.(src) ||
-        (() => {
-            const pathParts = src.split("/");
-            const fileName = pathParts[pathParts.length - 1];
-            const nameWithoutExt = fileName.split(".")[0];
-            const directory = pathParts.slice(0, -1).join("/");
-            const relativePath = directory.replace("/images/album/", "");
-
-            return {
-                fullsize: {
-                    webp: `/images/optimized/${relativePath}/${nameWithoutExt}.webp`,
-                    jpeg: `/images/optimized/${relativePath}/${nameWithoutExt}.jpg`,
-                },
-            };
-        })();
 
     const handleImageLoad = useCallback(() => {
         setImageLoaded(true);
@@ -164,40 +142,19 @@ export function FullQualityImage({
         onLoad?.(); // Still call onLoad to hide loading spinner
     }, [onLoad]);
 
-    if (hasError) {
-        return (
-            <Image
-                src={src}
-                alt={alt}
-                width={1200}
-                height={800}
-                className={`max-w-full max-h-[90vh] object-contain ${className}`}
-                onLoad={handleImageLoad}
-                priority
-                quality={95}
-            />
-        );
-    }
-
     return (
-        <picture className="contents">
-            {/* WebP source for modern browsers */}
-            <source srcSet={paths.fullsize.webp} type="image/webp" />
-
-            {/* JPEG fallback */}
-            <Image
-                src={paths.fullsize.jpeg}
-                alt={alt}
-                width={1200}
-                height={800}
-                className={`max-w-full max-h-[90vh] object-contain transition-opacity duration-300 ${
-                    imageLoaded ? "opacity-100" : "opacity-0"
-                } ${className}`}
-                onLoad={handleImageLoad}
-                onError={handleError}
-                priority
-                quality={90}
-            />
-        </picture>
+        <Image
+            src={src} // Direct path to original image
+            alt={alt}
+            width={1920} // Larger size for original viewing
+            height={1280}
+            className={`max-w-full max-h-[90vh] object-contain transition-opacity duration-300 ${
+                imageLoaded ? "opacity-100" : "opacity-0"
+            } ${className}`}
+            onLoad={handleImageLoad}
+            onError={handleError}
+            priority
+            quality={95} // High quality for original viewing
+        />
     );
 }
