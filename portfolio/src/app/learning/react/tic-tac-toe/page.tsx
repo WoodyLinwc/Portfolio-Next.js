@@ -40,8 +40,8 @@ export default function TicTacToePage() {
                             the winner by iterating all winning combination
                         </p>
                         <p className="text-gray-600 text-sm max-w-2xl mx-auto mb-2">
-                            3. handleClick return if there's winner or position
-                            filled, create a new board, check who's current
+                            3. handleClick return if there is winner or position
+                            filled, create a new board, check who is current
                             player, set next player, update board.
                         </p>
                         <p className="text-gray-600 text-sm max-w-2xl mx-auto mb-2">
