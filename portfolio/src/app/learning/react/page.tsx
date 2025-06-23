@@ -108,6 +108,7 @@ export default function ReactLearningPage() {
                                 </span>
                             </div>
                         </div>
+
                         <div className="bg-white p-6 rounded-lg shadow-md">
                             <h4 className="font-bold text-lg mb-2 text-primary">
                                 Form with Validation
@@ -122,6 +123,7 @@ export default function ReactLearningPage() {
                                 </span>
                             </div>
                         </div>
+
                         <div className="bg-white p-6 rounded-lg shadow-md">
                             <h4 className="font-bold text-lg mb-2 text-primary">
                                 Infinite Scroll List
@@ -135,6 +137,7 @@ export default function ReactLearningPage() {
                                 </span>
                             </div>
                         </div>
+
                         <div className="bg-white p-6 rounded-lg shadow-md">
                             <h4 className="font-bold text-lg mb-2 text-primary">
                                 Reusable Button / Input Components
@@ -148,6 +151,7 @@ export default function ReactLearningPage() {
                                 </span>
                             </div>
                         </div>
+
                         <div className="bg-white p-6 rounded-lg shadow-md">
                             <h4 className="font-bold text-lg mb-2 text-primary">
                                 Theme Toggle with Context API
@@ -162,6 +166,7 @@ export default function ReactLearningPage() {
                                 </span>
                             </div>
                         </div>
+
                         <div className="bg-white p-6 rounded-lg shadow-md">
                             <h4 className="font-bold text-lg mb-2 text-primary">
                                 Carousel/Slider
