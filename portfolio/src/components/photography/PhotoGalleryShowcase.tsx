@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Spinner from "@/components/Spinner";
+import { useBackgroundPreloader } from "@/hooks/useBackgroundPreloader";
 import { photos, filterOptions } from "@/data/photography/photos";
 
 interface PhotoGalleryShowcaseProps {
@@ -101,9 +102,25 @@ export default function PhotoGalleryShowcase({
             : photos.filter((photo) => photo.category === activeFilter);
     }, [activeFilter]);
 
+    // Get all original image paths for preloading
+    const allOriginalImages = useMemo(() => {
+        return photos.map((photo) => photo.src);
+    }, []);
+
+    // Use the background preloader hook with custom options
+    const { preloadedImages, isComplete, loadedCount } = useBackgroundPreloader(
+        allOriginalImages,
+        {
+            startDelay: 1000, // Start preloading after 1 second
+            imageDelay: 50, // 50ms delay between each image
+            concurrency: 2, // Load 2 images concurrently
+        }
+    );
+
     const handleImageClick = (src: string) => {
         setSelectedImage(src);
-        setSelectedImageLoading(true);
+        // If image is already preloaded, it should load instantly
+        setSelectedImageLoading(!preloadedImages.has(src));
     };
 
     const handleSelectedImageLoad = () => {
@@ -140,17 +157,27 @@ export default function PhotoGalleryShowcase({
 
             {/* Photo Count */}
             <div className="text-center mb-8">
-                <p className="text-gray-600 text-sm">
-                    Showing {filteredPhotos.length} photos
-                    {activeFilter !== "all" &&
-                        ` in ${
-                            filterOptions.find((f) => f.key === activeFilter)
-                                ?.label
-                        } category`}
-                </p>
+                <div className="flex items-center justify-center space-x-2">
+                    <p className="text-gray-600 text-sm">
+                        Showing {filteredPhotos.length} photos
+                        {activeFilter !== "all" &&
+                            ` in ${
+                                filterOptions.find(
+                                    (f) => f.key === activeFilter
+                                )?.label
+                            } category`}
+                    </p>
+                    {/* Green dot indicator when all images are preloaded */}
+                    {isComplete && loadedCount === allOriginalImages.length && (
+                        <div
+                            className="w-2 h-2 bg-green-500 rounded-full"
+                            title={`All ${loadedCount} original images preloaded`}
+                        />
+                    )}
+                </div>
             </div>
 
-            {/* Photo Grid with Optimization */}
+            {/* Photo Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredPhotos.map((photo, index) => (
                     <div
@@ -184,7 +211,7 @@ export default function PhotoGalleryShowcase({
                 </div>
             )}
 
-            {/* Lightbox Modal - Always uses original images */}
+            {/* Lightbox Modal */}
             {selectedImage && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999] p-4"
@@ -201,6 +228,7 @@ export default function PhotoGalleryShowcase({
                             ✕
                         </button>
 
+                        {/* Loading spinner - should rarely show if image is preloaded */}
                         {selectedImageLoading && (
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <Spinner size="large" color="white" />
@@ -209,7 +237,7 @@ export default function PhotoGalleryShowcase({
 
                         {/* Original image for lightbox */}
                         <Image
-                            src={selectedImage} // Always use original for lightbox
+                            src={selectedImage}
                             alt="Enlarged photo"
                             width={1200}
                             height={800}
@@ -220,7 +248,7 @@ export default function PhotoGalleryShowcase({
                             }`}
                             onLoad={handleSelectedImageLoad}
                             priority
-                            quality={95} // High quality for lightbox
+                            quality={95}
                         />
                     </div>
                 </div>
