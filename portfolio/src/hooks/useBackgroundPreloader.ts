@@ -7,6 +7,8 @@ interface UseBackgroundPreloaderOptions {
     imageDelay?: number;
     /** Maximum number of concurrent preloads */
     concurrency?: number;
+    /** Unique key for caching preload state */
+    cacheKey?: string;
 }
 
 interface UseBackgroundPreloaderReturn {
@@ -25,7 +27,7 @@ interface UseBackgroundPreloaderReturn {
 }
 
 /**
- * Custom hook for preloading images in the background
+ * Custom hook for preloading images in the background with persistent caching
  *
  * @param imagesToPreload - Array of image URLs to preload
  * @param options - Configuration options for preloading behavior
@@ -35,7 +37,12 @@ export function useBackgroundPreloader(
     imagesToPreload: string[],
     options: UseBackgroundPreloaderOptions = {}
 ): UseBackgroundPreloaderReturn {
-    const { startDelay = 1000, imageDelay = 50, concurrency = 1 } = options;
+    const {
+        startDelay = 1000,
+        imageDelay = 50,
+        concurrency = 1,
+        cacheKey = "default",
+    } = options;
 
     const [preloadedImages, setPreloadedImages] = useState<Set<string>>(
         new Set()
@@ -46,17 +53,92 @@ export function useBackgroundPreloader(
     const [loadedCount, setLoadedCount] = useState(0);
     const [failedCount, setFailedCount] = useState(0);
 
+    // Load cached preload state from localStorage
+    useEffect(() => {
+        // Only run on client side
+        if (typeof window === "undefined") return;
+
+        try {
+            const cacheData = localStorage.getItem(`preload-cache-${cacheKey}`);
+            if (cacheData) {
+                const { preloadedUrls, timestamp } = JSON.parse(cacheData);
+
+                // Check if cache is still valid (24 hours)
+                const cacheAge = Date.now() - timestamp;
+                const maxCacheAge = 24 * 60 * 60 * 1000; // 24 hours
+
+                if (cacheAge < maxCacheAge && Array.isArray(preloadedUrls)) {
+                    const cachedSet = new Set(preloadedUrls);
+                    const validCachedImages = preloadedUrls.filter((url) =>
+                        imagesToPreload.includes(url)
+                    );
+
+                    if (validCachedImages.length > 0) {
+                        setPreloadedImages(new Set(validCachedImages));
+                        setLoadedCount(validCachedImages.length);
+
+                        // If all images are already cached, mark as complete
+                        if (
+                            validCachedImages.length === imagesToPreload.length
+                        ) {
+                            setIsComplete(true);
+                            setPreloadProgress(100);
+                            return; // Skip preloading entirely
+                        }
+                    }
+                }
+            }
+        } catch (error) {
+            console.warn("Failed to load preload cache:", error);
+        }
+    }, [imagesToPreload, cacheKey]);
+
+    // Save preload state to localStorage
+    const saveCacheData = (preloadedUrls: string[]) => {
+        // Only run on client side
+        if (typeof window === "undefined") return;
+
+        try {
+            const cacheData = {
+                preloadedUrls,
+                timestamp: Date.now(),
+            };
+            localStorage.setItem(
+                `preload-cache-${cacheKey}`,
+                JSON.stringify(cacheData)
+            );
+        } catch (error) {
+            console.warn("Failed to save preload cache:", error);
+        }
+    };
+
     useEffect(() => {
         if (imagesToPreload.length === 0) {
             setIsComplete(true);
             return;
         }
 
+        // Skip preloading if already complete from cache
+        if (isComplete && loadedCount === imagesToPreload.length) {
+            return;
+        }
+
         let isCancelled = false;
         const totalImages = imagesToPreload.length;
-        let processedCount = 0;
-        let successCount = 0;
-        let errorCount = 0;
+        let processedCount = loadedCount; // Start from cached count
+        let successCount = loadedCount; // Start from cached count
+        let errorCount = failedCount;
+
+        // Get images that haven't been preloaded yet
+        const imagesToLoad = imagesToPreload.filter(
+            (src) => !preloadedImages.has(src)
+        );
+
+        if (imagesToLoad.length === 0) {
+            setIsComplete(true);
+            setPreloadProgress(100);
+            return;
+        }
 
         /**
          * Preloads a single image
@@ -74,7 +156,12 @@ export function useBackgroundPreloader(
                     if (!isCancelled) {
                         processedCount++;
                         successCount++;
-                        setPreloadedImages((prev) => new Set([...prev, src]));
+                        setPreloadedImages((prev) => {
+                            const newSet = new Set([...prev, src]);
+                            // Save to cache
+                            saveCacheData(Array.from(newSet));
+                            return newSet;
+                        });
                         setLoadedCount(successCount);
                         setPreloadProgress(
                             (processedCount / totalImages) * 100
@@ -120,15 +207,12 @@ export function useBackgroundPreloader(
             if (isCancelled) return;
 
             setIsPreloading(true);
-            setPreloadProgress(0);
-            setLoadedCount(0);
-            setFailedCount(0);
 
             // Process images in batches based on concurrency setting
-            for (let i = 0; i < imagesToPreload.length; i += concurrency) {
+            for (let i = 0; i < imagesToLoad.length; i += concurrency) {
                 if (isCancelled) break;
 
-                const batch = imagesToPreload.slice(i, i + concurrency);
+                const batch = imagesToLoad.slice(i, i + concurrency);
                 const batchPromises = batch.map(async (src, index) => {
                     // Add delay between images in the same batch (except the first)
                     if (index > 0 && imageDelay > 0) {
@@ -143,10 +227,7 @@ export function useBackgroundPreloader(
                 await Promise.all(batchPromises);
 
                 // Small delay between batches to prevent overwhelming the browser
-                if (
-                    i + concurrency < imagesToPreload.length &&
-                    imageDelay > 0
-                ) {
+                if (i + concurrency < imagesToLoad.length && imageDelay > 0) {
                     await new Promise((resolve) =>
                         setTimeout(resolve, imageDelay)
                     );
@@ -167,7 +248,16 @@ export function useBackgroundPreloader(
             clearTimeout(timeoutId);
             setIsPreloading(false);
         };
-    }, [imagesToPreload, startDelay, imageDelay, concurrency]);
+    }, [
+        imagesToPreload,
+        startDelay,
+        imageDelay,
+        concurrency,
+        isComplete,
+        loadedCount,
+        failedCount,
+        preloadedImages,
+    ]);
 
     return {
         preloadedImages,
