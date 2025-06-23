@@ -9,6 +9,16 @@ interface PhotoGalleryShowcaseProps {
     className?: string;
 }
 
+interface OptimizedLazyImageProps {
+    src: string;
+    alt: string;
+    fill: boolean;
+    className: string;
+    priority: boolean;
+    sizes: string;
+    onClick?: () => void;
+}
+
 // Optimized LazyImage that tries thumbnails first, falls back to originals
 function OptimizedLazyImage({
     src,
@@ -18,7 +28,7 @@ function OptimizedLazyImage({
     priority,
     sizes,
     onClick,
-}: any) {
+}: OptimizedLazyImageProps) {
     const [imageLoaded, setImageLoaded] = useState(false);
     const [useOriginal, setUseOriginal] = useState(false);
 
