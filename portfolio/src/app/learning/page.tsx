@@ -36,12 +36,8 @@ export default function LearningPage() {
                     {/* Additional Learning Content */}
                     <div className="mt-12 text-center">
                         <h3 className="text-2xl font-semibold mb-4 text-gray-800">
-                            Learning Resources (Coming soon)
+                            Frontend Essentials (Coming soon)
                         </h3>
-                        {/* <p className="text-gray-600 mb-6">
-                            More interactive learning tools and resources coming
-                            soon!
-                        </p> */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div className="bg-white p-6 rounded-lg shadow-md">
                                 <h4 className="font-bold text-lg mb-2 text-primary">
@@ -53,7 +49,7 @@ export default function LearningPage() {
                             </div>
                             <div className="bg-white p-6 rounded-lg shadow-md">
                                 <h4 className="font-bold text-lg mb-2 text-primary">
-                                    JavaScript and React Essentials
+                                    JavaScript and React Basics
                                 </h4>
                                 <p className="text-gray-600 text-sm">
                                     Variables, functions, arrays, loops, JSX,
