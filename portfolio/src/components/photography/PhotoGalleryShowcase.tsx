@@ -114,6 +114,7 @@ export default function PhotoGalleryShowcase({
             startDelay: 1000, // Start preloading after 1 second
             imageDelay: 50, // 50ms delay between each image
             concurrency: 2, // Load 2 images concurrently
+            cacheKey: "photo-gallery", // Unique cache key for photo gallery
         }
     );
 
