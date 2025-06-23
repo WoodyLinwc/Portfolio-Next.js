@@ -1,0 +1,1122 @@
+{
+  "generated": "2025-06-23T21:09:04.745Z",
+  "config": {
+    "inputDir": "./public/images/album",
+    "outputDir": "./public/images/optimized",
+    "thumbnailDir": "./public/images/thumbnails",
+    "thumbnail": {
+      "width": 400,
+      "height": 400,
+      "quality": 60,
+      "format": "webp"
+    },
+    "fullsize": {
+      "width": 1200,
+      "height": 1200,
+      "quality": 80,
+      "format": "webp"
+    },
+    "fallback": {
+      "thumbnail": {
+        "quality": 70
+      },
+      "fullsize": {
+        "quality": 85
+      }
+    }
+  },
+  "images": [
+    {
+      "original": "public/images/album/B&W/beach_kid-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/beach_kid-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/beach_kid-min.jpg",
+        "size": 6
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/beach_kid-min.webp",
+        "jpeg": "public/images/optimized/B&W/beach_kid-min.jpg",
+        "size": 54
+      }
+    },
+    {
+      "original": "public/images/album/B&W/cloud_mountain-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/cloud_mountain-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/cloud_mountain-min.jpg",
+        "size": 2
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/cloud_mountain-min.webp",
+        "jpeg": "public/images/optimized/B&W/cloud_mountain-min.jpg",
+        "size": 16
+      }
+    },
+    {
+      "original": "public/images/album/B&W/couple_dog-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/couple_dog-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/couple_dog-min.jpg",
+        "size": 4
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/couple_dog-min.webp",
+        "jpeg": "public/images/optimized/B&W/couple_dog-min.jpg",
+        "size": 47
+      }
+    },
+    {
+      "original": "public/images/album/B&W/distant_island-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/distant_island-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/distant_island-min.jpg",
+        "size": 9
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/distant_island-min.webp",
+        "jpeg": "public/images/optimized/B&W/distant_island-min.jpg",
+        "size": 94
+      }
+    },
+    {
+      "original": "public/images/album/B&W/glass_man-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/glass_man-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/glass_man-min.jpg",
+        "size": 4
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/glass_man-min.webp",
+        "jpeg": "public/images/optimized/B&W/glass_man-min.jpg",
+        "size": 34
+      }
+    },
+    {
+      "original": "public/images/album/B&W/island_bird-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/island_bird-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/island_bird-min.jpg",
+        "size": 3
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/island_bird-min.webp",
+        "jpeg": "public/images/optimized/B&W/island_bird-min.jpg",
+        "size": 21
+      }
+    },
+    {
+      "original": "public/images/album/B&W/island_boat-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/island_boat-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/island_boat-min.jpg",
+        "size": 5
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/island_boat-min.webp",
+        "jpeg": "public/images/optimized/B&W/island_boat-min.jpg",
+        "size": 41
+      }
+    },
+    {
+      "original": "public/images/album/B&W/island_walk-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/island_walk-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/island_walk-min.jpg",
+        "size": 7
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/island_walk-min.webp",
+        "jpeg": "public/images/optimized/B&W/island_walk-min.jpg",
+        "size": 94
+      }
+    },
+    {
+      "original": "public/images/album/B&W/museum_exposure-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/museum_exposure-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/museum_exposure-min.jpg",
+        "size": 5
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/museum_exposure-min.webp",
+        "jpeg": "public/images/optimized/B&W/museum_exposure-min.jpg",
+        "size": 41
+      }
+    },
+    {
+      "original": "public/images/album/B&W/museum_glass-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/museum_glass-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/museum_glass-min.jpg",
+        "size": 7
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/museum_glass-min.webp",
+        "jpeg": "public/images/optimized/B&W/museum_glass-min.jpg",
+        "size": 60
+      }
+    },
+    {
+      "original": "public/images/album/B&W/museum_reflection-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/museum_reflection-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/museum_reflection-min.jpg",
+        "size": 5
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/museum_reflection-min.webp",
+        "jpeg": "public/images/optimized/B&W/museum_reflection-min.jpg",
+        "size": 35
+      }
+    },
+    {
+      "original": "public/images/album/B&W/museum_shadow-min.jpg",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/museum_shadow-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/museum_shadow-min.jpg",
+        "size": 4
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/museum_shadow-min.webp",
+        "jpeg": "public/images/optimized/B&W/museum_shadow-min.jpg",
+        "size": 27
+      }
+    },
+    {
+      "original": "public/images/album/B&W/museum_statue-min.jpg",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/museum_statue-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/museum_statue-min.jpg",
+        "size": 5
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/museum_statue-min.webp",
+        "jpeg": "public/images/optimized/B&W/museum_statue-min.jpg",
+        "size": 30
+      }
+    },
+    {
+      "original": "public/images/album/B&W/museum_view-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/museum_view-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/museum_view-min.jpg",
+        "size": 5
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/museum_view-min.webp",
+        "jpeg": "public/images/optimized/B&W/museum_view-min.jpg",
+        "size": 34
+      }
+    },
+    {
+      "original": "public/images/album/B&W/nine_grid-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/nine_grid-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/nine_grid-min.jpg",
+        "size": 8
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/nine_grid-min.webp",
+        "jpeg": "public/images/optimized/B&W/nine_grid-min.jpg",
+        "size": 52
+      }
+    },
+    {
+      "original": "public/images/album/B&W/old_man-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/old_man-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/old_man-min.jpg",
+        "size": 5
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/old_man-min.webp",
+        "jpeg": "public/images/optimized/B&W/old_man-min.jpg",
+        "size": 25
+      }
+    },
+    {
+      "original": "public/images/album/B&W/side_look-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/side_look-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/side_look-min.jpg",
+        "size": 3
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/side_look-min.webp",
+        "jpeg": "public/images/optimized/B&W/side_look-min.jpg",
+        "size": 19
+      }
+    },
+    {
+      "original": "public/images/album/B&W/train_smoke-min.jpg",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/train_smoke-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/train_smoke-min.jpg",
+        "size": 10
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/train_smoke-min.webp",
+        "jpeg": "public/images/optimized/B&W/train_smoke-min.jpg",
+        "size": 66
+      }
+    },
+    {
+      "original": "public/images/album/B&W/trunk_beach-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/trunk_beach-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/trunk_beach-min.jpg",
+        "size": 7
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/trunk_beach-min.webp",
+        "jpeg": "public/images/optimized/B&W/trunk_beach-min.jpg",
+        "size": 81
+      }
+    },
+    {
+      "original": "public/images/album/B&W/waiting_train-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/waiting_train-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/waiting_train-min.jpg",
+        "size": 8
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/waiting_train-min.webp",
+        "jpeg": "public/images/optimized/B&W/waiting_train-min.jpg",
+        "size": 58
+      }
+    },
+    {
+      "original": "public/images/album/B&W/wheel_museum-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/wheel_museum-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/wheel_museum-min.jpg",
+        "size": 6
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/wheel_museum-min.webp",
+        "jpeg": "public/images/optimized/B&W/wheel_museum-min.jpg",
+        "size": 34
+      }
+    },
+    {
+      "original": "public/images/album/B&W/whip_men-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/B&W/whip_men-min.webp",
+        "jpeg": "public/images/thumbnails/B&W/whip_men-min.jpg",
+        "size": 3
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/B&W/whip_men-min.webp",
+        "jpeg": "public/images/optimized/B&W/whip_men-min.jpg",
+        "size": 15
+      }
+    },
+    {
+      "original": "public/images/album/Event/ab_couple-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/ab_couple-min.webp",
+        "jpeg": "public/images/thumbnails/Event/ab_couple-min.jpg",
+        "size": 11
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/ab_couple-min.webp",
+        "jpeg": "public/images/optimized/Event/ab_couple-min.jpg",
+        "size": 71
+      }
+    },
+    {
+      "original": "public/images/album/Event/ab_glasses-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/ab_glasses-min.webp",
+        "jpeg": "public/images/thumbnails/Event/ab_glasses-min.jpg",
+        "size": 14
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/ab_glasses-min.webp",
+        "jpeg": "public/images/optimized/Event/ab_glasses-min.jpg",
+        "size": 79
+      }
+    },
+    {
+      "original": "public/images/album/Event/ab_maid-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/ab_maid-min.webp",
+        "jpeg": "public/images/thumbnails/Event/ab_maid-min.jpg",
+        "size": 11
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/ab_maid-min.webp",
+        "jpeg": "public/images/optimized/Event/ab_maid-min.jpg",
+        "size": 73
+      }
+    },
+    {
+      "original": "public/images/album/Event/ab_maid2-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/ab_maid2-min.webp",
+        "jpeg": "public/images/thumbnails/Event/ab_maid2-min.jpg",
+        "size": 10
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/ab_maid2-min.webp",
+        "jpeg": "public/images/optimized/Event/ab_maid2-min.jpg",
+        "size": 59
+      }
+    },
+    {
+      "original": "public/images/album/Event/boat_jialong-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/boat_jialong-min.webp",
+        "jpeg": "public/images/thumbnails/Event/boat_jialong-min.jpg",
+        "size": 9
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/boat_jialong-min.webp",
+        "jpeg": "public/images/optimized/Event/boat_jialong-min.jpg",
+        "size": 67
+      }
+    },
+    {
+      "original": "public/images/album/Event/cos_three-min.PNG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/cos_three-min.webp",
+        "jpeg": "public/images/thumbnails/Event/cos_three-min.jpg",
+        "size": 12
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/cos_three-min.webp",
+        "jpeg": "public/images/optimized/Event/cos_three-min.jpg",
+        "size": 78
+      }
+    },
+    {
+      "original": "public/images/album/Event/hanfu_aidi-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/hanfu_aidi-min.webp",
+        "jpeg": "public/images/thumbnails/Event/hanfu_aidi-min.jpg",
+        "size": 7
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/hanfu_aidi-min.webp",
+        "jpeg": "public/images/optimized/Event/hanfu_aidi-min.jpg",
+        "size": 46
+      }
+    },
+    {
+      "original": "public/images/album/Event/hanfu_couple-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/hanfu_couple-min.webp",
+        "jpeg": "public/images/thumbnails/Event/hanfu_couple-min.jpg",
+        "size": 11
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/hanfu_couple-min.webp",
+        "jpeg": "public/images/optimized/Event/hanfu_couple-min.jpg",
+        "size": 75
+      }
+    },
+    {
+      "original": "public/images/album/Event/hanfu_man-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/hanfu_man-min.webp",
+        "jpeg": "public/images/thumbnails/Event/hanfu_man-min.jpg",
+        "size": 9
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/hanfu_man-min.webp",
+        "jpeg": "public/images/optimized/Event/hanfu_man-min.jpg",
+        "size": 64
+      }
+    },
+    {
+      "original": "public/images/album/Event/hanfu_pink-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/hanfu_pink-min.webp",
+        "jpeg": "public/images/thumbnails/Event/hanfu_pink-min.jpg",
+        "size": 3
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/hanfu_pink-min.webp",
+        "jpeg": "public/images/optimized/Event/hanfu_pink-min.jpg",
+        "size": 20
+      }
+    },
+    {
+      "original": "public/images/album/Event/hanfu_tree-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/hanfu_tree-min.webp",
+        "jpeg": "public/images/thumbnails/Event/hanfu_tree-min.jpg",
+        "size": 11
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/hanfu_tree-min.webp",
+        "jpeg": "public/images/optimized/Event/hanfu_tree-min.jpg",
+        "size": 75
+      }
+    },
+    {
+      "original": "public/images/album/Event/hanfu_xinyu-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/hanfu_xinyu-min.webp",
+        "jpeg": "public/images/thumbnails/Event/hanfu_xinyu-min.jpg",
+        "size": 16
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/hanfu_xinyu-min.webp",
+        "jpeg": "public/images/optimized/Event/hanfu_xinyu-min.jpg",
+        "size": 91
+      }
+    },
+    {
+      "original": "public/images/album/Event/kpop_hands-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/kpop_hands-min.webp",
+        "jpeg": "public/images/thumbnails/Event/kpop_hands-min.jpg",
+        "size": 10
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/kpop_hands-min.webp",
+        "jpeg": "public/images/optimized/Event/kpop_hands-min.jpg",
+        "size": 74
+      }
+    },
+    {
+      "original": "public/images/album/Event/kpop_piano-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/kpop_piano-min.webp",
+        "jpeg": "public/images/thumbnails/Event/kpop_piano-min.jpg",
+        "size": 10
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/kpop_piano-min.webp",
+        "jpeg": "public/images/optimized/Event/kpop_piano-min.jpg",
+        "size": 62
+      }
+    },
+    {
+      "original": "public/images/album/Event/xinyu_katie-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/xinyu_katie-min.webp",
+        "jpeg": "public/images/thumbnails/Event/xinyu_katie-min.jpg",
+        "size": 9
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Event/xinyu_katie-min.webp",
+        "jpeg": "public/images/optimized/Event/xinyu_katie-min.jpg",
+        "size": 64
+      }
+    },
+    {
+      "original": "public/images/album/Night/foodtruck_girl-min.jpg",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Night/foodtruck_girl-min.webp",
+        "jpeg": "public/images/thumbnails/Night/foodtruck_girl-min.jpg",
+        "size": 5
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Night/foodtruck_girl-min.webp",
+        "jpeg": "public/images/optimized/Night/foodtruck_girl-min.jpg",
+        "size": 36
+      }
+    },
+    {
+      "original": "public/images/album/Night/men_kiss-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Night/men_kiss-min.webp",
+        "jpeg": "public/images/thumbnails/Night/men_kiss-min.jpg",
+        "size": 5
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Night/men_kiss-min.webp",
+        "jpeg": "public/images/optimized/Night/men_kiss-min.jpg",
+        "size": 33
+      }
+    },
+    {
+      "original": "public/images/album/Night/men_kiss2-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Night/men_kiss2-min.webp",
+        "jpeg": "public/images/thumbnails/Night/men_kiss2-min.jpg",
+        "size": 6
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Night/men_kiss2-min.webp",
+        "jpeg": "public/images/optimized/Night/men_kiss2-min.jpg",
+        "size": 36
+      }
+    },
+    {
+      "original": "public/images/album/Night/night_boat-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Night/night_boat-min.webp",
+        "jpeg": "public/images/thumbnails/Night/night_boat-min.jpg",
+        "size": 11
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Night/night_boat-min.webp",
+        "jpeg": "public/images/optimized/Night/night_boat-min.jpg",
+        "size": 114
+      }
+    },
+    {
+      "original": "public/images/album/Night/night_shadow-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Night/night_shadow-min.webp",
+        "jpeg": "public/images/thumbnails/Night/night_shadow-min.jpg",
+        "size": 2
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Night/night_shadow-min.webp",
+        "jpeg": "public/images/optimized/Night/night_shadow-min.jpg",
+        "size": 12
+      }
+    },
+    {
+      "original": "public/images/album/Night/night_sky-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Night/night_sky-min.webp",
+        "jpeg": "public/images/thumbnails/Night/night_sky-min.jpg",
+        "size": 4
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Night/night_sky-min.webp",
+        "jpeg": "public/images/optimized/Night/night_sky-min.jpg",
+        "size": 32
+      }
+    },
+    {
+      "original": "public/images/album/Night/night_sky2-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Night/night_sky2-min.webp",
+        "jpeg": "public/images/thumbnails/Night/night_sky2-min.jpg",
+        "size": 4
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Night/night_sky2-min.webp",
+        "jpeg": "public/images/optimized/Night/night_sky2-min.jpg",
+        "size": 34
+      }
+    },
+    {
+      "original": "public/images/album/Night/night_sky3-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Night/night_sky3-min.webp",
+        "jpeg": "public/images/thumbnails/Night/night_sky3-min.jpg",
+        "size": 4
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Night/night_sky3-min.webp",
+        "jpeg": "public/images/optimized/Night/night_sky3-min.jpg",
+        "size": 31
+      }
+    },
+    {
+      "original": "public/images/album/Photojournalism/blue_bike-min.jpg",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Photojournalism/blue_bike-min.webp",
+        "jpeg": "public/images/thumbnails/Photojournalism/blue_bike-min.jpg",
+        "size": 13
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Photojournalism/blue_bike-min.webp",
+        "jpeg": "public/images/optimized/Photojournalism/blue_bike-min.jpg",
+        "size": 78
+      }
+    },
+    {
+      "original": "public/images/album/Photojournalism/god_talking-min.jpg",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Photojournalism/god_talking-min.webp",
+        "jpeg": "public/images/thumbnails/Photojournalism/god_talking-min.jpg",
+        "size": 7
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Photojournalism/god_talking-min.webp",
+        "jpeg": "public/images/optimized/Photojournalism/god_talking-min.jpg",
+        "size": 43
+      }
+    },
+    {
+      "original": "public/images/album/Photojournalism/museum_back-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Photojournalism/museum_back-min.webp",
+        "jpeg": "public/images/thumbnails/Photojournalism/museum_back-min.jpg",
+        "size": 6
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Photojournalism/museum_back-min.webp",
+        "jpeg": "public/images/optimized/Photojournalism/museum_back-min.jpg",
+        "size": 35
+      }
+    },
+    {
+      "original": "public/images/album/Photojournalism/museum_bold-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Photojournalism/museum_bold-min.webp",
+        "jpeg": "public/images/thumbnails/Photojournalism/museum_bold-min.jpg",
+        "size": 5
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Photojournalism/museum_bold-min.webp",
+        "jpeg": "public/images/optimized/Photojournalism/museum_bold-min.jpg",
+        "size": 31
+      }
+    },
+    {
+      "original": "public/images/album/Photojournalism/museum_criminal-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Photojournalism/museum_criminal-min.webp",
+        "jpeg": "public/images/thumbnails/Photojournalism/museum_criminal-min.jpg",
+        "size": 8
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Photojournalism/museum_criminal-min.webp",
+        "jpeg": "public/images/optimized/Photojournalism/museum_criminal-min.jpg",
+        "size": 57
+      }
+    },
+    {
+      "original": "public/images/album/Photojournalism/museum_girl-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Photojournalism/museum_girl-min.webp",
+        "jpeg": "public/images/thumbnails/Photojournalism/museum_girl-min.jpg",
+        "size": 3
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Photojournalism/museum_girl-min.webp",
+        "jpeg": "public/images/optimized/Photojournalism/museum_girl-min.jpg",
+        "size": 19
+      }
+    },
+    {
+      "original": "public/images/album/Photojournalism/museum_three-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Photojournalism/museum_three-min.webp",
+        "jpeg": "public/images/thumbnails/Photojournalism/museum_three-min.jpg",
+        "size": 4
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Photojournalism/museum_three-min.webp",
+        "jpeg": "public/images/optimized/Photojournalism/museum_three-min.jpg",
+        "size": 27
+      }
+    },
+    {
+      "original": "public/images/album/Photojournalism/protest_flag-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Photojournalism/protest_flag-min.webp",
+        "jpeg": "public/images/thumbnails/Photojournalism/protest_flag-min.jpg",
+        "size": 6
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Photojournalism/protest_flag-min.webp",
+        "jpeg": "public/images/optimized/Photojournalism/protest_flag-min.jpg",
+        "size": 44
+      }
+    },
+    {
+      "original": "public/images/album/Photojournalism/protest_man-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Photojournalism/protest_man-min.webp",
+        "jpeg": "public/images/thumbnails/Photojournalism/protest_man-min.jpg",
+        "size": 7
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Photojournalism/protest_man-min.webp",
+        "jpeg": "public/images/optimized/Photojournalism/protest_man-min.jpg",
+        "size": 51
+      }
+    },
+    {
+      "original": "public/images/album/Photojournalism/protest_sign-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Photojournalism/protest_sign-min.webp",
+        "jpeg": "public/images/thumbnails/Photojournalism/protest_sign-min.jpg",
+        "size": 9
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Photojournalism/protest_sign-min.webp",
+        "jpeg": "public/images/optimized/Photojournalism/protest_sign-min.jpg",
+        "size": 55
+      }
+    },
+    {
+      "original": "public/images/album/Travel/airport_kid-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/airport_kid-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/airport_kid-min.jpg",
+        "size": 5
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/airport_kid-min.webp",
+        "jpeg": "public/images/optimized/Travel/airport_kid-min.jpg",
+        "size": 34
+      }
+    },
+    {
+      "original": "public/images/album/Travel/back_hands-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/back_hands-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/back_hands-min.jpg",
+        "size": 6
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/back_hands-min.webp",
+        "jpeg": "public/images/optimized/Travel/back_hands-min.jpg",
+        "size": 59
+      }
+    },
+    {
+      "original": "public/images/album/Travel/boat_starring-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/boat_starring-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/boat_starring-min.jpg",
+        "size": 3
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/boat_starring-min.webp",
+        "jpeg": "public/images/optimized/Travel/boat_starring-min.jpg",
+        "size": 15
+      }
+    },
+    {
+      "original": "public/images/album/Travel/canon_staff-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/canon_staff-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/canon_staff-min.jpg",
+        "size": 5
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/canon_staff-min.webp",
+        "jpeg": "public/images/optimized/Travel/canon_staff-min.jpg",
+        "size": 26
+      }
+    },
+    {
+      "original": "public/images/album/Travel/city_hole-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/city_hole-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/city_hole-min.jpg",
+        "size": 5
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/city_hole-min.webp",
+        "jpeg": "public/images/optimized/Travel/city_hole-min.jpg",
+        "size": 41
+      }
+    },
+    {
+      "original": "public/images/album/Travel/cloud_shadow-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/cloud_shadow-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/cloud_shadow-min.jpg",
+        "size": 8
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/cloud_shadow-min.webp",
+        "jpeg": "public/images/optimized/Travel/cloud_shadow-min.jpg",
+        "size": 66
+      }
+    },
+    {
+      "original": "public/images/album/Travel/concert_man-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/concert_man-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/concert_man-min.jpg",
+        "size": 12
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/concert_man-min.webp",
+        "jpeg": "public/images/optimized/Travel/concert_man-min.jpg",
+        "size": 96
+      }
+    },
+    {
+      "original": "public/images/album/Travel/concert_photographer-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/concert_photographer-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/concert_photographer-min.jpg",
+        "size": 8
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/concert_photographer-min.webp",
+        "jpeg": "public/images/optimized/Travel/concert_photographer-min.jpg",
+        "size": 50
+      }
+    },
+    {
+      "original": "public/images/album/Travel/father_love-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/father_love-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/father_love-min.jpg",
+        "size": 13
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/father_love-min.webp",
+        "jpeg": "public/images/optimized/Travel/father_love-min.jpg",
+        "size": 103
+      }
+    },
+    {
+      "original": "public/images/album/Travel/hill_person-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/hill_person-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/hill_person-min.jpg",
+        "size": 3
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/hill_person-min.webp",
+        "jpeg": "public/images/optimized/Travel/hill_person-min.jpg",
+        "size": 41
+      }
+    },
+    {
+      "original": "public/images/album/Travel/horse_look-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/horse_look-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/horse_look-min.jpg",
+        "size": 6
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/horse_look-min.webp",
+        "jpeg": "public/images/optimized/Travel/horse_look-min.jpg",
+        "size": 49
+      }
+    },
+    {
+      "original": "public/images/album/Travel/island_window-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/island_window-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/island_window-min.jpg",
+        "size": 5
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/island_window-min.webp",
+        "jpeg": "public/images/optimized/Travel/island_window-min.jpg",
+        "size": 28
+      }
+    },
+    {
+      "original": "public/images/album/Travel/moon_light-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/moon_light-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/moon_light-min.jpg",
+        "size": 3
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/moon_light-min.webp",
+        "jpeg": "public/images/optimized/Travel/moon_light-min.jpg",
+        "size": 14
+      }
+    },
+    {
+      "original": "public/images/album/Travel/moon_shadow-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/moon_shadow-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/moon_shadow-min.jpg",
+        "size": 3
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/moon_shadow-min.webp",
+        "jpeg": "public/images/optimized/Travel/moon_shadow-min.jpg",
+        "size": 19
+      }
+    },
+    {
+      "original": "public/images/album/Travel/night_beach-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/night_beach-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/night_beach-min.jpg",
+        "size": 4
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/night_beach-min.webp",
+        "jpeg": "public/images/optimized/Travel/night_beach-min.jpg",
+        "size": 22
+      }
+    },
+    {
+      "original": "public/images/album/Travel/park_concert-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/park_concert-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/park_concert-min.jpg",
+        "size": 14
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/park_concert-min.webp",
+        "jpeg": "public/images/optimized/Travel/park_concert-min.jpg",
+        "size": 107
+      }
+    },
+    {
+      "original": "public/images/album/Travel/reflection_walk-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/reflection_walk-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/reflection_walk-min.jpg",
+        "size": 8
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/reflection_walk-min.webp",
+        "jpeg": "public/images/optimized/Travel/reflection_walk-min.jpg",
+        "size": 50
+      }
+    },
+    {
+      "original": "public/images/album/Travel/sailing_view-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/sailing_view-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/sailing_view-min.jpg",
+        "size": 6
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/sailing_view-min.webp",
+        "jpeg": "public/images/optimized/Travel/sailing_view-min.jpg",
+        "size": 72
+      }
+    },
+    {
+      "original": "public/images/album/Travel/seaport_couple-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/seaport_couple-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/seaport_couple-min.jpg",
+        "size": 6
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/seaport_couple-min.webp",
+        "jpeg": "public/images/optimized/Travel/seaport_couple-min.jpg",
+        "size": 44
+      }
+    },
+    {
+      "original": "public/images/album/Travel/seaport_family-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/seaport_family-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/seaport_family-min.jpg",
+        "size": 12
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/seaport_family-min.webp",
+        "jpeg": "public/images/optimized/Travel/seaport_family-min.jpg",
+        "size": 83
+      }
+    },
+    {
+      "original": "public/images/album/Travel/seaport_women-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/seaport_women-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/seaport_women-min.jpg",
+        "size": 11
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/seaport_women-min.webp",
+        "jpeg": "public/images/optimized/Travel/seaport_women-min.jpg",
+        "size": 73
+      }
+    },
+    {
+      "original": "public/images/album/Travel/square_walk-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/square_walk-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/square_walk-min.jpg",
+        "size": 13
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/square_walk-min.webp",
+        "jpeg": "public/images/optimized/Travel/square_walk-min.jpg",
+        "size": 127
+      }
+    },
+    {
+      "original": "public/images/album/Travel/taxi_woman-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/taxi_woman-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/taxi_woman-min.jpg",
+        "size": 9
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/taxi_woman-min.webp",
+        "jpeg": "public/images/optimized/Travel/taxi_woman-min.jpg",
+        "size": 60
+      }
+    },
+    {
+      "original": "public/images/album/Travel/train_couple-min.jpg",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/train_couple-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/train_couple-min.jpg",
+        "size": 11
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/train_couple-min.webp",
+        "jpeg": "public/images/optimized/Travel/train_couple-min.jpg",
+        "size": 84
+      }
+    },
+    {
+      "original": "public/images/album/Travel/train_outside-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/train_outside-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/train_outside-min.jpg",
+        "size": 14
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/train_outside-min.webp",
+        "jpeg": "public/images/optimized/Travel/train_outside-min.jpg",
+        "size": 91
+      }
+    },
+    {
+      "original": "public/images/album/Travel/traine_outside-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/traine_outside-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/traine_outside-min.jpg",
+        "size": 14
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/traine_outside-min.webp",
+        "jpeg": "public/images/optimized/Travel/traine_outside-min.jpg",
+        "size": 91
+      }
+    },
+    {
+      "original": "public/images/album/Travel/walk_shadow-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/walk_shadow-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/walk_shadow-min.jpg",
+        "size": 4
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/walk_shadow-min.webp",
+        "jpeg": "public/images/optimized/Travel/walk_shadow-min.jpg",
+        "size": 36
+      }
+    },
+    {
+      "original": "public/images/album/Travel/winter_dusk-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/winter_dusk-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/winter_dusk-min.jpg",
+        "size": 8
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/winter_dusk-min.webp",
+        "jpeg": "public/images/optimized/Travel/winter_dusk-min.jpg",
+        "size": 61
+      }
+    },
+    {
+      "original": "public/images/album/Travel/zecong_look-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/zecong_look-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/zecong_look-min.jpg",
+        "size": 10
+      },
+      "fullsize": {
+        "webp": "public/images/optimized/Travel/zecong_look-min.webp",
+        "jpeg": "public/images/optimized/Travel/zecong_look-min.jpg",
+        "size": 99
+      }
+    }
+  ]
+}
