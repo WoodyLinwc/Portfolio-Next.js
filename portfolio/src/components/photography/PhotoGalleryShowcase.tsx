@@ -1,9 +1,7 @@
-// src/components/photography/PhotoGalleryShowcase.tsx - Your Original Design + Optimization
 "use client";
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
-import LazyImage from "@/components/LazyImage";
 import Spinner from "@/components/Spinner";
 import { photos, filterOptions } from "@/data/photography/photos";
 
@@ -11,7 +9,7 @@ interface PhotoGalleryShowcaseProps {
     className?: string;
 }
 
-// Optimized LazyImage component that uses thumbnails for grid
+// Simplified LazyImage that falls back to regular Image on error
 function OptimizedLazyImage({
     src,
     alt,
@@ -21,39 +19,13 @@ function OptimizedLazyImage({
     sizes,
     onClick,
 }: any) {
-    const [thumbnailLoaded, setThumbnailLoaded] = useState(false);
-    const [hasError, setHasError] = useState(false);
+    const [imageError, setImageError] = useState(false);
+    const [imageLoaded, setImageLoaded] = useState(false);
 
-    // Generate optimized thumbnail paths
-    const getOptimizedPaths = (originalPath: string) => {
-        const pathParts = originalPath.split("/");
-        const fileName = pathParts[pathParts.length - 1];
-        const nameWithoutExt = fileName.split(".")[0];
-        const directory = pathParts.slice(0, -1).join("/");
-
-        // Remove /images/album/ and replace with thumbnails path
-        const relativePath = directory.replace("/images/album/", "");
-
-        return {
-            webp: `/images/thumbnails/${relativePath}/${nameWithoutExt}.webp`,
-            jpeg: `/images/thumbnails/${relativePath}/${nameWithoutExt}.jpg`,
-        };
-    };
-
-    const paths = getOptimizedPaths(src);
-
-    const handleThumbnailLoad = () => {
-        setThumbnailLoaded(true);
-    };
-
-    const handleError = () => {
-        setHasError(true);
-    };
-
-    // Fallback to original LazyImage if optimized versions don't exist
-    if (hasError) {
+    // If optimized version fails, fall back to original image
+    if (imageError) {
         return (
-            <LazyImage
+            <Image
                 src={src}
                 alt={alt}
                 fill={fill}
@@ -61,41 +33,39 @@ function OptimizedLazyImage({
                 priority={priority}
                 sizes={sizes}
                 onClick={onClick}
+                onLoad={() => setImageLoaded(true)}
+                quality={85}
             />
         );
     }
 
     return (
-        <picture className="contents">
-            {/* WebP sources for modern browsers */}
-            <source srcSet={paths.webp} type="image/webp" />
-
-            {/* JPEG fallback */}
-            <Image
-                src={paths.jpeg}
-                alt={alt}
-                fill={fill}
-                className={`${className} ${
-                    thumbnailLoaded ? "opacity-100" : "opacity-0"
-                }`}
-                sizes={sizes}
-                priority={priority}
-                loading={priority ? "eager" : "lazy"}
-                onLoad={handleThumbnailLoad}
-                onError={handleError}
-                onClick={onClick}
-                quality={85}
-            />
-
+        <div className="relative w-full h-full">
             {/* Loading placeholder */}
-            {!thumbnailLoaded && (
+            {!imageLoaded && (
                 <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
                     <div className="text-gray-400">
                         <i className="fa fa-image text-2xl"></i>
                     </div>
                 </div>
             )}
-        </picture>
+
+            {/* Direct image without optimization for debugging */}
+            <Image
+                src={src}
+                alt={alt}
+                fill={fill}
+                className={`${className} ${
+                    imageLoaded ? "opacity-100" : "opacity-0"
+                }`}
+                sizes={sizes}
+                priority={priority}
+                loading={priority ? "eager" : "lazy"}
+                onLoad={() => setImageLoaded(true)}
+                onError={() => setImageError(true)}
+                quality={85}
+            />
+        </div>
     );
 }
 
@@ -161,20 +131,20 @@ export default function PhotoGalleryShowcase({
                 </p>
             </div>
 
-            {/* Photo Grid with Optimized Loading */}
+            {/* Photo Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredPhotos.map((photo, index) => (
                     <div
-                        key={`${photo.src}-${activeFilter}`}
-                        className="portfolio-item group relative hover:cursor-pointer"
+                        key={`${photo.src}-${activeFilter}-${index}`}
+                        className="portfolio-item group relative hover:cursor-pointer aspect-square bg-gray-200 rounded-lg overflow-hidden"
                         onClick={() => handleImageClick(photo.src)}
                     >
-                        {/* Use optimized thumbnails for grid display */}
+                        {/* Simplified image rendering */}
                         <OptimizedLazyImage
                             src={photo.src}
                             alt={photo.alt}
                             fill
-                            className="aspect-square rounded-lg group-hover:scale-110 transition-transform duration-300"
+                            className="object-cover group-hover:scale-110 transition-transform duration-300"
                             priority={getPriority(index)}
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
@@ -195,7 +165,7 @@ export default function PhotoGalleryShowcase({
                 </div>
             )}
 
-            {/* Lightbox Modal - Uses Original Images */}
+            {/* Lightbox Modal */}
             {selectedImage && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999] p-4"
@@ -218,11 +188,10 @@ export default function PhotoGalleryShowcase({
                             </div>
                         )}
 
-                        {/* Original image for lightbox */}
                         <Image
-                            src={selectedImage} // Direct path to original image
+                            src={selectedImage}
                             alt="Enlarged photo"
-                            width={1200} // Larger for original viewing
+                            width={1200}
                             height={800}
                             className={`max-w-full max-h-[90vh] object-contain transition-opacity duration-300 ${
                                 selectedImageLoading
@@ -231,7 +200,7 @@ export default function PhotoGalleryShowcase({
                             }`}
                             onLoad={handleSelectedImageLoad}
                             priority
-                            quality={95} // High quality for original viewing
+                            quality={95}
                         />
                     </div>
                 </div>
