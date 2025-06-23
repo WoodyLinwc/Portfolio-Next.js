@@ -16,18 +16,6 @@ export default function ReactLearningPage() {
 
             <section className="pb-12">
                 <div className="container mx-auto px-8 lg:px-20 xl:px-32">
-                    {/* Description */}
-                    <div className="text-center mb-8">
-                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                            Learn React through interactive examples and
-                            mini-projects!
-                        </p>
-                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                            Start with this classic Tic Tac Toe game built with
-                            React hooks.
-                        </p>
-                    </div>
-
                     {/* Interactive Components Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                         {/* Tic Tac Toe Game */}
@@ -49,10 +37,11 @@ export default function ReactLearningPage() {
                         {/* Placeholder for future components */}
                         <div className="bg-white p-6 rounded-lg shadow-md">
                             <h4 className="font-bold text-lg mb-2 text-primary">
-                                Counter App
+                                Accordion
                             </h4>
                             <p className="text-gray-600 text-sm mb-4">
-                                Learn useState hook basics
+                                Use useState to manage open/close state for each
+                                section
                             </p>
                             <div className="text-center">
                                 <span className="text-gray-400 text-sm">
@@ -63,10 +52,11 @@ export default function ReactLearningPage() {
 
                         <div className="bg-white p-6 rounded-lg shadow-md">
                             <h4 className="font-bold text-lg mb-2 text-primary">
-                                Todo List
+                                Tabs
                             </h4>
                             <p className="text-gray-600 text-sm mb-4">
-                                Practice state management
+                                Highlight active tab, conditionally render
+                                content.
                             </p>
                             <div className="text-center">
                                 <span className="text-gray-400 text-sm">
@@ -77,10 +67,11 @@ export default function ReactLearningPage() {
 
                         <div className="bg-white p-6 rounded-lg shadow-md">
                             <h4 className="font-bold text-lg mb-2 text-primary">
-                                Weather Widget
+                                Modal
                             </h4>
                             <p className="text-gray-600 text-sm mb-4">
-                                Learn useEffect and API calls
+                                Use portals (optional), escape key handling,
+                                focus trap (bonus).
                             </p>
                             <div className="text-center">
                                 <span className="text-gray-400 text-sm">
@@ -91,10 +82,10 @@ export default function ReactLearningPage() {
 
                         <div className="bg-white p-6 rounded-lg shadow-md">
                             <h4 className="font-bold text-lg mb-2 text-primary">
-                                Form Validation
+                                Dropdown Select
                             </h4>
                             <p className="text-gray-600 text-sm mb-4">
-                                Master controlled components
+                                Controlled component for option selection.
                             </p>
                             <div className="text-center">
                                 <span className="text-gray-400 text-sm">
@@ -105,10 +96,11 @@ export default function ReactLearningPage() {
 
                         <div className="bg-white p-6 rounded-lg shadow-md">
                             <h4 className="font-bold text-lg mb-2 text-primary">
-                                Memory Game
+                                Todo App
                             </h4>
                             <p className="text-gray-600 text-sm mb-4">
-                                Complex state interactions
+                                Full CRUD with state management; optional
+                                useReducer.
                             </p>
                             <div className="text-center">
                                 <span className="text-gray-400 text-sm">
@@ -116,64 +108,72 @@ export default function ReactLearningPage() {
                                 </span>
                             </div>
                         </div>
-                    </div>
-
-                    {/* Learning Resources */}
-                    <div className="text-center">
-                        <h3 className="text-2xl font-semibold mb-4 text-gray-800">
-                            React Learning Resources
-                        </h3>
-                        <p className="text-gray-600 mb-6">
-                            Useful links and documentation for learning React
-                        </p>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div className="bg-white p-6 rounded-lg shadow-md">
-                                <h4 className="font-bold text-lg mb-2 text-primary">
-                                    Official Docs
-                                </h4>
-                                <p className="text-gray-600 text-sm mb-4">
-                                    The official React documentation
-                                </p>
-                                <a
-                                    href="https://react.dev/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-primary hover:underline font-medium"
-                                >
-                                    Visit React.dev
-                                </a>
+                        <div className="bg-white p-6 rounded-lg shadow-md">
+                            <h4 className="font-bold text-lg mb-2 text-primary">
+                                Form with Validation
+                            </h4>
+                            <p className="text-gray-600 text-sm mb-4">
+                                Validate input fields; use Formik, Yup, or
+                                custom validation.
+                            </p>
+                            <div className="text-center">
+                                <span className="text-gray-400 text-sm">
+                                    Coming Soon
+                                </span>
                             </div>
-                            <div className="bg-white p-6 rounded-lg shadow-md">
-                                <h4 className="font-bold text-lg mb-2 text-primary">
-                                    React Hooks
-                                </h4>
-                                <p className="text-gray-600 text-sm mb-4">
-                                    Deep dive into React Hooks
-                                </p>
-                                <a
-                                    href="https://react.dev/reference/react"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-primary hover:underline font-medium"
-                                >
-                                    Learn Hooks
-                                </a>
+                        </div>
+                        <div className="bg-white p-6 rounded-lg shadow-md">
+                            <h4 className="font-bold text-lg mb-2 text-primary">
+                                Infinite Scroll List
+                            </h4>
+                            <p className="text-gray-600 text-sm mb-4">
+                                Load more items as you scroll to the bottom.
+                            </p>
+                            <div className="text-center">
+                                <span className="text-gray-400 text-sm">
+                                    Coming Soon
+                                </span>
                             </div>
-                            <div className="bg-white p-6 rounded-lg shadow-md">
-                                <h4 className="font-bold text-lg mb-2 text-primary">
-                                    TypeScript + React
-                                </h4>
-                                <p className="text-gray-600 text-sm mb-4">
-                                    Using TypeScript with React
-                                </p>
-                                <a
-                                    href="https://react.dev/learn/typescript"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-primary hover:underline font-medium"
-                                >
-                                    TypeScript Guide
-                                </a>
+                        </div>
+                        <div className="bg-white p-6 rounded-lg shadow-md">
+                            <h4 className="font-bold text-lg mb-2 text-primary">
+                                Reusable Button / Input Components
+                            </h4>
+                            <p className="text-gray-600 text-sm mb-4">
+                                Build a styled and prop-driven button/input.
+                            </p>
+                            <div className="text-center">
+                                <span className="text-gray-400 text-sm">
+                                    Coming Soon
+                                </span>
+                            </div>
+                        </div>
+                        <div className="bg-white p-6 rounded-lg shadow-md">
+                            <h4 className="font-bold text-lg mb-2 text-primary">
+                                Theme Toggle with Context API
+                            </h4>
+                            <p className="text-gray-600 text-sm mb-4">
+                                Use useContext to manage and switch themes
+                                across components.
+                            </p>
+                            <div className="text-center">
+                                <span className="text-gray-400 text-sm">
+                                    Coming Soon
+                                </span>
+                            </div>
+                        </div>
+                        <div className="bg-white p-6 rounded-lg shadow-md">
+                            <h4 className="font-bold text-lg mb-2 text-primary">
+                                Carousel/Slider
+                            </h4>
+                            <p className="text-gray-600 text-sm mb-4">
+                                Image carousel with navigation arrows, dots, and
+                                optional auto-play
+                            </p>
+                            <div className="text-center">
+                                <span className="text-gray-400 text-sm">
+                                    Coming Soon
+                                </span>
                             </div>
                         </div>
                     </div>
