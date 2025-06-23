@@ -36,7 +36,7 @@ export default function LearningPage() {
                     {/* Additional Learning Content */}
                     <div className="mt-12 text-center">
                         <h3 className="text-2xl font-semibold mb-4 text-gray-800">
-                            Learning Resources
+                            Learning Resources (Coming soon)
                         </h3>
                         {/* <p className="text-gray-600 mb-6">
                             More interactive learning tools and resources coming
@@ -45,19 +45,19 @@ export default function LearningPage() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div className="bg-white p-6 rounded-lg shadow-md">
                                 <h4 className="font-bold text-lg mb-2 text-primary">
-                                    Command Line
+                                    HTML/CSS (Tailwind) Refresher
                                 </h4>
                                 <p className="text-gray-600 text-sm">
-                                    Learn basic terminal commands and navigation
+                                    Semantics, layout, Flexbox/Grid
                                 </p>
                             </div>
                             <div className="bg-white p-6 rounded-lg shadow-md">
                                 <h4 className="font-bold text-lg mb-2 text-primary">
-                                    Web Development
+                                    JavaScript and React Essentials
                                 </h4>
                                 <p className="text-gray-600 text-sm">
-                                    Interactive tutorials for HTML, CSS, and
-                                    JavaScript
+                                    Variables, functions, arrays, loops, JSX,
+                                    props, state, useEffect...
                                 </p>
                             </div>
                             <div className="bg-white p-6 rounded-lg shadow-md">
