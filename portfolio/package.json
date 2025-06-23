@@ -26,11 +26,14 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@next/bundle-analyzer": "^15.3.4",
     "@types/node": "^20.19.0",
     "@types/react": "^19.1.7",
     "@types/react-dom": "^19.1.6",
+    "chokidar-cli": "^3.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
+    "sharp": "^0.34.2",
     "typescript": "^5"
   }
 }
