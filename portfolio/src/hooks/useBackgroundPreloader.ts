@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+// src/hooks/useBackgroundPreloader.ts
+import { useState, useEffect, useCallback } from "react";
 
 interface UseBackgroundPreloaderOptions {
     /** Delay before starting preload (in milliseconds) */
@@ -68,7 +69,6 @@ export function useBackgroundPreloader(
                 const maxCacheAge = 24 * 60 * 60 * 1000; // 24 hours
 
                 if (cacheAge < maxCacheAge && Array.isArray(preloadedUrls)) {
-                    const cachedSet = new Set(preloadedUrls);
                     const validCachedImages = preloadedUrls.filter((url) =>
                         imagesToPreload.includes(url)
                     );
@@ -94,23 +94,26 @@ export function useBackgroundPreloader(
     }, [imagesToPreload, cacheKey]);
 
     // Save preload state to localStorage
-    const saveCacheData = (preloadedUrls: string[]) => {
-        // Only run on client side
-        if (typeof window === "undefined") return;
+    const saveCacheData = useCallback(
+        (preloadedUrls: string[]) => {
+            // Only run on client side
+            if (typeof window === "undefined") return;
 
-        try {
-            const cacheData = {
-                preloadedUrls,
-                timestamp: Date.now(),
-            };
-            localStorage.setItem(
-                `preload-cache-${cacheKey}`,
-                JSON.stringify(cacheData)
-            );
-        } catch (error) {
-            console.warn("Failed to save preload cache:", error);
-        }
-    };
+            try {
+                const cacheData = {
+                    preloadedUrls,
+                    timestamp: Date.now(),
+                };
+                localStorage.setItem(
+                    `preload-cache-${cacheKey}`,
+                    JSON.stringify(cacheData)
+                );
+            } catch (error) {
+                console.warn("Failed to save preload cache:", error);
+            }
+        },
+        [cacheKey]
+    );
 
     useEffect(() => {
         if (imagesToPreload.length === 0) {
@@ -257,6 +260,7 @@ export function useBackgroundPreloader(
         loadedCount,
         failedCount,
         preloadedImages,
+        saveCacheData,
     ]);
 
     return {
