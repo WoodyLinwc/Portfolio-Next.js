@@ -133,11 +133,29 @@ export default function PhotoGalleryShowcase({
             // Add a class to the body for additional styling if needed
             document.body.classList.add("modal-open");
 
+            // Temporarily re-enable zoom when modal is open
+            let viewportMeta = document.querySelector(
+                'meta[name="viewport"]'
+            ) as HTMLMetaElement;
+            let originalViewportContent = "";
+
+            if (viewportMeta) {
+                originalViewportContent = viewportMeta.content;
+                // Allow zoom in the modal
+                viewportMeta.content =
+                    "width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes";
+            }
+
             return () => {
                 // Restore original overflow style when modal closes
                 document.body.style.overflow = originalStyle;
                 document.documentElement.style.overflow = "";
                 document.body.classList.remove("modal-open");
+
+                // Restore original viewport settings
+                if (viewportMeta && originalViewportContent) {
+                    viewportMeta.content = originalViewportContent;
+                }
             };
         }
     }, [selectedImage]);
