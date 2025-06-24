@@ -98,12 +98,6 @@ export default function PhotoGalleryShowcase({
     const [selectedImageLoading, setSelectedImageLoading] = useState(false);
     const [showMagnifier, setShowMagnifier] = useState(false);
     const [magnifierPosition, setMagnifierPosition] = useState({ x: 0, y: 0 });
-    const [imageSize, setImageSize] = useState({
-        width: 0,
-        height: 0,
-        naturalWidth: 0,
-        naturalHeight: 0,
-    });
     const imageRef = useRef<HTMLImageElement>(null);
 
     const filteredPhotos = useMemo(() => {
@@ -160,17 +154,6 @@ export default function PhotoGalleryShowcase({
 
     const handleSelectedImageLoad = () => {
         setSelectedImageLoading(false);
-        // Get the actual rendered image dimensions
-        if (imageRef.current) {
-            const { naturalWidth, naturalHeight, width, height } =
-                imageRef.current;
-            setImageSize({
-                width: width,
-                height: height,
-                naturalWidth,
-                naturalHeight,
-            });
-        }
     };
 
     const handleMouseMove = (e: React.MouseEvent<HTMLImageElement>) => {
@@ -215,12 +198,6 @@ export default function PhotoGalleryShowcase({
         setSelectedImage(null);
         setSelectedImageLoading(false);
         setShowMagnifier(false);
-        setImageSize({
-            width: 0,
-            height: 0,
-            naturalWidth: 0,
-            naturalHeight: 0,
-        });
     };
 
     // Handle escape key to close modal
