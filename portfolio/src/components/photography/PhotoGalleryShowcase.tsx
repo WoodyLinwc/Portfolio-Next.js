@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import Spinner from "@/components/Spinner";
 import { useBackgroundPreloader } from "@/hooks/useBackgroundPreloader";
@@ -118,6 +118,30 @@ export default function PhotoGalleryShowcase({
         }
     );
 
+    // Scroll lock effect for modal
+    useEffect(() => {
+        if (selectedImage) {
+            // Prevent body scroll when modal is open
+            const originalStyle = window.getComputedStyle(
+                document.body
+            ).overflow;
+            document.body.style.overflow = "hidden";
+
+            // Also prevent scroll on the root element for iOS
+            document.documentElement.style.overflow = "hidden";
+
+            // Add a class to the body for additional styling if needed
+            document.body.classList.add("modal-open");
+
+            return () => {
+                // Restore original overflow style when modal closes
+                document.body.style.overflow = originalStyle;
+                document.documentElement.style.overflow = "";
+                document.body.classList.remove("modal-open");
+            };
+        }
+    }, [selectedImage]);
+
     const handleImageClick = (src: string) => {
         setSelectedImage(src);
         // If image is already preloaded, it should load instantly
@@ -132,6 +156,22 @@ export default function PhotoGalleryShowcase({
         setSelectedImage(null);
         setSelectedImageLoading(false);
     };
+
+    // Handle escape key to close modal
+    useEffect(() => {
+        const handleEscapeKey = (event: KeyboardEvent) => {
+            if (event.key === "Escape" && selectedImage) {
+                handleCloseModal();
+            }
+        };
+
+        if (selectedImage) {
+            document.addEventListener("keydown", handleEscapeKey);
+            return () => {
+                document.removeEventListener("keydown", handleEscapeKey);
+            };
+        }
+    }, [selectedImage]);
 
     const getPriority = (index: number) => {
         return index < 6;
@@ -215,16 +255,23 @@ export default function PhotoGalleryShowcase({
             {/* Lightbox Modal */}
             {selectedImage && (
                 <div
-                    className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999] p-4"
+                    className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999] p-4 overscroll-none"
                     onClick={handleCloseModal}
+                    style={{
+                        // Additional inline styles for better browser support
+                        touchAction: "none",
+                        WebkitOverflowScrolling: "auto",
+                    }}
                 >
                     <div
-                        className="relative max-w-4xl max-h-full"
+                        className="relative max-w-4xl max-h-full overscroll-none"
                         onClick={(e) => e.stopPropagation()}
+                        style={{ touchAction: "none" }}
                     >
                         <button
                             onClick={handleCloseModal}
                             className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center transition-colors"
+                            aria-label="Close image"
                         >
                             ✕
                         </button>
@@ -250,6 +297,7 @@ export default function PhotoGalleryShowcase({
                             onLoad={handleSelectedImageLoad}
                             priority
                             quality={95}
+                            style={{ touchAction: "none" }}
                         />
                     </div>
                 </div>
