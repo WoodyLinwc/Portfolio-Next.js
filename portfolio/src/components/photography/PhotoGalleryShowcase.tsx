@@ -133,7 +133,7 @@ export default function PhotoGalleryShowcase({
             // Add a class to the body for additional styling if needed
             document.body.classList.add("modal-open");
 
-            // Temporarily re-enable zoom when modal is open
+            // Temporarily re-enable zoom when modal is open by updating viewport
             const viewportMeta = document.querySelector(
                 'meta[name="viewport"]'
             ) as HTMLMetaElement;
@@ -141,9 +141,17 @@ export default function PhotoGalleryShowcase({
 
             if (viewportMeta) {
                 originalViewportContent = viewportMeta.content;
-                // Allow zoom in the modal
+                // Allow zoom up to 10x in the modal for better image viewing
                 viewportMeta.content =
-                    "width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes";
+                    "width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes";
+            }
+
+            // Remove the no-zoom CSS styles temporarily
+            const noZoomStyle = document.getElementById("photography-no-zoom");
+            let hadNoZoomStyle = false;
+            if (noZoomStyle) {
+                hadNoZoomStyle = true;
+                noZoomStyle.style.display = "none";
             }
 
             return () => {
@@ -155,6 +163,11 @@ export default function PhotoGalleryShowcase({
                 // Restore original viewport settings
                 if (viewportMeta && originalViewportContent) {
                     viewportMeta.content = originalViewportContent;
+                }
+
+                // Restore the no-zoom CSS styles
+                if (hadNoZoomStyle && noZoomStyle) {
+                    noZoomStyle.style.display = "";
                 }
             };
         }
@@ -273,20 +286,21 @@ export default function PhotoGalleryShowcase({
             {/* Lightbox Modal */}
             {selectedImage && (
                 <div
-                    className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999] p-4 overscroll-none"
+                    className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999] p-4"
                     onClick={handleCloseModal}
                     style={{
-                        // Prevent scroll but allow zoom
-                        touchAction: "pinch-zoom",
+                        // Prevent scroll but allow zoom on the overlay
+                        touchAction: "none",
                         WebkitOverflowScrolling: "auto",
                     }}
                 >
                     <div
-                        className="relative max-w-4xl max-h-full overscroll-none"
+                        className="relative max-w-4xl max-h-full"
                         onClick={(e) => e.stopPropagation()}
                         style={{
-                            // Allow pinch-zoom and manipulation on the image container
-                            touchAction: "pinch-zoom manipulation",
+                            // Allow all touch interactions on the image container
+                            touchAction: "auto",
+                            overflow: "hidden",
                         }}
                     >
                         <button
@@ -305,25 +319,39 @@ export default function PhotoGalleryShowcase({
                             </div>
                         )}
 
-                        {/* Original image for lightbox */}
-                        <Image
-                            src={selectedImage}
-                            alt="Enlarged photo"
-                            width={1200}
-                            height={800}
-                            className={`max-w-full max-h-[90vh] object-contain transition-opacity duration-300 ${
-                                selectedImageLoading
-                                    ? "opacity-0"
-                                    : "opacity-100"
-                            }`}
-                            onLoad={handleSelectedImageLoad}
-                            priority
-                            quality={95}
+                        {/* Original image for lightbox - This is the zoomable image */}
+                        <div
                             style={{
-                                // Allow all touch interactions on the image itself
+                                width: "100%",
+                                height: "90vh",
+                                maxWidth: "100vw",
+                                overflow: "auto",
+                                WebkitOverflowScrolling: "touch",
                                 touchAction: "auto",
                             }}
-                        />
+                        >
+                            <Image
+                                src={selectedImage}
+                                alt="Enlarged photo"
+                                width={1200}
+                                height={800}
+                                className={`w-full h-auto object-contain transition-opacity duration-300 ${
+                                    selectedImageLoading
+                                        ? "opacity-0"
+                                        : "opacity-100"
+                                }`}
+                                onLoad={handleSelectedImageLoad}
+                                priority
+                                quality={95}
+                                style={{
+                                    // Allow all touch interactions on the image itself
+                                    touchAction: "auto",
+                                    maxWidth: "none",
+                                    maxHeight: "none",
+                                    cursor: "zoom-in",
+                                }}
+                            />
+                        </div>
                     </div>
                 </div>
             )}
