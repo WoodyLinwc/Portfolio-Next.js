@@ -1,7 +1,7 @@
 // src/components/photography/PhotoGalleryShowcase.tsx
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
 import Spinner from "@/components/Spinner";
 import { useBackgroundPreloader } from "@/hooks/useBackgroundPreloader";
@@ -96,6 +96,15 @@ export default function PhotoGalleryShowcase({
     const [activeFilter, setActiveFilter] = useState("all");
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [selectedImageLoading, setSelectedImageLoading] = useState(false);
+    const [showMagnifier, setShowMagnifier] = useState(false);
+    const [magnifierPosition, setMagnifierPosition] = useState({ x: 0, y: 0 });
+    const [imageSize, setImageSize] = useState({
+        width: 0,
+        height: 0,
+        naturalWidth: 0,
+        naturalHeight: 0,
+    });
+    const imageRef = useRef<HTMLImageElement>(null);
 
     const filteredPhotos = useMemo(() => {
         return activeFilter === "all"
@@ -151,11 +160,67 @@ export default function PhotoGalleryShowcase({
 
     const handleSelectedImageLoad = () => {
         setSelectedImageLoading(false);
+        // Get the actual rendered image dimensions
+        if (imageRef.current) {
+            const { naturalWidth, naturalHeight, width, height } =
+                imageRef.current;
+            setImageSize({
+                width: width,
+                height: height,
+                naturalWidth,
+                naturalHeight,
+            });
+        }
+    };
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLImageElement>) => {
+        if (!imageRef.current) return;
+
+        const rect = imageRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        setMagnifierPosition({ x, y });
+    };
+
+    const handleMouseEnter = () => {
+        setShowMagnifier(true);
+    };
+
+    const handleMouseLeave = () => {
+        setShowMagnifier(false);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent<HTMLImageElement>) => {
+        if (!imageRef.current || e.touches.length === 0) return;
+
+        e.preventDefault();
+        const rect = imageRef.current.getBoundingClientRect();
+        const touch = e.touches[0];
+        const x = touch.clientX - rect.left;
+        const y = touch.clientY - rect.top;
+
+        setMagnifierPosition({ x, y });
+    };
+
+    const handleTouchStart = () => {
+        setShowMagnifier(true);
+    };
+
+    const handleTouchEnd = () => {
+        setShowMagnifier(false);
     };
 
     const handleCloseModal = () => {
         setSelectedImage(null);
         setSelectedImageLoading(false);
+        setShowMagnifier(false);
+        setImageSize({
+            width: 0,
+            height: 0,
+            naturalWidth: 0,
+            naturalHeight: 0,
+        });
     };
 
     // Handle escape key to close modal
@@ -253,7 +318,7 @@ export default function PhotoGalleryShowcase({
                 </div>
             )}
 
-            {/* Lightbox Modal - Clean version without container */}
+            {/* Lightbox Modal - With Magnifier Feature */}
             {selectedImage && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-90 z-[9999] flex items-center justify-center p-4"
@@ -270,34 +335,89 @@ export default function PhotoGalleryShowcase({
                         ✕
                     </button>
 
-                    {/* Loading spinner - should rarely show if image is preloaded */}
+                    {/* Instructions */}
+                    <div className="absolute top-4 left-4 text-white text-sm bg-black bg-opacity-50 px-3 py-2 rounded z-10">
+                        <p className="hidden md:block">
+                            Hover to magnify • Click to close
+                        </p>
+                        <p className="md:hidden">
+                            Touch and hold to magnify • Tap outside to close
+                        </p>
+                    </div>
+
+                    {/* Loading spinner */}
                     {selectedImageLoading && (
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                             <Spinner size="large" color="white" />
                         </div>
                     )}
 
-                    {/* Image - directly in the modal without wrapper container */}
-                    <Image
-                        src={selectedImage}
-                        alt="Enlarged photo"
-                        width={1200}
-                        height={800}
-                        className={`max-w-[90vw] max-h-[90vh] object-contain transition-opacity duration-300 ${
-                            selectedImageLoading ? "opacity-0" : "opacity-100"
-                        }`}
-                        onLoad={handleSelectedImageLoad}
-                        priority
-                        quality={95}
-                        style={{
-                            width: "auto",
-                            height: "auto",
-                            userSelect: "none",
-                        }}
-                        onMouseDown={(e) => e.preventDefault()}
-                        onDragStart={(e) => e.preventDefault()}
-                        onClick={(e) => e.stopPropagation()}
-                    />
+                    {/* Image with magnifier */}
+                    <div className="relative">
+                        <Image
+                            ref={imageRef}
+                            src={selectedImage}
+                            alt="Enlarged photo"
+                            width={1200}
+                            height={800}
+                            className={`max-w-[90vw] max-h-[90vh] object-contain transition-opacity duration-300 cursor-crosshair ${
+                                selectedImageLoading
+                                    ? "opacity-0"
+                                    : "opacity-100"
+                            }`}
+                            onLoad={handleSelectedImageLoad}
+                            onMouseMove={handleMouseMove}
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                            onTouchStart={handleTouchStart}
+                            onTouchMove={handleTouchMove}
+                            onTouchEnd={handleTouchEnd}
+                            priority
+                            quality={95}
+                            style={{
+                                width: "auto",
+                                height: "auto",
+                                userSelect: "none",
+                            }}
+                            onMouseDown={(e) => e.preventDefault()}
+                            onDragStart={(e) => e.preventDefault()}
+                            onClick={(e) => e.stopPropagation()}
+                        />
+
+                        {/* Magnifier */}
+                        {showMagnifier && imageRef.current && (
+                            <div
+                                className="absolute pointer-events-none border-2 border-white rounded-full shadow-lg overflow-hidden z-20"
+                                style={{
+                                    width: "150px",
+                                    height: "150px",
+                                    left: magnifierPosition.x - 75,
+                                    top: magnifierPosition.y - 75,
+                                    background: `url(${selectedImage}) no-repeat`,
+                                    backgroundSize: `${
+                                        imageRef.current.naturalWidth * 2
+                                    }px ${
+                                        imageRef.current.naturalHeight * 2
+                                    }px`,
+                                    backgroundPosition: `-${
+                                        (magnifierPosition.x /
+                                            imageRef.current.width) *
+                                            imageRef.current.naturalWidth *
+                                            2 -
+                                        75
+                                    }px -${
+                                        (magnifierPosition.y /
+                                            imageRef.current.height) *
+                                            imageRef.current.naturalHeight *
+                                            2 -
+                                        75
+                                    }px`,
+                                    boxShadow:
+                                        "0 0 20px rgba(255, 255, 255, 0.3)",
+                                }}
+                            />
+                        )}
+                    </div>
                 </div>
             )}
         </div>
