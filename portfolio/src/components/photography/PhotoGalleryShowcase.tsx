@@ -133,16 +133,11 @@ export default function PhotoGalleryShowcase({
             // Add a class to the body for additional styling if needed
             document.body.classList.add("modal-open");
 
-            // Don't modify viewport meta tag - keep page zoom disabled
-            // Zoom will be handled within the image container
-
             return () => {
                 // Restore original overflow style when modal closes
                 document.body.style.overflow = originalStyle;
                 document.documentElement.style.overflow = "";
                 document.body.classList.remove("modal-open");
-
-                // No need to restore viewport since we didn't change it
             };
         }
     }, [selectedImage]);
@@ -274,12 +269,11 @@ export default function PhotoGalleryShowcase({
                     }}
                 >
                     <div
-                        className="relative w-full max-w-4xl"
+                        className="relative w-full max-w-4xl h-full"
                         onClick={(e) => e.stopPropagation()}
                         style={{
                             // Allow all touch interactions on the image container
                             touchAction: "auto",
-                            overflow: "hidden",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
