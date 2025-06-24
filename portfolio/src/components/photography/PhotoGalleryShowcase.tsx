@@ -365,9 +365,9 @@ export default function PhotoGalleryShowcase({
                                                 objectFit: "contain",
                                                 cursor: "grab",
                                                 userSelect: "none",
-                                                // Prevent image from being dragged - using correct property names
-                                                WebkitUserDrag: "none" as any,
-                                            } as React.CSSProperties
+                                            } as React.CSSProperties & {
+                                                WebkitUserDrag: string;
+                                            }
                                         }
                                         onMouseDown={(e) => e.preventDefault()}
                                         onDragStart={(e) => e.preventDefault()}
