@@ -1,5 +1,5 @@
 {
-  "generated": "2025-06-23T21:45:26.742Z",
+  "generated": "2025-06-24T01:25:54.163Z",
   "config": {
     "inputDir": "./public/images/album",
     "thumbnailDir": "./public/images/thumbnails",
@@ -15,8 +15,8 @@
       }
     }
   },
-  "strategy": "optimized_thumbnails_original_lightbox",
-  "description": "Thumbnails are optimized for grid display, originals shown in lightbox",
+  "strategy": "optimized_thumbnails_original_lightbox_smart_processing",
+  "description": "Thumbnails are optimized for grid display, originals shown in lightbox. Smart processing skips already optimized images.",
   "images": [
     {
       "original": "public/images/album/B&W/beach_kid-min.JPG",
@@ -24,7 +24,8 @@
         "webp": "public/images/thumbnails/B&W/beach_kid-min.webp",
         "jpeg": "public/images/thumbnails/B&W/beach_kid-min.jpg",
         "size": 16
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/cloud_mountain-min.JPG",
@@ -32,7 +33,8 @@
         "webp": "public/images/thumbnails/B&W/cloud_mountain-min.webp",
         "jpeg": "public/images/thumbnails/B&W/cloud_mountain-min.jpg",
         "size": 5
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/couple_dog-min.JPG",
@@ -40,7 +42,8 @@
         "webp": "public/images/thumbnails/B&W/couple_dog-min.webp",
         "jpeg": "public/images/thumbnails/B&W/couple_dog-min.jpg",
         "size": 11
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/distant_island-min.JPG",
@@ -48,7 +51,8 @@
         "webp": "public/images/thumbnails/B&W/distant_island-min.webp",
         "jpeg": "public/images/thumbnails/B&W/distant_island-min.jpg",
         "size": 23
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/glass_man-min.JPG",
@@ -56,7 +60,8 @@
         "webp": "public/images/thumbnails/B&W/glass_man-min.webp",
         "jpeg": "public/images/thumbnails/B&W/glass_man-min.jpg",
         "size": 9
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/island_bird-min.JPG",
@@ -64,7 +69,8 @@
         "webp": "public/images/thumbnails/B&W/island_bird-min.webp",
         "jpeg": "public/images/thumbnails/B&W/island_bird-min.jpg",
         "size": 7
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/island_boat-min.JPG",
@@ -72,7 +78,8 @@
         "webp": "public/images/thumbnails/B&W/island_boat-min.webp",
         "jpeg": "public/images/thumbnails/B&W/island_boat-min.jpg",
         "size": 13
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/island_walk-min.JPG",
@@ -80,7 +87,8 @@
         "webp": "public/images/thumbnails/B&W/island_walk-min.webp",
         "jpeg": "public/images/thumbnails/B&W/island_walk-min.jpg",
         "size": 21
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/museum_exposure-min.JPG",
@@ -88,7 +96,8 @@
         "webp": "public/images/thumbnails/B&W/museum_exposure-min.webp",
         "jpeg": "public/images/thumbnails/B&W/museum_exposure-min.jpg",
         "size": 13
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/museum_glass-min.JPG",
@@ -96,7 +105,8 @@
         "webp": "public/images/thumbnails/B&W/museum_glass-min.webp",
         "jpeg": "public/images/thumbnails/B&W/museum_glass-min.jpg",
         "size": 16
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/museum_reflection-min.JPG",
@@ -104,7 +114,8 @@
         "webp": "public/images/thumbnails/B&W/museum_reflection-min.webp",
         "jpeg": "public/images/thumbnails/B&W/museum_reflection-min.jpg",
         "size": 11
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/museum_shadow-min.jpg",
@@ -112,7 +123,8 @@
         "webp": "public/images/thumbnails/B&W/museum_shadow-min.webp",
         "jpeg": "public/images/thumbnails/B&W/museum_shadow-min.jpg",
         "size": 9
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/museum_statue-min.jpg",
@@ -120,7 +132,8 @@
         "webp": "public/images/thumbnails/B&W/museum_statue-min.webp",
         "jpeg": "public/images/thumbnails/B&W/museum_statue-min.jpg",
         "size": 10
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/museum_view-min.JPG",
@@ -128,7 +141,8 @@
         "webp": "public/images/thumbnails/B&W/museum_view-min.webp",
         "jpeg": "public/images/thumbnails/B&W/museum_view-min.jpg",
         "size": 11
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/nine_grid-min.JPG",
@@ -136,7 +150,8 @@
         "webp": "public/images/thumbnails/B&W/nine_grid-min.webp",
         "jpeg": "public/images/thumbnails/B&W/nine_grid-min.jpg",
         "size": 17
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/old_man-min.JPG",
@@ -144,7 +159,8 @@
         "webp": "public/images/thumbnails/B&W/old_man-min.webp",
         "jpeg": "public/images/thumbnails/B&W/old_man-min.jpg",
         "size": 10
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/side_look-min.JPG",
@@ -152,7 +168,8 @@
         "webp": "public/images/thumbnails/B&W/side_look-min.webp",
         "jpeg": "public/images/thumbnails/B&W/side_look-min.jpg",
         "size": 7
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/train_smoke-min.jpg",
@@ -160,7 +177,8 @@
         "webp": "public/images/thumbnails/B&W/train_smoke-min.webp",
         "jpeg": "public/images/thumbnails/B&W/train_smoke-min.jpg",
         "size": 23
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/trunk_beach-min.JPG",
@@ -168,7 +186,8 @@
         "webp": "public/images/thumbnails/B&W/trunk_beach-min.webp",
         "jpeg": "public/images/thumbnails/B&W/trunk_beach-min.jpg",
         "size": 20
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/waiting_train-min.JPG",
@@ -176,7 +195,8 @@
         "webp": "public/images/thumbnails/B&W/waiting_train-min.webp",
         "jpeg": "public/images/thumbnails/B&W/waiting_train-min.jpg",
         "size": 19
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/wheel_museum-min.JPG",
@@ -184,7 +204,8 @@
         "webp": "public/images/thumbnails/B&W/wheel_museum-min.webp",
         "jpeg": "public/images/thumbnails/B&W/wheel_museum-min.jpg",
         "size": 13
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/whip_men-min.JPG",
@@ -192,7 +213,8 @@
         "webp": "public/images/thumbnails/B&W/whip_men-min.webp",
         "jpeg": "public/images/thumbnails/B&W/whip_men-min.jpg",
         "size": 5
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/ab_couple-min.JPG",
@@ -200,7 +222,8 @@
         "webp": "public/images/thumbnails/Event/ab_couple-min.webp",
         "jpeg": "public/images/thumbnails/Event/ab_couple-min.jpg",
         "size": 25
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/ab_glasses-min.JPG",
@@ -208,7 +231,8 @@
         "webp": "public/images/thumbnails/Event/ab_glasses-min.webp",
         "jpeg": "public/images/thumbnails/Event/ab_glasses-min.jpg",
         "size": 31
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/ab_maid-min.JPG",
@@ -216,7 +240,8 @@
         "webp": "public/images/thumbnails/Event/ab_maid-min.webp",
         "jpeg": "public/images/thumbnails/Event/ab_maid-min.jpg",
         "size": 25
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/ab_maid2-min.JPG",
@@ -224,7 +249,8 @@
         "webp": "public/images/thumbnails/Event/ab_maid2-min.webp",
         "jpeg": "public/images/thumbnails/Event/ab_maid2-min.jpg",
         "size": 22
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/boat_jialong-min.JPG",
@@ -232,7 +258,8 @@
         "webp": "public/images/thumbnails/Event/boat_jialong-min.webp",
         "jpeg": "public/images/thumbnails/Event/boat_jialong-min.jpg",
         "size": 20
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/cos_three-min.PNG",
@@ -240,7 +267,8 @@
         "webp": "public/images/thumbnails/Event/cos_three-min.webp",
         "jpeg": "public/images/thumbnails/Event/cos_three-min.jpg",
         "size": 27
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/hanfu_aidi-min.JPG",
@@ -248,7 +276,8 @@
         "webp": "public/images/thumbnails/Event/hanfu_aidi-min.webp",
         "jpeg": "public/images/thumbnails/Event/hanfu_aidi-min.jpg",
         "size": 16
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/hanfu_couple-min.JPG",
@@ -256,7 +285,8 @@
         "webp": "public/images/thumbnails/Event/hanfu_couple-min.webp",
         "jpeg": "public/images/thumbnails/Event/hanfu_couple-min.jpg",
         "size": 25
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/hanfu_man-min.JPG",
@@ -264,7 +294,8 @@
         "webp": "public/images/thumbnails/Event/hanfu_man-min.webp",
         "jpeg": "public/images/thumbnails/Event/hanfu_man-min.jpg",
         "size": 22
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/hanfu_pink-min.JPG",
@@ -272,7 +303,8 @@
         "webp": "public/images/thumbnails/Event/hanfu_pink-min.webp",
         "jpeg": "public/images/thumbnails/Event/hanfu_pink-min.jpg",
         "size": 7
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/hanfu_tree-min.JPG",
@@ -280,7 +312,8 @@
         "webp": "public/images/thumbnails/Event/hanfu_tree-min.webp",
         "jpeg": "public/images/thumbnails/Event/hanfu_tree-min.jpg",
         "size": 24
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/hanfu_xinyu-min.JPG",
@@ -288,7 +321,8 @@
         "webp": "public/images/thumbnails/Event/hanfu_xinyu-min.webp",
         "jpeg": "public/images/thumbnails/Event/hanfu_xinyu-min.jpg",
         "size": 34
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/kpop_hands-min.JPG",
@@ -296,7 +330,8 @@
         "webp": "public/images/thumbnails/Event/kpop_hands-min.webp",
         "jpeg": "public/images/thumbnails/Event/kpop_hands-min.jpg",
         "size": 23
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/kpop_piano-min.JPG",
@@ -304,7 +339,8 @@
         "webp": "public/images/thumbnails/Event/kpop_piano-min.webp",
         "jpeg": "public/images/thumbnails/Event/kpop_piano-min.jpg",
         "size": 21
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Event/xinyu_katie-min.JPG",
@@ -312,7 +348,8 @@
         "webp": "public/images/thumbnails/Event/xinyu_katie-min.webp",
         "jpeg": "public/images/thumbnails/Event/xinyu_katie-min.jpg",
         "size": 20
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Night/foodtruck_girl-min.jpg",
@@ -320,7 +357,8 @@
         "webp": "public/images/thumbnails/Night/foodtruck_girl-min.webp",
         "jpeg": "public/images/thumbnails/Night/foodtruck_girl-min.jpg",
         "size": 11
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Night/men_kiss-min.JPG",
@@ -328,7 +366,8 @@
         "webp": "public/images/thumbnails/Night/men_kiss-min.webp",
         "jpeg": "public/images/thumbnails/Night/men_kiss-min.jpg",
         "size": 12
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Night/men_kiss2-min.JPG",
@@ -336,7 +375,8 @@
         "webp": "public/images/thumbnails/Night/men_kiss2-min.webp",
         "jpeg": "public/images/thumbnails/Night/men_kiss2-min.jpg",
         "size": 13
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Night/night_boat-min.JPG",
@@ -344,7 +384,8 @@
         "webp": "public/images/thumbnails/Night/night_boat-min.webp",
         "jpeg": "public/images/thumbnails/Night/night_boat-min.jpg",
         "size": 31
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Night/night_shadow-min.JPG",
@@ -352,7 +393,8 @@
         "webp": "public/images/thumbnails/Night/night_shadow-min.webp",
         "jpeg": "public/images/thumbnails/Night/night_shadow-min.jpg",
         "size": 4
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Night/night_sky-min.JPG",
@@ -360,7 +402,8 @@
         "webp": "public/images/thumbnails/Night/night_sky-min.webp",
         "jpeg": "public/images/thumbnails/Night/night_sky-min.jpg",
         "size": 9
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Night/night_sky2-min.JPG",
@@ -368,7 +411,8 @@
         "webp": "public/images/thumbnails/Night/night_sky2-min.webp",
         "jpeg": "public/images/thumbnails/Night/night_sky2-min.jpg",
         "size": 9
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Night/night_sky3-min.JPG",
@@ -376,7 +420,8 @@
         "webp": "public/images/thumbnails/Night/night_sky3-min.webp",
         "jpeg": "public/images/thumbnails/Night/night_sky3-min.jpg",
         "size": 9
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Photojournalism/blue_bike-min.jpg",
@@ -384,7 +429,8 @@
         "webp": "public/images/thumbnails/Photojournalism/blue_bike-min.webp",
         "jpeg": "public/images/thumbnails/Photojournalism/blue_bike-min.jpg",
         "size": 29
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Photojournalism/god_talking-min.jpg",
@@ -392,7 +438,8 @@
         "webp": "public/images/thumbnails/Photojournalism/god_talking-min.webp",
         "jpeg": "public/images/thumbnails/Photojournalism/god_talking-min.jpg",
         "size": 15
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Photojournalism/museum_back-min.JPG",
@@ -400,7 +447,8 @@
         "webp": "public/images/thumbnails/Photojournalism/museum_back-min.webp",
         "jpeg": "public/images/thumbnails/Photojournalism/museum_back-min.jpg",
         "size": 13
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Photojournalism/museum_bold-min.JPG",
@@ -408,7 +456,8 @@
         "webp": "public/images/thumbnails/Photojournalism/museum_bold-min.webp",
         "jpeg": "public/images/thumbnails/Photojournalism/museum_bold-min.jpg",
         "size": 11
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Photojournalism/museum_criminal-min.JPG",
@@ -416,7 +465,8 @@
         "webp": "public/images/thumbnails/Photojournalism/museum_criminal-min.webp",
         "jpeg": "public/images/thumbnails/Photojournalism/museum_criminal-min.jpg",
         "size": 17
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Photojournalism/museum_girl-min.JPG",
@@ -424,7 +474,8 @@
         "webp": "public/images/thumbnails/Photojournalism/museum_girl-min.webp",
         "jpeg": "public/images/thumbnails/Photojournalism/museum_girl-min.jpg",
         "size": 6
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Photojournalism/museum_three-min.JPG",
@@ -432,7 +483,8 @@
         "webp": "public/images/thumbnails/Photojournalism/museum_three-min.webp",
         "jpeg": "public/images/thumbnails/Photojournalism/museum_three-min.jpg",
         "size": 9
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Photojournalism/protest_flag-min.JPG",
@@ -440,7 +492,8 @@
         "webp": "public/images/thumbnails/Photojournalism/protest_flag-min.webp",
         "jpeg": "public/images/thumbnails/Photojournalism/protest_flag-min.jpg",
         "size": 14
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Photojournalism/protest_man-min.JPG",
@@ -448,7 +501,8 @@
         "webp": "public/images/thumbnails/Photojournalism/protest_man-min.webp",
         "jpeg": "public/images/thumbnails/Photojournalism/protest_man-min.jpg",
         "size": 16
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Photojournalism/protest_sign-min.JPG",
@@ -456,7 +510,8 @@
         "webp": "public/images/thumbnails/Photojournalism/protest_sign-min.webp",
         "jpeg": "public/images/thumbnails/Photojournalism/protest_sign-min.jpg",
         "size": 20
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/airport_kid-min.JPG",
@@ -464,7 +519,8 @@
         "webp": "public/images/thumbnails/Travel/airport_kid-min.webp",
         "jpeg": "public/images/thumbnails/Travel/airport_kid-min.jpg",
         "size": 12
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/back_hands-min.JPG",
@@ -472,7 +528,8 @@
         "webp": "public/images/thumbnails/Travel/back_hands-min.webp",
         "jpeg": "public/images/thumbnails/Travel/back_hands-min.jpg",
         "size": 14
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/boat_starring-min.JPG",
@@ -480,7 +537,8 @@
         "webp": "public/images/thumbnails/Travel/boat_starring-min.webp",
         "jpeg": "public/images/thumbnails/Travel/boat_starring-min.jpg",
         "size": 6
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/canon_staff-min.JPG",
@@ -488,7 +546,8 @@
         "webp": "public/images/thumbnails/Travel/canon_staff-min.webp",
         "jpeg": "public/images/thumbnails/Travel/canon_staff-min.jpg",
         "size": 10
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/city_hole-min.JPG",
@@ -496,7 +555,8 @@
         "webp": "public/images/thumbnails/Travel/city_hole-min.webp",
         "jpeg": "public/images/thumbnails/Travel/city_hole-min.jpg",
         "size": 12
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/cloud_shadow-min.JPG",
@@ -504,7 +564,8 @@
         "webp": "public/images/thumbnails/Travel/cloud_shadow-min.webp",
         "jpeg": "public/images/thumbnails/Travel/cloud_shadow-min.jpg",
         "size": 19
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/concert_man-min.JPG",
@@ -512,7 +573,8 @@
         "webp": "public/images/thumbnails/Travel/concert_man-min.webp",
         "jpeg": "public/images/thumbnails/Travel/concert_man-min.jpg",
         "size": 30
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/concert_photographer-min.JPG",
@@ -520,7 +582,8 @@
         "webp": "public/images/thumbnails/Travel/concert_photographer-min.webp",
         "jpeg": "public/images/thumbnails/Travel/concert_photographer-min.jpg",
         "size": 18
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/father_love-min.JPG",
@@ -528,7 +591,8 @@
         "webp": "public/images/thumbnails/Travel/father_love-min.webp",
         "jpeg": "public/images/thumbnails/Travel/father_love-min.jpg",
         "size": 32
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/hill_person-min.JPG",
@@ -536,7 +600,8 @@
         "webp": "public/images/thumbnails/Travel/hill_person-min.webp",
         "jpeg": "public/images/thumbnails/Travel/hill_person-min.jpg",
         "size": 9
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/horse_look-min.JPG",
@@ -544,7 +609,8 @@
         "webp": "public/images/thumbnails/Travel/horse_look-min.webp",
         "jpeg": "public/images/thumbnails/Travel/horse_look-min.jpg",
         "size": 14
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/island_window-min.JPG",
@@ -552,7 +618,8 @@
         "webp": "public/images/thumbnails/Travel/island_window-min.webp",
         "jpeg": "public/images/thumbnails/Travel/island_window-min.jpg",
         "size": 10
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/moon_light-min.JPG",
@@ -560,7 +627,8 @@
         "webp": "public/images/thumbnails/Travel/moon_light-min.webp",
         "jpeg": "public/images/thumbnails/Travel/moon_light-min.jpg",
         "size": 6
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/moon_shadow-min.JPG",
@@ -568,7 +636,8 @@
         "webp": "public/images/thumbnails/Travel/moon_shadow-min.webp",
         "jpeg": "public/images/thumbnails/Travel/moon_shadow-min.jpg",
         "size": 6
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/night_beach-min.JPG",
@@ -576,7 +645,8 @@
         "webp": "public/images/thumbnails/Travel/night_beach-min.webp",
         "jpeg": "public/images/thumbnails/Travel/night_beach-min.jpg",
         "size": 8
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/park_concert-min.JPG",
@@ -584,7 +654,8 @@
         "webp": "public/images/thumbnails/Travel/park_concert-min.webp",
         "jpeg": "public/images/thumbnails/Travel/park_concert-min.jpg",
         "size": 34
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/reflection_walk-min.JPG",
@@ -592,7 +663,8 @@
         "webp": "public/images/thumbnails/Travel/reflection_walk-min.webp",
         "jpeg": "public/images/thumbnails/Travel/reflection_walk-min.jpg",
         "size": 18
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/sailing_view-min.JPG",
@@ -600,7 +672,8 @@
         "webp": "public/images/thumbnails/Travel/sailing_view-min.webp",
         "jpeg": "public/images/thumbnails/Travel/sailing_view-min.jpg",
         "size": 18
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/seaport_couple-min.JPG",
@@ -608,7 +681,8 @@
         "webp": "public/images/thumbnails/Travel/seaport_couple-min.webp",
         "jpeg": "public/images/thumbnails/Travel/seaport_couple-min.jpg",
         "size": 15
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/seaport_family-min.JPG",
@@ -616,7 +690,8 @@
         "webp": "public/images/thumbnails/Travel/seaport_family-min.webp",
         "jpeg": "public/images/thumbnails/Travel/seaport_family-min.jpg",
         "size": 28
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/seaport_women-min.JPG",
@@ -624,7 +699,8 @@
         "webp": "public/images/thumbnails/Travel/seaport_women-min.webp",
         "jpeg": "public/images/thumbnails/Travel/seaport_women-min.jpg",
         "size": 26
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/square_walk-min.JPG",
@@ -632,7 +708,8 @@
         "webp": "public/images/thumbnails/Travel/square_walk-min.webp",
         "jpeg": "public/images/thumbnails/Travel/square_walk-min.jpg",
         "size": 34
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/taxi_woman-min.JPG",
@@ -640,7 +717,8 @@
         "webp": "public/images/thumbnails/Travel/taxi_woman-min.webp",
         "jpeg": "public/images/thumbnails/Travel/taxi_woman-min.jpg",
         "size": 21
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/train_couple-min.jpg",
@@ -648,7 +726,8 @@
         "webp": "public/images/thumbnails/Travel/train_couple-min.webp",
         "jpeg": "public/images/thumbnails/Travel/train_couple-min.jpg",
         "size": 26
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/train_outside-min.JPG",
@@ -656,7 +735,8 @@
         "webp": "public/images/thumbnails/Travel/train_outside-min.webp",
         "jpeg": "public/images/thumbnails/Travel/train_outside-min.jpg",
         "size": 31
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/traine_outside-min.JPG",
@@ -664,7 +744,8 @@
         "webp": "public/images/thumbnails/Travel/traine_outside-min.webp",
         "jpeg": "public/images/thumbnails/Travel/traine_outside-min.jpg",
         "size": 31
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/walk_shadow-min.JPG",
@@ -672,7 +753,8 @@
         "webp": "public/images/thumbnails/Travel/walk_shadow-min.webp",
         "jpeg": "public/images/thumbnails/Travel/walk_shadow-min.jpg",
         "size": 10
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/winter_dusk-min.JPG",
@@ -680,7 +762,8 @@
         "webp": "public/images/thumbnails/Travel/winter_dusk-min.webp",
         "jpeg": "public/images/thumbnails/Travel/winter_dusk-min.jpg",
         "size": 20
-      }
+      },
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/zecong_look-min.JPG",
@@ -688,7 +771,8 @@
         "webp": "public/images/thumbnails/Travel/zecong_look-min.webp",
         "jpeg": "public/images/thumbnails/Travel/zecong_look-min.jpg",
         "size": 25
-      }
+      },
+      "skipped": true
     }
   ]
 }
