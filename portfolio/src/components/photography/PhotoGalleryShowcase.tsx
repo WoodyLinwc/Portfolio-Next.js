@@ -368,8 +368,9 @@ export default function PhotoGalleryShowcase({
                                 style={{
                                     width: "150px",
                                     height: "150px",
+                                    // Position magnifier above the cursor/finger (offset by magnifier height + some padding)
                                     left: magnifierPosition.x - 75,
-                                    top: magnifierPosition.y - 75,
+                                    top: magnifierPosition.y - 150 - 20, // Move up by magnifier height + 20px padding
                                     background: `url(${selectedImage}) no-repeat`,
                                     backgroundSize: `${
                                         imageRef.current.naturalWidth * 2
