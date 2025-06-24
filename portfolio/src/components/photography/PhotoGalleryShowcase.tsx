@@ -134,7 +134,7 @@ export default function PhotoGalleryShowcase({
             document.body.classList.add("modal-open");
 
             // Temporarily re-enable zoom when modal is open
-            let viewportMeta = document.querySelector(
+            const viewportMeta = document.querySelector(
                 'meta[name="viewport"]'
             ) as HTMLMetaElement;
             let originalViewportContent = "";
