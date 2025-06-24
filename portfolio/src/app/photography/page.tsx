@@ -2,7 +2,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Head from "next/head";
 import DisqusComments from "@/components/widgets/DisqusComments";
 import SectionTitle from "@/components/SectionTitle";
 import CameraGearShowcase from "@/components/photography/CameraGearShowcase";
