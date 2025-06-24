@@ -354,22 +354,21 @@ export default function PhotoGalleryShowcase({
                                         onLoad={handleSelectedImageLoad}
                                         priority
                                         quality={95}
-                                        style={{
-                                            // Allow all touch interactions on the image itself
-                                            touchAction: "auto",
-                                            maxWidth: "100%",
-                                            maxHeight: "100%",
-                                            width: "auto",
-                                            height: "auto",
-                                            objectFit: "contain",
-                                            cursor: "grab",
-                                            userSelect: "none",
-                                            // Prevent image from being dragged
-                                            WebkitUserDrag: "none",
-                                            KhtmlUserDrag: "none",
-                                            MozUserDrag: "none",
-                                            OUserDrag: "none",
-                                        }}
+                                        style={
+                                            {
+                                                // Allow all touch interactions on the image itself
+                                                touchAction: "auto",
+                                                maxWidth: "100%",
+                                                maxHeight: "100%",
+                                                width: "auto",
+                                                height: "auto",
+                                                objectFit: "contain",
+                                                cursor: "grab",
+                                                userSelect: "none",
+                                                // Prevent image from being dragged - using correct property names
+                                                WebkitUserDrag: "none" as any,
+                                            } as React.CSSProperties
+                                        }
                                         onMouseDown={(e) => e.preventDefault()}
                                         onDragStart={(e) => e.preventDefault()}
                                     />
