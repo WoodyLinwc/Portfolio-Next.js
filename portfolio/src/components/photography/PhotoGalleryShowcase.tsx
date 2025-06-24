@@ -133,26 +133,8 @@ export default function PhotoGalleryShowcase({
             // Add a class to the body for additional styling if needed
             document.body.classList.add("modal-open");
 
-            // Temporarily re-enable zoom when modal is open by updating viewport
-            const viewportMeta = document.querySelector(
-                'meta[name="viewport"]'
-            ) as HTMLMetaElement;
-            let originalViewportContent = "";
-
-            if (viewportMeta) {
-                originalViewportContent = viewportMeta.content;
-                // Allow zoom up to 10x in the modal for better image viewing
-                viewportMeta.content =
-                    "width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes";
-            }
-
-            // Remove the no-zoom CSS styles temporarily
-            const noZoomStyle = document.getElementById("photography-no-zoom");
-            let hadNoZoomStyle = false;
-            if (noZoomStyle) {
-                hadNoZoomStyle = true;
-                noZoomStyle.style.display = "none";
-            }
+            // Don't modify viewport meta tag - keep page zoom disabled
+            // Zoom will be handled within the image container
 
             return () => {
                 // Restore original overflow style when modal closes
@@ -160,15 +142,7 @@ export default function PhotoGalleryShowcase({
                 document.documentElement.style.overflow = "";
                 document.body.classList.remove("modal-open");
 
-                // Restore original viewport settings
-                if (viewportMeta && originalViewportContent) {
-                    viewportMeta.content = originalViewportContent;
-                }
-
-                // Restore the no-zoom CSS styles
-                if (hadNoZoomStyle && noZoomStyle) {
-                    noZoomStyle.style.display = "";
-                }
+                // No need to restore viewport since we didn't change it
             };
         }
     }, [selectedImage]);
@@ -328,44 +302,79 @@ export default function PhotoGalleryShowcase({
                             </div>
                         )}
 
-                        {/* Original image for lightbox - This is the zoomable image */}
+                        {/* Zoomable Image Container - Contains zoom within this area */}
                         <div
+                            className="image-zoom-container"
                             style={{
                                 width: "100%",
-                                height: "100%",
-                                maxHeight: "calc(100dvh - 64px)", // Account for button and padding
-                                overflow: "auto",
-                                WebkitOverflowScrolling: "touch",
-                                touchAction: "auto",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
+                                height: "calc(100dvh - 64px)", // Account for button and padding
+                                overflow: "hidden", // Hide overflow to contain zoom
+                                position: "relative",
+                                border: "1px solid rgba(255,255,255,0.1)", // Subtle border to show container bounds
+                                borderRadius: "8px",
+                                backgroundColor: "rgba(0,0,0,0.3)",
                             }}
                         >
-                            <Image
-                                src={selectedImage}
-                                alt="Enlarged photo"
-                                width={1200}
-                                height={800}
-                                className={`transition-opacity duration-300 ${
-                                    selectedImageLoading
-                                        ? "opacity-0"
-                                        : "opacity-100"
-                                }`}
-                                onLoad={handleSelectedImageLoad}
-                                priority
-                                quality={95}
+                            {/* Scrollable content area within the container */}
+                            <div
                                 style={{
-                                    // Allow all touch interactions on the image itself
-                                    touchAction: "auto",
-                                    maxWidth: "100%",
-                                    maxHeight: "100%",
-                                    width: "auto",
-                                    height: "auto",
-                                    objectFit: "contain",
-                                    cursor: "zoom-in",
+                                    width: "100%",
+                                    height: "100%",
+                                    overflow: "auto", // Allow scrolling within container
+                                    WebkitOverflowScrolling: "touch",
+                                    touchAction: "pan-x pan-y pinch-zoom", // Allow pan and pinch within container
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    padding: "20px",
                                 }}
-                            />
+                            >
+                                {/* Scalable image wrapper */}
+                                <div
+                                    style={{
+                                        transformOrigin: "center center",
+                                        transition: "transform 0.1s ease-out",
+                                        minWidth: "100%",
+                                        minHeight: "100%",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                    }}
+                                >
+                                    <Image
+                                        src={selectedImage}
+                                        alt="Enlarged photo"
+                                        width={1200}
+                                        height={800}
+                                        className={`transition-opacity duration-300 ${
+                                            selectedImageLoading
+                                                ? "opacity-0"
+                                                : "opacity-100"
+                                        }`}
+                                        onLoad={handleSelectedImageLoad}
+                                        priority
+                                        quality={95}
+                                        style={{
+                                            // Allow all touch interactions on the image itself
+                                            touchAction: "auto",
+                                            maxWidth: "100%",
+                                            maxHeight: "100%",
+                                            width: "auto",
+                                            height: "auto",
+                                            objectFit: "contain",
+                                            cursor: "grab",
+                                            userSelect: "none",
+                                            // Prevent image from being dragged
+                                            WebkitUserDrag: "none",
+                                            KhtmlUserDrag: "none",
+                                            MozUserDrag: "none",
+                                            OUserDrag: "none",
+                                        }}
+                                        onMouseDown={(e) => e.preventDefault()}
+                                        onDragStart={(e) => e.preventDefault()}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
