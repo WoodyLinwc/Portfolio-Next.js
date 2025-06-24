@@ -296,7 +296,6 @@ export default function PhotoGalleryShowcase({
                         alignItems: "center",
                         justifyContent: "center",
                         padding: "16px",
-                        minHeight: "100vh",
                         minHeight: "100dvh", // Use dynamic viewport height for better mobile support
                     }}
                 >
@@ -310,7 +309,6 @@ export default function PhotoGalleryShowcase({
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            maxHeight: "calc(100vh - 32px)",
                             maxHeight: "calc(100dvh - 32px)", // Account for padding
                         }}
                     >
@@ -335,8 +333,7 @@ export default function PhotoGalleryShowcase({
                             style={{
                                 width: "100%",
                                 height: "100%",
-                                maxHeight: "calc(100vh - 64px)", // Account for button and padding
-                                maxHeight: "calc(100dvh - 64px)",
+                                maxHeight: "calc(100dvh - 64px)", // Account for button and padding
                                 overflow: "auto",
                                 WebkitOverflowScrolling: "touch",
                                 touchAction: "auto",
