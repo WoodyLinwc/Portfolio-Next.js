@@ -1,3 +1,4 @@
+// src/components/photography/PhotoGalleryShowcase.tsx
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
@@ -252,124 +253,51 @@ export default function PhotoGalleryShowcase({
                 </div>
             )}
 
-            {/* Lightbox Modal */}
+            {/* Lightbox Modal - Clean version without container */}
             {selectedImage && (
                 <div
-                    className="fixed inset-0 bg-black bg-opacity-90 z-[9999]"
+                    className="fixed inset-0 bg-black bg-opacity-90 z-[9999] flex items-center justify-center p-4"
                     onClick={handleCloseModal}
                     style={{
-                        // Prevent scroll but allow zoom on the overlay
-                        touchAction: "none",
-                        WebkitOverflowScrolling: "auto",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        padding: "16px",
-                        minHeight: "100dvh", // Use dynamic viewport height for better mobile support
+                        overflow: "hidden",
                     }}
                 >
-                    <div
-                        className="relative w-full max-w-4xl h-full"
-                        onClick={(e) => e.stopPropagation()}
-                        style={{
-                            // Allow all touch interactions on the image container
-                            touchAction: "auto",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            maxHeight: "calc(100dvh - 32px)", // Account for padding
-                        }}
+                    <button
+                        onClick={handleCloseModal}
+                        className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center transition-colors"
+                        aria-label="Close image"
                     >
-                        <button
-                            onClick={handleCloseModal}
-                            className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center transition-colors"
-                            aria-label="Close image"
-                            style={{ touchAction: "auto" }}
-                        >
-                            ✕
-                        </button>
+                        ✕
+                    </button>
 
-                        {/* Loading spinner - should rarely show if image is preloaded */}
-                        {selectedImageLoading && (
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <Spinner size="large" color="white" />
-                            </div>
-                        )}
-
-                        {/* Zoomable Image Container - Contains zoom within this area */}
-                        <div
-                            className="image-zoom-container"
-                            style={{
-                                width: "100%",
-                                height: "calc(100dvh - 64px)", // Account for button and padding
-                                overflow: "hidden", // Hide overflow to contain zoom
-                                position: "relative",
-                                border: "1px solid rgba(255,255,255,0.1)", // Subtle border to show container bounds
-                                borderRadius: "8px",
-                                backgroundColor: "rgba(0,0,0,0.3)",
-                            }}
-                        >
-                            {/* Scrollable content area within the container */}
-                            <div
-                                style={{
-                                    width: "100%",
-                                    height: "100%",
-                                    overflow: "auto", // Allow scrolling within container
-                                    WebkitOverflowScrolling: "touch",
-                                    touchAction: "pan-x pan-y pinch-zoom", // Allow pan and pinch within container
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    padding: "20px",
-                                }}
-                            >
-                                {/* Scalable image wrapper */}
-                                <div
-                                    style={{
-                                        transformOrigin: "center center",
-                                        transition: "transform 0.1s ease-out",
-                                        minWidth: "100%",
-                                        minHeight: "100%",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "center",
-                                    }}
-                                >
-                                    <Image
-                                        src={selectedImage}
-                                        alt="Enlarged photo"
-                                        width={1200}
-                                        height={800}
-                                        className={`transition-opacity duration-300 ${
-                                            selectedImageLoading
-                                                ? "opacity-0"
-                                                : "opacity-100"
-                                        }`}
-                                        onLoad={handleSelectedImageLoad}
-                                        priority
-                                        quality={95}
-                                        style={
-                                            {
-                                                // Allow all touch interactions on the image itself
-                                                touchAction: "auto",
-                                                maxWidth: "100%",
-                                                maxHeight: "100%",
-                                                width: "auto",
-                                                height: "auto",
-                                                objectFit: "contain",
-                                                cursor: "grab",
-                                                userSelect: "none",
-                                            } as React.CSSProperties & {
-                                                WebkitUserDrag: string;
-                                            }
-                                        }
-                                        onMouseDown={(e) => e.preventDefault()}
-                                        onDragStart={(e) => e.preventDefault()}
-                                    />
-                                </div>
-                            </div>
+                    {/* Loading spinner - should rarely show if image is preloaded */}
+                    {selectedImageLoading && (
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <Spinner size="large" color="white" />
                         </div>
-                    </div>
+                    )}
+
+                    {/* Image - directly in the modal without wrapper container */}
+                    <Image
+                        src={selectedImage}
+                        alt="Enlarged photo"
+                        width={1200}
+                        height={800}
+                        className={`max-w-[90vw] max-h-[90vh] object-contain transition-opacity duration-300 ${
+                            selectedImageLoading ? "opacity-0" : "opacity-100"
+                        }`}
+                        onLoad={handleSelectedImageLoad}
+                        priority
+                        quality={95}
+                        style={{
+                            width: "auto",
+                            height: "auto",
+                            userSelect: "none",
+                        }}
+                        onMouseDown={(e) => e.preventDefault()}
+                        onDragStart={(e) => e.preventDefault()}
+                        onClick={(e) => e.stopPropagation()}
+                    />
                 </div>
             )}
         </div>
