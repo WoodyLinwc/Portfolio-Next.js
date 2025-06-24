@@ -8,6 +8,7 @@ import { ticTacToeCode } from "@/data/learning/react/ticTacToeCode";
 
 export default function TicTacToePage() {
     const [activeTab, setActiveTab] = useState<"demo" | "code">("demo");
+    const [isCodeVisible, setIsCodeVisible] = useState(true);
 
     return (
         <>
@@ -72,15 +73,41 @@ export default function TicTacToePage() {
                         </div>
                     </div>
 
+                    {/* Desktop Hide/Show Code Button */}
+                    <div className="hidden lg:flex justify-center mb-6">
+                        <button
+                            onClick={() => setIsCodeVisible(!isCodeVisible)}
+                            className={`px-6 py-2 rounded-lg font-medium transition-colors ${
+                                isCodeVisible
+                                    ? "bg-gray-500 text-white hover:bg-gray-600"
+                                    : "bg-primary text-white hover:bg-primary/90"
+                            }`}
+                        >
+                            <i
+                                className={`fa ${
+                                    isCodeVisible ? "fa-eye-slash" : "fa-code"
+                                } mr-2`}
+                            ></i>
+                            {isCodeVisible ? "Hide Code" : "Show Code"}
+                        </button>
+                    </div>
+
                     {/* Main Content - Game and Code Side by Side */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                    <div
+                        className={`grid gap-8 mb-12 transition-all duration-300 ${
+                            isCodeVisible
+                                ? "grid-cols-1 lg:grid-cols-2"
+                                : "grid-cols-1"
+                        }`}
+                    >
                         {/* Left Side - Game Demo */}
                         <div className="bg-white rounded-lg shadow-lg p-6">
                             <div className="flex items-center justify-between mb-6">
                                 <h3 className="text-xl font-bold text-gray-800">
                                     Interactive Demo
                                 </h3>
-                                <div className="flex bg-gray-100 rounded-lg p-1">
+                                {/* Mobile Tab Switcher - Only show on mobile */}
+                                <div className="flex lg:hidden bg-gray-100 rounded-lg p-1">
                                     <button
                                         onClick={() => setActiveTab("demo")}
                                         className={`px-4 py-2 rounded-md text-sm transition-colors ${
@@ -126,23 +153,25 @@ export default function TicTacToePage() {
                         </div>
 
                         {/* Right Side - Code Implementation (Desktop Only) */}
-                        <div className="hidden lg:block bg-white rounded-lg shadow-lg p-6">
-                            <div className="flex items-center justify-between mb-6">
-                                <h3 className="text-xl font-bold text-gray-800">
-                                    Implementation Code
-                                </h3>
-                                <div className="flex items-center space-x-2 text-sm text-gray-500">
-                                    <i className="fa fa-code"></i>
-                                    <span>ticTacToe.jsx</span>
+                        {isCodeVisible && (
+                            <div className="hidden lg:block bg-white rounded-lg shadow-lg p-6">
+                                <div className="flex items-center justify-between mb-6">
+                                    <h3 className="text-xl font-bold text-gray-800">
+                                        Implementation Code
+                                    </h3>
+                                    <div className="flex items-center space-x-2 text-sm text-gray-500">
+                                        <i className="fa fa-code"></i>
+                                        <span>ticTacToe.jsx</span>
+                                    </div>
+                                </div>
+
+                                <div className="bg-gray-900 rounded-lg p-3 overflow-x-auto max-h-[600px] overflow-y-auto">
+                                    <pre className="text-green-400 text-[10px] leading-tight whitespace-pre-wrap break-words">
+                                        <code>{ticTacToeCode}</code>
+                                    </pre>
                                 </div>
                             </div>
-
-                            <div className="bg-gray-900 rounded-lg p-4 overflow-x-auto max-h-[600px] overflow-y-auto">
-                                <pre className="text-green-400 text-xs leading-relaxed">
-                                    <code>{ticTacToeCode}</code>
-                                </pre>
-                            </div>
-                        </div>
+                        )}
                     </div>
 
                     {/* Code Tips */}
