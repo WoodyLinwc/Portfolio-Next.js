@@ -1,4 +1,4 @@
-import React from "react";
+export const ticTacToeCode = `import React from "react";
 import { useState } from "react";
 
 export default function TicTacToe() {
@@ -56,16 +56,17 @@ export default function TicTacToe() {
     const isDraw = !winner && board.every((square) => square !== null);
     let status;
     if (winner) {
-        status = `Winner is ${winner}`;
+        status = \`Winner is \${winner}\`;
     } else if (isDraw) {
         status = "It is a draw";
     } else {
-        status = `Next player is ${isXNext ? "X" : "O"}`;
+        status = \`Next player is \${isXNext ? "X" : "O"}\`;
     }
 
     const renderSquare = (i) => {
         return (
             <button
+                key={i}
                 className="w-16 h-16 border border-gray-400 bg-white text-xl font-bold hover:bg-gray-100"
                 onClick={() => handleClick(i)}
             >
@@ -81,9 +82,7 @@ export default function TicTacToe() {
             <div className="grid grid-cols-3 gap-1 w-fit mb-4">
                 {Array(9)
                     .fill(null)
-                    .map((_, i) => (
-                        <div key={i}>{renderSquare(i)}</div>
-                    ))}
+                    .map((_, i) => renderSquare(i))}
             </div>
             <button
                 className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -93,4 +92,4 @@ export default function TicTacToe() {
             </button>
         </div>
     );
-}
+}`;
