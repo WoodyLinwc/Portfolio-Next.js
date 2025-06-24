@@ -286,21 +286,32 @@ export default function PhotoGalleryShowcase({
             {/* Lightbox Modal */}
             {selectedImage && (
                 <div
-                    className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999] p-4"
+                    className="fixed inset-0 bg-black bg-opacity-90 z-[9999]"
                     onClick={handleCloseModal}
                     style={{
                         // Prevent scroll but allow zoom on the overlay
                         touchAction: "none",
                         WebkitOverflowScrolling: "auto",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        padding: "16px",
+                        minHeight: "100vh",
+                        minHeight: "100dvh", // Use dynamic viewport height for better mobile support
                     }}
                 >
                     <div
-                        className="relative max-w-4xl max-h-full"
+                        className="relative w-full max-w-4xl"
                         onClick={(e) => e.stopPropagation()}
                         style={{
                             // Allow all touch interactions on the image container
                             touchAction: "auto",
                             overflow: "hidden",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            maxHeight: "calc(100vh - 32px)",
+                            maxHeight: "calc(100dvh - 32px)", // Account for padding
                         }}
                     >
                         <button
@@ -323,11 +334,15 @@ export default function PhotoGalleryShowcase({
                         <div
                             style={{
                                 width: "100%",
-                                height: "90vh",
-                                maxWidth: "100vw",
+                                height: "100%",
+                                maxHeight: "calc(100vh - 64px)", // Account for button and padding
+                                maxHeight: "calc(100dvh - 64px)",
                                 overflow: "auto",
                                 WebkitOverflowScrolling: "touch",
                                 touchAction: "auto",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
                             }}
                         >
                             <Image
@@ -335,7 +350,7 @@ export default function PhotoGalleryShowcase({
                                 alt="Enlarged photo"
                                 width={1200}
                                 height={800}
-                                className={`w-full h-auto object-contain transition-opacity duration-300 ${
+                                className={`transition-opacity duration-300 ${
                                     selectedImageLoading
                                         ? "opacity-0"
                                         : "opacity-100"
@@ -346,8 +361,11 @@ export default function PhotoGalleryShowcase({
                                 style={{
                                     // Allow all touch interactions on the image itself
                                     touchAction: "auto",
-                                    maxWidth: "none",
-                                    maxHeight: "none",
+                                    maxWidth: "100%",
+                                    maxHeight: "100%",
+                                    width: "auto",
+                                    height: "auto",
+                                    objectFit: "contain",
                                     cursor: "zoom-in",
                                 }}
                             />
