@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
-import DisqusComments from "@/components/widgets/DisqusComments";
+// import DisqusComments from "@/components/widgets/DisqusComments";
 import { LoadingOverlay } from "@/components/Spinner";
 import SectionTitle from "@/components/SectionTitle";
 import { personalInfo } from "@/data/me/personal";
@@ -86,11 +86,11 @@ export default function BlogPage() {
             )}
 
             {/* Comments Section */}
-            <DisqusComments
+            {/* <DisqusComments
                 url="blog-section"
                 identifier="blog-section"
                 title="Personal Blog"
-            />
+            /> */}
         </>
     );
 }
