@@ -157,6 +157,7 @@ export default function PhotographyPage() {
                 url="photo-section"
                 identifier="photo-section"
                 title="Photography Gallery"
+                shortname="https-woody-lin-personal-vercel-app-photography"
             />
         </>
     );

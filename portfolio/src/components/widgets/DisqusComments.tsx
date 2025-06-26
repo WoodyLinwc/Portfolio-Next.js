@@ -6,12 +6,14 @@ interface DisqusCommentsProps {
     url: string;
     identifier: string;
     title: string;
+    shortname: string;
 }
 
 export default function DisqusComments({
     url,
     identifier,
     title,
+    shortname,
 }: DisqusCommentsProps) {
     useEffect(() => {
         // Reset Disqus if it already exists
@@ -38,13 +40,12 @@ export default function DisqusComments({
 
             // Load Disqus script - REPLACE 'YOUR-SHORTNAME' with your actual Disqus shortname
             const script = document.createElement("script");
-            const shortname = "https-woody-lin-personal-vercel-app-photography";
             script.src = `https://${shortname}.disqus.com/embed.js`;
             script.setAttribute("data-timestamp", String(+new Date()));
             script.async = true;
             document.head.appendChild(script);
         }
-    }, [url, identifier, title]);
+    }, [url, identifier, title, shortname]);
 
     return (
         <div className="mx-4 md:mx-16 lg:mx-32 my-12">
