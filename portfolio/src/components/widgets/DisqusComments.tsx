@@ -15,23 +15,42 @@ export default function DisqusComments({
     title,
     shortname,
 }: DisqusCommentsProps) {
-    const disqusRef = useRef<HTMLDivElement>(null);
-    const isLoadingRef = useRef(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const mountedRef = useRef(false);
 
     useEffect(() => {
-        // Prevent multiple simultaneous loads
-        if (isLoadingRef.current) return;
-        isLoadingRef.current = true;
+        if (!containerRef.current) return;
+
+        mountedRef.current = true;
 
         const loadDisqus = () => {
+            if (!mountedRef.current) return;
+
             try {
-                // Clear the container completely
+                // Nuclear option: completely destroy Disqus
+                if (window.DISQUS) {
+                    delete (window as any).DISQUS;
+                    delete (window as any).disqus_config;
+                }
+
+                // Remove all Disqus related scripts and iframes
+                const disqusElements = document.querySelectorAll(
+                    '[id*="disqus"], [src*="disqus"], [class*="disqus"]'
+                );
+                disqusElements.forEach((el) => {
+                    if (el.id !== "disqus_thread") {
+                        // Keep our container
+                        el.remove();
+                    }
+                });
+
+                // Clear the thread container
                 const disqusThread = document.getElementById("disqus_thread");
                 if (disqusThread) {
                     disqusThread.innerHTML = "";
                 }
 
-                // Set the global configuration BEFORE calling reset
+                // Set up fresh configuration
                 window.disqus_config = function (this: DisqusConfigFunction) {
                     this.page = {
                         url: url,
@@ -40,75 +59,51 @@ export default function DisqusComments({
                     };
                 };
 
-                if (window.DISQUS) {
-                    console.log(`Resetting Disqus for ${identifier}`);
-                    // Use setTimeout to ensure the DOM is ready
-                    setTimeout(() => {
-                        window.DISQUS.reset({
-                            reload: true,
-                            config: function (this: DisqusConfigFunction) {
-                                this.page = {
-                                    url: url,
-                                    identifier: identifier,
-                                    title: title,
-                                };
-                            },
-                        });
-                        isLoadingRef.current = false;
-                    }, 100);
-                } else {
-                    console.log(
-                        `Loading Disqus for the first time: ${identifier}`
+                // Load completely fresh Disqus
+                const script = document.createElement("script");
+                script.src = `https://${shortname}.disqus.com/embed.js?t=${Date.now()}`;
+                script.async = true;
+                script.onload = () => {
+                    console.log(`Fresh Disqus loaded for ${identifier}`);
+                };
+                script.onerror = (error) => {
+                    console.error(
+                        `Failed to load Disqus for ${identifier}:`,
+                        error
                     );
-                    // Remove any existing Disqus scripts
-                    const existingScripts = document.querySelectorAll(
-                        'script[src*="disqus.com"]'
-                    );
-                    existingScripts.forEach((script) => script.remove());
+                };
 
-                    // Load fresh Disqus script
-                    const script = document.createElement("script");
-                    script.src = `https://${shortname}.disqus.com/embed.js`;
-                    script.setAttribute("data-timestamp", String(+new Date()));
-                    script.async = true;
-                    script.onload = () => {
-                        console.log(`Disqus script loaded for ${identifier}`);
-                        isLoadingRef.current = false;
-                    };
-                    script.onerror = () => {
-                        console.error(
-                            `Failed to load Disqus script for ${identifier}`
-                        );
-                        isLoadingRef.current = false;
-                    };
-                    document.head.appendChild(script);
-                }
+                // Clean up old scripts first
+                const oldScripts = document.querySelectorAll(
+                    'script[src*="disqus.com"]'
+                );
+                oldScripts.forEach((script) => script.remove());
+
+                // Add new script
+                document.head.appendChild(script);
             } catch (error) {
-                console.error("Error loading Disqus:", error);
-                isLoadingRef.current = false;
+                console.error("Error in nuclear Disqus load:", error);
             }
         };
 
-        // Add a delay to ensure the component is fully mounted
-        const timeoutId = setTimeout(loadDisqus, 300);
+        // Delay to ensure clean slate
+        const timeoutId = setTimeout(loadDisqus, 500);
 
         return () => {
             clearTimeout(timeoutId);
-            isLoadingRef.current = false;
+            mountedRef.current = false;
         };
     }, [url, identifier, title, shortname]);
 
-    // Cleanup when component unmounts
     useEffect(() => {
         return () => {
-            isLoadingRef.current = false;
+            mountedRef.current = false;
         };
     }, []);
 
     return (
-        <div className="mx-4 md:mx-16 lg:mx-32 my-12">
-            {/* Always use the standard disqus_thread ID */}
-            <div id="disqus_thread" ref={disqusRef}></div>
+        <div className="mx-4 md:mx-16 lg:mx-32 my-12" ref={containerRef}>
+            <div id="disqus_thread"></div>
             <noscript>
                 Please enable JavaScript to view the{" "}
                 <a href="https://disqus.com/?ref_noscript">
