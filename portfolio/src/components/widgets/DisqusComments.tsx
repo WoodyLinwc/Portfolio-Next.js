@@ -23,7 +23,7 @@ export default function DisqusComments({
                 config: function (this: DisqusConfigFunction) {
                     this.page = {
                         identifier: identifier,
-                        url: window.location.href, // Use current page URL
+                        url: url, // Use the passed URL prop instead of window.location.href
                         title: title,
                     };
                 },
@@ -32,7 +32,7 @@ export default function DisqusComments({
             // Configure Disqus
             window.disqus_config = function (this: DisqusConfigFunction) {
                 this.page = {
-                    url: window.location.href, // Use current page URL
+                    url: url, // Use the passed URL prop instead of window.location.href
                     identifier: identifier,
                     title: title,
                 };
@@ -45,7 +45,7 @@ export default function DisqusComments({
             script.async = true;
             document.head.appendChild(script);
         }
-    }, [url, identifier, title, shortname]); // Added shortname to dependencies
+    }, [url, identifier, title, shortname]);
 
     return (
         <div className="mx-4 md:mx-16 lg:mx-32 my-12">
