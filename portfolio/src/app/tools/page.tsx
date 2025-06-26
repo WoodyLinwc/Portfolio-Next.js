@@ -87,7 +87,7 @@ export default function ToolsPage() {
 
             {/* Comments Section */}
             <DisqusComments
-                url="productivity-section"
+                url="https://woody-lin-personal.vercel.app/tools"
                 identifier="productivity-section"
                 title="Productivity Tools"
                 shortname="https-woody-lin-personal-vercel-app-tools"
