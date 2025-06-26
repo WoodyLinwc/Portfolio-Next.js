@@ -1,8 +1,8 @@
-"use client";
-
 import SectionTitle from "@/components/SectionTitle";
-// import DisqusComments from "@/components/widgets/DisqusComments";
 import MacTerminal from "@/components/learning/terminal/MacTerminal";
+import { seoConfig } from "@/lib/seo";
+
+export const metadata = seoConfig.learning;
 
 export default function LearningPage() {
     return (

@@ -2,6 +2,9 @@ import DisqusComments from "@/components/widgets/DisqusComments";
 import SectionTitle from "@/components/SectionTitle";
 import { tools } from "@/data/tools";
 import QuoteWidget from "@/components/widgets/QuoteWidget";
+import { seoConfig } from "@/lib/seo";
+
+export const metadata = seoConfig.tools;
 
 export default function ToolsPage() {
     const getButtonText = (tool: { title: string }) => {
