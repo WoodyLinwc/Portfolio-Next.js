@@ -1,4 +1,4 @@
-// import DisqusComments from "@/components/DisqusComments";
+import DisqusComments from "@/components/widgets/DisqusComments";
 import SectionTitle from "@/components/SectionTitle";
 import { tools } from "@/data/tools";
 import QuoteWidget from "@/components/widgets/QuoteWidget";
@@ -86,11 +86,12 @@ export default function ToolsPage() {
             </section>
 
             {/* Comments Section */}
-            {/* <DisqusComments
+            <DisqusComments
                 url="productivity-section"
                 identifier="productivity-section"
                 title="Productivity Tools"
-            /> */}
+                shortname="https-woody-lin-personal-vercel-app-tools"
+            />
         </>
     );
 }
