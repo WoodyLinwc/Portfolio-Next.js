@@ -16,6 +16,9 @@ export default function DisqusComments({
     shortname,
 }: DisqusCommentsProps) {
     useEffect(() => {
+        // Use the provided URL or fall back to current location
+        const pageUrl = url || window.location.href;
+
         // Reset Disqus if it already exists
         if (window.DISQUS) {
             window.DISQUS.reset({
@@ -25,7 +28,6 @@ export default function DisqusComments({
                         identifier: identifier,
                         url: window.location.href, // Use current page URL
                         title: title,
-                        shortname: shortname,
                     };
                 },
             });
@@ -36,18 +38,17 @@ export default function DisqusComments({
                     url: window.location.href, // Use current page URL
                     identifier: identifier,
                     title: title,
-                    shortname: shortname,
                 };
             };
 
-            // Load Disqus script - REPLACE 'YOUR-SHORTNAME' with your actual Disqus shortname
+            // Load Disqus script
             const script = document.createElement("script");
             script.src = `https://${shortname}.disqus.com/embed.js`;
             script.setAttribute("data-timestamp", String(+new Date()));
             script.async = true;
             document.head.appendChild(script);
         }
-    }, [url, identifier, title, shortname]);
+    }, [url, identifier, title, shortname]); // Added shortname to dependencies
 
     return (
         <div className="mx-4 md:mx-16 lg:mx-32 my-12">
@@ -79,6 +80,5 @@ interface DisqusConfigFunction {
         url: string;
         identifier: string;
         title: string;
-        shortname: string;
     };
 }
