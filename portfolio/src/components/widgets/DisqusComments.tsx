@@ -25,6 +25,7 @@ export default function DisqusComments({
                         identifier: identifier,
                         url: window.location.href, // Use current page URL
                         title: title,
+                        shortname: shortname,
                     };
                 },
             });
@@ -35,6 +36,7 @@ export default function DisqusComments({
                     url: window.location.href, // Use current page URL
                     identifier: identifier,
                     title: title,
+                    shortname: shortname,
                 };
             };
 
@@ -77,5 +79,6 @@ interface DisqusConfigFunction {
         url: string;
         identifier: string;
         title: string;
+        shortname: string;
     };
 }
