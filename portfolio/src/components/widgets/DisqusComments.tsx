@@ -16,9 +16,6 @@ export default function DisqusComments({
     shortname,
 }: DisqusCommentsProps) {
     useEffect(() => {
-        // Use the provided URL or fall back to current location
-        const pageUrl = url || window.location.href;
-
         // Reset Disqus if it already exists
         if (window.DISQUS) {
             window.DISQUS.reset({
