@@ -16,26 +16,26 @@ export default function DisqusComments({
     shortname,
 }: DisqusCommentsProps) {
     const disqusRef = useRef<HTMLDivElement>(null);
-    const currentConfigRef = useRef<string>("");
+    const uniqueId = `disqus_thread_${identifier}`;
 
     useEffect(() => {
-        // Create a unique key for this configuration
-        const configKey = `${identifier}-${shortname}-${url}`;
-
-        // If the configuration hasn't changed, don't reload
-        if (currentConfigRef.current === configKey) {
-            return;
-        }
-
-        currentConfigRef.current = configKey;
-
         const loadDisqus = () => {
-            // Clear the Disqus thread container
+            // Remove any existing Disqus threads
+            const existingThreads = document.querySelectorAll(
+                '[id^="disqus_thread"]'
+            );
+            existingThreads.forEach((thread) => {
+                if (thread.id !== uniqueId) {
+                    thread.innerHTML = "";
+                }
+            });
+
+            // Clear current thread
             if (disqusRef.current) {
                 disqusRef.current.innerHTML = "";
             }
 
-            // Reset Disqus configuration
+            // Update the global disqus_config
             window.disqus_config = function (this: DisqusConfigFunction) {
                 this.page = {
                     url: url,
@@ -44,8 +44,8 @@ export default function DisqusComments({
                 };
             };
 
-            // Reset Disqus if it already exists
             if (window.DISQUS) {
+                // Force reload with new configuration
                 window.DISQUS.reset({
                     reload: true,
                     config: function (this: DisqusConfigFunction) {
@@ -58,36 +58,30 @@ export default function DisqusComments({
                 });
             } else {
                 // Load Disqus script for the first time
-                const script = document.createElement("script");
-                script.src = `https://${shortname}.disqus.com/embed.js`;
-                script.setAttribute("data-timestamp", String(+new Date()));
-                script.async = true;
-                script.onload = () => {
-                    console.log(`Disqus loaded for ${identifier}`);
-                };
-                document.head.appendChild(script);
+                const existingScript = document.querySelector(
+                    `script[src*="${shortname}.disqus.com"]`
+                );
+                if (!existingScript) {
+                    const script = document.createElement("script");
+                    script.src = `https://${shortname}.disqus.com/embed.js`;
+                    script.setAttribute("data-timestamp", String(+new Date()));
+                    script.async = true;
+                    document.head.appendChild(script);
+                }
             }
         };
 
-        // Add a small delay to ensure DOM is ready
-        const timeoutId = setTimeout(loadDisqus, 100);
+        // Delay to ensure proper rendering
+        const timeoutId = setTimeout(loadDisqus, 200);
 
         return () => {
             clearTimeout(timeoutId);
         };
-    }, [url, identifier, title, shortname]);
-
-    // Cleanup on unmount
-    useEffect(() => {
-        return () => {
-            // Clear the configuration reference when component unmounts
-            currentConfigRef.current = "";
-        };
-    }, []);
+    }, [url, identifier, title, shortname, uniqueId]);
 
     return (
         <div className="mx-4 md:mx-16 lg:mx-32 my-12">
-            <div id="disqus_thread" ref={disqusRef}></div>
+            <div id={uniqueId} ref={disqusRef}></div>
             <noscript>
                 Please enable JavaScript to view the{" "}
                 <a href="https://disqus.com/?ref_noscript">
