@@ -120,7 +120,7 @@ export default function ToolsPage() {
                     {/* Tools Grid - Only show when showTools is true */}
                     {showTools && (
                         <div className="mb-16">
-                            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+                            <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">
                                 Development & Productivity Tools
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -157,7 +157,7 @@ export default function ToolsPage() {
                     {/* Websites Grid - Only show when showWebsites is true */}
                     {showWebsites && (
                         <div className="mb-16">
-                            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+                            <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">
                                 Learning Resources & Developer Websites
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
