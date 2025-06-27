@@ -154,19 +154,12 @@ export default function ToolsPage() {
                         </div>
                     )}
 
-                    {/* Divider - Only show when both sections are visible */}
-                    {showTools && showWebsites && (
-                        <div className="border-t-2 border-primary mb-16"></div>
-                    )}
-
                     {/* Websites Grid - Only show when showWebsites is true */}
                     {showWebsites && (
                         <div className="mb-16">
-                            {!showTools && (
-                                <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-                                    Learning Resources & Developer Websites
-                                </h2>
-                            )}
+                            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+                                Learning Resources & Developer Websites
+                            </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {websites.map((website, index) => (
                                     <div
