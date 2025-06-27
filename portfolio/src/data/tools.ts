@@ -32,16 +32,8 @@ export const tools: Tool[] = [
         icon: "fab fa-microsoft",
         title: "Microsoft Office",
         description:
-            "Microsoft Office is a suite of productivity software developed by Microsoft. It includes a variety of applications, such as Word, Excel, PowerPoint, and Outlook, that are widely used for tasks such as word processing, data analysis, presentations, and email management.",
+            "Microsoft Office is a suite of productivity software developed by Microsoft. It includes a variety of applications, such as Word, Excel, PowerPoint, and Outlook.",
         link: "https://www.microsoft.com/en-us/microsoft-365",
-        category: "productivity",
-    },
-    {
-        icon: "fa-calculator",
-        title: "WolframAlpha",
-        description:
-            "Wolfram Alpha is a computational knowledge engine developed by Wolfram Research. It is designed to provide answers to questions and calculations in a wide range of fields including mathematics, science, engineering, and technology.",
-        link: "https://www.wolframalpha.com/",
         category: "productivity",
     },
     {
@@ -61,14 +53,6 @@ export const tools: Tool[] = [
         category: "productivity",
     },
     {
-        icon: "fa-box-open",
-        title: "Dropbox",
-        description:
-            "Dropbox is a cloud-based file storage and sharing platform that allows users to store, share, and access files from anywhere with an internet connection. It allows users to create and organize folders, and share them with others.",
-        link: "https://www.dropbox.com/",
-        category: "cloud",
-    },
-    {
         icon: "fa-desktop",
         title: "GitHub Desktop",
         description:
@@ -77,27 +61,10 @@ export const tools: Tool[] = [
         category: "development",
     },
     {
-        icon: "fa-spell-check",
-        title: "Grammarly",
-        description:
-            "Grammarly is an AI-powered writing assistant that helps users to improve their grammar, punctuation, and spelling. It can detect and correct over 250 types of grammatical errors, and provide suggestions for word choice, tone, and style.",
-        link: "https://app.grammarly.com/",
-        category: "productivity",
-    },
-    {
-        icon: "fa-blog",
-        title: "Blogger",
-        description:
-            "Blogger is a free web-based platform that allows users to create and publish blogs. It allows users to write and publish blog posts, customize the look and feel of their blog, and interact with readers through comments.",
-        link: "https://www.blogger.com/",
-        category: "productivity",
-    },
-    // New tools added
-    {
         icon: "fab fa-docker",
         title: "Docker",
         description:
-            "Docker is a platform that uses containerization to package applications and their dependencies, ensuring consistent environments across development, testing, and production. Essential for modern software deployment.",
+            "Docker is a platform that uses containerization to package applications and their dependencies, ensuring consistent environments across development, testing, and production.",
         link: "https://www.docker.com/",
         category: "development",
     },
@@ -116,14 +83,6 @@ export const tools: Tool[] = [
             "Figma is a collaborative design tool for creating user interfaces, prototypes, and design systems. It enables real-time collaboration and seamless developer handoffs for web and mobile design.",
         link: "https://www.figma.com/",
         category: "design",
-    },
-    {
-        icon: "fa-sticky-note",
-        title: "Notion",
-        description:
-            "Notion is an all-in-one workspace that combines notes, databases, wikis, and project management. It's perfect for organizing projects, documentation, and personal productivity workflows.",
-        link: "https://www.notion.so/",
-        category: "productivity",
     },
     {
         icon: "fab fa-slack",
