@@ -28,23 +28,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "monthly",
             priority: 0.7,
         },
-        {
-            url: `${baseUrl}/learning/react`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.6,
-        },
-        {
-            url: `${baseUrl}/learning/react/tic-tac-toe`,
-            lastModified: new Date(),
-            changeFrequency: "yearly",
-            priority: 0.5,
-        },
-        {
-            url: `${baseUrl}/games`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.7,
-        },
     ];
 }
