@@ -67,7 +67,7 @@ export default function ToolsPage() {
                             </div>
                             <p className="text-gray-600 mb-2">
                                 Essential tools for development, productivity,
-                                and collaboration
+                                and collaboration.
                             </p>
                             <div className="flex items-center justify-center space-x-2 text-primary">
                                 <span className="text-sm font-medium">
