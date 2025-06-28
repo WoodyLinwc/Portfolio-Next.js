@@ -97,8 +97,8 @@ export default function ToolsPage() {
                                 {websites.length}
                             </div>
                             <p className="text-gray-600 mb-2">
-                                Curated learning resources, development tools,
-                                and career guides
+                                Useful websites for learning new technologies,
+                                reviewing concepts, and more.
                             </p>
                             <div className="flex items-center justify-center space-x-2 text-primary">
                                 <span className="text-sm font-medium">
