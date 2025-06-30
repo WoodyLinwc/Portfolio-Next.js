@@ -41,7 +41,7 @@ export function useBackgroundPreloader(
     const {
         startDelay = 1000,
         imageDelay = 50,
-        concurrency = 1,
+        concurrency = 2,
         cacheKey = "default",
     } = options;
 
@@ -64,9 +64,9 @@ export function useBackgroundPreloader(
             if (cacheData) {
                 const { preloadedUrls, timestamp } = JSON.parse(cacheData);
 
-                // Check if cache is still valid (24 hours)
+                // Check if cache is still valid (7 days)
                 const cacheAge = Date.now() - timestamp;
-                const maxCacheAge = 24 * 60 * 60 * 1000; // 24 hours
+                const maxCacheAge = 7 * 24 * 60 * 60 * 1000; // 7 days
 
                 if (cacheAge < maxCacheAge && Array.isArray(preloadedUrls)) {
                     const validCachedImages = preloadedUrls.filter((url) =>
