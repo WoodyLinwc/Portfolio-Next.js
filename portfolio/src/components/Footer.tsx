@@ -1,4 +1,4 @@
-import { getSocialLinks, personalInfo } from "@/data/me/personal";
+import { personalInfo } from "@/data/me/personal";
 
 export default function Footer() {
     // const socialLinks = getSocialLinks();
