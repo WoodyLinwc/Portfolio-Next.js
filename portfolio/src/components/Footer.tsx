@@ -1,7 +1,7 @@
 import { getSocialLinks, personalInfo } from "@/data/me/personal";
 
 export default function Footer() {
-    const socialLinks = getSocialLinks();
+    // const socialLinks = getSocialLinks();
 
     return (
         <footer className="bg-primary text-white mt-20 py-1 px-4 md:px-20">
