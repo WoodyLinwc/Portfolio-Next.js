@@ -31,7 +31,7 @@ export default function About() {
                                 {personalInfo.about.description}
                             </p>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                            {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                                 <div className="space-y-3">
                                     <div>
                                         <span className="font-semibold">
@@ -84,7 +84,7 @@ export default function About() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className="space-y-4 mb-8">
                                 <div>
@@ -136,14 +136,14 @@ export default function About() {
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <a
+                                {/* <a
                                     href={personalInfo.links.resume}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="border-2 border-primary text-primary px-6 py-3 rounded hover:bg-primary hover:text-white transition-colors text-center"
                                 >
                                     My Most Recent Resume
-                                </a>
+                                </a> */}
                                 <a
                                     href="#project"
                                     className="border-2 border-primary text-primary px-6 py-3 rounded hover:bg-primary hover:text-white transition-colors text-center"

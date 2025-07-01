@@ -6,7 +6,7 @@ export default function Footer() {
     return (
         <footer className="bg-primary text-white mt-20 py-1 px-4 md:px-20">
             <div className="container mx-auto text-center py-12">
-                <div className="flex justify-center mb-8 space-x-4">
+                {/* <div className="flex justify-center mb-8 space-x-4">
                     {socialLinks.map((link, index) => (
                         <a
                             key={index}
@@ -19,7 +19,7 @@ export default function Footer() {
                             <i className={link.icon}></i>
                         </a>
                     ))}
-                </div>
+                </div> */}
 
                 <div className="text-sm space-y-2">
                     <div>

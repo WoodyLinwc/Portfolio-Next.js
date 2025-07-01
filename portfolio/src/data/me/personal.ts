@@ -4,7 +4,7 @@ export const personalInfo: PersonalInfo = {
     name: "Woody",
     fullName: "Woody Lin",
     chineseName: "林万程",
-    email: "lin.wancheng001@gmail.com",
+    email: "woody.lin001@gmail.com",
     location: "Boston, MA",
     education: {
         degree: "Bachelor degree in Computer Science, minor in Mathematics",
@@ -14,10 +14,10 @@ export const personalInfo: PersonalInfo = {
     },
     skills: {
         languages:
-            "Java, Python, JavaScript, TypeScript, SQL, HTML & CSS, C/C++, Bash",
+            "JavaScript, TypeScript, SQL, HTML & CSS, Java, Python, Bash",
         frameworks:
-            "ReactJS, React Native, NestJS, Next.js, Spring Boot, Tailwind CSS, Jekyll",
-        tools: "MongoDB, Git, AWS, Node.js, Miniconda, PostgreSQL, Prisma ORM, Redis, Docker, Jira",
+            "React, Next.js, React Native, Express.js, Fastify, AngularJS, Tailwind CSS, Bootstrap, One App, Holocron, Jekyll",
+        tools: "AWS, Vercel, Vite, Webpack, Babel, Chrome DevTools, ESLint, Prettier, Jest, Figma, Docker, Git, Postman, VS Code, Node.js, Miniconda, Expo, PM2, Jira",
     },
     links: {
         resume: "https://woodylinwc.github.io/pdf/WoodyLinResume.pdf",
@@ -43,7 +43,7 @@ export const personalInfo: PersonalInfo = {
     about: {
         title: "A Passionate Software Developer",
         description:
-            "As a recent Computer Science graduate from UMass Boston and an active software developer, I combine technical expertise with a drive for innovation. My experience spans mobile app development and full-stack web solutions, where I've successfully delivered projects using React Native, TypeScript, and cloud technologies. With an AWS Cloud Practitioner certification and a strong foundation in computer science, I continuously embrace new challenges and technologies to create impactful solutions. My passion for clean code and problem-solving drives me to stay at the forefront of technological advancement.",
+            "As a Frontend Developer with 5+ years of experience. I specialize in building scalable React applications that serve enterprise-level users. My expertise includes modern frameworks like Next.js and React Native, having successfully published mobile apps to the Google Play Store and architected micro-frontend solutions using advanced technologies like One App and Holocron. With experience migrating legacy systems, implementing comprehensive testing strategies, and optimizing performance for thousands of daily users, I combine technical proficiency with business impact. My AWS Cloud Practitioner certification and passion for clean, maintainable code drive me to continuously explore emerging technologies and deliver innovative solutions.",
     },
     certificates: [
         {
