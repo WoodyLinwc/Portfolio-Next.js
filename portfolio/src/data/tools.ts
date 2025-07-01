@@ -45,6 +45,14 @@ export const tools: Tool[] = [
         category: "productivity",
     },
     {
+        icon: "fa-robot",
+        title: "Claude",
+        description:
+            "Claude is an AI assistant developed by Anthropic that excels at coding, writing, analysis, and problem-solving. It's particularly useful for code review, debugging, documentation, and brainstorming technical solutions.",
+        link: "https://claude.ai/",
+        category: "productivity",
+    },
+    {
         icon: "fa-file-zipper",
         title: "7-Zip",
         description:
@@ -93,12 +101,36 @@ export const tools: Tool[] = [
         category: "collaboration",
     },
     {
+        icon: "fa-tasks",
+        title: "JIRA",
+        description:
+            "JIRA is a project management and issue tracking tool designed for agile teams. It helps plan, track, and manage software development projects with features like sprint planning, kanban boards, and detailed reporting.",
+        link: "https://www.atlassian.com/software/jira",
+        category: "collaboration",
+    },
+    {
         icon: "fa-rocket",
         title: "Vercel",
         description:
             "Vercel is a cloud platform for static sites and serverless functions that provides instant deployment, automatic scaling, and global CDN. Perfect for deploying React, Next.js, and other modern web applications.",
         link: "https://vercel.com/",
         category: "cloud",
+    },
+    {
+        icon: "fab fa-aws",
+        title: "AWS",
+        description:
+            "Amazon Web Services is a comprehensive cloud computing platform offering scalable infrastructure, storage, databases, and machine learning services. Essential for building and deploying enterprise-grade applications.",
+        link: "https://aws.amazon.com/",
+        category: "cloud",
+    },
+    {
+        icon: "fa-mobile-alt",
+        title: "Expo",
+        description:
+            "Expo is a platform for building and deploying React Native applications. It provides tools, services, and workflows that streamline mobile app development with features like over-the-air updates and easy deployment.",
+        link: "https://expo.dev/",
+        category: "development",
     },
 ];
 

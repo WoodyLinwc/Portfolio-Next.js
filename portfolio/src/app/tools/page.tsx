@@ -23,6 +23,9 @@ export default function ToolsPage() {
             "Notion",
             "Slack",
             "Vercel",
+            "Claude",
+            "AWS",
+            "Expo",
         ];
         return webServices.includes(tool.title) ? "Try it out" : "Download";
     };
@@ -185,13 +188,13 @@ export default function ToolsPage() {
                                         >
                                             Visit Website
                                         </a>
-                                        {website.category && (
+                                        {/* {website.category && (
                                             <div className="mt-3">
                                                 <span className="inline-block bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-medium capitalize">
                                                     {website.category}
                                                 </span>
                                             </div>
-                                        )}
+                                        )} */}
                                     </div>
                                 ))}
                             </div>
