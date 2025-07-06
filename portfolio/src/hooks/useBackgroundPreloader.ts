@@ -29,10 +29,6 @@ interface UseBackgroundPreloaderReturn {
 
 /**
  * Custom hook for preloading images in the background with persistent caching
- *
- * @param imagesToPreload - Array of image URLs to preload
- * @param options - Configuration options for preloading behavior
- * @returns Object containing preload state and progress information
  */
 export function useBackgroundPreloader(
     imagesToPreload: string[],
@@ -54,36 +50,55 @@ export function useBackgroundPreloader(
     const [loadedCount, setLoadedCount] = useState(0);
     const [failedCount, setFailedCount] = useState(0);
 
+    // Debug logging
+    const debugLog = useCallback(
+        (message: string, data?: any) => {
+            console.log(`[Preloader ${cacheKey}] ${message}`, data || "");
+        },
+        [cacheKey]
+    );
+
     // Load cached preload state from localStorage
     useEffect(() => {
-        // Only run on client side
-        if (typeof window === "undefined") return;
+        if (typeof window === "undefined" || imagesToPreload.length === 0)
+            return;
 
         try {
             const cacheData = localStorage.getItem(`preload-cache-${cacheKey}`);
             if (cacheData) {
                 const { preloadedUrls, timestamp } = JSON.parse(cacheData);
-
-                // Check if cache is still valid (7 days)
                 const cacheAge = Date.now() - timestamp;
                 const maxCacheAge = 7 * 24 * 60 * 60 * 1000; // 7 days
 
                 if (cacheAge < maxCacheAge && Array.isArray(preloadedUrls)) {
+                    // Filter cached URLs to only include ones in current image list
                     const validCachedImages = preloadedUrls.filter((url) =>
                         imagesToPreload.includes(url)
                     );
 
                     if (validCachedImages.length > 0) {
+                        debugLog(
+                            `Loaded ${validCachedImages.length} images from cache`
+                        );
                         setPreloadedImages(new Set(validCachedImages));
                         setLoadedCount(validCachedImages.length);
 
-                        // If all images are already cached, mark as complete
+                        // Calculate progress based on current image list
+                        const progress =
+                            (validCachedImages.length /
+                                imagesToPreload.length) *
+                            100;
+                        setPreloadProgress(progress);
+
+                        // If all current images are cached, mark as complete
                         if (
                             validCachedImages.length === imagesToPreload.length
                         ) {
+                            debugLog(
+                                "All images found in cache, marking complete"
+                            );
                             setIsComplete(true);
                             setPreloadProgress(100);
-                            return; // Skip preloading entirely
                         }
                     }
                 }
@@ -91,12 +106,11 @@ export function useBackgroundPreloader(
         } catch (error) {
             console.warn("Failed to load preload cache:", error);
         }
-    }, [imagesToPreload, cacheKey]);
+    }, [imagesToPreload, cacheKey, debugLog]);
 
     // Save preload state to localStorage
     const saveCacheData = useCallback(
         (preloadedUrls: string[]) => {
-            // Only run on client side
             if (typeof window === "undefined") return;
 
             try {
@@ -108,44 +122,44 @@ export function useBackgroundPreloader(
                     `preload-cache-${cacheKey}`,
                     JSON.stringify(cacheData)
                 );
+                debugLog(`Saved ${preloadedUrls.length} URLs to cache`);
             } catch (error) {
                 console.warn("Failed to save preload cache:", error);
             }
         },
-        [cacheKey]
+        [cacheKey, debugLog]
     );
 
+    // Main preloading effect
     useEffect(() => {
         if (imagesToPreload.length === 0) {
-            setIsComplete(true);
-            return;
-        }
-
-        // Skip preloading if already complete from cache
-        if (isComplete && loadedCount === imagesToPreload.length) {
-            return;
-        }
-
-        let isCancelled = false;
-        const totalImages = imagesToPreload.length;
-        let processedCount = loadedCount; // Start from cached count
-        let successCount = loadedCount; // Start from cached count
-        let errorCount = failedCount;
-
-        // Get images that haven't been preloaded yet
-        const imagesToLoad = imagesToPreload.filter(
-            (src) => !preloadedImages.has(src)
-        );
-
-        if (imagesToLoad.length === 0) {
             setIsComplete(true);
             setPreloadProgress(100);
             return;
         }
 
-        /**
-         * Preloads a single image
-         */
+        // Get current state snapshot
+        const currentPreloaded = new Set(preloadedImages);
+        const imagesToLoad = imagesToPreload.filter(
+            (src) => !currentPreloaded.has(src)
+        );
+
+        debugLog(
+            `Total images: ${imagesToPreload.length}, Already loaded: ${currentPreloaded.size}, To load: ${imagesToLoad.length}`
+        );
+
+        // If no images need loading, mark as complete
+        if (imagesToLoad.length === 0) {
+            debugLog("No images to load, marking complete");
+            setIsComplete(true);
+            setPreloadProgress(100);
+            return;
+        }
+
+        let isCancelled = false;
+        let currentLoadedCount = currentPreloaded.size;
+        let currentFailedCount = failedCount;
+
         const preloadImage = (src: string): Promise<boolean> => {
             return new Promise((resolve) => {
                 if (isCancelled) {
@@ -156,68 +170,93 @@ export function useBackgroundPreloader(
                 const img = new window.Image();
 
                 const handleLoad = () => {
-                    if (!isCancelled) {
-                        processedCount++;
-                        successCount++;
-                        setPreloadedImages((prev) => {
-                            const newSet = new Set([...prev, src]);
-                            // Save to cache
-                            saveCacheData(Array.from(newSet));
-                            return newSet;
-                        });
-                        setLoadedCount(successCount);
-                        setPreloadProgress(
-                            (processedCount / totalImages) * 100
-                        );
+                    if (isCancelled) return;
 
-                        if (processedCount === totalImages) {
-                            setIsPreloading(false);
-                            setIsComplete(true);
-                        }
+                    currentLoadedCount++;
+
+                    setPreloadedImages((prev) => {
+                        const newSet = new Set([...prev, src]);
+                        // Save to cache
+                        saveCacheData(Array.from(newSet));
+                        return newSet;
+                    });
+
+                    setLoadedCount(currentLoadedCount);
+                    const progress =
+                        ((currentLoadedCount + currentFailedCount) /
+                            imagesToPreload.length) *
+                        100;
+                    setPreloadProgress(progress);
+
+                    debugLog(
+                        `Loaded image ${currentLoadedCount}/${imagesToPreload.length}: ${src}`
+                    );
+
+                    if (
+                        currentLoadedCount + currentFailedCount ===
+                        imagesToPreload.length
+                    ) {
+                        debugLog("All images processed, marking complete");
+                        setIsPreloading(false);
+                        setIsComplete(true);
+                        setPreloadProgress(100);
                     }
+
                     resolve(true);
                 };
 
                 const handleError = () => {
-                    if (!isCancelled) {
-                        processedCount++;
-                        errorCount++;
-                        setFailedCount(errorCount);
-                        setPreloadProgress(
-                            (processedCount / totalImages) * 100
-                        );
+                    if (isCancelled) return;
 
-                        if (processedCount === totalImages) {
-                            setIsPreloading(false);
-                            setIsComplete(true);
-                        }
+                    currentFailedCount++;
+                    setFailedCount(currentFailedCount);
+
+                    const progress =
+                        ((currentLoadedCount + currentFailedCount) /
+                            imagesToPreload.length) *
+                        100;
+                    setPreloadProgress(progress);
+
+                    debugLog(`Failed to load image: ${src}`);
+
+                    if (
+                        currentLoadedCount + currentFailedCount ===
+                        imagesToPreload.length
+                    ) {
+                        debugLog(
+                            "All images processed (with failures), marking complete"
+                        );
+                        setIsPreloading(false);
+                        setIsComplete(true);
+                        setPreloadProgress(100);
                     }
+
                     resolve(false);
                 };
 
                 img.onload = handleLoad;
                 img.onerror = handleError;
-
-                // Start loading the image
                 img.src = src;
             });
         };
 
-        /**
-         * Preloads images with concurrency control and delays
-         */
         const preloadWithConcurrency = async () => {
             if (isCancelled) return;
 
+            debugLog("Starting preload process");
             setIsPreloading(true);
 
-            // Process images in batches based on concurrency setting
             for (let i = 0; i < imagesToLoad.length; i += concurrency) {
                 if (isCancelled) break;
 
                 const batch = imagesToLoad.slice(i, i + concurrency);
+                debugLog(
+                    `Processing batch ${Math.floor(i / concurrency) + 1}: ${
+                        batch.length
+                    } images`
+                );
+
                 const batchPromises = batch.map(async (src, index) => {
-                    // Add delay between images in the same batch (except the first)
                     if (index > 0 && imageDelay > 0) {
                         await new Promise((resolve) =>
                             setTimeout(resolve, imageDelay * index)
@@ -226,10 +265,8 @@ export function useBackgroundPreloader(
                     return preloadImage(src);
                 });
 
-                // Wait for current batch to complete before starting next batch
                 await Promise.all(batchPromises);
 
-                // Small delay between batches to prevent overwhelming the browser
                 if (i + concurrency < imagesToLoad.length && imageDelay > 0) {
                     await new Promise((resolve) =>
                         setTimeout(resolve, imageDelay)
@@ -238,14 +275,12 @@ export function useBackgroundPreloader(
             }
         };
 
-        // Start preloading after the specified delay
         const timeoutId = setTimeout(() => {
             if (!isCancelled) {
                 preloadWithConcurrency();
             }
         }, startDelay);
 
-        // Cleanup function
         return () => {
             isCancelled = true;
             clearTimeout(timeoutId);
@@ -256,11 +291,10 @@ export function useBackgroundPreloader(
         startDelay,
         imageDelay,
         concurrency,
-        isComplete,
-        loadedCount,
-        failedCount,
-        preloadedImages,
         saveCacheData,
+        debugLog,
+        preloadedImages,
+        failedCount,
     ]);
 
     return {

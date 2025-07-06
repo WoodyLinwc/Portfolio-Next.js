@@ -112,15 +112,35 @@ export default function PhotoGalleryShowcase({
     }, []);
 
     // Use the background preloader hook with custom options
-    const { preloadedImages, isComplete, loadedCount } = useBackgroundPreloader(
-        allOriginalImages,
-        {
-            startDelay: 1000, // Start preloading after 1 second
-            imageDelay: 50, // 50ms delay between each image
-            concurrency: 2, // Load 2 images concurrently
-            cacheKey: "photo-gallery", // Unique cache key for photo gallery
-        }
-    );
+    const {
+        preloadedImages,
+        isComplete,
+        loadedCount,
+        preloadProgress,
+        isPreloading,
+    } = useBackgroundPreloader(allOriginalImages, {
+        startDelay: 1000, // Start preloading after 1 second
+        imageDelay: 50, // 50ms delay between each image
+        concurrency: 2, // Load 2 images concurrently
+        cacheKey: "photo-gallery", // Unique cache key for photo gallery
+    });
+
+    // Debug logging to track preloader state
+    useEffect(() => {
+        console.log("Preloader state:", {
+            totalImages: allOriginalImages.length,
+            loadedCount,
+            isComplete,
+            preloadProgress: Math.round(preloadProgress),
+            isPreloading,
+        });
+    }, [
+        allOriginalImages.length,
+        loadedCount,
+        isComplete,
+        preloadProgress,
+        isPreloading,
+    ]);
 
     // Scroll lock effect for modal
     useEffect(() => {
@@ -239,7 +259,7 @@ export default function PhotoGalleryShowcase({
                 ))}
             </div>
 
-            {/* Photo Count */}
+            {/* Photo Count and Enhanced Preload Status */}
             <div className="text-center mb-8">
                 <div className="flex items-center justify-center space-x-2">
                     <p className="text-gray-600 text-sm">
@@ -251,13 +271,37 @@ export default function PhotoGalleryShowcase({
                                 )?.label
                             } category`}
                     </p>
-                    {/* Green dot indicator when all images are preloaded */}
-                    {isComplete && loadedCount === allOriginalImages.length && (
-                        <div
-                            className="w-2 h-2 bg-green-500 rounded-full"
-                            title={`All ${loadedCount} original images preloaded`}
-                        />
-                    )}
+
+                    {/* Enhanced preload status indicators */}
+                    <div className="flex items-center space-x-2">
+                        {isPreloading && (
+                            <div className="flex items-center space-x-1">
+                                <div
+                                    className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"
+                                    title={`Preloading... ${loadedCount}/${allOriginalImages.length}`}
+                                />
+                                <span className="text-xs text-gray-500">
+                                    {Math.round(preloadProgress)}%
+                                </span>
+                            </div>
+                        )}
+
+                        {isComplete &&
+                            loadedCount === allOriginalImages.length && (
+                                <div
+                                    className="w-2 h-2 bg-green-500 rounded-full"
+                                    title={`All ${loadedCount} original images preloaded`}
+                                />
+                            )}
+
+                        {isComplete &&
+                            loadedCount < allOriginalImages.length && (
+                                <div
+                                    className="w-2 h-2 bg-yellow-500 rounded-full"
+                                    title={`${loadedCount}/${allOriginalImages.length} images loaded (some failed)`}
+                                />
+                            )}
+                    </div>
                 </div>
             </div>
 
