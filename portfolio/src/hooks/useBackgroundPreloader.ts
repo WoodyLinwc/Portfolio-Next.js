@@ -157,8 +157,8 @@ export function useBackgroundPreloader(
         }
 
         let isCancelled = false;
-        let currentLoadedCount = currentPreloaded.size;
-        let currentFailedCount = failedCount;
+        let processedInThisSession = 0; // Track only newly processed images
+        let failedInThisSession = 0;
 
         const preloadImage = (src: string): Promise<boolean> => {
             return new Promise((resolve) => {
@@ -172,7 +172,7 @@ export function useBackgroundPreloader(
                 const handleLoad = () => {
                     if (isCancelled) return;
 
-                    currentLoadedCount++;
+                    processedInThisSession++;
 
                     setPreloadedImages((prev) => {
                         const newSet = new Set([...prev, src]);
@@ -181,21 +181,29 @@ export function useBackgroundPreloader(
                         return newSet;
                     });
 
-                    setLoadedCount(currentLoadedCount);
-                    const progress =
-                        ((currentLoadedCount + currentFailedCount) /
-                            imagesToPreload.length) *
-                        100;
+                    // Update counts based on actual current state
+                    const newLoadedCount =
+                        currentPreloaded.size + processedInThisSession;
+                    const newFailedCount = failedCount + failedInThisSession;
+
+                    setLoadedCount(newLoadedCount);
+
+                    // Calculate progress correctly
+                    const totalProcessed = newLoadedCount + newFailedCount;
+                    const progress = Math.min(
+                        100,
+                        (totalProcessed / imagesToPreload.length) * 100
+                    );
                     setPreloadProgress(progress);
 
                     debugLog(
-                        `Loaded image ${currentLoadedCount}/${imagesToPreload.length}: ${src}`
+                        `Loaded image ${newLoadedCount}/${
+                            imagesToPreload.length
+                        }: ${src.split("/").pop()}`
                     );
 
-                    if (
-                        currentLoadedCount + currentFailedCount ===
-                        imagesToPreload.length
-                    ) {
+                    // Check completion based on total images
+                    if (totalProcessed >= imagesToPreload.length) {
                         debugLog("All images processed, marking complete");
                         setIsPreloading(false);
                         setIsComplete(true);
@@ -208,21 +216,27 @@ export function useBackgroundPreloader(
                 const handleError = () => {
                     if (isCancelled) return;
 
-                    currentFailedCount++;
-                    setFailedCount(currentFailedCount);
+                    failedInThisSession++;
 
-                    const progress =
-                        ((currentLoadedCount + currentFailedCount) /
-                            imagesToPreload.length) *
-                        100;
+                    // Update counts based on actual current state
+                    const newLoadedCount =
+                        currentPreloaded.size + processedInThisSession;
+                    const newFailedCount = failedCount + failedInThisSession;
+
+                    setFailedCount(newFailedCount);
+
+                    // Calculate progress correctly
+                    const totalProcessed = newLoadedCount + newFailedCount;
+                    const progress = Math.min(
+                        100,
+                        (totalProcessed / imagesToPreload.length) * 100
+                    );
                     setPreloadProgress(progress);
 
-                    debugLog(`Failed to load image: ${src}`);
+                    debugLog(`Failed to load image: ${src.split("/").pop()}`);
 
-                    if (
-                        currentLoadedCount + currentFailedCount ===
-                        imagesToPreload.length
-                    ) {
+                    // Check completion based on total images
+                    if (totalProcessed >= imagesToPreload.length) {
                         debugLog(
                             "All images processed (with failures), marking complete"
                         );
