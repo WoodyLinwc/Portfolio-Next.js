@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-06T17:50:04.390Z",
+  "generated": "2025-07-06T21:38:57.173Z",
   "config": {
     "inputDir": "./public/images/album",
     "thumbnailDir": "./public/images/thumbnails",
@@ -430,7 +430,7 @@
         "jpeg": "public/images/thumbnails/Photojournalism/american_dream-min.jpg",
         "size": 53
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "public/images/album/Photojournalism/blue_bike-min.jpg",
@@ -574,7 +574,7 @@
         "jpeg": "public/images/thumbnails/Travel/cloud_me-min.jpg",
         "size": 20
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/cloud_shadow-min.JPG",
@@ -610,7 +610,7 @@
         "jpeg": "public/images/thumbnails/Travel/family_city-min.jpg",
         "size": 22
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/father_love-min.JPG",
@@ -784,13 +784,13 @@
       "skipped": true
     },
     {
-      "original": "public/images/album/Travel/watching_window-min.jpg",
+      "original": "public/images/album/Travel/watching_window-min.JPG",
       "thumbnail": {
         "webp": "public/images/thumbnails/Travel/watching_window-min.webp",
         "jpeg": "public/images/thumbnails/Travel/watching_window-min.jpg",
         "size": 10
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "public/images/album/Travel/winter_dusk-min.JPG",
