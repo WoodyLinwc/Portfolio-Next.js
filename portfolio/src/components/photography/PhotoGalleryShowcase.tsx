@@ -259,7 +259,7 @@ export default function PhotoGalleryShowcase({
                 ))}
             </div>
 
-            {/* Photo Count and Enhanced Preload Status */}
+            {/* Photo Count and Simplified Preload Status */}
             <div className="text-center mb-8">
                 <div className="flex items-center justify-center space-x-2">
                     <p className="text-gray-600 text-sm">
@@ -272,17 +272,19 @@ export default function PhotoGalleryShowcase({
                             } category`}
                     </p>
 
-                    {/* Enhanced preload status indicators */}
+                    {/* Simplified preload status indicators */}
                     <div className="flex items-center space-x-2">
-                        {isPreloading && (
+                        {!isComplete && (
                             <div className="flex items-center space-x-1">
-                                <div
-                                    className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"
-                                    title={`Preloading... ${loadedCount}/${allOriginalImages.length}`}
-                                />
                                 <span className="text-xs text-gray-500">
                                     {Math.round(preloadProgress)}%
                                 </span>
+                                <div
+                                    className="w-2 h-2 bg-yellow-500 rounded-full"
+                                    title={`Loading... ${loadedCount}/${
+                                        allOriginalImages.length
+                                    } images (${Math.round(preloadProgress)}%)`}
+                                />
                             </div>
                         )}
 
