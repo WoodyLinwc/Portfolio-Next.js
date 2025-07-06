@@ -31,15 +31,31 @@ export const photos: Photo[] = [
         category: "travel",
         alt: "Moon shadow travel",
     },
+
+    {
+        src: "/images/album/Travel/family_city-min.JPG",
+        category: "travel",
+        alt: "Family city travel",
+    },
+    {
+        src: "/images/album/Travel/father_love-min.JPG",
+        category: "travel",
+        alt: "Father love travel",
+    },
+    {
+        src: "/images/album/Travel/cloud_me-min.JPG",
+        category: "travel",
+        alt: "Cloud me travel",
+    },
     {
         src: "/images/album/Travel/seaport_women-min.JPG",
         category: "travel",
         alt: "Seaport women travel",
     },
     {
-        src: "/images/album/Travel/father_love-min.JPG",
+        src: "/images/album/Travel/watching_window-min.JPG",
         category: "travel",
-        alt: "Father love travel",
+        alt: "Watching window travel",
     },
     {
         src: "/images/album/Travel/train_outside-min.JPG",
@@ -400,6 +416,11 @@ export const photos: Photo[] = [
         src: "/images/album/Photojournalism/protest_sign-min.JPG",
         category: "photojournalism",
         alt: "Protest sign photojournalism",
+    },
+    {
+        src: "/images/album/Photojournalism/american_dream-min.jpg",
+        category: "photojournalism",
+        alt: "American dream photojournalism",
     },
     {
         src: "/images/album/Photojournalism/museum_three-min.JPG",
