@@ -98,6 +98,7 @@ export default function PhotoGalleryShowcase({
     const [selectedImageLoading, setSelectedImageLoading] = useState(false);
     const [showMagnifier, setShowMagnifier] = useState(false);
     const [magnifierPosition, setMagnifierPosition] = useState({ x: 0, y: 0 });
+    const [showDebugInfo, setShowDebugInfo] = useState(false);
     const imageRef = useRef<HTMLImageElement>(null);
 
     const filteredPhotos = useMemo(() => {
@@ -111,35 +112,63 @@ export default function PhotoGalleryShowcase({
         return photos.map((photo) => photo.src);
     }, []);
 
-    // Use the background preloader hook with custom options
+    // Use the background preloader hook with debug enabled
     const {
         preloadedImages,
         isComplete,
         loadedCount,
+        failedCount,
         preloadProgress,
         isPreloading,
+        failedImages,
+        debugStatus,
     } = useBackgroundPreloader(allOriginalImages, {
         startDelay: 1000, // Start preloading after 1 second
         imageDelay: 50, // 50ms delay between each image
         concurrency: 2, // Load 2 images concurrently
         cacheKey: "photo-gallery", // Unique cache key for photo gallery
+        debug: true, // Enable detailed debug logging
     });
 
-    // Debug logging to track preloader state
+    // Enhanced debug logging to track preloader state
     useEffect(() => {
-        console.log("Preloader state:", {
+        console.log("🔍 Gallery Preloader Debug Info:", {
+            environment: process.env.NODE_ENV,
+            hostname:
+                typeof window !== "undefined"
+                    ? window.location.hostname
+                    : "unknown",
             totalImages: allOriginalImages.length,
             loadedCount,
+            failedCount,
             isComplete,
             preloadProgress: Math.round(preloadProgress),
             isPreloading,
+            failedImagesCount: failedImages.length,
+            sampleUrls: allOriginalImages.slice(0, 3),
+            userAgent:
+                typeof navigator !== "undefined"
+                    ? navigator.userAgent
+                    : "unknown",
         });
+
+        if (failedImages.length > 0) {
+            console.log("❌ Failed images details:", failedImages);
+
+            // Log the first few failed URLs for quick debugging
+            console.log(
+                "🔗 First 3 failed URLs:",
+                failedImages.slice(0, 3).map((f) => f.url)
+            );
+        }
     }, [
         allOriginalImages.length,
         loadedCount,
+        failedCount,
         isComplete,
         preloadProgress,
         isPreloading,
+        failedImages,
     ]);
 
     // Scroll lock effect for modal
@@ -240,6 +269,11 @@ export default function PhotoGalleryShowcase({
         return index < 6;
     };
 
+    // Toggle debug info visibility
+    const toggleDebugInfo = () => {
+        setShowDebugInfo(!showDebugInfo);
+    };
+
     return (
         <div className={`max-w-6xl mx-auto ${className}`}>
             {/* Filter Buttons */}
@@ -259,9 +293,9 @@ export default function PhotoGalleryShowcase({
                 ))}
             </div>
 
-            {/* Photo Count and Simplified Preload Status */}
+            {/* Enhanced Photo Count and Preload Status */}
             <div className="text-center mb-8">
-                <div className="flex items-center justify-center space-x-2">
+                <div className="flex items-center justify-center space-x-4">
                     <p className="text-gray-600 text-sm">
                         Showing {filteredPhotos.length} photos
                         {activeFilter !== "all" &&
@@ -272,7 +306,7 @@ export default function PhotoGalleryShowcase({
                             } category`}
                     </p>
 
-                    {/* Simplified preload status indicators */}
+                    {/* Enhanced preload status indicators */}
                     <div className="flex items-center space-x-2">
                         {!isComplete && (
                             <div className="flex items-center space-x-1">
@@ -300,12 +334,137 @@ export default function PhotoGalleryShowcase({
                             loadedCount < allOriginalImages.length && (
                                 <div
                                     className="w-2 h-2 bg-yellow-500 rounded-full"
-                                    title={`${loadedCount}/${allOriginalImages.length} images loaded (some failed)`}
+                                    title={`${loadedCount}/${allOriginalImages.length} images loaded (${failedCount} failed)`}
                                 />
                             )}
+
+                        {/* Debug toggle button */}
+                        <button
+                            onClick={toggleDebugInfo}
+                            className="text-xs text-gray-500 hover:text-gray-700 px-2 py-1 border rounded"
+                            title="Toggle debug information"
+                        >
+                            {showDebugInfo ? "Hide Debug" : "Show Debug"}
+                        </button>
                     </div>
                 </div>
             </div>
+
+            {/* Debug Information Panel */}
+            {showDebugInfo && (
+                <div className="mb-8 p-4 bg-gray-100 rounded-lg text-sm">
+                    <h3 className="font-bold mb-2">
+                        Preloader Debug Information
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <p>
+                                <strong>Total Images:</strong>{" "}
+                                {debugStatus.totalImages}
+                            </p>
+                            <p>
+                                <strong>Loaded:</strong> {loadedCount}
+                            </p>
+                            <p>
+                                <strong>Failed:</strong> {failedCount}
+                            </p>
+                            <p>
+                                <strong>Progress:</strong>{" "}
+                                {Math.round(preloadProgress)}%
+                            </p>
+                            <p>
+                                <strong>Complete:</strong>{" "}
+                                {isComplete ? "Yes" : "No"}
+                            </p>
+                            <p>
+                                <strong>Processing Time:</strong>{" "}
+                                {debugStatus.processingTime}ms
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <strong>Environment:</strong>{" "}
+                                {process.env.NODE_ENV}
+                            </p>
+                            {typeof window !== "undefined" && (
+                                <>
+                                    <p>
+                                        <strong>Hostname:</strong>{" "}
+                                        {window.location.hostname}
+                                    </p>
+                                    <p>
+                                        <strong>Base URL:</strong>{" "}
+                                        {window.location.origin}
+                                    </p>
+                                </>
+                            )}
+                            <p>
+                                <strong>Sample URLs:</strong>
+                            </p>
+                            <ul className="text-xs ml-4">
+                                {allOriginalImages.slice(0, 3).map((url, i) => (
+                                    <li key={i} className="break-all">
+                                        {url}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    {failedImages.length > 0 && (
+                        <div className="mt-4">
+                            <p className="text-red-600 font-semibold">
+                                Failed Images ({failedImages.length}):
+                            </p>
+                            <div className="max-h-32 overflow-y-auto">
+                                {failedImages.map((failed, i) => (
+                                    <div
+                                        key={i}
+                                        className="text-xs text-red-500 break-all"
+                                    >
+                                        <strong>
+                                            {failed.url.split("/").pop()}:
+                                        </strong>{" "}
+                                        {failed.error}
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Quick test button for failed images */}
+                            <button
+                                onClick={() => {
+                                    console.log(
+                                        "Testing first failed image..."
+                                    );
+                                    if (failedImages.length > 0) {
+                                        const testUrl = failedImages[0].url;
+                                        console.log(
+                                            `Attempting to load: ${testUrl}`
+                                        );
+                                        fetch(testUrl)
+                                            .then((response) => {
+                                                console.log(
+                                                    `Fetch response for ${testUrl}:`,
+                                                    response.status,
+                                                    response.statusText
+                                                );
+                                            })
+                                            .catch((error) => {
+                                                console.log(
+                                                    `Fetch error for ${testUrl}:`,
+                                                    error
+                                                );
+                                            });
+                                    }
+                                }}
+                                className="mt-2 px-3 py-1 bg-red-500 text-white text-xs rounded hover:bg-red-600"
+                            >
+                                Test First Failed Image
+                            </button>
+                        </div>
+                    )}
+                </div>
+            )}
 
             {/* Photo Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
