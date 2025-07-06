@@ -52,7 +52,7 @@ export function useBackgroundPreloader(
 
     // Debug logging
     const debugLog = useCallback(
-        (message: string, data?: any) => {
+        (message: string, data?: unknown) => {
             console.log(`[Preloader ${cacheKey}] ${message}`, data || "");
         },
         [cacheKey]
