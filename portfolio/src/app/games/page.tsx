@@ -11,7 +11,7 @@ export default function GamesPage() {
     const [gameNewsLoaded, setGameNewsLoaded] = useState(false);
 
     // Force snow effect for testing (you can change this to any weather condition)
-    const testWeatherCondition = "rain"; // Change to "rain", "clear sky", etc. for testing
+    const testWeatherCondition = "snow"; // Change to "rain", "clear sky", etc. for testing
 
     return (
         <>
@@ -104,7 +104,8 @@ export default function GamesPage() {
                             Change the <code>testWeatherCondition</code>{" "}
                             variable in the component to test different effects:
                             <br />
-                            "snow", "rain", "clear sky", "partly cloudy", etc.
+                            &ldquo;snow&rdquo;, &ldquo;rain&rdquo;, &ldquo;clear
+                            sky&rdquo;, &ldquo;partly cloudy&rdquo;, etc.
                         </p>
                     </div>
                 </div>
