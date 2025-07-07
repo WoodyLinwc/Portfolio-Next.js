@@ -100,12 +100,27 @@ export default function FloatingGreeting({
         };
     }, []);
 
-    // Add a single random greeting
+    // Add a single random greeting with Chinese weighting
     const addRandomGreeting = useCallback(() => {
         const currentGreetings = getCurrentGreetings();
+
+        // Create weighted array - Chinese appears 2 times, others appear once
+        const weightedGreetings: Greeting[] = [];
+
+        currentGreetings.forEach((greeting) => {
+            if (greeting.language === "Chinese") {
+                // Add Chinese greeting 2 times for higher probability
+                weightedGreetings.push(greeting, greeting);
+            } else {
+                // Add other greetings once
+                weightedGreetings.push(greeting);
+            }
+        });
+
+        // Select randomly from weighted array
         const randomGreeting =
-            currentGreetings[
-                Math.floor(Math.random() * currentGreetings.length)
+            weightedGreetings[
+                Math.floor(Math.random() * weightedGreetings.length)
             ];
         const greetingWithProps = generateGreetingProps(randomGreeting);
 
