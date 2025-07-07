@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import WindEffect from "./WindEffect";
 import RainEffect from "./RainEffect";
+import SnowEffect from "./SnowEffect";
 
 interface WeatherEffectOverlayProps {
     weatherCondition: string;
@@ -24,13 +25,18 @@ export default function WeatherEffectOverlay({
             condition.includes("partly") ||
             condition.includes("rain") ||
             condition.includes("shower") ||
-            condition.includes("drizzle")
+            condition.includes("drizzle") ||
+            condition.includes("snow") ||
+            condition.includes("flurries")
         );
     };
 
     // Determine which effect to show based on weather
     const getEffectType = () => {
         const condition = weatherCondition.toLowerCase();
+        if (condition.includes("snow") || condition.includes("flurries")) {
+            return "snow";
+        }
         if (
             condition.includes("rain") ||
             condition.includes("shower") ||
@@ -67,6 +73,10 @@ export default function WeatherEffectOverlay({
             <RainEffect
                 canvasRef={canvasRef}
                 isActive={effectType === "rain"}
+            />
+            <SnowEffect
+                canvasRef={canvasRef}
+                isActive={effectType === "snow"}
             />
         </div>
     );

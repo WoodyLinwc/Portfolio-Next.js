@@ -61,7 +61,7 @@ export default function RainEffect({ canvasRef, isActive }: RainEffectProps) {
         // Create rain particle geometry
         const rainGeometry = new THREE.BufferGeometry();
         const vertices = [];
-        const particleCount = 5000;
+        const particleCount = 800; // Much lighter rain
 
         for (let i = 0; i < particleCount; i++) {
             vertices.push(Math.random() * 400 - 200); // x
