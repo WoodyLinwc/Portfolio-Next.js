@@ -86,7 +86,7 @@ export default function WeatherEffectOverlay({
             color: 0xa8c5e0,
             size: 0.6,
             transparent: true,
-            opacity: 0.7,
+            opacity: 0.5,
         });
 
         const wind = new THREE.Points(windGeometry, windMaterial);
@@ -165,7 +165,6 @@ export default function WeatherEffectOverlay({
                 className="absolute inset-0 w-full h-full pointer-events-none"
                 style={{ zIndex: 1 }}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-blue-50/10 to-transparent pointer-events-none" />
         </div>
     );
 }
