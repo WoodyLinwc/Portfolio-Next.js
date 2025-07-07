@@ -5,6 +5,7 @@ import WindEffect from "./WindEffect";
 import RainEffect from "./RainEffect";
 import HeavyRainEffect from "./HeavyRainEffect";
 import SnowEffect from "./SnowEffect";
+import FogMistEffect from "./FogMistEffect";
 
 interface WeatherEffectOverlayProps {
     weatherCondition: string;
@@ -29,7 +30,9 @@ export default function WeatherEffectOverlay({
             condition.includes("drizzle") ||
             condition.includes("heavy") ||
             condition.includes("snow") ||
-            condition.includes("flurries")
+            condition.includes("flurries") ||
+            condition.includes("fog") ||
+            condition.includes("mist")
         );
     };
 
@@ -51,6 +54,12 @@ export default function WeatherEffectOverlay({
             condition.includes("drizzle")
         ) {
             return "rain";
+        }
+        if (condition.includes("fog")) {
+            return "fog";
+        }
+        if (condition.includes("mist")) {
+            return "mist";
         }
         return "wind";
     };
@@ -89,6 +98,16 @@ export default function WeatherEffectOverlay({
             <SnowEffect
                 canvasRef={canvasRef}
                 isActive={effectType === "snow"}
+            />
+            <FogMistEffect
+                canvasRef={canvasRef}
+                isActive={effectType === "fog"}
+                intensity="fog"
+            />
+            <FogMistEffect
+                canvasRef={canvasRef}
+                isActive={effectType === "mist"}
+                intensity="mist"
             />
         </div>
     );

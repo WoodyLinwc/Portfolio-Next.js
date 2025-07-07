@@ -11,7 +11,7 @@ export default function GamesPage() {
     const [gameNewsLoaded, setGameNewsLoaded] = useState(false);
 
     // Force snow effect for testing (you can change this to any weather condition)
-    const testWeatherCondition = "heavy rain"; // Change to "rain", "clear sky", etc. for testing
+    const testWeatherCondition = "mist"; // Change to "rain", "clear sky", etc. for testing
 
     return (
         <>
