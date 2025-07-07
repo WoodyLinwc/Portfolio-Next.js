@@ -44,7 +44,8 @@ export default function Footer() {
                         >
                             {personalInfo.fullName}
                         </a>{" "}
-                        using TypeScript, Tailwind CSS, and Next.js. Inspired by{" "}
+                        using TypeScript, Tailwind CSS, Three.js, and Next.js.
+                        Inspired by{" "}
                         <a
                             className="text-white font-bold hover:underline"
                             href={personalInfo.footer.designCredit.url}
