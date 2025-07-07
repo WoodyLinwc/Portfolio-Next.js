@@ -418,7 +418,7 @@ export const photos: Photo[] = [
         alt: "Protest sign photojournalism",
     },
     {
-        src: "/images/album/Photojournalism/american_dream-min.jpg",
+        src: "/images/album/Photojournalism/american_dream-min.JPG",
         category: "photojournalism",
         alt: "American dream photojournalism",
     },
