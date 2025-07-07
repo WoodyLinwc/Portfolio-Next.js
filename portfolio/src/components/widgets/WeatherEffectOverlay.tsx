@@ -68,7 +68,7 @@ export default function WeatherEffectOverlay({
         // Create particle geometry
         const windGeometry = new THREE.BufferGeometry();
         const vertices = [];
-        const particleCount = 5000; // Reduced for better performance
+        const particleCount = 3000; // Reduced for better performance
 
         for (let i = 0; i < particleCount; i++) {
             vertices.push(Math.random() * 400 - 200); // x
@@ -81,12 +81,12 @@ export default function WeatherEffectOverlay({
             new THREE.Float32BufferAttribute(vertices, 3)
         );
 
-        // Create particle material
+        // Create particle material with slightly darker color
         const windMaterial = new THREE.PointsMaterial({
-            color: 0xd6e7f5,
-            size: 0.8,
+            color: 0xa8c5e0,
+            size: 0.6,
             transparent: true,
-            opacity: 0.6,
+            opacity: 0.7,
         });
 
         const wind = new THREE.Points(windGeometry, windMaterial);
@@ -104,10 +104,10 @@ export default function WeatherEffectOverlay({
                 .array as Float32Array;
 
             for (let i = 0; i < positions.length; i += 3) {
-                // Move particles horizontally
-                positions[i] -= 0.15;
-                // Add slight vertical movement
-                positions[i + 1] += Math.random() * 0.08 - 0.04;
+                // Move particles horizontally (wind effect)
+                positions[i] -= 0.1;
+                // Add slight vertical movement for natural look
+                positions[i + 1] += Math.random() * 0.06 - 0.03;
 
                 // Reset particle position when it goes off screen
                 if (positions[i] < -200) {
@@ -157,12 +157,15 @@ export default function WeatherEffectOverlay({
     }
 
     return (
-        <div className={`relative w-full h-32 overflow-hidden ${className}`}>
+        <div
+            className={`absolute inset-0 w-full h-full overflow-hidden ${className}`}
+        >
             <canvas
                 ref={canvasRef}
                 className="absolute inset-0 w-full h-full pointer-events-none"
                 style={{ zIndex: 1 }}
             />
+            <div className="absolute inset-0 bg-gradient-to-b from-blue-50/10 to-transparent pointer-events-none" />
         </div>
     );
 }
