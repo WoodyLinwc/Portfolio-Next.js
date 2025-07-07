@@ -37,7 +37,8 @@ export default function Location() {
 
                 const condition = getDescription(weatherCode);
                 setWeatherCondition(condition);
-            } catch (error) {
+            } catch {
+                // Removed unused 'error' parameter
                 setWeatherCondition("partly cloudy");
             }
         };

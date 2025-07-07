@@ -1,7 +1,7 @@
 // src/components/FloatingGreeting.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 interface FloatingGreetingProps {
     className?: string;
@@ -28,7 +28,7 @@ export default function FloatingGreeting({
     >([]);
 
     // Get current time-based greetings
-    const getCurrentGreetings = (): Greeting[] => {
+    const getCurrentGreetings = useCallback((): Greeting[] => {
         const hour = new Date().getHours();
 
         if (hour >= 5 && hour < 12) {
@@ -86,22 +86,22 @@ export default function FloatingGreeting({
                 { text: "Boa noite", language: "Portuguese" },
             ];
         }
-    };
+    }, []);
 
     // Generate random greeting properties
-    const generateGreetingProps = (greeting: Greeting) => {
+    const generateGreetingProps = useCallback((greeting: Greeting) => {
         return {
             ...greeting,
             id: `greeting-${Date.now()}-${Math.random()}`,
-            fontSize: Math.random() * 14 + 16, // 16px to 30px
+            fontSize: Math.random() * 12 + 16, // 16px to 28px
             startY: Math.random() * 60 + 20, // 20% to 80% from top
             duration: Math.random() * 5000 + 8000, // 8-13 seconds
             delay: 0, // No delay for continuous flow
         };
-    };
+    }, []);
 
     // Add a single random greeting
-    const addRandomGreeting = () => {
+    const addRandomGreeting = useCallback(() => {
         const currentGreetings = getCurrentGreetings();
         const randomGreeting =
             currentGreetings[
@@ -110,10 +110,10 @@ export default function FloatingGreeting({
         const greetingWithProps = generateGreetingProps(randomGreeting);
 
         setGreetings((prev) => [...prev, greetingWithProps]);
-    };
+    }, [getCurrentGreetings, generateGreetingProps]);
 
     // Add English greeting specifically
-    const addEnglishGreeting = () => {
+    const addEnglishGreeting = useCallback(() => {
         const currentGreetings = getCurrentGreetings();
         const englishGreeting = currentGreetings.find(
             (g) => g.language === "English"
@@ -122,12 +122,12 @@ export default function FloatingGreeting({
             const greetingWithProps = generateGreetingProps(englishGreeting);
             setGreetings((prev) => [...prev, greetingWithProps]);
         }
-    };
+    }, [getCurrentGreetings, generateGreetingProps]);
 
     // Remove greeting when animation completes
-    const handleAnimationEnd = (greetingId: string) => {
+    const handleAnimationEnd = useCallback((greetingId: string) => {
         setGreetings((prev) => prev.filter((g) => g.id !== greetingId));
-    };
+    }, []);
 
     // Initialize continuous greeting flow with tab visibility handling
     useEffect(() => {
@@ -187,7 +187,7 @@ export default function FloatingGreeting({
                 handleVisibilityChange
             );
         };
-    }, []);
+    }, [addEnglishGreeting, addRandomGreeting]); // Added dependencies
 
     return (
         <>
