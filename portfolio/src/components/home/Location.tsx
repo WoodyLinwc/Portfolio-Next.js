@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import SectionTitle from "@/components/SectionTitle";
 import WeatherWidget from "@/components/widgets/WeatherWidget";
-import WeatherEffectOverlay from "@/components/widgets/WeatherEffectOverlay";
+import { WeatherEffectOverlay } from "@/components/weather-effects";
 import { personalInfo } from "@/data/me/personal";
 
 export default function Location() {

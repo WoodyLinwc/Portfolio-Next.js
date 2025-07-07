@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import WeatherEffectOverlay from "./WeatherEffectOverlay";
 
 interface WeatherData {
     temperature: number;
@@ -197,7 +196,7 @@ export default function WeatherWidget({ className = "" }: WeatherWidgetProps) {
             <button
                 onClick={handleClick}
                 disabled={isRefreshing}
-                className="border-2 border-primary text-primary px-6 py-3 rounded hover:bg-primary hover:text-white transition-colors text-center w-full disabled:opacity-50 mb-4"
+                className="border-2 border-primary text-primary px-6 py-3 rounded hover:bg-primary hover:text-white transition-colors text-center w-full disabled:opacity-50"
             >
                 <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mb-2 text-lg">
                     <div className="flex items-center space-x-2">
@@ -256,14 +255,6 @@ export default function WeatherWidget({ className = "" }: WeatherWidgetProps) {
                     <span>Powered by Open-Meteo API</span>
                 </div>
             </button>
-
-            {/* Weather Effect Overlay */}
-            {weather && (
-                <WeatherEffectOverlay
-                    weatherCondition={weather.description}
-                    className="mb-4"
-                />
-            )}
         </div>
     );
 }
