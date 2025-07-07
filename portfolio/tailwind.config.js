@@ -20,6 +20,8 @@ module.exports = {
                 "spinner-grow": "spinner-grow 0.75s linear infinite",
                 // Add shimmer animation for lazy loading
                 shimmer: "shimmer 1.5s infinite",
+                // Add floating greeting animation
+                "float-greeting": "float-greeting linear forwards",
             },
             keyframes: {
                 blink: {
@@ -44,6 +46,23 @@ module.exports = {
                 shimmer: {
                     "0%": { "background-position": "-200% 0" },
                     "100%": { "background-position": "200% 0" },
+                },
+                // Add floating greeting keyframes
+                "float-greeting": {
+                    "0%": {
+                        transform: "translateX(0)",
+                        opacity: "0",
+                    },
+                    "10%": {
+                        opacity: "0.7",
+                    },
+                    "90%": {
+                        opacity: "0.7",
+                    },
+                    "100%": {
+                        transform: "translateX(-120vw)",
+                        opacity: "0",
+                    },
                 },
             },
         },

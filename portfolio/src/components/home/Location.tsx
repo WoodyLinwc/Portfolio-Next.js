@@ -24,18 +24,20 @@ export default function Location() {
                 const data = await response.json();
                 const weatherCode = data.current.weather_code;
 
-                // Simple weather code to description mapping
                 const getDescription = (code: number) => {
                     if (code <= 1) return "clear sky";
                     if (code === 2) return "partly cloudy";
-                    if (code === 3) return "overcast";
+                    if (code === 3) return "cloudy";
+                    if (code >= 51 && code <= 67) return "rain";
+                    if (code >= 71 && code <= 86) return "snow";
+                    if (code >= 80 && code <= 82) return "rain showers";
+                    if (code >= 95 && code <= 99) return "thunderstorm";
                     return "cloudy";
                 };
 
-                setWeatherCondition(getDescription(weatherCode));
+                const condition = getDescription(weatherCode);
+                setWeatherCondition(condition);
             } catch (error) {
-                console.error("Weather condition fetch error:", error);
-                // Fallback to show effect
                 setWeatherCondition("partly cloudy");
             }
         };

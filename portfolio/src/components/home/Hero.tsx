@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { personalInfo } from "@/data/me/personal";
 import { WeatherEffectOverlay } from "@/components/weather-effects";
+import FloatingGreeting from "@/components/FloatingGreeting";
 
 export default function Hero() {
     const typedRef = useRef<HTMLSpanElement>(null);
@@ -28,11 +29,11 @@ export default function Hero() {
                 const getDescription = (code: number) => {
                     if (code <= 1) return "clear sky";
                     if (code === 2) return "partly cloudy";
-                    if (code === 3) return "overcast";
+                    if (code === 3) return "cloudy"; // Changed from "overcast" to "cloudy"
                     if (code >= 51 && code <= 67) return "rain";
                     if (code >= 71 && code <= 86) return "snow";
                     if (code >= 80 && code <= 82) return "rain showers";
-                    return "cloudy";
+                    return "cloudy"; // Changed fallback from "cloudy" to "cloudy"
                 };
 
                 setWeatherCondition(getDescription(weatherCode));
@@ -84,6 +85,8 @@ export default function Hero() {
         type();
     }, []);
 
+    console.log("Current weather condition:", weatherCondition); // Debug log
+
     return (
         <section
             className="min-h-screen bg-primary flex items-center relative overflow-hidden"
@@ -96,6 +99,9 @@ export default function Hero() {
                     className="absolute inset-0"
                 />
             )}
+
+            {/* Floating Greeting Overlay */}
+            <FloatingGreeting className="absolute inset-0" />
 
             <div className="container mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
@@ -116,28 +122,7 @@ export default function Hero() {
 
                         {/* Buttons */}
                         <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 relative z-10">
-                            {/* <a
-                                href={`mailto:${personalInfo.email}`}
-                                className="bg-white text-primary px-6 sm:px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors w-full sm:w-auto text-center relative z-10"
-                            >
-                                Email Me
-                            </a>
-                            <a
-                                href={personalInfo.links.linkedin}
-                                className="border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-primary transition-colors w-full sm:w-auto text-center relative z-10"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                LinkedIn
-                            </a>
-                            <a
-                                href={personalInfo.links.github}
-                                className="border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-primary transition-colors w-full sm:w-auto text-center relative z-10"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                GitHub
-                            </a> */}
+                            {/* Buttons commented out */}
                         </div>
                     </div>
 
