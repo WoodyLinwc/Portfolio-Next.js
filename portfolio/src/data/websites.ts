@@ -17,14 +17,6 @@ export interface Website {
 
 export const websites: Website[] = [
     {
-        icon: "fa-shield-halved",
-        title: "Hacksplaining",
-        description:
-            "Interactive security lessons that teach you how the most common web vulnerabilities work and how to defend against them. Perfect for learning cybersecurity concepts through hands-on examples.",
-        link: "https://hacksplaining.com/lessons",
-        category: "security",
-    },
-    {
         icon: "fa-route",
         title: "Frontend Roadmap",
         description:
@@ -55,6 +47,14 @@ export const websites: Website[] = [
             "Platform for practicing coding problems and preparing for technical interviews. Features thousands of algorithm and data structure challenges with detailed solutions and discussion forums.",
         link: "https://leetcode.com/",
         category: "practice",
+    },
+    {
+        icon: "fa-shield-halved",
+        title: "Hacksplaining",
+        description:
+            "Interactive security lessons that teach you how the most common web vulnerabilities work and how to defend against them. Perfect for learning cybersecurity concepts through hands-on examples.",
+        link: "https://hacksplaining.com/lessons",
+        category: "security",
     },
 ];
 
