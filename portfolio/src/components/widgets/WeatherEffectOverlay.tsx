@@ -23,14 +23,32 @@ export default function WeatherEffectOverlay({
         return (
             condition.includes("clear") ||
             condition.includes("cloudy") ||
-            condition.includes("partly")
+            condition.includes("partly") ||
+            condition.includes("rain") ||
+            condition.includes("shower") ||
+            condition.includes("drizzle")
         );
+    };
+
+    // Determine which effect to show based on weather
+    const getEffectType = () => {
+        const condition = weatherCondition.toLowerCase();
+        if (
+            condition.includes("rain") ||
+            condition.includes("shower") ||
+            condition.includes("drizzle")
+        ) {
+            return "rain";
+        }
+        return "wind";
     };
 
     useEffect(() => {
         if (!shouldShowEffect() || !canvasRef.current) {
             return;
         }
+
+        const effectType = getEffectType();
 
         // Initialize Three.js scene
         const scene = new THREE.Scene();
@@ -65,32 +83,50 @@ export default function WeatherEffectOverlay({
 
         updateSize();
 
-        // Create particle geometry
-        const windGeometry = new THREE.BufferGeometry();
+        // Create particle geometry based on effect type
+        const particleGeometry = new THREE.BufferGeometry();
         const vertices = [];
-        const particleCount = 3000; // Reduced for better performance
+        let particleCount, particleMaterial;
 
-        for (let i = 0; i < particleCount; i++) {
-            vertices.push(Math.random() * 400 - 200); // x
-            vertices.push(Math.random() * 400 - 200); // y
-            vertices.push(Math.random() * 200 - 100); // z
+        if (effectType === "rain") {
+            // Rain effect setup
+            particleCount = 5000;
+            for (let i = 0; i < particleCount; i++) {
+                vertices.push(Math.random() * 400 - 200); // x
+                vertices.push(Math.random() * 500 - 250); // y
+                vertices.push(Math.random() * 400 - 200); // z
+            }
+
+            particleMaterial = new THREE.PointsMaterial({
+                color: 0x88b9e1,
+                size: 0.8,
+                transparent: true,
+                opacity: 0.7,
+            });
+        } else {
+            // Wind effect setup (default)
+            particleCount = 3000;
+            for (let i = 0; i < particleCount; i++) {
+                vertices.push(Math.random() * 400 - 200); // x
+                vertices.push(Math.random() * 400 - 200); // y
+                vertices.push(Math.random() * 200 - 100); // z
+            }
+
+            particleMaterial = new THREE.PointsMaterial({
+                color: 0xa8c5e0,
+                size: 0.6,
+                transparent: true,
+                opacity: 0.5,
+            });
         }
 
-        windGeometry.setAttribute(
+        particleGeometry.setAttribute(
             "position",
             new THREE.Float32BufferAttribute(vertices, 3)
         );
 
-        // Create particle material with slightly darker color
-        const windMaterial = new THREE.PointsMaterial({
-            color: 0xa8c5e0,
-            size: 0.6,
-            transparent: true,
-            opacity: 0.5,
-        });
-
-        const wind = new THREE.Points(windGeometry, windMaterial);
-        scene.add(wind);
+        const particles = new THREE.Points(particleGeometry, particleMaterial);
+        scene.add(particles);
 
         // Store references
         sceneRef.current = scene;
@@ -100,27 +136,40 @@ export default function WeatherEffectOverlay({
         function animate() {
             animationIdRef.current = requestAnimationFrame(animate);
 
-            const positions = windGeometry.getAttribute("position")
+            const positions = particleGeometry.getAttribute("position")
                 .array as Float32Array;
 
-            for (let i = 0; i < positions.length; i += 3) {
-                // Move particles horizontally (wind effect)
-                positions[i] -= 0.1;
-                // Add slight vertical movement for natural look
-                positions[i + 1] += Math.random() * 0.06 - 0.03;
+            if (effectType === "rain") {
+                // Rain animation - particles fall down
+                for (let i = 1; i < positions.length; i += 3) {
+                    positions[i] -= 2.5; // Faster downward movement for rain
 
-                // Reset particle position when it goes off screen
-                if (positions[i] < -200) {
-                    positions[i] = 200;
+                    // Reset particle position when it goes off screen
+                    if (positions[i] < -250) {
+                        positions[i] = 250;
+                    }
                 }
-                if (positions[i + 1] < -200) {
-                    positions[i + 1] = 200;
-                } else if (positions[i + 1] > 200) {
-                    positions[i + 1] = -200;
+            } else {
+                // Wind animation - particles move horizontally with slight vertical drift
+                for (let i = 0; i < positions.length; i += 3) {
+                    // Move particles horizontally (wind effect)
+                    positions[i] -= 0.1;
+                    // Add slight vertical movement for natural look
+                    positions[i + 1] += Math.random() * 0.06 - 0.03;
+
+                    // Reset particle position when it goes off screen
+                    if (positions[i] < -200) {
+                        positions[i] = 200;
+                    }
+                    if (positions[i + 1] < -200) {
+                        positions[i + 1] = 200;
+                    } else if (positions[i + 1] > 200) {
+                        positions[i + 1] = -200;
+                    }
                 }
             }
 
-            windGeometry.getAttribute("position").needsUpdate = true;
+            particleGeometry.getAttribute("position").needsUpdate = true;
             renderer.render(scene, camera);
         }
 
