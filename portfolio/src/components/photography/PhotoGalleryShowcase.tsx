@@ -121,7 +121,7 @@ export default function PhotoGalleryShowcase({
         preloadProgress,
         isPreloading,
         failedImages,
-        debugStatus,
+        // debugStatus, // Commented out to avoid unused variable warning
     } = useBackgroundPreloader(allOriginalImages, {
         startDelay: 1000, // Start preloading after 1 second
         imageDelay: 50, // 50ms delay between each image
@@ -162,13 +162,13 @@ export default function PhotoGalleryShowcase({
             );
         }
     }, [
-        allOriginalImages.length,
         loadedCount,
         failedCount,
         isComplete,
         preloadProgress,
         isPreloading,
         failedImages,
+        allOriginalImages.length, // Added to dependency array
     ]);
 
     // Scroll lock effect for modal
@@ -269,10 +269,10 @@ export default function PhotoGalleryShowcase({
         return index < 6;
     };
 
-    // Toggle debug info visibility
-    const toggleDebugInfo = () => {
-        setShowDebugInfo(!showDebugInfo);
-    };
+    // Toggle debug info visibility (commented out for production)
+    // const toggleDebugInfo = () => {
+    //     setShowDebugInfo(!showDebugInfo);
+    // };
 
     return (
         <div className={`max-w-6xl mx-auto ${className}`}>
