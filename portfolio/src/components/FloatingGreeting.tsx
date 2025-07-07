@@ -48,6 +48,13 @@ export default function FloatingGreeting({
                 { text: "Buongiorno", language: "Italian" },
                 { text: "صبح بخیر", language: "Urdu" },
                 { text: "Bom dia", language: "Portuguese" },
+                { text: "শুভ সকাল", language: "Bengali" },
+                { text: "Günaydın", language: "Turkish" },
+                { text: "Habari za asubuhi", language: "Swahili" },
+                { text: "صبح بخیر", language: "Persian" },
+                { text: "สวัสดีตอนเช้า", language: "Thai" },
+                { text: "Magandang umaga", language: "Tagalog" },
+                { text: "Sawubona ekuseni", language: "Zulu" },
             ];
         } else if (hour >= 12 && hour < 18) {
             // Afternoon greetings
@@ -66,6 +73,13 @@ export default function FloatingGreeting({
                 { text: "Buon pomeriggio", language: "Italian" },
                 { text: "دوپہر بخیر", language: "Urdu" },
                 { text: "Boa tarde", language: "Portuguese" },
+                { text: "শুভ অপরাহ্ন", language: "Bengali" },
+                { text: "Tünaydın", language: "Turkish" },
+                { text: "Habari za mchana", language: "Swahili" },
+                { text: "ظهر بخیر", language: "Persian" },
+                { text: "สวัสดีตอนบ่าย", language: "Thai" },
+                { text: "Magandang hapon", language: "Tagalog" },
+                { text: "Sawubona ntambama", language: "Zulu" },
             ];
         } else {
             // Evening/Night greetings
@@ -84,6 +98,13 @@ export default function FloatingGreeting({
                 { text: "Buonasera", language: "Italian" },
                 { text: "شام بخیر", language: "Urdu" },
                 { text: "Boa noite", language: "Portuguese" },
+                { text: "শুভ সন্ধ্যা", language: "Bengali" },
+                { text: "İyi akşamlar", language: "Turkish" },
+                { text: "Habari za jioni", language: "Swahili" },
+                { text: "عصر بخیر", language: "Persian" },
+                { text: "สวัสดีตอนเย็น", language: "Thai" },
+                { text: "Magandang gabi", language: "Tagalog" },
+                { text: "Sawubona kusihlwa", language: "Zulu" },
             ];
         }
     }, []);
@@ -104,13 +125,13 @@ export default function FloatingGreeting({
     const addRandomGreeting = useCallback(() => {
         const currentGreetings = getCurrentGreetings();
 
-        // Create weighted array - Chinese appears 2 times, others appear once
+        // Create weighted array - Chinese appears 3 times, others appear once
         const weightedGreetings: Greeting[] = [];
 
         currentGreetings.forEach((greeting) => {
             if (greeting.language === "Chinese") {
-                // Add Chinese greeting 2 times for higher probability
-                weightedGreetings.push(greeting, greeting);
+                // Add Chinese greeting 3 times for higher probability
+                weightedGreetings.push(greeting, greeting, greeting);
             } else {
                 // Add other greetings once
                 weightedGreetings.push(greeting);
@@ -167,7 +188,7 @@ export default function FloatingGreeting({
                 if (!document.hidden) {
                     addRandomGreeting();
                 }
-            }, 2000); // New greeting every 2 seconds
+            }, 1500); // New greeting every 1.5 seconds
         };
 
         const handleVisibilityChange = () => {
