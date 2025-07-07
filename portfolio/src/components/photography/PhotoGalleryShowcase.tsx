@@ -112,7 +112,7 @@ export default function PhotoGalleryShowcase({
         return photos.map((photo) => photo.src);
     }, []);
 
-    // Use the background preloader hook with debug enabled
+    // Use the background preloader hook with debug disabled for production
     const {
         preloadedImages,
         isComplete,
@@ -127,7 +127,7 @@ export default function PhotoGalleryShowcase({
         imageDelay: 50, // 50ms delay between each image
         concurrency: 2, // Load 2 images concurrently
         cacheKey: "photo-gallery", // Unique cache key for photo gallery
-        debug: true, // Enable detailed debug logging
+        debug: false, // Set to true for detailed debug logging when needed
     });
 
     // Enhanced debug logging to track preloader state
@@ -295,7 +295,7 @@ export default function PhotoGalleryShowcase({
 
             {/* Enhanced Photo Count and Preload Status */}
             <div className="text-center mb-8">
-                <div className="flex items-center justify-center space-x-4">
+                <div className="flex items-center justify-center space-x-2">
                     <p className="text-gray-600 text-sm">
                         Showing {filteredPhotos.length} photos
                         {activeFilter !== "all" &&
@@ -338,122 +338,74 @@ export default function PhotoGalleryShowcase({
                                 />
                             )}
 
-                        {/* Debug toggle button */}
+                        {/* Debug toggle button - commented out for production, uncomment for debugging */}
+                        {/* 
                         <button
                             onClick={toggleDebugInfo}
                             className="text-xs text-gray-500 hover:text-gray-700 px-2 py-1 border rounded"
                             title="Toggle debug information"
                         >
-                            {showDebugInfo ? "Hide Debug" : "Show Debug"}
+                            {showDebugInfo ? 'Hide Debug' : 'Show Debug'}
                         </button>
+                        */}
                     </div>
                 </div>
             </div>
 
-            {/* Debug Information Panel */}
+            {/* Debug Information Panel - commented out for production, uncomment for debugging */}
+            {/* 
             {showDebugInfo && (
                 <div className="mb-8 p-4 bg-gray-100 rounded-lg text-sm">
-                    <h3 className="font-bold mb-2">
-                        Preloader Debug Information
-                    </h3>
+                    <h3 className="font-bold mb-2">Preloader Debug Information</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <p>
-                                <strong>Total Images:</strong>{" "}
-                                {debugStatus.totalImages}
-                            </p>
-                            <p>
-                                <strong>Loaded:</strong> {loadedCount}
-                            </p>
-                            <p>
-                                <strong>Failed:</strong> {failedCount}
-                            </p>
-                            <p>
-                                <strong>Progress:</strong>{" "}
-                                {Math.round(preloadProgress)}%
-                            </p>
-                            <p>
-                                <strong>Complete:</strong>{" "}
-                                {isComplete ? "Yes" : "No"}
-                            </p>
-                            <p>
-                                <strong>Processing Time:</strong>{" "}
-                                {debugStatus.processingTime}ms
-                            </p>
+                            <p><strong>Total Images:</strong> {debugStatus.totalImages}</p>
+                            <p><strong>Loaded:</strong> {loadedCount}</p>
+                            <p><strong>Failed:</strong> {failedCount}</p>
+                            <p><strong>Progress:</strong> {Math.round(preloadProgress)}%</p>
+                            <p><strong>Complete:</strong> {isComplete ? 'Yes' : 'No'}</p>
+                            <p><strong>Processing Time:</strong> {debugStatus.processingTime}ms</p>
                         </div>
                         <div>
-                            <p>
-                                <strong>Environment:</strong>{" "}
-                                {process.env.NODE_ENV}
-                            </p>
-                            {typeof window !== "undefined" && (
+                            <p><strong>Environment:</strong> {process.env.NODE_ENV}</p>
+                            {typeof window !== 'undefined' && (
                                 <>
-                                    <p>
-                                        <strong>Hostname:</strong>{" "}
-                                        {window.location.hostname}
-                                    </p>
-                                    <p>
-                                        <strong>Base URL:</strong>{" "}
-                                        {window.location.origin}
-                                    </p>
+                                    <p><strong>Hostname:</strong> {window.location.hostname}</p>
+                                    <p><strong>Base URL:</strong> {window.location.origin}</p>
                                 </>
                             )}
-                            <p>
-                                <strong>Sample URLs:</strong>
-                            </p>
+                            <p><strong>Sample URLs:</strong></p>
                             <ul className="text-xs ml-4">
                                 {allOriginalImages.slice(0, 3).map((url, i) => (
-                                    <li key={i} className="break-all">
-                                        {url}
-                                    </li>
+                                    <li key={i} className="break-all">{url}</li>
                                 ))}
                             </ul>
                         </div>
                     </div>
-
+                    
                     {failedImages.length > 0 && (
                         <div className="mt-4">
-                            <p className="text-red-600 font-semibold">
-                                Failed Images ({failedImages.length}):
-                            </p>
+                            <p className="text-red-600 font-semibold">Failed Images ({failedImages.length}):</p>
                             <div className="max-h-32 overflow-y-auto">
                                 {failedImages.map((failed, i) => (
-                                    <div
-                                        key={i}
-                                        className="text-xs text-red-500 break-all"
-                                    >
-                                        <strong>
-                                            {failed.url.split("/").pop()}:
-                                        </strong>{" "}
-                                        {failed.error}
+                                    <div key={i} className="text-xs text-red-500 break-all">
+                                        <strong>{failed.url.split('/').pop()}:</strong> {failed.error}
                                     </div>
                                 ))}
                             </div>
-
-                            {/* Quick test button for failed images */}
+                            
                             <button
                                 onClick={() => {
-                                    console.log(
-                                        "Testing first failed image..."
-                                    );
+                                    console.log('Testing first failed image...');
                                     if (failedImages.length > 0) {
                                         const testUrl = failedImages[0].url;
-                                        console.log(
-                                            `Attempting to load: ${testUrl}`
-                                        );
+                                        console.log(`Attempting to load: ${testUrl}`);
                                         fetch(testUrl)
-                                            .then((response) => {
-                                                console.log(
-                                                    `Fetch response for ${testUrl}:`,
-                                                    response.status,
-                                                    response.statusText
-                                                );
+                                            .then(response => {
+                                                console.log(`Fetch response for ${testUrl}:`, response.status, response.statusText);
                                             })
-                                            .catch((error) => {
-                                                console.log(
-                                                    `Fetch error for ${testUrl}:`,
-                                                    error
-                                                );
+                                            .catch(error => {
+                                                console.log(`Fetch error for ${testUrl}:`, error);
                                             });
                                     }
                                 }}
@@ -465,6 +417,7 @@ export default function PhotoGalleryShowcase({
                     )}
                 </div>
             )}
+            */}
 
             {/* Photo Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
