@@ -208,6 +208,7 @@ export default function WeatherEffectOverlay({
     return (
         <div
             className={`absolute inset-0 w-full h-full overflow-hidden ${className}`}
+            style={{ zIndex: 1 }}
         >
             <canvas
                 ref={canvasRef}
