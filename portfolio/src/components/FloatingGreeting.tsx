@@ -115,8 +115,8 @@ export default function FloatingGreeting({
             ...greeting,
             id: `greeting-${Date.now()}-${Math.random()}`,
             fontSize: Math.random() * 12 + 16, // 16px to 28px
-            startY: Math.random() * 60 + 20, // 20% to 80% from top
-            duration: Math.random() * 5000 + 8000, // 8-13 seconds
+            startY: Math.random() * 70 + 15, // 15% to 85% from top
+            duration: Math.random() * 6000 + 8000, // 8-14 seconds
             delay: 0, // No delay for continuous flow
         };
     }, []);
