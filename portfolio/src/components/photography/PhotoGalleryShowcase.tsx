@@ -98,7 +98,7 @@ export default function PhotoGalleryShowcase({
     const [selectedImageLoading, setSelectedImageLoading] = useState(false);
     const [showMagnifier, setShowMagnifier] = useState(false);
     const [magnifierPosition, setMagnifierPosition] = useState({ x: 0, y: 0 });
-    const [showDebugInfo, setShowDebugInfo] = useState(false);
+    // const [showDebugInfo, setShowDebugInfo] = useState(false); // Commented out for production
     const imageRef = useRef<HTMLImageElement>(null);
 
     const filteredPhotos = useMemo(() => {
@@ -168,7 +168,8 @@ export default function PhotoGalleryShowcase({
         preloadProgress,
         isPreloading,
         failedImages,
-        allOriginalImages.length, // Added to dependency array
+        // allOriginalImages dependency handled by including its length
+        allOriginalImages,
     ]);
 
     // Scroll lock effect for modal
