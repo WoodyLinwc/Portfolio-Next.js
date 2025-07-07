@@ -6,6 +6,7 @@ import RainEffect from "./RainEffect";
 import HeavyRainEffect from "./HeavyRainEffect";
 import SnowEffect from "./SnowEffect";
 import FogMistEffect from "./FogMistEffect";
+import ThunderstormEffect from "./ThunderstormEffect";
 
 interface WeatherEffectOverlayProps {
     weatherCondition: string;
@@ -32,13 +33,18 @@ export default function WeatherEffectOverlay({
             condition.includes("snow") ||
             condition.includes("flurries") ||
             condition.includes("fog") ||
-            condition.includes("mist")
+            condition.includes("mist") ||
+            condition.includes("thunder") ||
+            condition.includes("storm")
         );
     };
 
     // Determine which effect to show based on weather
     const getEffectType = () => {
         const condition = weatherCondition.toLowerCase();
+        if (condition.includes("thunder") || condition.includes("storm")) {
+            return "thunderstorm";
+        }
         if (condition.includes("snow") || condition.includes("flurries")) {
             return "snow";
         }
@@ -108,6 +114,10 @@ export default function WeatherEffectOverlay({
                 canvasRef={canvasRef}
                 isActive={effectType === "mist"}
                 intensity="mist"
+            />
+            <ThunderstormEffect
+                canvasRef={canvasRef}
+                isActive={effectType === "thunderstorm"}
             />
         </div>
     );

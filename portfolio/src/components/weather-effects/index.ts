@@ -4,3 +4,4 @@ export { default as RainEffect } from "./RainEffect";
 export { default as HeavyRainEffect } from "./HeavyRainEffect";
 export { default as SnowEffect } from "./SnowEffect";
 export { default as FogMistEffect } from "./FogMistEffect";
+export { default as ThunderstormEffect } from "./ThunderstormEffect";
