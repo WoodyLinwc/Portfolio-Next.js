@@ -122,7 +122,28 @@ export default function Hero() {
 
                         {/* Buttons */}
                         <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 relative z-10">
-                            {/* Buttons commented out */}
+                            {/* <a
+                                href={`mailto:${personalInfo.email}`}
+                                className="bg-white text-primary px-6 sm:px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors w-full sm:w-auto text-center relative z-10"
+                            >
+                                Email Me
+                            </a>
+                            <a
+                                href={personalInfo.links.linkedin}
+                                className="border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-primary transition-colors w-full sm:w-auto text-center relative z-10"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                LinkedIn
+                            </a>
+                            <a
+                                href={personalInfo.links.github}
+                                className="border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-primary transition-colors w-full sm:w-auto text-center relative z-10"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub
+                            </a> */}
                         </div>
                     </div>
 
