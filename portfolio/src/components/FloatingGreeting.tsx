@@ -37,6 +37,7 @@ export default function FloatingGreeting({
                 { text: "Good Morning", language: "English" },
                 { text: "Buenos Días", language: "Spanish" },
                 { text: "早上好", language: "Chinese" },
+                { text: "早安", language: "Chinese" },
                 { text: "おはようございます", language: "Japanese" },
                 { text: "Доброе утро", language: "Russian" },
                 { text: "Guten Morgen", language: "German" },
@@ -62,6 +63,7 @@ export default function FloatingGreeting({
                 { text: "Good Afternoon", language: "English" },
                 { text: "Buenas Tardes", language: "Spanish" },
                 { text: "下午好", language: "Chinese" },
+                { text: "午安", language: "Chinese" },
                 { text: "こんにちは", language: "Japanese" },
                 { text: "Добрый день", language: "Russian" },
                 { text: "Guten Tag", language: "German" },
@@ -87,6 +89,7 @@ export default function FloatingGreeting({
                 { text: "Good Evening", language: "English" },
                 { text: "Buenas Noches", language: "Spanish" },
                 { text: "晚上好", language: "Chinese" },
+                { text: "晚安", language: "Chinese" },
                 { text: "こんばんは", language: "Japanese" },
                 { text: "Добрый вечер", language: "Russian" },
                 { text: "Guten Abend", language: "German" },
@@ -125,13 +128,13 @@ export default function FloatingGreeting({
     const addRandomGreeting = useCallback(() => {
         const currentGreetings = getCurrentGreetings();
 
-        // Create weighted array - Chinese appears 3 times, others appear once
+        // Create weighted array - Chinese appears 2 times, others appear once
         const weightedGreetings: Greeting[] = [];
 
         currentGreetings.forEach((greeting) => {
             if (greeting.language === "Chinese") {
-                // Add Chinese greeting 3 times for higher probability
-                weightedGreetings.push(greeting, greeting, greeting);
+                // Add Chinese greeting 2 times for higher probability
+                weightedGreetings.push(greeting, greeting);
             } else {
                 // Add other greetings once
                 weightedGreetings.push(greeting);
