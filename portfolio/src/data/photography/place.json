@@ -1,0 +1,401 @@
+{
+    "type": "FeatureCollection",
+    "name": "Region & City",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Taipei City"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [121.5654268, 25.0329636, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Singapore"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.819836, 1.352083, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "New Delhi"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [77.2088282, 28.6139298, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hokkaido"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [142.8634737, 43.2203266, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Kyoto"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [135.7681489, 35.011564, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Tibet"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [91.11745, 29.6472399, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Dandong"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [124.35601, 39.9997999, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hong Kong"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [114.1693611, 22.3193039, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Penang"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [100.4846227, 5.2632341, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Shanghai"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [121.473701, 31.230416, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Okinawa"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [127.7025012, 26.1201911, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Istanbul"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [28.9783589, 41.0082376, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Iceland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-19.020835, 64.963051, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Greenland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-42.604303, 71.706936, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Phoenix"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-112.0776781, 33.4482266, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Houston"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-95.3701108, 29.7600771, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Orlando"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-81.3789269, 28.5383832, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Toronto"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-79.3831843, 43.653226, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Auckland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [174.7644881, -36.8508827, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sydney"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [151.2057136, -33.8727409, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Moscow"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [37.6150527, 55.7568721, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Anchorage"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-149.8996785, 61.2175758, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Boston"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-71.0565364, 42.3555076, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Seattle"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-122.3328481, 47.6061389, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "New York"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-74.0059728, 40.7127753, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Salt Lake City"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-111.8881397, 40.7605601, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Praia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-23.5073437, 14.919775, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Cape Town"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [18.4231418, -33.922087, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Colombo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [79.861243, 6.9270786, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Jeju Island"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [126.5661908, 33.3785614, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Amsterdam"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [4.9041389, 52.3675734, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Havana"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-82.3585654, 23.133865, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Providence"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-71.414199, 41.8245558, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Fiji"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [178.065032, -17.713371, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Honolulu"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-157.8581401, 21.3098845, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Dali"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [100.26764, 25.6064799, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Xiamen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [118.0894799, 24.4795099, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Beijing"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [116.407395, 39.904211, 0]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [100.5017651, 13.7563309, 0]
+            }
+        }
+    ],
+    "metadata": {
+        "source": "Region & City.kmz",
+        "converted": "2025-07-10T22:27:31.276Z",
+        "originalFormat": "KMZ/KML"
+    }
+}
