@@ -17,9 +17,9 @@ export default function TravelMapShowcase({
             {/* Header */}
             <div className="text-center mb-8">
                 <p className="text-gray-600 text-sm max-w-2xl mx-auto">
-                    Explore the places I've been to and places I want to visit
-                    for photography. Click on the markers to see more details
-                    about each destination.
+                    Explore the places I&apos;ve been to and places I want to
+                    visit for photography. Click on the markers to see more
+                    details about each destination.
                 </p>
             </div>
 
