@@ -6,8 +6,9 @@ import DisqusComments from "@/components/widgets/DisqusComments";
 import SectionTitle from "@/components/SectionTitle";
 import CameraGearShowcase from "@/components/photography/CameraGearShowcase";
 import PhotoGalleryShowcase from "@/components/photography/PhotoGalleryShowcase";
+import TravelMapShowcase from "@/components/photography/TravelMapShowcase";
 
-type TabType = "gallery" | "gear";
+type TabType = "gallery" | "gear" | "travel";
 
 export default function PhotographyClient() {
     const [activeTab, setActiveTab] = useState<TabType>("gallery");
@@ -17,6 +18,8 @@ export default function PhotographyClient() {
         const hash = window.location.hash.slice(1);
         if (hash === "gear") {
             setActiveTab("gear");
+        } else if (hash === "travel") {
+            setActiveTab("travel");
         } else {
             setActiveTab("gallery");
         }
@@ -99,7 +102,12 @@ export default function PhotographyClient() {
     // Update URL when tab changes
     const handleTabChange = (newTab: TabType) => {
         setActiveTab(newTab);
-        const newUrl = newTab === "gear" ? "/photography#gear" : "/photography";
+        const newUrl =
+            newTab === "gear"
+                ? "/photography#gear"
+                : newTab === "travel"
+                ? "/photography#travel"
+                : "/photography";
         window.history.replaceState(null, "", newUrl);
     };
 
@@ -118,10 +126,10 @@ export default function PhotographyClient() {
                 <div className="container mx-auto px-8 lg:px-20 xl:px-32">
                     {/* Enhanced Tab Navigation */}
                     <div className="flex justify-center mb-8">
-                        <div className="bg-gray-100 rounded-lg p-1 flex">
+                        <div className="bg-gray-100 rounded-lg p-1 flex flex-wrap justify-center gap-1">
                             <button
                                 onClick={() => handleTabChange("gallery")}
-                                className={`px-6 py-2 rounded-md transition-colors ${
+                                className={`px-4 py-2 rounded-md transition-colors whitespace-nowrap ${
                                     activeTab === "gallery"
                                         ? "bg-white text-primary shadow-sm font-medium"
                                         : "text-gray-600 hover:text-gray-800"
@@ -133,7 +141,7 @@ export default function PhotographyClient() {
                             </button>
                             <button
                                 onClick={() => handleTabChange("gear")}
-                                className={`px-6 py-2 rounded-md transition-colors ${
+                                className={`px-4 py-2 rounded-md transition-colors whitespace-nowrap ${
                                     activeTab === "gear"
                                         ? "bg-white text-primary shadow-sm font-medium"
                                         : "text-gray-600 hover:text-gray-800"
@@ -143,12 +151,25 @@ export default function PhotographyClient() {
                                 <i className="fa fa-camera mr-2"></i>
                                 Camera Gear
                             </button>
+                            <button
+                                onClick={() => handleTabChange("travel")}
+                                className={`px-4 py-2 rounded-md transition-colors whitespace-nowrap ${
+                                    activeTab === "travel"
+                                        ? "bg-white text-primary shadow-sm font-medium"
+                                        : "text-gray-600 hover:text-gray-800"
+                                }`}
+                                aria-label="View travel map"
+                            >
+                                <i className="fa fa-map-marked-alt mr-2"></i>
+                                Travel Map
+                            </button>
                         </div>
                     </div>
 
                     {/* Tab Content */}
                     {activeTab === "gallery" && <PhotoGalleryShowcase />}
                     {activeTab === "gear" && <CameraGearShowcase />}
+                    {activeTab === "travel" && <TravelMapShowcase />}
                 </div>
             </section>
 
