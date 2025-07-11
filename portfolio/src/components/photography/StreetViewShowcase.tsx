@@ -18,17 +18,36 @@ export default function StreetViewShowcase({
 }: StreetViewShowcaseProps) {
     const [currentCity, setCurrentCity] = useState<City | null>(null);
     const [isGridExpanded, setIsGridExpanded] = useState(false);
+    const [isLoadingRandomCity, setIsLoadingRandomCity] = useState(false);
 
-    // Extract cities from the place.json data
-    const cities: City[] = placeData.features.map((feature) => ({
+    // Extract cities from the place.json data and filter out Chinese cities (limited Street View support)
+    const allCities: City[] = placeData.features.map((feature) => ({
         name: feature.properties.name,
         coordinates: feature.geometry.coordinates as [number, number, number],
     }));
 
-    // Function to get a random city
+    // Chinese cities with limited/no Street View support
+    const chineseCities = [
+        "Beijing",
+        "Shanghai",
+        "Xiamen",
+        "Dali",
+        "Dandong",
+        "Lhasa",
+    ];
+
+    // Filter cities for Street View (exclude Chinese cities)
+    const streetViewCities = allCities.filter(
+        (city) => !chineseCities.includes(city.name)
+    );
+
+    // Use all cities for display, but only Street View supported cities for random selection
+    const cities = allCities;
+
+    // Function to get a random city (only from Street View supported cities)
     const getRandomCity = () => {
-        const randomIndex = Math.floor(Math.random() * cities.length);
-        return cities[randomIndex];
+        const randomIndex = Math.floor(Math.random() * streetViewCities.length);
+        return streetViewCities[randomIndex];
     };
 
     // Initialize with a random city
@@ -36,15 +55,45 @@ export default function StreetViewShowcase({
         setCurrentCity(getRandomCity());
     }, []);
 
-    // Function to load a new random city
-    const loadRandomCity = () => {
-        setCurrentCity(getRandomCity());
+    // Check if city supports Street View
+    const citySupportsStreetView = (cityName: string) => {
+        return !chineseCities.includes(cityName);
+    };
+
+    // Function to add slight random variation to coordinates (within same city)
+    const addCoordinateVariation = (
+        coordinates: [number, number, number]
+    ): [number, number, number] => {
+        const [longitude, latitude, elevation] = coordinates;
+
+        // Add small random variation (roughly 500m - 2km radius)
+        // Latitude: 1 degree ≈ 111km, so 0.01 degree ≈ 1.1km
+        // Longitude varies by latitude, but at most latitudes 0.01 degree ≈ 0.8-1.1km
+        const latVariation = (Math.random() - 0.5) * 0.02; // ±0.01 degrees (±1.1km)
+        const lngVariation = (Math.random() - 0.5) * 0.02; // ±0.01 degrees (±0.8-1.1km)
+
+        return [longitude + lngVariation, latitude + latVariation, elevation];
     };
 
     // Generate Google Street View link that opens in new tab
-    const getStreetViewLink = (city: City) => {
-        const [longitude, latitude] = city.coordinates;
+    const getStreetViewLink = (city: City, useVariation: boolean = false) => {
+        const coordinates = useVariation
+            ? addCoordinateVariation(city.coordinates)
+            : city.coordinates;
+        const [longitude, latitude] = coordinates;
         return `https://www.google.com/maps/@${latitude},${longitude},3a,75y,90h,90t/data=!3m6!1e1!3m4!1s0x0:0x0!2e0!7i16384!8i8192`;
+    };
+
+    // Function to load a new random city with loading effect
+    const loadRandomCity = async () => {
+        setIsLoadingRandomCity(true);
+
+        // Add a delay for better UX (you can adjust this)
+        await new Promise((resolve) => setTimeout(resolve, 800));
+
+        const randomCity = getRandomCity();
+        setCurrentCity(randomCity);
+        setIsLoadingRandomCity(false);
     };
 
     if (!currentCity) {
@@ -86,13 +135,61 @@ export default function StreetViewShowcase({
                                 {currentCity.coordinates[0].toFixed(4)}°E
                             </p>
                         </div>
-                        <button
-                            onClick={loadRandomCity}
-                            className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
-                        >
-                            <i className="fa fa-random"></i>
-                            Random City
-                        </button>
+                        <div className="flex gap-2">
+                            <button
+                                onClick={loadRandomCity}
+                                disabled={isLoadingRandomCity}
+                                className="bg-white bg-opacity-20 hover:bg-opacity-30 disabled:bg-opacity-10 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
+                            >
+                                <i
+                                    className={`fa ${
+                                        isLoadingRandomCity
+                                            ? "fa-spinner fa-spin"
+                                            : "fa-random"
+                                    }`}
+                                ></i>
+                                {isLoadingRandomCity
+                                    ? "Loading..."
+                                    : "Random City"}
+                            </button>
+                            <button
+                                onClick={() => {
+                                    if (
+                                        citySupportsStreetView(currentCity.name)
+                                    ) {
+                                        window.open(
+                                            getStreetViewLink(
+                                                currentCity,
+                                                true
+                                            ),
+                                            "_blank",
+                                            "noopener,noreferrer"
+                                        );
+                                    } else {
+                                        // For Chinese cities, open regular Google Maps view
+                                        const [longitude, latitude] =
+                                            currentCity.coordinates;
+                                        window.open(
+                                            `https://www.google.com/maps/@${latitude},${longitude},15z`,
+                                            "_blank",
+                                            "noopener,noreferrer"
+                                        );
+                                    }
+                                }}
+                                className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
+                            >
+                                <i
+                                    className={`fa ${
+                                        citySupportsStreetView(currentCity.name)
+                                            ? "fa-street-view"
+                                            : "fa-map"
+                                    }`}
+                                ></i>
+                                {citySupportsStreetView(currentCity.name)
+                                    ? "View Street"
+                                    : "View Map"}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -134,12 +231,9 @@ export default function StreetViewShowcase({
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
                             {cities.map((city, index) => (
                                 <div key={index} className="relative group">
-                                    <a
-                                        href={getStreetViewLink(city)}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <button
                                         onClick={() => setCurrentCity(city)}
-                                        className={`w-full text-left p-3 rounded-lg border transition-all duration-200 block hover:shadow-lg ${
+                                        className={`w-full text-left p-3 rounded-lg border transition-all duration-200 hover:shadow-lg relative ${
                                             currentCity.name === city.name
                                                 ? "bg-primary text-white border-primary shadow-md"
                                                 : "bg-white border-gray-200 text-gray-700 hover:bg-blue-50 hover:border-blue-300"
@@ -147,15 +241,19 @@ export default function StreetViewShowcase({
                                     >
                                         <div className="font-medium text-sm truncate">
                                             {city.name}
+                                            {!citySupportsStreetView(
+                                                city.name
+                                            ) && (
+                                                <span className="ml-1 text-xs opacity-60">
+                                                    (Map only)
+                                                </span>
+                                            )}
                                         </div>
                                         <div className="text-xs opacity-75 mt-1">
                                             {city.coordinates[1].toFixed(2)}°,{" "}
                                             {city.coordinates[0].toFixed(2)}°
                                         </div>
-                                        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <i className="fa fa-external-link-alt text-xs"></i>
-                                        </div>
-                                    </a>
+                                    </button>
                                 </div>
                             ))}
                         </div>
