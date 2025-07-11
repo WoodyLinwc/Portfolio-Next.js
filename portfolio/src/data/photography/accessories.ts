@@ -49,7 +49,7 @@ export const accessories: Accessory[] = [
     },
     {
         id: "15",
-        name: "ongnuo YN560 IV Speedlite",
+        name: "Yongnuo YN560 IV Speedlite",
         brand: "Peak Design",
         model: "Slide Lite",
         specs: [
