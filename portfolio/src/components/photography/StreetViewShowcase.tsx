@@ -27,14 +27,7 @@ export default function StreetViewShowcase({
     }));
 
     // Chinese cities with limited/no Street View support
-    const chineseCities = [
-        "Beijing",
-        "Shanghai",
-        "Xiamen",
-        "Dali",
-        "Dandong",
-        "Lhasa",
-    ];
+    const chineseCities = ["Beijing", "Shanghai", "Xiamen", "Dali", "Dandong"];
 
     // Filter cities for Street View (exclude Chinese cities)
     const streetViewCities = allCities.filter(
@@ -124,22 +117,22 @@ export default function StreetViewShowcase({
             {/* Current City Display */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-6">
                 {/* City Info Header */}
-                <div className="bg-primary text-white px-6 py-4">
-                    <div className="flex items-center justify-between">
-                        <div>
-                            <h4 className="text-xl font-bold">
+                <div className="bg-primary text-white px-4 sm:px-6 py-4 sm:py-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div className="min-w-0">
+                            <h4 className="text-lg sm:text-xl font-bold truncate">
                                 {currentCity.name}
                             </h4>
-                            <p className="text-sm opacity-90">
+                            <p className="text-xs sm:text-sm opacity-90">
                                 {currentCity.coordinates[1].toFixed(4)}°N,{" "}
                                 {currentCity.coordinates[0].toFixed(4)}°E
                             </p>
                         </div>
-                        <div className="flex gap-2">
+                        <div className="flex flex-col sm:flex-row gap-2 sm:gap-2 flex-shrink-0">
                             <button
                                 onClick={loadRandomCity}
                                 disabled={isLoadingRandomCity}
-                                className="bg-white bg-opacity-20 hover:bg-opacity-30 disabled:bg-opacity-10 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
+                                className="bg-white bg-opacity-20 hover:bg-opacity-30 disabled:bg-opacity-10 disabled:cursor-not-allowed text-white px-3 sm:px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm sm:text-base whitespace-nowrap"
                             >
                                 <i
                                     className={`fa ${
@@ -176,7 +169,7 @@ export default function StreetViewShowcase({
                                         );
                                     }
                                 }}
-                                className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
+                                className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm sm:text-base whitespace-nowrap"
                             >
                                 <i
                                     className={`fa ${

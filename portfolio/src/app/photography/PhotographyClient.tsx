@@ -137,7 +137,10 @@ export default function PhotographyClient() {
                                 aria-label="View photo gallery"
                             >
                                 <i className="fa fa-image mr-2"></i>
-                                Photo Gallery
+                                <span className="hidden sm:inline">
+                                    Photo Gallery
+                                </span>
+                                <span className="sm:hidden">Photo</span>
                             </button>
                             <button
                                 onClick={() => handleTabChange("gear")}
@@ -149,7 +152,10 @@ export default function PhotographyClient() {
                                 aria-label="View camera gear"
                             >
                                 <i className="fa fa-camera mr-2"></i>
-                                Camera Gear
+                                <span className="hidden sm:inline">
+                                    Camera Gear
+                                </span>
+                                <span className="sm:hidden">Camera</span>
                             </button>
                             <button
                                 onClick={() => handleTabChange("travel")}
@@ -161,7 +167,10 @@ export default function PhotographyClient() {
                                 aria-label="View travel map"
                             >
                                 <i className="fa fa-map-marked-alt mr-2"></i>
-                                Travel Map
+                                <span className="hidden sm:inline">
+                                    Travel Map
+                                </span>
+                                <span className="sm:hidden">Map</span>
                             </button>
                         </div>
                     </div>
