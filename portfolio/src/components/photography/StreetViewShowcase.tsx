@@ -168,26 +168,63 @@ export default function StreetViewShowcase({
                             </button>
                             <button
                                 onClick={() => {
+                                    const isMobile =
+                                        /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                                            navigator.userAgent
+                                        );
+
                                     if (
                                         citySupportsStreetView(currentCity.name)
                                     ) {
-                                        window.open(
-                                            getStreetViewLink(
-                                                currentCity,
-                                                true
-                                            ),
-                                            "_blank",
-                                            "noopener,noreferrer"
+                                        const streetViewUrl = getStreetViewLink(
+                                            currentCity,
+                                            true
                                         );
+
+                                        if (isMobile) {
+                                            // On mobile, show confirmation dialog
+                                            const confirmed = window.confirm(
+                                                `Open ${currentCity.name} in Google Maps?\n\nThis will open a new page.`
+                                            );
+                                            if (confirmed) {
+                                                window.open(
+                                                    streetViewUrl,
+                                                    "_blank",
+                                                    "noopener,noreferrer"
+                                                );
+                                            }
+                                        } else {
+                                            // On desktop, open directly
+                                            window.open(
+                                                streetViewUrl,
+                                                "_blank",
+                                                "noopener,noreferrer"
+                                            );
+                                        }
                                     } else {
                                         // For Chinese cities, open regular Google Maps view
                                         const [longitude, latitude] =
                                             currentCity.coordinates;
-                                        window.open(
-                                            `https://www.google.com/maps/@${latitude},${longitude},15z`,
-                                            "_blank",
-                                            "noopener,noreferrer"
-                                        );
+                                        const mapsUrl = `https://www.google.com/maps/@${latitude},${longitude},15z`;
+
+                                        if (isMobile) {
+                                            const confirmed = window.confirm(
+                                                `Open ${currentCity.name} in Google Maps?\n\nThis will open a new page.`
+                                            );
+                                            if (confirmed) {
+                                                window.open(
+                                                    mapsUrl,
+                                                    "_blank",
+                                                    "noopener,noreferrer"
+                                                );
+                                            }
+                                        } else {
+                                            window.open(
+                                                mapsUrl,
+                                                "_blank",
+                                                "noopener,noreferrer"
+                                            );
+                                        }
                                     }
                                 }}
                                 className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm sm:text-base whitespace-nowrap"
