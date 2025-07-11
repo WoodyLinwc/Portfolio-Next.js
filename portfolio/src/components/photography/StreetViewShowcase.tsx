@@ -81,7 +81,20 @@ export default function StreetViewShowcase({
             ? addCoordinateVariation(city.coordinates)
             : city.coordinates;
         const [longitude, latitude] = coordinates;
-        return `https://www.google.com/maps/@${latitude},${longitude},3a,75y,90h,90t/data=!3m6!1e1!3m4!1s0x0:0x0!2e0!7i16384!8i8192`;
+
+        // Detect if user is on mobile device
+        const isMobile =
+            /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                navigator.userAgent
+            );
+
+        if (isMobile) {
+            // Use mobile-friendly Google Maps URL that opens in the Google Maps app
+            return `https://maps.google.com/maps?q=${latitude},${longitude}&layer=c&cbp=1,0,,0,5`;
+        } else {
+            // Use desktop Street View URL
+            return `https://www.google.com/maps/@${latitude},${longitude},3a,75y,90h,90t/data=!3m6!1e1!3m4!1s0x0:0x0!2e0!7i16384!8i8192`;
+        }
     };
 
     // Function to load a new random city with loading effect
