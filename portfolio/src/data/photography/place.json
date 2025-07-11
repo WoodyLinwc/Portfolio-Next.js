@@ -125,21 +125,21 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "Iceland"
+                "name": "Reykjavík"
             },
             "geometry": {
                 "type": "Point",
-                "coordinates": [-19.020835, 64.963051, 0]
+                "coordinates": [-21.94075, 64.14698, 0]
             }
         },
         {
             "type": "Feature",
             "properties": {
-                "name": "Greenland"
+                "name": "Nuuk"
             },
             "geometry": {
                 "type": "Point",
-                "coordinates": [-42.604303, 71.706936, 0]
+                "coordinates": [-51.73727, 64.17432, 0]
             }
         },
         {
