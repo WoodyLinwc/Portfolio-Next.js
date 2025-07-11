@@ -200,12 +200,13 @@ export default function StreetViewShowcase({
                     onClick={() => setIsGridExpanded(!isGridExpanded)}
                     className="w-full px-6 py-4 text-left hover:bg-gray-100 transition-colors border-b border-gray-200"
                 >
-                    <div className="flex items-center justify-between">
+                    {/* Mobile: Stack vertically */}
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
                         <h4 className="text-lg font-semibold text-gray-800">
                             All Cities in My Collection ({cities.length}{" "}
                             locations)
                         </h4>
-                        <div className="flex items-center gap-2 text-gray-600">
+                        <div className="flex items-center gap-2 text-gray-600 self-start sm:self-auto">
                             <span className="text-sm">
                                 {isGridExpanded ? "Hide" : "Show"} all cities
                             </span>
@@ -228,12 +229,13 @@ export default function StreetViewShowcase({
                     }`}
                 >
                     <div className="p-6">
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+                        {/* Mobile: Single column with more breathing room */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                             {cities.map((city, index) => (
                                 <div key={index} className="relative group">
                                     <button
                                         onClick={() => setCurrentCity(city)}
-                                        className={`w-full text-left p-3 rounded-lg border transition-all duration-200 hover:shadow-lg relative ${
+                                        className={`w-full text-left p-4 rounded-lg border transition-all duration-200 hover:shadow-lg relative ${
                                             currentCity.name === city.name
                                                 ? "bg-primary text-white border-primary shadow-md"
                                                 : "bg-white border-gray-200 text-gray-700 hover:bg-blue-50 hover:border-blue-300"
