@@ -56,6 +56,14 @@ export const websites: Website[] = [
         link: "https://hacksplaining.com/lessons",
         category: "security",
     },
+    {
+        icon: "fa-cube",
+        title: "CodeSandbox",
+        description:
+            "Online code editor and development environment for rapid prototyping and collaboration. Perfect for testing React components, sharing code snippets, and building full-stack applications in the browser.",
+        link: "https://codesandbox.io/dashboard/recent",
+        category: "tools",
+    },
 ];
 
 // Helper function to get websites by category
