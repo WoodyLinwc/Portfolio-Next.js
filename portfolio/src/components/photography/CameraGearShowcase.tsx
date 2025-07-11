@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import { cameras, type Camera } from "@/data/photography/cameras";
 import { lenses, type Lens } from "@/data/photography/lenses";
@@ -49,10 +49,31 @@ export default function CameraGearShowcase({
         return a.name.localeCompare(b.name);
     });
 
-    const filteredGear =
-        activeFilter === "all"
-            ? sortedGear
-            : sortedGear.filter((gear) => gear.type === activeFilter);
+    const filteredGear = useMemo(() => {
+        let filtered =
+            activeFilter === "all"
+                ? sortedGear
+                : sortedGear.filter((gear) => gear.type === activeFilter);
+
+        // Special sorting only for accessories section
+        if (activeFilter === "accessory") {
+            filtered = filtered.sort((a, b) => {
+                // Always put Friday first in accessories
+                if (a.name === "Friday") return -1;
+                if (b.name === "Friday") return 1;
+
+                // For other accessories, maintain normal sorting
+                if (a.purchaseYear && b.purchaseYear) {
+                    return b.purchaseYear - a.purchaseYear;
+                }
+                if (a.purchaseYear && !b.purchaseYear) return -1;
+                if (!a.purchaseYear && b.purchaseYear) return 1;
+                return a.name.localeCompare(b.name);
+            });
+        }
+
+        return filtered;
+    }, [activeFilter, sortedGear]);
 
     const gearCount = filteredGear.length;
 
