@@ -89,8 +89,9 @@ export default function StreetViewShowcase({
             );
 
         if (isMobile) {
-            // Use mobile-friendly Google Maps URL that opens in the Google Maps app
-            return `https://maps.google.com/maps?q=${latitude},${longitude}&layer=c&cbp=1,0,,0,5`;
+            // Use universal Google Maps URL that works in browser without requiring the app
+            // This will open in Safari if Google Maps app is not installed
+            return `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}&map_action=pano`;
         } else {
             // Use desktop Street View URL
             return `https://www.google.com/maps/@${latitude},${longitude},3a,75y,90h,90t/data=!3m6!1e1!3m4!1s0x0:0x0!2e0!7i16384!8i8192`;
