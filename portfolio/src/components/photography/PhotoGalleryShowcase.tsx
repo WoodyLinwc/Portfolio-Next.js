@@ -170,39 +170,6 @@ export default function PhotoGalleryShowcase({
                 </div>
             )}
 
-            {/* Simple Info Section */}
-            <div className="text-center mt-12 pt-8 border-t border-gray-200">
-                <div className="mb-6">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                        Gallery Experience
-                    </h3>
-                    <p className="text-sm text-gray-600">
-                        Click on any photo to view it in full resolution.
-                        <br />
-                        <span className="text-xs text-gray-500">
-                            Images load on-demand - no background preloading
-                            active
-                        </span>
-                    </p>
-                </div>
-
-                {/* Statistics */}
-                <div className="text-xs text-gray-500 space-y-1">
-                    <div className="flex items-center justify-center space-x-4">
-                        <span>Total Images: {allOriginalImages.length}</span>
-                        <span>•</span>
-                        <span>Thumbnails: Fast loading</span>
-                        <span>•</span>
-                        <span>Full Resolution: On-demand</span>
-                    </div>
-
-                    <div className="text-gray-400 mt-2">
-                        Full resolution images download when you click to view
-                        them.
-                    </div>
-                </div>
-            </div>
-
             {/* Lightbox Modal */}
             {selectedImage && (
                 <div

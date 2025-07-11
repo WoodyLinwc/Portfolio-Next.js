@@ -4,8 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 import { cameras, type Camera } from "@/data/photography/cameras";
 import { lenses, type Lens } from "@/data/photography/lenses";
+import { accessories, type Accessory } from "@/data/photography/accessories";
 
-type CameraGear = (Camera | Lens) & { type: "camera" | "lens" };
+type CameraGear = (Camera | Lens | Accessory) & {
+    type: "camera" | "lens" | "accessory";
+};
 
 interface CameraGearShowcaseProps {
     className?: string;
@@ -14,15 +17,19 @@ interface CameraGearShowcaseProps {
 export default function CameraGearShowcase({
     className = "",
 }: CameraGearShowcaseProps) {
-    const [activeFilter, setActiveFilter] = useState<"all" | "camera" | "lens">(
-        "all"
-    );
+    const [activeFilter, setActiveFilter] = useState<
+        "all" | "camera" | "lens" | "accessory"
+    >("all");
     const [selectedGear, setSelectedGear] = useState<CameraGear | null>(null);
 
-    // Combine cameras and lenses with type information
+    // Combine cameras, lenses, and accessories with type information
     const cameraGear: CameraGear[] = [
         ...cameras.map((camera) => ({ ...camera, type: "camera" as const })),
         ...lenses.map((lens) => ({ ...lens, type: "lens" as const })),
+        ...accessories.map((accessory) => ({
+            ...accessory,
+            type: "accessory" as const,
+        })),
     ];
 
     // Sort by purchase year (newest first), then by name for items without purchase year
@@ -49,6 +56,34 @@ export default function CameraGearShowcase({
 
     const gearCount = filteredGear.length;
 
+    // Get type display name
+    const getTypeDisplayName = (type: string) => {
+        switch (type) {
+            case "camera":
+                return "Camera";
+            case "lens":
+                return "Lens";
+            case "accessory":
+                return "Accessory";
+            default:
+                return type;
+        }
+    };
+
+    // Get type color classes
+    const getTypeColorClasses = (type: string) => {
+        switch (type) {
+            case "camera":
+                return "bg-blue-100 text-blue-800";
+            case "lens":
+                return "bg-green-100 text-green-800";
+            case "accessory":
+                return "bg-purple-100 text-purple-800";
+            default:
+                return "bg-gray-100 text-gray-800";
+        }
+    };
+
     return (
         <div className={`max-w-6xl mx-auto ${className}`}>
             {/* Filter Buttons */}
@@ -57,6 +92,7 @@ export default function CameraGearShowcase({
                     { key: "all" as const, label: "All Gear" },
                     { key: "camera" as const, label: "Cameras" },
                     { key: "lens" as const, label: "Lenses" },
+                    { key: "accessory" as const, label: "Accessories (🐄)" },
                 ].map((filter) => (
                     <button
                         key={filter.key}
@@ -78,7 +114,11 @@ export default function CameraGearShowcase({
                     Showing {gearCount} gear items
                     {activeFilter !== "all" &&
                         ` in ${
-                            activeFilter === "camera" ? "Cameras" : "Lenses"
+                            activeFilter === "camera"
+                                ? "Cameras"
+                                : activeFilter === "lens"
+                                ? "Lenses"
+                                : "Accessories"
                         } category`}
                     {activeFilter === "all" && " (sorted by purchase year)"}
                 </p>
@@ -113,7 +153,15 @@ export default function CameraGearShowcase({
                             />
                             {/* Fallback placeholder (hidden by default) */}
                             <div className="absolute inset-0 hidden items-center justify-center">
-                                <i className="fa fa-camera text-4xl text-gray-400"></i>
+                                <i
+                                    className={`text-4xl text-gray-400 ${
+                                        gear.type === "camera"
+                                            ? "fa fa-camera"
+                                            : gear.type === "lens"
+                                            ? "fa fa-circle"
+                                            : "fa fa-cube"
+                                    }`}
+                                ></i>
                                 <span className="ml-2 text-gray-500 text-sm">
                                     Image Coming Soon
                                 </span>
@@ -124,13 +172,11 @@ export default function CameraGearShowcase({
                         <div className="p-6">
                             <div className="flex items-center justify-between mb-2">
                                 <span
-                                    className={`px-2 py-1 rounded-full text-xs font-medium ${
-                                        gear.type === "camera"
-                                            ? "bg-blue-100 text-blue-800"
-                                            : "bg-green-100 text-green-800"
-                                    }`}
+                                    className={`px-2 py-1 rounded-full text-xs font-medium ${getTypeColorClasses(
+                                        gear.type
+                                    )}`}
                                 >
-                                    {gear.type === "camera" ? "Camera" : "Lens"}
+                                    {getTypeDisplayName(gear.type)}
                                 </span>
                                 {gear.favorite && (
                                     <i className="fa fa-heart text-red-500"></i>
@@ -209,7 +255,15 @@ export default function CameraGearShowcase({
                                 />
                                 {/* Fallback placeholder (hidden by default) */}
                                 <div className="absolute inset-0 hidden items-center justify-center">
-                                    <i className="fa fa-camera text-6xl text-gray-400"></i>
+                                    <i
+                                        className={`text-6xl text-gray-400 ${
+                                            selectedGear.type === "camera"
+                                                ? "fa fa-camera"
+                                                : selectedGear.type === "lens"
+                                                ? "fa fa-circle"
+                                                : "fa fa-cube"
+                                        }`}
+                                    ></i>
                                 </div>
                             </div>
 
@@ -270,7 +324,9 @@ export default function CameraGearShowcase({
                                             Type:
                                         </span>
                                         <span className="text-gray-600 ml-2 capitalize">
-                                            {selectedGear.type}
+                                            {getTypeDisplayName(
+                                                selectedGear.type
+                                            )}
                                         </span>
                                     </div>
                                 </div>
