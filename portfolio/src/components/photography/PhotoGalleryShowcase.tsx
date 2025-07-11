@@ -27,9 +27,10 @@ export default function PhotoGalleryShowcase({
             : photos.filter((photo) => photo.category === activeFilter);
     }, [activeFilter]);
 
-    const allOriginalImages = useMemo(() => {
-        return photos.map((photo) => photo.src);
-    }, []);
+    // Removed unused allOriginalImages variable
+    // const allOriginalImages = useMemo(() => {
+    //     return photos.map((photo) => photo.src);
+    // }, []);
 
     // Scroll lock for modal
     useEffect(() => {
