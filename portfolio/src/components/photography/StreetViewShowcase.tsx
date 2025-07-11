@@ -185,19 +185,12 @@ export default function StreetViewShowcase({
                                         if (isMobile) {
                                             // On mobile, show confirmation dialog
                                             const confirmed = window.confirm(
-                                                `Open ${currentCity.name} in Google Maps?\n\nThis will open in a new tab.`
+                                                `Open ${currentCity.name} in Google Maps?\n\nYou'll be taken to Google Maps.`
                                             );
                                             if (confirmed) {
-                                                // Create a temporary link element and click it (more reliable on mobile)
-                                                const link =
-                                                    document.createElement("a");
-                                                link.href = streetViewUrl;
-                                                link.target = "_blank";
-                                                link.rel =
-                                                    "noopener noreferrer";
-                                                document.body.appendChild(link);
-                                                link.click();
-                                                document.body.removeChild(link);
+                                                // Use window.location.href instead of window.open for better mobile compatibility
+                                                window.location.href =
+                                                    streetViewUrl;
                                             }
                                         } else {
                                             // On desktop, open in new tab
@@ -215,18 +208,10 @@ export default function StreetViewShowcase({
 
                                         if (isMobile) {
                                             const confirmed = window.confirm(
-                                                `Open ${currentCity.name} in Google Maps?\n\nThis will open in a new tab.`
+                                                `Open ${currentCity.name} in Google Maps?\n\nYou'll be taken to Google Maps.`
                                             );
                                             if (confirmed) {
-                                                const link =
-                                                    document.createElement("a");
-                                                link.href = mapsUrl;
-                                                link.target = "_blank";
-                                                link.rel =
-                                                    "noopener noreferrer";
-                                                document.body.appendChild(link);
-                                                link.click();
-                                                document.body.removeChild(link);
+                                                window.location.href = mapsUrl;
                                             }
                                         } else {
                                             window.open(
