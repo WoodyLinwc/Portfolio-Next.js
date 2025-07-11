@@ -4,83 +4,11 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
 import Spinner from "@/components/Spinner";
+import OptimizedLazyImage from "@/components/OptimizedLazyImage";
 import { photos, filterOptions } from "@/data/photography/photos";
 
 interface PhotoGalleryShowcaseProps {
     className?: string;
-}
-
-interface OptimizedLazyImageProps {
-    src: string;
-    alt: string;
-    fill: boolean;
-    className: string;
-    priority: boolean;
-    sizes: string;
-    onClick?: () => void;
-}
-
-// Optimized LazyImage component
-function OptimizedLazyImage({
-    src,
-    alt,
-    fill,
-    className,
-    priority,
-    sizes,
-    onClick,
-}: OptimizedLazyImageProps) {
-    const [imageLoaded, setImageLoaded] = useState(false);
-    const [useOriginal, setUseOriginal] = useState(false);
-
-    const getOptimizedPath = (originalPath: string) => {
-        const pathParts = originalPath.split("/");
-        const fileName = pathParts[pathParts.length - 1];
-        const nameWithoutExt = fileName.split(".")[0];
-        const directory = pathParts.slice(0, -1).join("/");
-        const relativePath = directory.replace("/images/album/", "");
-        return `/images/thumbnails/${relativePath}/${nameWithoutExt}.webp`;
-    };
-
-    const optimizedPath = getOptimizedPath(src);
-
-    const handleImageLoad = () => {
-        setImageLoaded(true);
-    };
-
-    const handleImageError = () => {
-        console.log(`Optimized image not found, using original: ${src}`);
-        setUseOriginal(true);
-        setImageLoaded(false);
-    };
-
-    return (
-        <div className="relative w-full h-full">
-            {!imageLoaded && (
-                <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
-                    <div className="text-gray-400">
-                        <i className="fa fa-image text-2xl"></i>
-                    </div>
-                </div>
-            )}
-
-            <Image
-                src={useOriginal ? src : optimizedPath}
-                alt={alt}
-                fill={fill}
-                className={`${className} transition-opacity duration-300 ${
-                    imageLoaded ? "opacity-100" : "opacity-0"
-                }`}
-                sizes={sizes}
-                priority={priority}
-                loading={priority ? "eager" : "lazy"}
-                onLoad={handleImageLoad}
-                onError={handleImageError}
-                onClick={onClick}
-                quality={useOriginal ? 75 : 85}
-            />
-        </div>
-    );
 }
 
 export default function PhotoGalleryShowcase({
@@ -223,6 +151,7 @@ export default function PhotoGalleryShowcase({
                             className="object-cover group-hover:scale-110 transition-transform duration-300"
                             priority={getPriority(index)}
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            enableOptimization={true}
                         />
 
                         <div className="portfolio-btn opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
