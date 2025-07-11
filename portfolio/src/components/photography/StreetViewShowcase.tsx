@@ -1,7 +1,7 @@
 // src/components/photography/StreetViewShowcase.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import placeData from "@/data/photography/place.json";
 
 interface City {
@@ -45,15 +45,15 @@ export default function StreetViewShowcase({
     const cities = allCities;
 
     // Function to get a random city (only from Street View supported cities)
-    const getRandomCity = () => {
+    const getRandomCity = useCallback(() => {
         const randomIndex = Math.floor(Math.random() * streetViewCities.length);
         return streetViewCities[randomIndex];
-    };
+    }, [streetViewCities]);
 
     // Initialize with a random city
     useEffect(() => {
         setCurrentCity(getRandomCity());
-    }, []);
+    }, [getRandomCity]);
 
     // Check if city supports Street View
     const citySupportsStreetView = (cityName: string) => {
