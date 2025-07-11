@@ -43,7 +43,7 @@ export const accessories: Accessory[] = [
             "Rechargeable via USB-C cable",
         ],
         description:
-            "A lightweight compact flash light that I used often with Fujifilm X-T50",
+            "A lightweight compact flash light that I used often with Fujifilm X-T50.",
         image: "/images/camera/medalight_f1_flashlight.jpg",
         purchaseYear: 2024,
     },
@@ -60,7 +60,7 @@ export const accessories: Accessory[] = [
             "Guide Number: 190' / 58m at ISO 100 (105mm)",
         ],
         description:
-            "Overall, a entry-level flashlight for DSLRs. I wish it came with TTL, the auto setting for flash",
+            "Overall, a entry-level flashlight for DSLRs. I wish it came with TTL, the auto setting for flash.",
         image: "/images/camera/yn_560iv_flashlight.jpg",
         purchaseYear: 2023,
     },
