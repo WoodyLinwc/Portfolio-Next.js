@@ -1,6 +1,8 @@
 // src/components/photography/TravelMapShowcase.tsx
 "use client";
 
+import StreetViewShowcase from "./StreetViewShowcase";
+
 interface TravelMapShowcaseProps {
     className?: string;
 }
@@ -44,7 +46,7 @@ export default function TravelMapShowcase({
             </div>
 
             {/* External Link */}
-            <div className="text-center">
+            <div className="text-center mb-16">
                 <a
                     href="https://www.google.com/maps/d/edit?mid=1mGqFps7IHRDC3ANKGnNRt2FHSWDDNds&usp=sharing"
                     target="_blank"
@@ -55,6 +57,19 @@ export default function TravelMapShowcase({
                     View Full Map in Google Maps
                 </a>
             </div>
+
+            {/* Divider */}
+            <div className="relative mb-12">
+                <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-gray-300"></div>
+                </div>
+                <div className="relative flex justify-center text-sm">
+                    <span className="px-6 bg-white text-gray-500 font-medium"></span>
+                </div>
+            </div>
+
+            {/* Street View Showcase */}
+            <StreetViewShowcase />
         </div>
     );
 }
