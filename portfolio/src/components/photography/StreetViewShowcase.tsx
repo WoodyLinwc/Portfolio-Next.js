@@ -50,10 +50,12 @@ export default function StreetViewShowcase({
         return streetViewCities[randomIndex];
     }, [streetViewCities]);
 
-    // Initialize with a random city
+    // Initialize with a random city only once on mount
     useEffect(() => {
-        setCurrentCity(getRandomCity());
-    }, [getRandomCity]);
+        if (!currentCity) {
+            setCurrentCity(getRandomCity());
+        }
+    }, []); // Empty dependency array - only run once on mount
 
     // Check if city supports Street View
     const citySupportsStreetView = (cityName: string) => {
