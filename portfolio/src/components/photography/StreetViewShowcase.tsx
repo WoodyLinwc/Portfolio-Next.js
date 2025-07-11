@@ -89,9 +89,10 @@ export default function StreetViewShowcase({
             );
 
         if (isMobile) {
-            // Use universal Google Maps URL that works in browser without requiring the app
-            // This will open in Safari if Google Maps app is not installed
-            return `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}&map_action=pano`;
+            // Try multiple fallback URLs for better mobile compatibility
+            // First try: Google Maps app URL scheme (if app is installed)
+            // Second try: Universal Google Maps URL that works in any browser
+            return `https://maps.google.com/?q=${latitude},${longitude}&ll=${latitude},${longitude}&z=17`;
         } else {
             // Use desktop Street View URL
             return `https://www.google.com/maps/@${latitude},${longitude},3a,75y,90h,90t/data=!3m6!1e1!3m4!1s0x0:0x0!2e0!7i16384!8i8192`;
@@ -184,17 +185,15 @@ export default function StreetViewShowcase({
                                         if (isMobile) {
                                             // On mobile, show confirmation dialog
                                             const confirmed = window.confirm(
-                                                `Open ${currentCity.name} in Google Maps?\n\nThis will open a new page.`
+                                                `Open ${currentCity.name} in Google Maps?\n\nYou'll be taken to Google Maps.`
                                             );
                                             if (confirmed) {
-                                                window.open(
-                                                    streetViewUrl,
-                                                    "_blank",
-                                                    "noopener,noreferrer"
-                                                );
+                                                // Use window.location.href instead of window.open for better mobile compatibility
+                                                window.location.href =
+                                                    streetViewUrl;
                                             }
                                         } else {
-                                            // On desktop, open directly
+                                            // On desktop, open in new tab
                                             window.open(
                                                 streetViewUrl,
                                                 "_blank",
@@ -205,18 +204,14 @@ export default function StreetViewShowcase({
                                         // For Chinese cities, open regular Google Maps view
                                         const [longitude, latitude] =
                                             currentCity.coordinates;
-                                        const mapsUrl = `https://www.google.com/maps/@${latitude},${longitude},15z`;
+                                        const mapsUrl = `https://maps.google.com/?q=${latitude},${longitude}&ll=${latitude},${longitude}&z=15`;
 
                                         if (isMobile) {
                                             const confirmed = window.confirm(
-                                                `Open ${currentCity.name} in Google Maps?\n\nThis will open a new page.`
+                                                `Open ${currentCity.name} in Google Maps?\n\nYou'll be taken to Google Maps.`
                                             );
                                             if (confirmed) {
-                                                window.open(
-                                                    mapsUrl,
-                                                    "_blank",
-                                                    "noopener,noreferrer"
-                                                );
+                                                window.location.href = mapsUrl;
                                             }
                                         } else {
                                             window.open(
