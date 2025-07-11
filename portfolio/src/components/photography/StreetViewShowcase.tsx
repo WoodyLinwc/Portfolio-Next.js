@@ -27,7 +27,14 @@ export default function StreetViewShowcase({
     }));
 
     // Chinese cities with limited/no Street View support
-    const chineseCities = ["Beijing", "Shanghai", "Xiamen", "Dali", "Dandong"];
+    const chineseCities = [
+        "Beijing",
+        "Shanghai",
+        "Xiamen",
+        "Dali",
+        "Dandong",
+        "Lhasa",
+    ];
 
     // Filter cities for Street View (exclude Chinese cities)
     const streetViewCities = allCities.filter(
