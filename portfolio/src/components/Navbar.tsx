@@ -20,6 +20,18 @@ export default function Navbar() {
     const pathname = usePathname();
     const dropdownRef = useRef<HTMLDivElement>(null);
 
+    // Close mobile menu when route changes
+    useEffect(() => {
+        // Add a small delay to ensure navigation has completed
+        const timer = setTimeout(() => {
+            setIsOpen(false);
+            setOpenDropdown(null);
+            setMobileDropdown(null);
+        }, 100);
+
+        return () => clearTimeout(timer);
+    }, [pathname]);
+
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 200);
@@ -290,9 +302,7 @@ export default function Navbar() {
                                                 <Link
                                                     href={item.href}
                                                     className="block px-4 py-2 text-sm text-gray-600 hover:text-primary transition-colors bg-gray-50"
-                                                    onClick={() =>
-                                                        setMobileDropdown(null)
-                                                    }
+                                                    onClick={closeAllMenus}
                                                 >
                                                     Overview
                                                 </Link>
@@ -302,10 +312,8 @@ export default function Navbar() {
                                                             key={subItem.href}
                                                             href={subItem.href}
                                                             className="block px-4 py-2 text-sm text-gray-600 hover:text-primary transition-colors bg-gray-50"
-                                                            onClick={() =>
-                                                                setMobileDropdown(
-                                                                    null
-                                                                )
+                                                            onClick={
+                                                                closeAllMenus
                                                             }
                                                         >
                                                             {subItem.label}
