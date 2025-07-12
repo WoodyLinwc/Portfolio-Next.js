@@ -4,12 +4,18 @@ import type { CodingChallenge } from "./types";
 
 export const reactChallenges: CodingChallenge[] = [
     {
-        id: "counter-app",
-        title: "Counter App",
+        id: "vending-machine",
+        title: "Vending Machine",
         category: "React",
         approach:
-            "Build a simple counter with increment/decrement buttons. Use useState hook to manage the counter state. Create three buttons: increment (+1), decrement (-1), and reset (back to 0). Style the counter display and add some basic validation to prevent negative numbers if needed.",
-        codesandboxUrl: "https://codesandbox.io/s/react-counter-app-new",
+            "1. Start with basic layout: title, selected item, money inserted, message in component return(<> ... </>) \n" +
+            "2. State management for selected item, inserted money and message using useState() \n" +
+            "3. Display all items and coins in the data set in JSX using map() \n" +
+            "4. Event handler for selected item, inserted money, purchase, reset \n" +
+            "5. Attach onClick to button with all event handlers \n\n" +
+            "Note:",
+
+        codesandboxUrl: "https://codesandbox.io/p/sandbox/5ls8qx",
         tags: ["useState", "event-handlers", "components"],
     },
     {
