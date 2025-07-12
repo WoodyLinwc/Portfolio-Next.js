@@ -89,7 +89,7 @@ export default function LearningPage() {
             </section>
 
             {/* Description */}
-            <div className="text-center mb-8">
+            <div className="text-center mb-8 px-4 sm:px-0">
                 <p className="text-gray-600 text-lg max-w-2xl mx-auto">
                     Welcome to the interactive terminal!
                 </p>
