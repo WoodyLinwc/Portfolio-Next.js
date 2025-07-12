@@ -175,7 +175,7 @@ export default function CodingChallengesPage() {
                                             <h4 className="font-semibold text-gray-800 mb-3">
                                                 Approach:
                                             </h4>
-                                            <p className="text-gray-600 leading-relaxed mb-4">
+                                            <p className="text-gray-600 leading-relaxed mb-4 whitespace-pre-wrap">
                                                 {challenge.approach}
                                             </p>
 
