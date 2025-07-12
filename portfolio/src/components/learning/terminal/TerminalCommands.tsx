@@ -42,7 +42,7 @@ export function createCommands(
         },
 
         help: () => {
-            return "Available commands:\n  ls        - list all pages\n  clear     - clear terminal\n  help      - show this help message\n  whoami    - display current user\n  cat       - display page description\n  cd        - change directory (restricted)\n  echo      - prints text to terminal\n  rm        - remove files (restricted)\n  widget    - load Live2D widget";
+            return "Available commands:\n  ls        - list all pages\n  clear     - clear terminal\n  help      - show this help message\n  whoami    - display current user\n  cat       - display page description\n  cd        - change directory (restricted)\n  echo      - prints text to terminal\n  rm        - remove files (restricted)\n  widget    - load Live2D widget\n  code      - open CodeSandbox dashboard";
         },
 
         clear: () => {
@@ -128,6 +128,15 @@ export function createCommands(
 
             setWidgetLoaded(true);
             return "Loading Live2D widget... It will stay active once loaded.";
+        },
+
+        // Code command to open CodeSandbox dashboard
+        code: () => {
+            window.open(
+                "https://codesandbox.io/dashboard/sandboxes/",
+                "_blank"
+            );
+            return "Opening CodeSandbox dashboard in a new tab...";
         },
 
         // Hey! you found my Easter Egg!
