@@ -3,7 +3,7 @@
 import SectionTitle from "@/components/SectionTitle";
 import Link from "next/link";
 import { useState } from "react";
-import { allChallenges, type CodingChallenge } from "@/data/challenges";
+import { allChallenges } from "@/data/challenges";
 
 export default function CodingChallengesPage() {
     const [expandedChallenge, setExpandedChallenge] = useState<string | null>(
