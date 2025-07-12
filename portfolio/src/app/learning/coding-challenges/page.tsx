@@ -86,15 +86,15 @@ export default function CodingChallengesPage() {
 
                     {/* Filter Buttons */}
                     <div className="flex justify-center mb-8">
-                        <div className="bg-gray-100 rounded-lg p-1 flex flex-wrap justify-center gap-1">
+                        <div className="bg-gray-100 rounded-lg p-1 flex justify-center gap-1">
                             {filterOptions.map((filter) => (
                                 <button
                                     key={filter}
                                     onClick={() => setSelectedFilter(filter)}
-                                    className={`px-4 py-2 m-1 text-sm border rounded transition-colors ${
+                                    className={`px-3 py-2 rounded-md transition-colors whitespace-nowrap ${
                                         selectedFilter === filter
-                                            ? "bg-primary text-white border-primary"
-                                            : "bg-white text-primary border-primary hover:bg-primary hover:text-white"
+                                            ? "bg-white text-primary shadow-sm font-medium"
+                                            : "text-gray-600 hover:text-gray-800"
                                     }`}
                                 >
                                     {filter}
