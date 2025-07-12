@@ -36,7 +36,7 @@ export default function ReactLearningPage() {
                                 React Tutorials Coming Soon!
                             </h2>
                             <p className="text-blue-600 mb-6">
-                                I'm working on interactive React tutorials
+                                I&apos;m working on interactive React tutorials
                                 covering components, hooks, state management,
                                 and more.
                             </p>

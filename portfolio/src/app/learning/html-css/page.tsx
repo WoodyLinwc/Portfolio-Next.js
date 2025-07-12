@@ -39,8 +39,8 @@ export default function HtmlCssLearningPage() {
                                 HTML/CSS Tutorials Coming Soon!
                             </h2>
                             <p className="text-green-600 mb-6">
-                                I'm creating tutorials on HTML semantics, CSS
-                                layouts, Flexbox, Grid, and Tailwind CSS.
+                                I&apos;m creating tutorials on HTML semantics,
+                                CSS layouts, Flexbox, Grid, and Tailwind CSS.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <a
