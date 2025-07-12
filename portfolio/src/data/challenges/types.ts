@@ -3,7 +3,7 @@
 export interface CodingChallenge {
     id: string;
     title: string;
-    category: "JavaScript" | "React" | "Algorithm";
+    category: "JavaScript" | "React" | "TypeScript";
     approach: string;
     codesandboxUrl: string;
     difficulty?: "Easy" | "Medium" | "Hard";

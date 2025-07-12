@@ -3,19 +3,19 @@
 import type { CodingChallenge } from "./types";
 import { javascriptChallenges } from "./javascript";
 import { reactChallenges } from "./react";
-import { algorithmChallenges } from "./algorithm";
+import { typescriptChallenges } from "./typescript";
 
 // Export individual challenge arrays
 export { javascriptChallenges } from "./javascript";
 export { reactChallenges } from "./react";
-export { algorithmChallenges } from "./algorithm";
+export { typescriptChallenges } from "./typescript";
 export type { CodingChallenge } from "./types";
 
 // Combined challenges array
 export const allChallenges: CodingChallenge[] = [
-    ...javascriptChallenges,
-    ...reactChallenges,
-    ...algorithmChallenges,
+    ...reactChallenges, // React first
+    ...javascriptChallenges, // JavaScript second
+    ...typescriptChallenges, // TypeScript third
 ];
 
 // Helper functions
@@ -27,8 +27,8 @@ export const getChallengesByCategory = (
             return javascriptChallenges;
         case "React":
             return reactChallenges;
-        case "Algorithm":
-            return algorithmChallenges;
+        case "TypeScript":
+            return typescriptChallenges;
         default:
             return [];
     }
