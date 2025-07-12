@@ -14,31 +14,13 @@ export default function LearningPage() {
             {/* Learning Section */}
             <SectionTitle
                 backgroundText="Terminal"
-                foregroundText="Interactive Learning"
+                foregroundText="Frontend Essentials"
             />
 
             <section className="pb-12">
                 <div className="container mx-auto px-8 lg:px-20 xl:px-32">
-                    {/* Description */}
-                    <div className="text-center mb-8">
-                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                            Welcome to the interactive terminal!
-                        </p>
-                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                            You can start it by typing Linux command{" "}
-                            <strong>help</strong> or <strong>ls</strong> in the
-                            terminal.
-                        </p>
-                    </div>
-
-                    {/* Terminal Component */}
-                    <MacTerminal />
-
                     {/* Frontend Essentials Section */}
                     <div className="mt-12 text-center">
-                        <h3 className="text-2xl font-semibold mb-4 text-gray-800">
-                            Frontend Essentials
-                        </h3>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <Link
                                 href="/learning/html-css"
@@ -105,6 +87,21 @@ export default function LearningPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Description */}
+            <div className="text-center mb-8">
+                <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Welcome to the interactive terminal!
+                </p>
+                <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                    You can start it by typing Linux command{" "}
+                    <strong>help</strong> or <strong>ls</strong> in the
+                    terminal.
+                </p>
+            </div>
+
+            {/* Terminal Component */}
+            <MacTerminal />
 
             {/* Comments Section */}
             {/* <DisqusComments
