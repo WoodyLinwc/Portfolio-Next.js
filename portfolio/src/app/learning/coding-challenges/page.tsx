@@ -165,10 +165,10 @@ export default function CodingChallengesPage() {
 
                                 {/* Challenge Content - Expandable */}
                                 <div
-                                    className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                                    className={`transition-all duration-300 ease-in-out ${
                                         expandedChallenge === challenge.id
-                                            ? "max-h-96 opacity-100"
-                                            : "max-h-0 opacity-0"
+                                            ? "max-h-screen opacity-100"
+                                            : "max-h-0 opacity-0 overflow-hidden"
                                     }`}
                                 >
                                     <div className="px-6 pb-6 border-t border-gray-100">
