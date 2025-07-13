@@ -4,12 +4,21 @@ import type { CodingChallenge } from "./types";
 
 export const javascriptChallenges: CodingChallenge[] = [
     {
-        id: "fizzbuzz",
-        title: "FizzBuzz",
+        id: "flat",
+        title: "Prototype function myFlat",
         category: "JavaScript",
         approach:
-            "Create a function that prints numbers 1-100, but replace multiples of 3 with 'Fizz', multiples of 5 with 'Buzz', and multiples of both with 'FizzBuzz'. Use modulo operator (%) to check divisibility. Start with a simple loop, then add conditional statements to check each case.",
-        codesandboxUrl: "https://codesandbox.io/s/fizzbuzz-challenge-new",
-        tags: ["loops", "conditionals", "modulo"],
+            "create an array prototype function with default depth 1\n" +
+            "   base case if depth is smaller or equal to 1, return [...this]\n" +
+            "   create a empty result array\n" +
+            "   loop based on this.length\n" +
+            "       if this[i] is array\n" +
+            "           result push (...this[i].myFlat(depth - 1))\n" +
+            "       else\n" +
+            "           result push (this[i])\n" +
+            "   return result\n",
+        codesandboxUrl:
+            "https://codesandbox.io/p/devbox/prototype-method-k9tllq",
+        tags: ["recursive", "iterative", "prototype function"],
     },
 ];
