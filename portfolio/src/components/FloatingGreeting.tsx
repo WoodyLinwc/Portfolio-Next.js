@@ -117,7 +117,7 @@ export default function FloatingGreeting({
         return {
             ...greeting,
             id: `greeting-${Date.now()}-${Math.random()}`,
-            fontSize: Math.random() * 12 + 16, // 16px to 28px
+            fontSize: Math.random() * 16 + 16, // 16px to 32px
             startY: Math.random() * 70 + 15, // 15% to 85% from top
             duration: Math.random() * 6000 + 8000, // 8-14 seconds
             delay: 0, // No delay for continuous flow
