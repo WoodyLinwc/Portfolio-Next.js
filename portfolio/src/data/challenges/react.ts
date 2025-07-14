@@ -18,4 +18,12 @@ export const reactChallenges: CodingChallenge[] = [
         codesandboxUrl: "https://codesandbox.io/p/sandbox/5ls8qx",
         tags: ["useState", "event-handlers", "components"],
     },
+    // {
+    //     id: "react",
+    //     title: "",
+    //     category: "React",
+    //     approach: "",
+    //     codesandboxUrl: "",
+    //     tags: [],
+    // },
 ];
