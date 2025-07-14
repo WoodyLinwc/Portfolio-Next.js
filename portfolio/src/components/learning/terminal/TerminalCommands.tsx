@@ -42,7 +42,7 @@ export function createCommands(
         },
 
         help: () => {
-            return "Available commands:\n  ls        - list all pages\n  clear     - clear terminal\n  help      - show this help message\n  whoami    - display current user\n  cat       - display page description\n  cd        - change directory (restricted)\n  echo      - prints text to terminal\n  rm        - remove files (restricted)\n  widget    - load Live2D widget\n  code      - open CodeSandbox dashboard\n  frontend  - open frontend interview guide";
+            return "Available commands:\n  ls        - list all pages\n  clear     - clear terminal\n  help      - show this help message\n  whoami    - display current user\n  cat       - display page description\n  cd        - change directory (restricted)\n  echo      - prints text to terminal\n  rm        - remove files (restricted)\n  widget    - load Live2D widget\n  code      - open CodeSandbox dashboard\n  frontend  - open frontend interview guide\n  camera    - open camera comparison tool";
         },
 
         clear: () => {
@@ -137,6 +137,12 @@ export function createCommands(
                 "_blank"
             );
             return "Opening CodeSandbox dashboard in a new tab...";
+        },
+
+        // Camera command to open camera comparison tool
+        camera: () => {
+            window.open("https://cameradecision.com/", "_blank");
+            return "Opening Camera Decision comparison website in a new tab...";
         },
 
         // Frontend command to open the Google Doc interview guide
