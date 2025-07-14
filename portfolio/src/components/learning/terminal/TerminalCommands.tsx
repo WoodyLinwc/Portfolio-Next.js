@@ -42,7 +42,7 @@ export function createCommands(
         },
 
         help: () => {
-            return "Available commands:\n  ls        - list all pages\n  clear     - clear terminal\n  help      - show this help message\n  whoami    - display current user\n  cat       - display page description\n  cd        - change directory (restricted)\n  echo      - prints text to terminal\n  rm        - remove files (restricted)\n  widget    - load Live2D widget\n  code      - open CodeSandbox dashboard";
+            return "Available commands:\n  ls        - list all pages\n  clear     - clear terminal\n  help      - show this help message\n  whoami    - display current user\n  cat       - display page description\n  cd        - change directory (restricted)\n  echo      - prints text to terminal\n  rm        - remove files (restricted)\n  widget    - load Live2D widget\n  code      - open CodeSandbox dashboard\n  frontend  - open frontend interview guide";
         },
 
         clear: () => {
@@ -137,6 +137,15 @@ export function createCommands(
                 "_blank"
             );
             return "Opening CodeSandbox dashboard in a new tab...";
+        },
+
+        // Frontend command to open the Google Doc interview guide
+        frontend: () => {
+            window.open(
+                "https://docs.google.com/document/d/1Haso5LpVdv-hZ9o9pNZs30eJyqwUfYqLcSr4DUM0C0g/edit?usp=sharing",
+                "_blank"
+            );
+            return "Opening Frontend Interview Guide in a new tab...";
         },
 
         // Hey! you found my Easter Egg!
