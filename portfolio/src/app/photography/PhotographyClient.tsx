@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import DisqusComments from "@/components/widgets/DisqusComments";
+
 import SectionTitle from "@/components/SectionTitle";
 import CameraGearShowcase from "@/components/photography/CameraGearShowcase";
 import PhotoGalleryShowcase from "@/components/photography/PhotoGalleryShowcase";
@@ -181,14 +181,6 @@ export default function PhotographyClient() {
                     {activeTab === "travel" && <TravelMapShowcase />}
                 </div>
             </section>
-
-            {/* Comments Section */}
-            <DisqusComments
-                url="https://woody-lin-personal.vercel.app/photography"
-                identifier="photo-section"
-                title="Photography Gallery"
-                shortname="https-woody-lin-personal-vercel-app-photography"
-            />
         </>
     );
 }
