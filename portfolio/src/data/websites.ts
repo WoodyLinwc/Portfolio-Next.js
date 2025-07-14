@@ -40,6 +40,39 @@ export const websites: Website[] = [
         link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
         category: "documentation",
     },
+
+    {
+        icon: "fa-cube",
+        title: "CodeSandbox",
+        description:
+            "Online code editor and development environment for rapid prototyping and collaboration. Perfect for testing React components, sharing code snippets, and building full-stack applications in the browser.",
+        link: "https://codesandbox.io/dashboard/recent",
+        category: "tools",
+    },
+    {
+        icon: "fa-database",
+        title: "DummyJSON",
+        description:
+            "Free fake REST API for testing and prototyping. Provides realistic JSON data for users, posts, products, and more. Perfect for frontend development without needing a backend.",
+        link: "https://dummyjson.com/",
+        category: "tools",
+    },
+    {
+        icon: "fa-frog",
+        title: "Flexbox Froggy",
+        description:
+            "Interactive game that teaches CSS Flexbox layout through fun challenges. Help Froggy and friends reach their lilypads by writing CSS code. Perfect for mastering flexbox properties.",
+        link: "https://flexboxfroggy.com/",
+        category: "learning",
+    },
+    {
+        icon: "fa-seedling",
+        title: "Grid Garden",
+        description:
+            "Interactive game for learning CSS Grid layout by growing your carrot garden. Write CSS code to water and grow your crops while mastering grid properties and techniques.",
+        link: "https://cssgridgarden.com/",
+        category: "learning",
+    },
     {
         icon: "fa-code",
         title: "LeetCode",
@@ -55,14 +88,6 @@ export const websites: Website[] = [
             "Interactive security lessons that teach you how the most common web vulnerabilities work and how to defend against them. Perfect for learning cybersecurity concepts through hands-on examples.",
         link: "https://hacksplaining.com/lessons",
         category: "security",
-    },
-    {
-        icon: "fa-cube",
-        title: "CodeSandbox",
-        description:
-            "Online code editor and development environment for rapid prototyping and collaboration. Perfect for testing React components, sharing code snippets, and building full-stack applications in the browser.",
-        link: "https://codesandbox.io/dashboard/recent",
-        category: "tools",
     },
 ];
 
