@@ -211,7 +211,7 @@ export default function ProductivityPage() {
                 url="https://woody-lin-personal.vercel.app/productivity"
                 identifier="productivity-section"
                 title="Productivity Tools"
-                shortname="https-woody-lin-personal-vercel-app-productivity"
+                shortname="https-woody-lin-personal-vercel-app-tools"
             />
         </>
     );
