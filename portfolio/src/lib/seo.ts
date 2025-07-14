@@ -98,19 +98,21 @@ export const seoConfig = {
         image: "/images/album/Travel/boat_starring-min.JPG",
     }),
 
-    tools: generateMetadata({
-        title: "Developer Tools & Productivity Stack",
+    productivity: generateMetadata({
+        title: "Productivity Tools & Developer Resources",
         description:
-            "Essential development tools and productivity software used by Woody Lin. Discover the best tools for React development, design, cloud services, and collaboration.",
+            "Essential productivity tools and developer resources used by Woody Lin. Discover the best tools for React development, design, cloud services, collaboration, and learning websites.",
         keywords: [
+            "Productivity Tools",
             "Developer Tools",
             "VS Code",
             "Docker",
             "Figma",
             "AWS Tools",
+            "Learning Resources",
         ],
-        path: "/tools",
-        image: "/images/tools-preview.jpg",
+        path: "/productivity",
+        image: "/images/productivity-preview.jpg",
     }),
 
     learning: generateMetadata({

@@ -3,11 +3,11 @@
 import { useState } from "react";
 import DisqusComments from "@/components/widgets/DisqusComments";
 import SectionTitle from "@/components/SectionTitle";
-import { tools } from "@/data/tools";
-import { websites } from "@/data/websites";
+import { tools } from "@/data/productivity/tools";
+import { websites } from "@/data/productivity/websites";
 import QuoteWidget from "@/components/widgets/QuoteWidget";
 
-export default function ToolsPage() {
+export default function ProductivityPage() {
     const [showTools, setShowTools] = useState(false);
     const [showWebsites, setShowWebsites] = useState(false);
 
@@ -43,8 +43,11 @@ export default function ToolsPage() {
             {/* Header */}
             <div className="bg-primary min-h-[25vh] flex items-center justify-center"></div>
 
-            {/* Tools Section */}
-            <SectionTitle backgroundText="Essential" foregroundText="Toolkit" />
+            {/* Productivity Section */}
+            <SectionTitle
+                backgroundText="Essential"
+                foregroundText="Productivity"
+            />
 
             {/* Quote of the Day Widget */}
             <section>
@@ -205,10 +208,10 @@ export default function ToolsPage() {
 
             {/* Comments Section */}
             <DisqusComments
-                url="https://woody-lin-personal.vercel.app/tools"
+                url="https://woody-lin-personal.vercel.app/productivity"
                 identifier="productivity-section"
                 title="Productivity Tools"
-                shortname="https-woody-lin-personal-vercel-app-tools"
+                shortname="https-woody-lin-personal-vercel-app-productivity"
             />
         </>
     );
