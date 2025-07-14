@@ -76,15 +76,6 @@ export default function CodingChallengesPage() {
                         </Link>
                     </div>
 
-                    {/* Show message when no challenges found */}
-                    {filteredChallenges.length === 0 && (
-                        <div className="text-center py-8">
-                            <p className="text-gray-500 text-lg">
-                                No challenges found for {selectedFilter}.
-                            </p>
-                        </div>
-                    )}
-
                     {/* Filter Buttons */}
                     <div className="flex justify-center mb-8">
                         <div className="bg-gray-100 rounded-lg p-1 flex justify-center gap-1">
