@@ -73,6 +73,11 @@ export const photos: Photo[] = [
         alt: "Concert man travel",
     },
     {
+        src: "/images/album/Travel/blue_beach-min.JPG",
+        category: "travel",
+        alt: "singing beach at manchester-by-the-sea",
+    },
+    {
         src: "/images/album/Travel/concert_photographer-min.JPG",
         category: "travel",
         alt: "Concert photographer travel",
@@ -136,6 +141,11 @@ export const photos: Photo[] = [
         src: "/images/album/Travel/back_hands-min.JPG",
         category: "travel",
         alt: "Back hands travel",
+    },
+    {
+        src: "/images/album/Travel/hat_beach-min.JPG",
+        category: "travel",
+        alt: "singing beach at manchester-by-the-sea",
     },
     {
         src: "/images/album/Travel/island_window-min.JPG",
@@ -347,6 +357,7 @@ export const photos: Photo[] = [
         category: "event",
         alt: "AB maid event",
     },
+
     {
         src: "/images/album/Event/kpop_hands-min.JPG",
         category: "event",
@@ -357,9 +368,48 @@ export const photos: Photo[] = [
         category: "event",
         alt: "Kpop piano event",
     },
+    {
+        src: "/images/album/Event/close_hu-min.JPG",
+        category: "event",
+        alt: "close up shot hu",
+    },
+    {
+        src: "/images/album/Event/side_hu-min.JPG",
+        category: "event",
+        alt: "close up shot hu",
+    },
+    {
+        src: "/images/album/Event/katie_hu-min.JPG",
+        category: "event",
+        alt: "close up shot katie and hu",
+    },
+    {
+        src: "/images/album/Event/close_hu2-min.JPG",
+        category: "event",
+        alt: "close up shot hu",
+    },
+    {
+        src: "/images/album/Event/spin_katie-min.JPG",
+        category: "event",
+        alt: "close up shot katie",
+    },
+    {
+        src: "/images/album/Event/nice_hu-min.JPG",
+        category: "event",
+        alt: "close up shot hu",
+    },
+    {
+        src: "/images/album/Event/sign_keshi-min.JPG",
+        category: "event",
+        alt: "keshi concert",
+    },
+    {
+        src: "/images/album/Event/blue_keshi-min.JPG",
+        category: "event",
+        alt: "keshi concert",
+    },
 
     // Night Photos
-
     {
         src: "/images/album/Night/night_sky-min.JPG",
         category: "night",
@@ -394,6 +444,11 @@ export const photos: Photo[] = [
         src: "/images/album/Night/night_shadow-min.JPG",
         category: "night",
         alt: "Night shadow",
+    },
+    {
+        src: "/images/album/Night/concert_shadow-min.JPG",
+        category: "night",
+        alt: "katie silhouette",
     },
     {
         src: "/images/album/Night/foodtruck_girl-min.jpg",
