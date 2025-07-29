@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-07T00:03:04.732Z",
+  "generated": "2025-07-29T23:26:40.903Z",
   "config": {
     "inputDir": "./public/images/album",
     "thumbnailDir": "./public/images/thumbnails",
@@ -253,6 +253,15 @@
       "skipped": true
     },
     {
+      "original": "public/images/album/Event/blue_keshi-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/blue_keshi-min.webp",
+        "jpeg": "public/images/thumbnails/Event/blue_keshi-min.jpg",
+        "size": 11
+      },
+      "skipped": false
+    },
+    {
       "original": "public/images/album/Event/boat_jialong-min.JPG",
       "thumbnail": {
         "webp": "public/images/thumbnails/Event/boat_jialong-min.webp",
@@ -260,6 +269,24 @@
         "size": 20
       },
       "skipped": true
+    },
+    {
+      "original": "public/images/album/Event/close_hu-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/close_hu-min.webp",
+        "jpeg": "public/images/thumbnails/Event/close_hu-min.jpg",
+        "size": 17
+      },
+      "skipped": false
+    },
+    {
+      "original": "public/images/album/Event/close_hu2-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/close_hu2-min.webp",
+        "jpeg": "public/images/thumbnails/Event/close_hu2-min.jpg",
+        "size": 14
+      },
+      "skipped": false
     },
     {
       "original": "public/images/album/Event/cos_three-min.PNG",
@@ -325,6 +352,15 @@
       "skipped": true
     },
     {
+      "original": "public/images/album/Event/katie_hu-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/katie_hu-min.webp",
+        "jpeg": "public/images/thumbnails/Event/katie_hu-min.jpg",
+        "size": 17
+      },
+      "skipped": false
+    },
+    {
       "original": "public/images/album/Event/kpop_hands-min.JPG",
       "thumbnail": {
         "webp": "public/images/thumbnails/Event/kpop_hands-min.webp",
@@ -343,6 +379,42 @@
       "skipped": true
     },
     {
+      "original": "public/images/album/Event/nice_hu-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/nice_hu-min.webp",
+        "jpeg": "public/images/thumbnails/Event/nice_hu-min.jpg",
+        "size": 23
+      },
+      "skipped": false
+    },
+    {
+      "original": "public/images/album/Event/side_hu-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/side_hu-min.webp",
+        "jpeg": "public/images/thumbnails/Event/side_hu-min.jpg",
+        "size": 24
+      },
+      "skipped": false
+    },
+    {
+      "original": "public/images/album/Event/sign_keshi-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/sign_keshi-min.webp",
+        "jpeg": "public/images/thumbnails/Event/sign_keshi-min.jpg",
+        "size": 12
+      },
+      "skipped": false
+    },
+    {
+      "original": "public/images/album/Event/spin_katie-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/spin_katie-min.webp",
+        "jpeg": "public/images/thumbnails/Event/spin_katie-min.jpg",
+        "size": 36
+      },
+      "skipped": false
+    },
+    {
       "original": "public/images/album/Event/xinyu_katie-min.JPG",
       "thumbnail": {
         "webp": "public/images/thumbnails/Event/xinyu_katie-min.webp",
@@ -350,6 +422,15 @@
         "size": 20
       },
       "skipped": true
+    },
+    {
+      "original": "public/images/album/Night/concert_shadow-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Night/concert_shadow-min.webp",
+        "jpeg": "public/images/thumbnails/Night/concert_shadow-min.jpg",
+        "size": 9
+      },
+      "skipped": false
     },
     {
       "original": "public/images/album/Night/foodtruck_girl-min.jpg",
@@ -430,7 +511,7 @@
         "jpeg": "public/images/thumbnails/Photojournalism/american_dream-min.jpg",
         "size": 53
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "public/images/album/Photojournalism/blue_bike-min.jpg",
@@ -541,6 +622,15 @@
       "skipped": true
     },
     {
+      "original": "public/images/album/Travel/blue_beach-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/blue_beach-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/blue_beach-min.jpg",
+        "size": 17
+      },
+      "skipped": false
+    },
+    {
       "original": "public/images/album/Travel/boat_starring-min.JPG",
       "thumbnail": {
         "webp": "public/images/thumbnails/Travel/boat_starring-min.webp",
@@ -620,6 +710,15 @@
         "size": 32
       },
       "skipped": true
+    },
+    {
+      "original": "public/images/album/Travel/hat_beach-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/hat_beach-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/hat_beach-min.jpg",
+        "size": 9
+      },
+      "skipped": false
     },
     {
       "original": "public/images/album/Travel/hill_person-min.JPG",
