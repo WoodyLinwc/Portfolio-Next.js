@@ -50,8 +50,8 @@ export const accessories: Accessory[] = [
     {
         id: "15",
         name: "Yongnuo YN560 IV Speedlite",
-        brand: "Peak Design",
-        model: "Slide Lite",
+        brand: "Yongnuo",
+        model: "YN560 IV",
         specs: [
             "Hot shoe mount",
             "24-105mm zoom range",
@@ -63,6 +63,22 @@ export const accessories: Accessory[] = [
             "Overall, a entry-level flashlight for DSLRs. I wish it came with TTL, the auto setting for flash.",
         image: "/images/camera/yn_560iv_flashlight.jpg",
         purchaseYear: 2023,
+    },
+    {
+        id: "16",
+        name: "Viltrox Vintage Z1",
+        brand: "Viltrox",
+        model: "Vintage Z1",
+        specs: [
+            "Hot shoe mount",
+            "28mm angle coverage",
+            "116g weight",
+            "Type-c charging",
+            "vintage design",
+        ],
+        description: "Nice and compact flashlight that I used with Nikon Z63.",
+        image: "/images/camera/viltrox_z1_flashlight.webp",
+        purchaseYear: 2025,
     },
     // Add more accessories as needed
 ];
