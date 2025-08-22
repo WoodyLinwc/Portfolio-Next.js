@@ -171,33 +171,6 @@ export default function CodingChallengesPage() {
                                                 {challenge.approach}
                                             </p>
 
-                                            {/* Tags */}
-                                            {challenge.tags &&
-                                                challenge.tags.length > 0 && (
-                                                    <div className="mb-4">
-                                                        <h5 className="font-medium text-gray-700 mb-2 text-sm">
-                                                            Tags:
-                                                        </h5>
-                                                        <div className="flex flex-wrap gap-2">
-                                                            {challenge.tags.map(
-                                                                (
-                                                                    tag,
-                                                                    index
-                                                                ) => (
-                                                                    <span
-                                                                        key={
-                                                                            index
-                                                                        }
-                                                                        className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs"
-                                                                    >
-                                                                        {tag}
-                                                                    </span>
-                                                                )
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                )}
-
                                             <a
                                                 href={challenge.codesandboxUrl}
                                                 target="_blank"

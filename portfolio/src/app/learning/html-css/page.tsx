@@ -167,33 +167,6 @@ export default function HtmlCssLearningPage() {
                                                 {topic.content}
                                             </pre>
 
-                                            {/* Tags */}
-                                            {topic.tags &&
-                                                topic.tags.length > 0 && (
-                                                    <div className="mb-4">
-                                                        <h5 className="font-medium text-gray-700 mb-2 text-sm">
-                                                            Tags:
-                                                        </h5>
-                                                        <div className="flex flex-wrap gap-2">
-                                                            {topic.tags.map(
-                                                                (
-                                                                    tag,
-                                                                    index
-                                                                ) => (
-                                                                    <span
-                                                                        key={
-                                                                            index
-                                                                        }
-                                                                        className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs"
-                                                                    >
-                                                                        {tag}
-                                                                    </span>
-                                                                )
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                )}
-
                                             {/* Example Link */}
                                             {topic.exampleUrl && (
                                                 <a
