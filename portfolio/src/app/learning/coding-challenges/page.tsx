@@ -4,18 +4,10 @@ import SectionTitle from "@/components/SectionTitle";
 import Link from "next/link";
 import { useState } from "react";
 import { allChallenges } from "@/data/challenges";
+import Accordion, { type AccordionItem } from "@/components/learning/Accordion";
 
 export default function CodingChallengesPage() {
-    const [expandedChallenge, setExpandedChallenge] = useState<string | null>(
-        null
-    );
     const [selectedFilter, setSelectedFilter] = useState<string>("All");
-
-    const toggleChallenge = (challengeId: string) => {
-        setExpandedChallenge(
-            expandedChallenge === challengeId ? null : challengeId
-        );
-    };
 
     // Filter challenges based on selected category
     const filteredChallenges =
@@ -25,34 +17,21 @@ export default function CodingChallengesPage() {
                   (challenge) => challenge.category === selectedFilter
               );
 
+    // Convert challenges to accordion items
+    const accordionItems: AccordionItem[] = filteredChallenges.map(
+        (challenge) => ({
+            id: challenge.id,
+            title: challenge.title,
+            category: challenge.category,
+            difficulty: challenge.difficulty,
+            content: challenge.approach,
+            exampleUrl: challenge.codesandboxUrl,
+            tags: challenge.tags,
+        })
+    );
+
     // Updated filter options with new order: All, React, JavaScript, TypeScript
     const filterOptions = ["All", "React", "JavaScript", "TypeScript"];
-
-    const getCategoryColor = (category: string) => {
-        switch (category) {
-            case "JavaScript":
-                return "bg-yellow-100 text-yellow-800";
-            case "React":
-                return "bg-blue-100 text-blue-800";
-            case "TypeScript":
-                return "bg-purple-100 text-purple-800";
-            default:
-                return "bg-gray-100 text-gray-800";
-        }
-    };
-
-    const getDifficultyColor = (difficulty?: string) => {
-        switch (difficulty) {
-            case "Easy":
-                return "bg-green-100 text-green-800";
-            case "Medium":
-                return "bg-yellow-100 text-yellow-800";
-            case "Hard":
-                return "bg-red-100 text-red-800";
-            default:
-                return "bg-gray-100 text-gray-800";
-        }
-    };
 
     return (
         <>
@@ -105,87 +84,12 @@ export default function CodingChallengesPage() {
                         </p>
                     </div>
 
-                    {/* Challenges List */}
-                    <div className="max-w-4xl mx-auto space-y-4">
-                        {filteredChallenges.map((challenge) => (
-                            <div
-                                key={challenge.id}
-                                className="border border-gray-200 rounded-lg overflow-hidden"
-                            >
-                                {/* Challenge Header - Clickable */}
-                                <button
-                                    onClick={() =>
-                                        toggleChallenge(challenge.id)
-                                    }
-                                    className="w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors focus:outline-none focus:bg-gray-50"
-                                >
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center space-x-4">
-                                            <h3 className="text-lg font-semibold text-gray-800">
-                                                {challenge.title}
-                                            </h3>
-                                            <div className="flex space-x-2">
-                                                <span
-                                                    className={`px-2 py-1 rounded text-xs font-medium ${getCategoryColor(
-                                                        challenge.category
-                                                    )}`}
-                                                >
-                                                    {challenge.category}
-                                                </span>
-                                                {challenge.difficulty && (
-                                                    <span
-                                                        className={`px-2 py-1 rounded text-xs font-medium ${getDifficultyColor(
-                                                            challenge.difficulty
-                                                        )}`}
-                                                    >
-                                                        {challenge.difficulty}
-                                                    </span>
-                                                )}
-                                            </div>
-                                        </div>
-                                        <i
-                                            className={`fa transition-transform duration-200 ${
-                                                expandedChallenge ===
-                                                challenge.id
-                                                    ? "fa-chevron-up"
-                                                    : "fa-chevron-down"
-                                            }`}
-                                        ></i>
-                                    </div>
-                                </button>
-
-                                {/* Challenge Content - Expandable */}
-                                <div
-                                    className={`transition-all duration-300 ease-in-out ${
-                                        expandedChallenge === challenge.id
-                                            ? "max-h-screen opacity-100"
-                                            : "max-h-0 opacity-0 overflow-hidden"
-                                    }`}
-                                >
-                                    <div className="px-6 pb-6 border-t border-gray-100">
-                                        <div className="pt-4">
-                                            <h4 className="font-semibold text-gray-800 mb-3">
-                                                Approach:
-                                            </h4>
-                                            <p className="text-gray-600 leading-relaxed mb-4 whitespace-pre-wrap">
-                                                {challenge.approach}
-                                            </p>
-
-                                            <a
-                                                href={challenge.codesandboxUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition-colors"
-                                            >
-                                                <i className="fa fa-external-link-alt mr-2"></i>
-                                                Try in CodeSandbox
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    {/* Accordion Component */}
+                    <Accordion
+                        items={accordionItems}
+                        contentLabel="Approach:"
+                        buttonLabel="Try in CodeSandbox"
+                    />
                 </div>
             </section>
         </>
