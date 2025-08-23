@@ -1,24 +1,23 @@
-// File: portfolio/src/components/learning/Accordion.tsx
-
 "use client";
 
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 export interface AccordionItem {
     id: string;
     title: string;
-    description?: string; // Optional description shown in header
+    description?: string;
     category: string;
     difficulty?: string;
-    content: string;
+    content: string; // This is now markdown content
     exampleUrl?: string;
     tags?: string[];
 }
 
 interface AccordionProps {
     items: AccordionItem[];
-    contentLabel?: string; // "Content:", "Approach:", etc.
-    buttonLabel?: string; // "Try Example", "Try in CodeSandbox", etc.
+    contentLabel?: string;
+    buttonLabel?: string;
 }
 
 export default function Accordion({
@@ -120,20 +119,87 @@ export default function Accordion({
 
                     {/* Item Content - Expandable */}
                     <div
-                        className={`transition-all duration-300 ease-in-out ${
+                        className={`transition-all duration-300 ease-in-out overflow-hidden ${
                             expandedItem === item.id
-                                ? "max-h-screen opacity-100"
-                                : "max-h-0 opacity-0 overflow-hidden"
+                                ? "opacity-100"
+                                : "max-h-0 opacity-0"
                         }`}
+                        style={{
+                            maxHeight:
+                                expandedItem === item.id ? "2000px" : "0",
+                            transition:
+                                "max-height 0.3s ease-in-out, opacity 0.3s ease-in-out",
+                        }}
                     >
                         <div className="px-6 pb-6 border-t border-gray-100">
                             <div className="pt-4">
                                 <h4 className="font-semibold text-gray-800 mb-3">
                                     {contentLabel}
                                 </h4>
-                                <pre className="text-gray-600 leading-relaxed mb-4 whitespace-pre-wrap font-mono text-sm bg-gray-50 p-4 rounded overflow-x-auto">
-                                    {item.content}
-                                </pre>
+
+                                {/* Replace the <pre> tag with ReactMarkdown */}
+                                <div className="prose prose-gray max-w-none mb-4">
+                                    <ReactMarkdown
+                                        components={{
+                                            // Custom styling for code blocks
+                                            code: ({
+                                                node,
+                                                className,
+                                                children,
+                                                ...props
+                                            }) => {
+                                                const match =
+                                                    /language-(\w+)/.exec(
+                                                        className || ""
+                                                    );
+                                                return (
+                                                    <code
+                                                        className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono"
+                                                        {...props}
+                                                    >
+                                                        {children}
+                                                    </code>
+                                                );
+                                            },
+                                            // Custom styling for code blocks
+                                            pre: ({ children }) => (
+                                                <pre className="bg-gray-50 p-4 rounded overflow-x-auto">
+                                                    {children}
+                                                </pre>
+                                            ),
+                                            // Custom styling for headings
+                                            h1: ({ children }) => (
+                                                <h1 className="text-xl font-bold text-gray-900 mt-4 mb-2">
+                                                    {children}
+                                                </h1>
+                                            ),
+                                            h2: ({ children }) => (
+                                                <h2 className="text-lg font-semibold text-gray-900 mt-3 mb-2">
+                                                    {children}
+                                                </h2>
+                                            ),
+                                            // Custom styling for paragraphs
+                                            p: ({ children }) => (
+                                                <p className="text-gray-700 mb-2 leading-relaxed">
+                                                    {children}
+                                                </p>
+                                            ),
+                                            // Custom styling for lists
+                                            ul: ({ children }) => (
+                                                <ul className="list-disc list-inside text-gray-700 mb-2 space-y-1">
+                                                    {children}
+                                                </ul>
+                                            ),
+                                            li: ({ children }) => (
+                                                <li className="ml-2">
+                                                    {children}
+                                                </li>
+                                            ),
+                                        }}
+                                    >
+                                        {item.content}
+                                    </ReactMarkdown>
+                                </div>
 
                                 {/* Example Link */}
                                 {item.exampleUrl && (
