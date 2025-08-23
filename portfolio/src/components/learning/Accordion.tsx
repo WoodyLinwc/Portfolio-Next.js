@@ -143,15 +143,10 @@ export default function Accordion({
                                         components={{
                                             // Custom styling for code blocks
                                             code: ({
-                                                node,
                                                 className,
                                                 children,
                                                 ...props
                                             }) => {
-                                                const match =
-                                                    /language-(\w+)/.exec(
-                                                        className || ""
-                                                    );
                                                 return (
                                                     <code
                                                         className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono"
