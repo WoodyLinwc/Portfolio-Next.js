@@ -142,11 +142,7 @@ export default function Accordion({
                                     <ReactMarkdown
                                         components={{
                                             // Custom styling for code blocks
-                                            code: ({
-                                                className,
-                                                children,
-                                                ...props
-                                            }) => {
+                                            code: ({ children, ...props }) => {
                                                 return (
                                                     <code
                                                         className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono"
