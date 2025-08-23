@@ -22,7 +22,6 @@ interface AccordionProps {
 
 export default function Accordion({
     items,
-    contentLabel = "Content:",
     buttonLabel = "Try Example",
 }: AccordionProps) {
     const [expandedItem, setExpandedItem] = useState<string | null>(null);
