@@ -133,9 +133,7 @@ export default function Accordion({
                     >
                         <div className="px-6 pb-6 border-t border-gray-100">
                             <div className="pt-4">
-                                <h4 className="font-semibold text-gray-800 mb-3">
-                                    {contentLabel}
-                                </h4>
+                                {/* Remove the contentLabel heading */}
 
                                 {/* Replace the <pre> tag with ReactMarkdown */}
                                 <div className="prose prose-gray max-w-none mb-4">
