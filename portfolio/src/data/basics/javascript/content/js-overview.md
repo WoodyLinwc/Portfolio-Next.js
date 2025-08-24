@@ -5,3 +5,4 @@
 -   It supports **first-class** function, meaning function can be treated as a variable (Stored in variables; Passed as arguments, returned from other functions)
 -   JS engines like V8(Chrome), SpiderMonkey(Firefox) use a JIT compiler to convert JS to optimized machine code.
 -   JS gets more powerful after **ES6**.
+-   JS is managing two parallel systems within each **Execution Context** - a **lexical system** for variables (static, predictable) and a **dynamic system** for object context (changes with each call). **Closures extend** the lexical system's lifetime, while **call/apply/bind** give you control over the dynamic system.
