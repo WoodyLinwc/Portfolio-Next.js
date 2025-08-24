@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced JavaScript Operations Reference Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .toc {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .toc h2 {
+            margin-top: 0;
+            border-left: none;
+            padding-left: 0;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .toc li {
+            margin: 8px 0;
+        }
+        
+        .toc a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #e74c3c;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 10px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .note {
+            background: #d4edda;
+            padding: 10px;
+            border-left: 4px solid #28a745;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .warning {
+            background: #f8d7da;
+            padding: 10px;
+            border-left: 4px solid #dc3545;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enhanced JavaScript Operations Reference Guide</h1>
+        
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#array-operations">Array Operations</a></li>
+                <li><a href="#object-operations">Object Operations</a></li>
+                <li><a href="#string-operations">String Operations</a></li>
+                <li><a href="#number-operations">Number Operations</a></li>
+                <li><a href="#date-operations">Date Operations</a></li>
+                <li><a href="#set-map-operations">Set & Map Operations</a></li>
+                <li><a href="#regex-operations">RegExp Operations</a></li>
+                <li><a href="#async-operations">Async Operations</a></li>
+                <li><a href="#dom-web-apis">DOM & Web APIs</a></li>
+                <li><a href="#utility-functions">Utility Functions</a></li>
+                <li><a href="#underscore-usage">Underscore (_) Usage in JavaScript</a></li>
+            </ul>
+        </div>
+
+        <h2 id="array-operations">Array Operations</h2>
+        
+        <h3>Array Creation and Basic Operations</h3>
+<pre><code>// Creating arrays
+const arr1 = [1, 2, 3];
+const arr2 = new Array(3);              // [empty × 3]
+const arr3 = Array.of(1, 2, 3);         // [1, 2, 3]
+const arr4 = Array.from({length: 3}, (_, i) => i); // [0, 1, 2]
+
+// Adding/removing elements
+arr.push(4);        // add to end, returns new length
+arr.pop();          // remove from end, returns removed element
+arr.unshift(0);     // add to beginning, returns new length
+arr.shift();        // remove from beginning, returns removed element
+</code></pre>
+
+        <h3>Array Transformation Methods (Detailed)</h3>
+        
+        <div class="highlight">
+            <strong>.map(callback)</strong> - Creates a new array by transforming each element
+        </div>
+        
+<pre><code>// Callback signature: (value, index, array)
+const numbers = [1, 2, 3, 4];
+
+// Basic usage
+const doubled = numbers.map(x => x * 2); // [2, 4, 6, 8]
+
+// Using all parameters
+const withIndex = numbers.map((value, index, array) => ({
+  value,
+  index,
+  isLast: index === array.length - 1
+}));
+// [{value: 1, index: 0, isLast: false}, ...]
+
+// Chaining methods
+const result = numbers
+  .map(x => x * 2)
+  .filter(x => x > 4)
+  .map(x => `Number: ${x}`); // ["Number: 6", "Number: 8"]
+</code></pre>
+
+        <div class="highlight">
+            <strong>.filter(callback)</strong> - Creates a new array with elements that pass the test
+        </div>
+        
+<pre><code>const numbers = [1, 2, 3, 4, 5, 6];
+
+// Basic filtering
+const evens = numbers.filter(x => x % 2 === 0); // [2, 4, 6]
+
+// Using index parameter
+const evenPositions = numbers.filter((value, index) => index % 2 === 0);
+// [1, 3, 5] (elements at even indices)
+
+// Complex filtering with chaining
+const filtered = numbers
+  .filter(x => x > 2)           // [3, 4, 5, 6]
+  .map(x => x * x)              // [9, 16, 25, 36]
+  .filter(x => x < 30);         // [9, 16, 25]
+</code></pre>
+
+        <div class="note">
+            <strong>Key Differences:</strong><br>
+            • <code>.map()</code> always returns an array of the same length<br>
+            • <code>.filter()</code> returns an array with potentially fewer elements<br>
+            • <code>.forEach()</code> returns undefined, used for side effects only<br>
+            • All create new arrays (immutable operations)
+        </div>
+
+        <h3>Other Array Methods</h3>
+<pre><code>const arr = [1, 2, 3, 4, 5];
+
+// .reduce() - Reduces array to single value
+const sum = arr.reduce((acc, val, index, array) => acc + val, 0); // 15
+const max = arr.reduce((max, val) => val > max ? val : max); // 5
+
+// .find() and .findIndex()
+const found = arr.find(x => x > 3);      // 4 (first match)
+const index = arr.findIndex(x => x > 3); // 3 (index of first match)
+
+// .some() and .every()
+arr.some(x => x > 4);    // true (at least one > 4)
+arr.every(x => x > 0);   // true (all > 0)
+
+// .forEach() - Just loops, returns undefined
+arr.forEach((value, index, array) => {
+  console.log(`${index}: ${value}`);
+  // Cannot break or return early
+});
+</code></pre>
+
+        <h2 id="object-operations">Object Operations</h2>
+        
+        <h3>Object Creation and Property Access</h3>
+<pre><code>const obj = {a: 1, b: 2, c: 3};
+
+// Property access methods
+obj.a;          // 1 (dot notation)
+obj['a'];       // 1 (bracket notation)
+obj?.d?.e;      // undefined (optional chaining)
+
+// Dynamic property names
+const key = 'dynamicKey';
+const obj2 = {
+  [key]: 'value',           // computed property
+  [`${key}2`]: 'value2'     // template literal key
+};
+</code></pre>
+
+        <h3>Object Iteration and Transformation</h3>
+<pre><code>const obj = {name: 'John', age: 30, city: 'NYC'};
+
+// Object.entries() with destructuring
+Object.entries(obj).forEach(([key, value]) => {
+  console.log(`${key}: ${value}`);
+});
+
+// Transform object to array
+const keyValuePairs = Object.entries(obj)
+  .map(([key, value]) => `${key}=${value}`)
+  .join('&'); // "name=John&age=30&city=NYC"
+
+// Filter object properties
+const filtered = Object.fromEntries(
+  Object.entries(obj).filter(([key, value]) => typeof value === 'string')
+); // {name: 'John', city: 'NYC'}
+</code></pre>
+
+        <h2 id="string-operations">String Operations</h2>
+        
+        <h3>Advanced String Methods</h3>
+<pre><code>const str = "  Hello World  ";
+
+// Template literals with expressions
+const name = "John";
+const age = 30;
+const greeting = `Hello ${name}, you are ${age} years old.`;
+
+// String methods chaining
+const processed = str
+  .trim()                    // "Hello World"
+  .toLowerCase()             // "hello world"
+  .split(' ')                // ["hello", "world"]
+  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(' ');                // "Hello World"
+
+// Modern string methods
+str.startsWith('  Hello');   // true
+str.endsWith('World  ');     // true
+str.includes('World');       // true
+'abc'.repeat(3);             // "abcabcabc"
+'5'.padStart(3, '0');        // "005"
+</code></pre>
+
+        <h2 id="number-operations">Number Operations</h2>
+        
+        <h3>Number Validation and Conversion</h3>
+<pre><code>// Safe number operations
+Number.isInteger(42);        // true
+Number.isFinite(42);         // true
+Number.isNaN(NaN);           // true
+Number.isSafeInteger(42);    // true
+
+// Parse vs Convert
+parseInt('42px');            // 42
+parseFloat('3.14abc');       // 3.14
+Number('42px');              // NaN
++'42';                       // 42 (unary plus)
+
+// Formatting numbers
+const num = 1234.5678;
+num.toFixed(2);              // "1234.57"
+num.toPrecision(4);          // "1235"
+num.toLocaleString();        // "1,234.568" (locale-dependent)
+</code></pre>
+
+        <h2 id="date-operations">Date Operations</h2>
+        
+        <h3>Date Creation and Manipulation</h3>
+<pre><code>// Modern date handling
+const now = new Date();
+const specific = new Date('2023-12-25T10:30:00');
+const fromParts = new Date(2023, 11, 25, 10, 30); // month is 0-indexed
+
+// Date calculations
+const tomorrow = new Date(now);
+tomorrow.setDate(now.getDate() + 1);
+
+const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+// Formatting dates
+now.toISOString();           // "2023-12-25T15:30:00.000Z"
+now.toLocaleDateString();    // "12/25/2023"
+now.toLocaleTimeString();    // "3:30:00 PM"
+now.toLocaleString('en-GB'); // "25/12/2023, 15:30:00"
+</code></pre>
+
+        <h2 id="set-map-operations">Set & Map Operations</h2>
+        
+        <h3>Set Operations (Advanced)</h3>
+<pre><code>const set1 = new Set([1, 2, 3, 4]);
+const set2 = new Set([3, 4, 5, 6]);
+
+// Set operations
+const union = new Set([...set1, ...set2]);           // {1,2,3,4,5,6}
+const intersection = new Set([...set1].filter(x => set2.has(x))); // {3,4}
+const difference = new Set([...set1].filter(x => !set2.has(x)));  // {1,2}
+
+// Practical use case: Remove duplicates from array
+const arr = [1, 2, 2, 3, 3, 4];
+const unique = [...new Set(arr)]; // [1, 2, 3, 4]
+</code></pre>
+
+        <h3>Map Operations (Advanced)</h3>
+<pre><code>const map = new Map();
+
+// Maps can use any type as key
+map.set('string', 'value1');
+map.set(42, 'value2');
+map.set(true, 'value3');
+map.set({}, 'value4');
+
+// Iterate over Map
+map.forEach((value, key) => console.log(key, value));
+
+// Convert Map to Object (string keys only)
+const obj = Object.fromEntries(map);
+
+// WeakMap for memory-efficient object associations
+const weakMap = new WeakMap();
+const element = document.getElementById('myElement');
+weakMap.set(element, {data: 'associated data'});
+</code></pre>
+
+        <h2 id="regex-operations">RegExp Operations</h2>
+        
+        <h3>Regular Expression Patterns</h3>
+<pre><code>// Common regex patterns
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phoneRegex = /^\(\d{3}\)\s\d{3}-\d{4}$/; // (555) 123-4567
+const urlRegex = /https?:\/\/[^\s]+/g;
+
+// Using regex with string methods
+const text = "Contact us at john@example.com or call (555) 123-4567";
+const emails = text.match(emailRegex);
+const cleaned = text.replace(phoneRegex, '[PHONE]');
+const parts = text.split(/\s+/); // Split by whitespace
+
+// Named capture groups (modern)
+const dateRegex = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+const match = '2023-12-25'.match(dateRegex);
+console.log(match.groups.year); // "2023"
+</code></pre>
+
+        <h2 id="async-operations">Async Operations</h2>
+        
+        <h3>Promises and Async/Await</h3>
+<pre><code>// Promise creation and chaining
+const fetchUserData = (id) => {
+  return fetch(`/api/users/${id}`)
+    .then(response => response.json())
+    .then(data => ({
+      ...data,
+      fullName: `${data.firstName} ${data.lastName}`
+    }))
+    .catch(error => {
+      console.error('Failed to fetch user:', error);
+      return null;
+    });
+};
+
+// Async/await equivalent
+const fetchUserDataAsync = async (id) => {
+  try {
+    const response = await fetch(`/api/users/${id}`);
+    const data = await response.json();
+    return {
+      ...data,
+      fullName: `${data.firstName} ${data.lastName}`
+    };
+  } catch (error) {
+    console.error('Failed to fetch user:', error);
+    return null;
+  }
+};
+
+// Promise utilities
+Promise.all([promise1, promise2, promise3])      // Wait for all
+  .then(results => console.log(results));
+
+Promise.allSettled([promise1, promise2])         // Don't fail fast
+  .then(results => {
+    results.forEach(result => {
+      if (result.status === 'fulfilled') {
+        console.log('Success:', result.value);
+      } else {
+        console.log('Error:', result.reason);
+      }
+    });
+  });
+</code></pre>
+
+        <h2 id="dom-web-apis">DOM & Web APIs</h2>
+        
+        <h3>DOM Manipulation</h3>
+<pre><code>// Element selection
+const element = document.getElementById('myId');
+const elements = document.querySelectorAll('.className');
+const firstMatch = document.querySelector('div.container > p');
+
+// Element creation and modification
+const newDiv = document.createElement('div');
+newDiv.className = 'dynamic-content';
+newDiv.innerHTML = '<p>Dynamic content</p>';
+newDiv.style.backgroundColor = 'lightblue';
+
+// Event handling
+element.addEventListener('click', (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  console.log('Clicked element:', event.target);
+});
+
+// Modern DOM methods
+element.closest('.container');        // Find closest ancestor
+element.matches('.active');           // Check if matches selector
+element.classList.toggle('active');   // Toggle class
+element.dataset.userId;              // Access data-user-id attribute
+</code></pre>
+
+        <h3>Web APIs Examples</h3>
+<pre><code>// Local Storage
+localStorage.setItem('user', JSON.stringify({name: 'John', age: 30}));
+const user = JSON.parse(localStorage.getItem('user'));
+
+// Fetch API
+const fetchData = async (url) => {
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({key: 'value'})
+  });
+  
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  
+  return response.json();
+};
+
+// Geolocation API
+navigator.geolocation.getCurrentPosition(
+  position => {
+    console.log(position.coords.latitude, position.coords.longitude);
+  },
+  error => console.error('Location error:', error)
+);
+
+// Intersection Observer (for lazy loading)
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.src = entry.target.dataset.src;
+      observer.unobserve(entry.target);
+    }
+  });
+});
+
+document.querySelectorAll('img[data-src]').forEach(img => {
+  observer.observe(img);
+});
+</code></pre>
+
+        <h2 id="utility-functions">Utility Functions</h2>
+        
+        <h3>Advanced Utility Patterns</h3>
+<pre><code>// Debounce - Delay execution until after calls have stopped
+const debounce = (func, delay) => {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
+  };
+};
+
+// Usage: Debounce search input
+const searchInput = document.getElementById('search');
+const debouncedSearch = debounce((query) => {
+  console.log('Searching for:', query);
+}, 300);
+
+searchInput.addEventListener('input', (e) => {
+  debouncedSearch(e.target.value);
+});
+
+// Throttle - Limit execution frequency
+const throttle = (func, limit) => {
+  let inThrottle;
+  return (...args) => {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+};
+
+// Deep clone (handles nested objects/arrays)
+const deepClone = (obj) => {
+  if (obj === null || typeof obj !== 'object') return obj;
+  if (obj instanceof Date) return new Date(obj.getTime());
+  if (obj instanceof Array) return obj.map(deepClone);
+  if (typeof obj === 'object') {
+    const clonedObj = {};
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        clonedObj[key] = deepClone(obj[key]);
+      }
+    }
+    return clonedObj;
+  }
+};
+
+// Curry function
+const curry = (fn) => {
+  return function curried(...args) {
+    if (args.length >= fn.length) {
+      return fn.apply(this, args);
+    } else {
+      return (...moreArgs) => curried(...args, ...moreArgs);
+    }
+  };
+};
+
+// Usage
+const multiply = curry((a, b, c) => a * b * c);
+const multiplyByTwo = multiply(2);
+const multiplyByTwoAndThree = multiplyByTwo(3);
+console.log(multiplyByTwoAndThree(4)); // 24
+</code></pre>
+
+        <h2 id="underscore-usage">Underscore (_) Usage in JavaScript</h2>
+        
+        <div class="highlight">
+            The underscore character (_) has several conventional uses in JavaScript:
+        </div>
+        
+        <h3>1. Unused Function Parameters</h3>
+<pre><code>// When you need to access the third parameter but not the first two
+array.map((_, index) => index);  // Get array indices
+array.forEach((_, i, arr) => console.log(arr.length));
+
+// In destructuring when you don't need certain values
+const [first, _, third] = [1, 2, 3];  // Skip second element
+const {name, age: _, ...rest} = person;  // Skip age property
+</code></pre>
+
+        <h3>2. Private/Internal Variables Convention</h3>
+<pre><code>class MyClass {
+  constructor() {
+    this._privateVar = 'internal use';  // Convention: private
+    this.__reallyPrivate = 'very internal';  // Convention: very private
+  }
+  
+  _internalMethod() {  // Convention: internal method
+    return this._privateVar;
+  }
+}
+
+// Module pattern
+const myModule = (() => {
+  let _privateCounter = 0;  // Private variable
+  
+  return {
+    increment: () => ++_privateCounter,
+    getCount: () => _privateCounter
+  };
+})();
+</code></pre>
+
+        <h3>3. Lodash/Underscore.js Library</h3>
+<pre><code>// If using Lodash library (commonly aliased as _)
+const _ = require('lodash');
+
+const users = [
+  {name: 'John', age: 30},
+  {name: 'Jane', age: 25},
+  {name: 'Bob', age: 35}
+];
+
+// Lodash utility functions
+const sortedNames = _.sortBy(users, 'age').map(u => u.name);
+const grouped = _.groupBy(users, u => u.age > 30 ? 'senior' : 'junior');
+const debounced = _.debounce(myFunction, 300);
+</code></pre>
+
+        <h3>4. Placeholder in Template Literals</h3>
+<pre><code>// When building dynamic strings
+const buildUrl = (base, path, params = {}) => {
+  const query = Object.entries(params)
+    .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+    .join('&');
+  
+  return query ? `${base}${path}?${query}` : `${base}${path}`;
+};
+</code></pre>
+
+        <h3>5. Previous Result Reference</h3>
+<pre><code>// In REPL or console, _ often refers to the last result
+// This is environment-specific (Node.js REPL, browser console)
+console.log(42);  // 42
+console.log(_ * 2);  // 84 (in some environments)
+</code></pre>
+
+        <div class="note">
+            <strong>Best Practice:</strong> Use underscore prefixes for internal/private members, 
+            and single underscore for unused parameters to improve code readability.
+        </div>
+
+        <div class="warning">
+            <strong>Note:</strong> Underscore prefixes are conventions only - they don't provide 
+            actual privacy in JavaScript. Use private class fields (#property) for true privacy 
+            in modern JavaScript.
+        </div>
+
+        <hr style="margin: 40px 0; border: none; border-top: 2px solid #ecf0f1;">
+        
+        <p style="text-align: center; color: #7f8c8d; font-style: italic;">
+            This comprehensive guide covers fundamental and advanced JavaScript operations 
+            with practical examples and modern best practices.
+        </p>
+    </div>
+</body>
+</html>

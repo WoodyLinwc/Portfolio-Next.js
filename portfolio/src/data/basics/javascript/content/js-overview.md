@@ -1,0 +1,7 @@
+-   It is a **just-in-time** compiled language that runs everywhere, from browsers to servers to mobile apps.
+-   JS supports **dynamic typing**, meaning variables don't need a type declaration. It introduces type safety concerns, but now we have TS, a superset of JS has static typing also with better IDE support.
+-   It's **prototype-based**, meaning objects inherit directly from other objects.
+-   It's **single-threaded**; JS uses the event loop for concurrency.
+-   It supports **first-class** function, meaning function can be treated as a variable (Stored in variables; Passed as arguments, returned from other functions)
+-   JS engines like V8(Chrome), SpiderMonkey(Firefox) use a JIT compiler to convert JS to optimized machine code.
+-   JS gets more powerful after **ES6**.

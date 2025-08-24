@@ -3,8 +3,17 @@ import type { BasicTopic } from "../types";
 // Import markdown files as raw text
 import variablesDataTypesContent from "./content/variables-datatypes.md";
 import functionsContent from "./content/functions.md";
+import jsOverview from "./content/js-overview.md";
 
 export const javascriptBasics: BasicTopic[] = [
+    {
+        id: "js-overview",
+        title: "JavaScript Overview",
+        category: "JavaScript",
+        description:
+            "JIT, dynamic typing, prototype-based, single-threaded, first-class, ES6",
+        content: jsOverview,
+    },
     {
         id: "variables-datatypes",
         title: "Variables and Data Types",
@@ -27,4 +36,16 @@ export const javascriptBasics: BasicTopic[] = [
         tags: ["functions", "arrow-functions", "function-expression"],
         difficulty: "Beginner",
     },
+
+    // {
+    //     id: "",
+    //     title: "",
+    //     category: "JavaScript",
+    //     description:
+    //         "",
+    //     content: ,
+    //     exampleUrl: "",
+    //     tags: [],
+    //     difficulty: "",
+    // },
 ];
