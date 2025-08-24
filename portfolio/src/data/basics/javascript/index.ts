@@ -7,7 +7,8 @@ import functionsContent from "./content/functions.md";
 import jsOverview from "./content/js-overview.md";
 import es6 from "./content/es6.md";
 import executionContext from "./content/execution-context.md";
-import closure from "./content/scope-chain-closure.md";
+import variableSystem from "./content/variable-system.md";
+import closure from "./content/closure.md";
 import hoisting from "./content/hoisting.md";
 import firstClass from "./content/first-class.md";
 
@@ -32,15 +33,21 @@ export const javascriptBasics: BasicTopic[] = [
         id: "execution-context",
         title: "Execution Context & Call Stack",
         category: "JavaScript",
-        description:
-            "Execution Context, Call Stack, Variable Environment, Lexical Environment, this binding",
+        description: "Execution Context, Call Stack",
         content: executionContext,
     },
     {
-        id: "closure",
-        title: "Scope Chain & Closure",
+        id: "variable-system",
+        title: "The Variable System",
         category: "JavaScript",
-        description: "Scope Chain, Lexical Scope, Closure, IIFE, Currying",
+        description: "Lexical Scope, Lexical Environment, Scope Chain",
+        content: variableSystem,
+    },
+    {
+        id: "closure",
+        title: "Closure",
+        category: "JavaScript",
+        description: "Closure, IIFE, Currying",
         content: closure,
     },
     {
