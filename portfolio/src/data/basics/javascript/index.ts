@@ -11,6 +11,8 @@ import variableSystem from "./content/variable-system.md";
 import closure from "./content/closure.md";
 import objectContentSystem from "./content/object-content-system.md";
 import eventloop from "./content/eventloop.md";
+import asynchronous from "./content/asynchronous.md";
+import fetchData from "./content/async-await.md";
 import hoisting from "./content/hoisting.md";
 import firstClass from "./content/first-class.md";
 
@@ -65,8 +67,25 @@ export const javascriptBasics: BasicTopic[] = [
         id: "eventloop",
         title: "Event Loop",
         category: "JavaScript",
-        description: "Event Loop, Asynchronous, ",
+        description:
+            "Event Loop, Asynchronous, Call Stack, Macrotask Queue, Microtask Queue",
         content: eventloop,
+    },
+
+    {
+        id: "asynchronous",
+        title: "Asynchronous Code: Callback - Promise - async/await",
+        category: "JavaScript",
+        description: "Asynchronous, ",
+        content: asynchronous,
+    },
+
+    {
+        id: "fetch-data",
+        title: "Fetch Data: Promise vs async/await",
+        category: "JavaScript",
+        description: "Promise, async/await, fetch data",
+        content: fetchData,
     },
 
     {
