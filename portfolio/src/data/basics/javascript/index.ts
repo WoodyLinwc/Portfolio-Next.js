@@ -4,6 +4,7 @@ import type { BasicTopic } from "../types";
 import variablesDataTypesContent from "./content/variables-datatypes.md";
 import functionsContent from "./content/functions.md";
 import jsOverview from "./content/js-overview.md";
+import es6 from "./content/es6.md";
 
 export const javascriptBasics: BasicTopic[] = [
     {
@@ -15,15 +16,28 @@ export const javascriptBasics: BasicTopic[] = [
         content: jsOverview,
     },
     {
+        id: "es6 ",
+        title: "ES6+",
+        category: "JavaScript",
+        description:
+            "Class, Spread Operator, Destructuring, Arrow Function, Template Literal, Symbols, Iterator, Generator",
+        content: es6,
+    },
+    // {
+    //     id: "",
+    //     title: "",
+    //     category: "JavaScript",
+    //     description:
+    //         "",
+    //     content: ,
+    // },
+    {
         id: "variables-datatypes",
         title: "Variables and Data Types",
         category: "JavaScript",
         description:
             "Learn about JavaScript variables, data types, and how to work with them.",
         content: variablesDataTypesContent,
-        exampleUrl: "https://codesandbox.io/p/devbox/js-variables-datatypes",
-        tags: ["variables", "data-types", "var", "let", "const"],
-        difficulty: "Beginner",
     },
     {
         id: "functions",
@@ -32,9 +46,6 @@ export const javascriptBasics: BasicTopic[] = [
         description:
             "Understanding JavaScript functions and their different forms.",
         content: functionsContent,
-        exampleUrl: "https://codesandbox.io/p/devbox/js-functions",
-        tags: ["functions", "arrow-functions", "function-expression"],
-        difficulty: "Beginner",
     },
 
     // {
