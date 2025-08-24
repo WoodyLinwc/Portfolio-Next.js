@@ -1,0 +1,2 @@
+-   **First-class function** (can be treated as variable) enables higher-order function, which enables currying
+-   **HOF**: Functions that take **functions as arguments and/or return functions**, for example .map() .forEach(), .map(n => n\*2), n => n\*2 is the callback function
