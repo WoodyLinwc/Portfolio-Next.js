@@ -10,6 +10,7 @@ import executionContext from "./content/execution-context.md";
 import variableSystem from "./content/variable-system.md";
 import closure from "./content/closure.md";
 import objectContentSystem from "./content/object-content-system.md";
+import eventloop from "./content/eventloop.md";
 import hoisting from "./content/hoisting.md";
 import firstClass from "./content/first-class.md";
 
@@ -58,6 +59,14 @@ export const javascriptBasics: BasicTopic[] = [
         category: "JavaScript",
         description: "'this', 'this' binding, call(), apply(), bind() ",
         content: objectContentSystem,
+    },
+
+    {
+        id: "eventloop",
+        title: "Event Loop",
+        category: "JavaScript",
+        description: "Event Loop, Asynchronous, ",
+        content: eventloop,
     },
 
     {
