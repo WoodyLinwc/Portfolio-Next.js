@@ -15,6 +15,7 @@ import asynchronous from "./content/asynchronous.md";
 import fetchData from "./content/async-await.md";
 import dom from "./content/dom.md";
 import eventFlow from "./content/event-flow.md";
+import jsPrototype from "./content/prototype.md";
 import hoisting from "./content/hoisting.md";
 import firstClass from "./content/first-class.md";
 
@@ -104,6 +105,14 @@ export const javascriptBasics: BasicTopic[] = [
         category: "JavaScript",
         description: "Capture & Bubble Phase, Event Delegation",
         content: eventFlow,
+    },
+
+    {
+        id: "prototype",
+        title: "Prototype",
+        category: "JavaScript",
+        description: "Inheritance, Prototype Chain",
+        content: jsPrototype,
     },
 
     {

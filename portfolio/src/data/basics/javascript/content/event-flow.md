@@ -28,4 +28,25 @@ document.getElementById('list').addEventListener('click', (e) => {
 </script>
 ```
 
-**stopPropagation()**: `event.stopPropagation()` **stops the bubbling**, The event will not reach parent elements anymore. For example, A modal has a close button — clicking the button shouldn’t also trigger the modal’s background click handler.
+**stopPropagation()**: `event.stopPropagation()` **stops the bubbling**, The event will not reach parent elements anymore. For example,
+
+A modal has a close button — clicking the button shouldn’t also trigger the modal’s background click handler.
+
+**event.preventDefault()**: Stops the **browser's default behavior** for that event.
+
+```javascript
+// prevent page refresh
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+});
+
+// stop navigation
+link.addEventListener("click", function (event) {
+    event.preventDefault();
+});
+
+// right click - disable context menu, no Back, Reload, Inspect
+document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+```
