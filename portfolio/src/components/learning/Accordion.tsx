@@ -25,9 +25,43 @@ export default function Accordion({
     buttonLabel = "Try Example",
 }: AccordionProps) {
     const [expandedItem, setExpandedItem] = useState<string | null>(null);
+    const [isTransitioning, setIsTransitioning] = useState(false);
 
-    const toggleItem = (itemId: string) => {
-        setExpandedItem(expandedItem === itemId ? null : itemId);
+    const toggleItem = async (itemId: string) => {
+        // If clicking the same item, just close it
+        if (expandedItem === itemId) {
+            setExpandedItem(null);
+            return;
+        }
+
+        // If another item is open, close it first with animation
+        if (expandedItem && expandedItem !== itemId) {
+            setIsTransitioning(true);
+            setExpandedItem(null);
+
+            // Wait for closing animation to complete
+            await new Promise((resolve) => setTimeout(resolve, 300));
+        }
+
+        // Open the new item
+        setExpandedItem(itemId);
+        setIsTransitioning(false);
+
+        // Scroll to the clicked accordion header smoothly
+        setTimeout(() => {
+            const element = document.getElementById(`accordion-${itemId}`);
+            if (element) {
+                const headerHeight = 80; // Approximate header height
+                const elementTop =
+                    element.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementTop - headerHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                });
+            }
+        }, 50); // Small delay to ensure DOM is updated
     };
 
     const getCategoryColor = (category: string) => {
@@ -70,12 +104,16 @@ export default function Accordion({
             {items.map((item) => (
                 <div
                     key={item.id}
+                    id={`accordion-${item.id}`}
                     className="border border-gray-200 rounded-lg overflow-hidden"
                 >
                     {/* Item Header - Clickable */}
                     <button
                         onClick={() => toggleItem(item.id)}
-                        className="w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors focus:outline-none focus:bg-gray-50"
+                        disabled={isTransitioning}
+                        className={`w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors focus:outline-none focus:bg-gray-50 ${
+                            isTransitioning ? "cursor-wait" : "cursor-pointer"
+                        }`}
                     >
                         <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-4">
@@ -102,11 +140,11 @@ export default function Accordion({
                                 </div>
                             </div>
                             <i
-                                className={`fa transition-transform duration-200 ${
+                                className={`fa transition-transform duration-300 ${
                                     expandedItem === item.id
                                         ? "fa-chevron-up"
                                         : "fa-chevron-down"
-                                }`}
+                                } ${isTransitioning ? "opacity-50" : ""}`}
                             ></i>
                         </div>
                         {item.description && (
@@ -132,8 +170,6 @@ export default function Accordion({
                     >
                         <div className="px-6 pb-6 border-t border-gray-100">
                             <div className="pt-4">
-                                {/* Remove the contentLabel heading */}
-
                                 {/* Replace the <pre> tag with ReactMarkdown */}
                                 <div className="prose prose-gray max-w-none mb-4">
                                     <ReactMarkdown
