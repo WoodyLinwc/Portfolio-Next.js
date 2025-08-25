@@ -3,6 +3,7 @@
 import type { HtmlCssTopic } from "../types";
 
 import semanticHTML from "./content/semantic.md";
+import dom from "./content/dom.md";
 
 export const htmlTopics: HtmlCssTopic[] = [
     {
@@ -14,5 +15,19 @@ export const htmlTopics: HtmlCssTopic[] = [
         content: semanticHTML,
         exampleUrl: "https://codesandbox.io/p/devbox/html-basics",
         tags: ["html", "structure", "doctype", "head", "body"],
+    },
+    {
+        id: "dom",
+        title: "DOM",
+        category: "HTML",
+        description: "innerHTML, textContent",
+        content: dom,
+    },
+    {
+        id: "",
+        title: "",
+        category: "HTML",
+        description: "",
+        content: semanticHTML,
     },
 ];

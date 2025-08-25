@@ -13,6 +13,8 @@ import objectContentSystem from "./content/object-content-system.md";
 import eventloop from "./content/eventloop.md";
 import asynchronous from "./content/asynchronous.md";
 import fetchData from "./content/async-await.md";
+import dom from "./content/dom.md";
+import eventFlow from "./content/event-flow.md";
 import hoisting from "./content/hoisting.md";
 import firstClass from "./content/first-class.md";
 
@@ -84,8 +86,24 @@ export const javascriptBasics: BasicTopic[] = [
         id: "fetch-data",
         title: "Fetch Data: Promise vs async/await",
         category: "JavaScript",
-        description: "Promise, async/await, fetch data",
+        description: "Promise, async/await, Fetch Data",
         content: fetchData,
+    },
+
+    {
+        id: "dom",
+        title: "Document Object Model (DOM)",
+        category: "JavaScript",
+        description: "DOM, tree, Event Listener & Handler",
+        content: dom,
+    },
+
+    {
+        id: "event-flow",
+        title: "Event Flow",
+        category: "JavaScript",
+        description: "Capture & Bubble Phase, Event Delegation",
+        content: eventFlow,
     },
 
     {
