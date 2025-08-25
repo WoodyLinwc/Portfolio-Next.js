@@ -100,7 +100,7 @@ export const javascriptBasics: BasicTopic[] = [
 
     {
         id: "event-flow",
-        title: "Event Flow",
+        title: "Event Flow: Event Propagation",
         category: "JavaScript",
         description: "Capture & Bubble Phase, Event Delegation",
         content: eventFlow,
