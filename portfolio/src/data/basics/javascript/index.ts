@@ -111,7 +111,7 @@ export const javascriptBasics: BasicTopic[] = [
         id: "prototype",
         title: "Prototype",
         category: "JavaScript",
-        description: "Inheritance, Prototype Chain",
+        description: "Inheritance, Prototype Chain, Class, Constructor",
         content: jsPrototype,
     },
 
