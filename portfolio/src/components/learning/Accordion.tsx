@@ -78,6 +78,8 @@ export default function Accordion({
                 return "bg-blue-100 text-blue-800";
             case "tailwind":
                 return "bg-cyan-100 text-cyan-800";
+            case "others":
+                return "bg-green-100 text-green-800";
             default:
                 return "bg-gray-100 text-gray-800";
         }

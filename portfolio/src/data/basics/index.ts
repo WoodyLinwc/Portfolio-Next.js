@@ -1,12 +1,17 @@
 import type { BasicTopic } from "./types";
 import { javascriptBasics } from "./javascript";
 import { reactBasics } from "./react";
+import { otherBasics } from "./other";
 
 export { javascriptBasics } from "./javascript";
 export { reactBasics } from "./react";
 export type { BasicTopic } from "./types";
 
-export const allBasics: BasicTopic[] = [...javascriptBasics, ...reactBasics];
+export const allBasics: BasicTopic[] = [
+    ...javascriptBasics,
+    ...reactBasics,
+    ...otherBasics,
+];
 
 // Helper functions
 export const getBasicsByCategory = (
@@ -17,6 +22,8 @@ export const getBasicsByCategory = (
             return javascriptBasics;
         case "React":
             return reactBasics;
+        case "Others":
+            return otherBasics;
         default:
             return [];
     }

@@ -27,8 +27,8 @@ export default function BasicsPage() {
         tags: topic.tags,
     }));
 
-    // Filter options: All, JavaScript, React
-    const filterOptions = ["All", "JavaScript", "React"];
+    // Filter options: All, JavaScript, React, Others
+    const filterOptions = ["All", "JavaScript", "React", "Others"];
 
     return (
         <>

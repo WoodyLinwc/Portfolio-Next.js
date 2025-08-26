@@ -1,7 +1,7 @@
 export interface BasicTopic {
     id: string;
     title: string;
-    category: "JavaScript" | "React";
+    category: "JavaScript" | "React" | "Others";
     description: string;
     content: string;
     exampleUrl?: string;
