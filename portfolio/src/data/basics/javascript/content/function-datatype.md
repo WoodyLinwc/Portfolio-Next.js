@@ -1,0 +1,85 @@
+## Data Types
+
+-   **Primitive types**: string, number, boolean, null, undefined, symbol, bigint (**passed by value**)
+-   **Reference types**: object, array, function (**passed by reference**)
+
+```javascript
+// 7 primitive types
+const string = "hello";
+const number = 42;
+const boolean = true;
+const undefined = undefined;
+const nullValue = null;
+const symbol = Symbol("id");
+const bigint = 123n;
+
+// Primitives are passed by value
+let a = 5;
+let b = a; // Copy of value
+a = 10;
+console.log(b); // Still 5
+
+// Objects, arrays, functions are reference types
+const obj1 = { name: "Alice" };
+const obj2 = obj1; // Copy of reference, not value
+obj1.name = "Bob";
+console.log(obj2.name); // "Bob" - same object!
+```
+
+## == vs ===
+
+-   == (Loose Equality): Compares values **after type coercion**.
+-   === (Strict Equality): Compares values **without type coercion**.
+
+## Falsy value
+
+```javascript
+// Falsy values (only 8), everything else is truthy, "0", [], {}
+console.log(Boolean(false));
+console.log(Boolean(0));
+console.log(Boolean(-0));
+console.log(Boolean(0n));
+console.log(Boolean(""));
+console.log(Boolean(null));
+console.log(Boolean(undefined));
+console.log(Boolean(NaN));
+```
+
+## `typeof` vs `instanceof`
+
+-   `typeof` works with **Primitive** types and **function**.
+-   `instanceof` returns true/false, works with **Reference** types
+
+```javascript
+typeof 42;          // "number"
+typeof undefined;   // "undefined"
+typeof null;        // "object"     (quirk in JS!)
+typeof [];          // "object"   (arrays are objects)
+
+[] instanceof Array       // true
+[] instanceof Object      // true (since Array extends Object)
+new Date() instanceof Date // true
+({}) instanceof Object    // true
+```
+
+## Function Declaration
+
+```javascript
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+```
+
+## Function Expression
+
+```javascript
+const bye = function (name) {
+    return `Bye, ${name}!`;
+};
+```
+
+## Arrow Functions
+
+```javascript
+const add = (a, b) => a + b;
+```

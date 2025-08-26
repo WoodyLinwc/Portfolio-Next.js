@@ -2,8 +2,6 @@ import type { BasicTopic } from "../types";
 
 // Import markdown files as raw text
 import test from "./content/test.md";
-import variablesDataTypesContent from "./content/variables-datatypes.md";
-import functionsContent from "./content/functions.md";
 import jsOverview from "./content/js-overview.md";
 import es6 from "./content/es6.md";
 import executionContext from "./content/execution-context.md";
@@ -17,6 +15,7 @@ import dom from "./content/dom.md";
 import eventFlow from "./content/event-flow.md";
 import jsPrototype from "./content/prototype.md";
 import http from "./content/http.md";
+import functionDatatype from "./content/function-datatype.md";
 import hoisting from "./content/hoisting.md";
 import firstClass from "./content/first-class.md";
 
@@ -125,12 +124,86 @@ export const javascriptBasics: BasicTopic[] = [
     },
 
     {
+        id: "function-datatype",
+        title: "Function & Datatype",
+        category: "JavaScript",
+        description:
+            "Primitive & Reference Datatypes, Falsy Value, Type Coercion, Function Declaration, Expression, Arrow Function",
+        content: functionDatatype,
+    },
+
+    {
         id: "hoisting",
         title: "Hoisting: var, let, const",
         category: "JavaScript",
-        description: "var, let, const, ",
+        description: "var, let, const, Strict Mode",
         content: hoisting,
     },
+
+    {
+        id: "string-number-date",
+        title: "String Number Date Operation",
+        category: "JavaScript",
+        description: "",
+        content: test,
+    },
+
+    {
+        id: "array",
+        title: "Array Operation",
+        category: "JavaScript",
+        description: "",
+        content: test,
+    },
+
+    {
+        id: "object",
+        title: "Object Operation",
+        category: "JavaScript",
+        description: "",
+        content: test,
+    },
+
+    {
+        id: "json",
+        title: "JSON Operation",
+        category: "JavaScript",
+        description: "",
+        content: test,
+    },
+
+    {
+        id: "set-map",
+        title: "Set & Map Operation",
+        category: "JavaScript",
+        description: "",
+        content: test,
+    },
+
+    {
+        id: "regex",
+        title: "Regular Expression",
+        category: "JavaScript",
+        description: "",
+        content: test,
+    },
+
+    {
+        id: "performance-optimization",
+        title: "Performance & Optimization",
+        category: "JavaScript",
+        description: "",
+        content: test,
+    },
+
+    {
+        id: "module",
+        title: "Modules",
+        category: "JavaScript",
+        description: "CommonJS, Node.js, ES Module",
+        content: test,
+    },
+
     {
         id: "firstClass",
         title: "First-class and Higher-order Function",
@@ -145,23 +218,6 @@ export const javascriptBasics: BasicTopic[] = [
         category: "JavaScript",
         description: "",
         content: test,
-    },
-
-    {
-        id: "variables-datatypes",
-        title: "Variables and Data Types",
-        category: "JavaScript",
-        description:
-            "Learn about JavaScript variables, data types, and how to work with them.",
-        content: variablesDataTypesContent,
-    },
-    {
-        id: "functions",
-        title: "Functions",
-        category: "JavaScript",
-        description:
-            "Understanding JavaScript functions and their different forms.",
-        content: functionsContent,
     },
 
     // {
