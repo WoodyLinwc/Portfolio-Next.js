@@ -3,7 +3,7 @@ import type { Project } from "@/types/me";
 export const projects: Project[] = [
     {
         title: "Portfolio Website",
-        subtitle: "Next.js, TypeScript, Tailwind CSS, Vercel",
+        subtitle: "Next.js, TypeScript, Tailwind CSS, Three.js",
         date: "May 2025 - Current",
         link: "https://woody-lin-personal.vercel.app/",
         linkText: "Vercel",
