@@ -1,6 +1,9 @@
 -   HTTP is the **protocol** that defines **how browsers and servers communicate**.
 -   **Request**: A message sent from client (browser) to server asking for resources or actions.
 -   **Response**: A message sent back from server to client containing the requested data or result.
+-   **Headers**: **Metadata** about the request/response
+-   **Async**: HTTP requests are asynchronous and work with Promises/async-await
+-   **Error Handling**: Check `response.ok` and handle different status codes appropriately
 
 ## HTTP Methods
 
