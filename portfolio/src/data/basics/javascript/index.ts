@@ -16,6 +16,7 @@ import fetchData from "./content/async-await.md";
 import dom from "./content/dom.md";
 import eventFlow from "./content/event-flow.md";
 import jsPrototype from "./content/prototype.md";
+import http from "./content/http.md";
 import hoisting from "./content/hoisting.md";
 import firstClass from "./content/first-class.md";
 
@@ -79,7 +80,7 @@ export const javascriptBasics: BasicTopic[] = [
         id: "asynchronous",
         title: "Asynchronous Code: Callback - Promise - async/await",
         category: "JavaScript",
-        description: "Asynchronous, ",
+        description: "Asynchronous, Promise, Callback, async/await",
         content: asynchronous,
     },
 
@@ -113,6 +114,14 @@ export const javascriptBasics: BasicTopic[] = [
         category: "JavaScript",
         description: "Inheritance, Prototype Chain, Class, Constructor",
         content: jsPrototype,
+    },
+
+    {
+        id: "http",
+        title: "HTTP (HyperText Transfer Protocol)",
+        category: "JavaScript",
+        description: "HTTP, GET, POST, PUT, DELETE, Fetch API",
+        content: http,
     },
 
     {
