@@ -17,7 +17,7 @@ export const personalInfo: PersonalInfo = {
             "JavaScript, TypeScript, SQL, HTML & CSS, Java, Python, Bash",
         frameworks:
             "React, Next.js, React Native, Express.js, Fastify, AngularJS, Tailwind CSS, Bootstrap, One App, Holocron, Jekyll",
-        tools: "AWS, Vercel, Vite, Webpack, Babel, Chrome DevTools, ESLint, Prettier, Jest, Figma, Docker, Git, Postman, VS Code, Node.js, Miniconda, Expo, PM2, Jira",
+        tools: "AWS, Vercel, Vite, Webpack, Babel, Chrome DevTools, ESLint, Prettier, Jest, Figma, Docker, Git, Postman, VS Code, Node.js, Miniconda, Expo, Google Play Console, PM2, Jira",
     },
     links: {
         resume: "https://woodylinwc.github.io/pdf/WoodyLinResume.pdf",
@@ -43,7 +43,7 @@ export const personalInfo: PersonalInfo = {
     about: {
         title: "A Passionate Software Developer",
         description:
-            "As a Frontend Developer with 5+ years of experience. I specialize in building scalable React applications that serve enterprise-level users. My expertise includes modern frameworks like Next.js and React Native, having successfully published mobile apps to the Google Play Store and architected micro-frontend solutions using advanced technologies like One App and Holocron. With experience migrating legacy systems, implementing comprehensive testing strategies, and optimizing performance for thousands of daily users, I combine technical proficiency with business impact. My AWS Cloud Practitioner certification and passion for clean, maintainable code drive me to continuously explore emerging technologies and deliver innovative solutions.",
+            "As a Frontend Developer with 5+ years of experience. I specialize in building scalable React applications and responsive mobile applications that serve enterprise-level users. My expertise includes modern frameworks like Next.js and React Native, having successfully published mobile apps to the Google Play Store and built internal tools used by over 500+ staff members across different teams. With experience migrating legacy systems, implementing comprehensive testing strategies, and optimizing performance for thousands of daily users, I combine technical proficiency with business impact. My AWS Cloud Practitioner certification and passion for clean, maintainable code drive me to continuously explore emerging technologies and deliver innovative solutions.",
     },
     certificates: [
         {
