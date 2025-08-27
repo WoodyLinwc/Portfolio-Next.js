@@ -21,6 +21,7 @@ import hoisting from "./content/hoisting.md";
 import numberDate from "./content/number-date.md";
 import string from "./content/string.md";
 import array from "./content/array.md";
+import object from "./content/object.md";
 
 export const javascriptBasics: BasicTopic[] = [
     {
@@ -181,8 +182,9 @@ export const javascriptBasics: BasicTopic[] = [
         id: "object",
         title: "Object Operation",
         category: "JavaScript",
-        description: "",
-        content: test,
+        description:
+            "Object.create, Object.getOwnPropertyNames, freeze, seal, Object.entries, for...of, for...in, Object.fromEntries",
+        content: object,
     },
 
     {
