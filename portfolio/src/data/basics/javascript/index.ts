@@ -211,7 +211,7 @@ export const javascriptBasics: BasicTopic[] = [
         id: "regex",
         title: "Regular Expression",
         category: "JavaScript",
-        description: "",
+        description: "test, exec, Capture Groups(), match, replace, search",
         content: regex,
     },
 
