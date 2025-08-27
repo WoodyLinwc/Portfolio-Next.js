@@ -154,7 +154,7 @@ export const javascriptBasics: BasicTopic[] = [
         id: "number-date",
         title: "Number & Date Operation",
         category: "JavaScript",
-        description: "Number, Math, Random",
+        description: "Number, Math, Random, Date",
         content: numberDate,
     },
 
