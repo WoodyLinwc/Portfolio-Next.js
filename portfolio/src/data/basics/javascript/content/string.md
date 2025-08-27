@@ -66,5 +66,5 @@ String(null); // "null"
 String(undefined); // "undefined"
 
 null.toString(); // TypeError
-(15).toString(16); // "f"
+(15).toString(16); // "f", need ()
 ```
