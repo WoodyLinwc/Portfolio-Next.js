@@ -1,6 +1,6 @@
 ## Data Types
 
--   **Primitive types**: string, number, boolean, null, undefined, symbol, bigint (**passed by value**)
+-   **Primitive types**: string, number, boolean, null, undefined, symbol, bigint (**passed by value**), when access method `str.length`, JS temporarily wrap it to `new String('hello').length`
 -   **Reference types**: object, array, function (**passed by reference**)
 
 ```javascript

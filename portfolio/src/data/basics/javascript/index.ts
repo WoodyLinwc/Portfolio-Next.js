@@ -14,10 +14,11 @@ import fetchData from "./content/async-await.md";
 import dom from "./content/dom.md";
 import eventFlow from "./content/event-flow.md";
 import jsPrototype from "./content/prototype.md";
+import firstClass from "./content/first-class.md";
 import http from "./content/http.md";
 import functionDatatype from "./content/function-datatype.md";
 import hoisting from "./content/hoisting.md";
-import firstClass from "./content/first-class.md";
+import numberDate from "./content/number-date.md";
 
 export const javascriptBasics: BasicTopic[] = [
     {
@@ -116,6 +117,14 @@ export const javascriptBasics: BasicTopic[] = [
     },
 
     {
+        id: "firstClass",
+        title: "First-class and Higher-order Function",
+        category: "JavaScript",
+        description: "",
+        content: firstClass,
+    },
+
+    {
         id: "http",
         title: "HTTP (HyperText Transfer Protocol)",
         category: "JavaScript",
@@ -141,8 +150,16 @@ export const javascriptBasics: BasicTopic[] = [
     },
 
     {
-        id: "string-number-date",
-        title: "String Number Date Operation",
+        id: "number-date",
+        title: "Number & Date Operation",
+        category: "JavaScript",
+        description: "Number, Math,",
+        content: numberDate,
+    },
+
+    {
+        id: "string",
+        title: "String Operation",
         category: "JavaScript",
         description: "",
         content: test,
@@ -194,14 +211,6 @@ export const javascriptBasics: BasicTopic[] = [
         category: "JavaScript",
         description: "CommonJS, Node.js, ES Module",
         content: test,
-    },
-
-    {
-        id: "firstClass",
-        title: "First-class and Higher-order Function",
-        category: "JavaScript",
-        description: "",
-        content: firstClass,
     },
 
     {
