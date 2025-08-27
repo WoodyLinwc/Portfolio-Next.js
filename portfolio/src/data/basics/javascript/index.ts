@@ -23,6 +23,7 @@ import string from "./content/string.md";
 import array from "./content/array.md";
 import object from "./content/object.md";
 import json from "./content/json.md";
+import setMap from "./content/set-map.md";
 
 export const javascriptBasics: BasicTopic[] = [
     {
@@ -201,8 +202,8 @@ export const javascriptBasics: BasicTopic[] = [
         id: "set-map",
         title: "Set & Map Operation",
         category: "JavaScript",
-        description: "",
-        content: test,
+        description: "Union, Intersection, Difference, Map to Array to Object",
+        content: setMap,
     },
 
     {
