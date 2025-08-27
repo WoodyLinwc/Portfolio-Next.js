@@ -81,7 +81,7 @@ export default function Navbar() {
             href: "/learning",
             label: "Learning",
             dropdown: [
-                { href: "/learning/react", label: "React" },
+                { href: "/learning/react", label: "JS/React" },
                 { href: "/learning/html-css", label: "HTML/CSS" },
                 {
                     href: "/learning/coding-challenges",
