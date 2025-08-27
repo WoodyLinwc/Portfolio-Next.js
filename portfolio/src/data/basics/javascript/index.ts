@@ -26,6 +26,8 @@ import json from "./content/json.md";
 import setMap from "./content/set-map.md";
 import regex from "./content/regex.md";
 import module from "./content/module.md";
+import performance from "./content/performance.md";
+import webAPI from "./content/web-api.md";
 
 export const javascriptBasics: BasicTopic[] = [
     {
@@ -226,11 +228,19 @@ export const javascriptBasics: BasicTopic[] = [
     },
 
     {
+        id: "web-api",
+        title: "Web APIs & Browser Environment",
+        category: "JavaScript",
+        description: "",
+        content: webAPI,
+    },
+
+    {
         id: "performance-optimization",
         title: "Performance & Optimization",
         category: "JavaScript",
         description: "",
-        content: test,
+        content: performance,
     },
 
     {
