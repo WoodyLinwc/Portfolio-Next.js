@@ -68,7 +68,8 @@ console.log(parsed.birth instanceof Date); // true
 ```javascript
 const obj = { a: 1, b: { c: 2 } };
 
-const copy = JSON.parse(JSON.stringify(obj)); // Loses functions, undefined, symbols. Converts dates to strings
+const copy = JSON.parse(JSON.stringify(obj));
+// Loses functions, undefined, symbols. Converts dates to strings
 
 const copy2 = structuredClone(obj);
 ```
