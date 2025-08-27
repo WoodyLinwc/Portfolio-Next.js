@@ -163,7 +163,7 @@ export const javascriptBasics: BasicTopic[] = [
         title: "String Operation",
         category: "JavaScript",
         description:
-            "indexOf, startsWith, includes, trim, replace, split, join, slice, charAt",
+            "indexOf, startsWith, includes, trim, replace, split, join, slice, charAt, String() vs toString()",
         content: string,
     },
 
