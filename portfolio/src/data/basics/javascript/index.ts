@@ -172,7 +172,8 @@ export const javascriptBasics: BasicTopic[] = [
         id: "array",
         title: "Array Operation",
         category: "JavaScript",
-        description: "",
+        description:
+            "Array.of, Array.from, indexOf, includes, find, some, map, flatMap, sort, concat, slice, shallow copying ",
         content: array,
     },
 
