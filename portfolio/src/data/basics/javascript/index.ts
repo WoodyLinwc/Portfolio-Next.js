@@ -24,6 +24,7 @@ import array from "./content/array.md";
 import object from "./content/object.md";
 import json from "./content/json.md";
 import setMap from "./content/set-map.md";
+import regex from "./content/regex.md";
 
 export const javascriptBasics: BasicTopic[] = [
     {
@@ -211,7 +212,7 @@ export const javascriptBasics: BasicTopic[] = [
         title: "Regular Expression",
         category: "JavaScript",
         description: "",
-        content: test,
+        content: regex,
     },
 
     {
