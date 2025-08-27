@@ -25,6 +25,7 @@ import object from "./content/object.md";
 import json from "./content/json.md";
 import setMap from "./content/set-map.md";
 import regex from "./content/regex.md";
+import module from "./content/module.md";
 
 export const javascriptBasics: BasicTopic[] = [
     {
@@ -219,8 +220,9 @@ export const javascriptBasics: BasicTopic[] = [
         id: "module",
         title: "Modules",
         category: "JavaScript",
-        description: "CommonJS, Node.js, ES Module",
-        content: test,
+        description:
+            "ES Module, CommonJS, Node.js, Asynchronous Loading, Tree Shaking ",
+        content: module,
     },
 
     {
