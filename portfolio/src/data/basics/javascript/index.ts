@@ -22,6 +22,7 @@ import numberDate from "./content/number-date.md";
 import string from "./content/string.md";
 import array from "./content/array.md";
 import object from "./content/object.md";
+import json from "./content/json.md";
 
 export const javascriptBasics: BasicTopic[] = [
     {
@@ -174,7 +175,7 @@ export const javascriptBasics: BasicTopic[] = [
         title: "Array Operation",
         category: "JavaScript",
         description:
-            "Array.of, Array.from, indexOf, includes, find, some, map, flatMap, sort, concat, slice, shallow copying ",
+            "Array.of, Array.from, indexOf, includes, find, some, map, flatMap, sort, concat, slice, Shallow Copying ",
         content: array,
     },
 
@@ -191,8 +192,9 @@ export const javascriptBasics: BasicTopic[] = [
         id: "json",
         title: "JSON Operation",
         category: "JavaScript",
-        description: "",
-        content: test,
+        description:
+            "JSON.stringify, JSON.parse, json, replacer, retriever, Deep Copy, structuredClone",
+        content: json,
     },
 
     {
