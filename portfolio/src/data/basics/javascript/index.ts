@@ -20,6 +20,7 @@ import functionDatatype from "./content/function-datatype.md";
 import hoisting from "./content/hoisting.md";
 import numberDate from "./content/number-date.md";
 import string from "./content/string.md";
+import array from "./content/array.md";
 
 export const javascriptBasics: BasicTopic[] = [
     {
@@ -172,7 +173,7 @@ export const javascriptBasics: BasicTopic[] = [
         title: "Array Operation",
         category: "JavaScript",
         description: "",
-        content: test,
+        content: array,
     },
 
     {
