@@ -19,6 +19,7 @@ import http from "./content/http.md";
 import functionDatatype from "./content/function-datatype.md";
 import hoisting from "./content/hoisting.md";
 import numberDate from "./content/number-date.md";
+import string from "./content/string.md";
 
 export const javascriptBasics: BasicTopic[] = [
     {
@@ -153,7 +154,7 @@ export const javascriptBasics: BasicTopic[] = [
         id: "number-date",
         title: "Number & Date Operation",
         category: "JavaScript",
-        description: "Number, Math,",
+        description: "Number, Math, Random",
         content: numberDate,
     },
 
@@ -162,7 +163,7 @@ export const javascriptBasics: BasicTopic[] = [
         title: "String Operation",
         category: "JavaScript",
         description: "",
-        content: test,
+        content: string,
     },
 
     {
