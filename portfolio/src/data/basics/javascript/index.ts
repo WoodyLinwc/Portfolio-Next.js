@@ -226,40 +226,8 @@ export const javascriptBasics: BasicTopic[] = [
     },
 
     {
-        id: "typescript",
-        title: "TypeScript",
-        category: "JavaScript",
-        description: "",
-        content: test,
-    },
-
-    {
-        id: "react-native",
-        title: "React Native",
-        category: "JavaScript",
-        description: "",
-        content: test,
-    },
-
-    {
         id: "performance-optimization",
         title: "Performance & Optimization",
-        category: "JavaScript",
-        description: "",
-        content: test,
-    },
-
-    {
-        id: "testing",
-        title: "Testing & Debugging",
-        category: "JavaScript",
-        description: "Jest",
-        content: test,
-    },
-
-    {
-        id: "design-pattern",
-        title: "Design Pattern",
         category: "JavaScript",
         description: "",
         content: test,
