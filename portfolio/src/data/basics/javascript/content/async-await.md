@@ -19,6 +19,25 @@ function fetchData(url) {
 }
 ```
 
+## Promise utilities
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("done"), 1000);
+});
+
+promise.then((result) => console.log(result));
+promise.catch((error) => console.error(error));
+promise.finally(() => console.log("cleanup"));
+
+// Promise utilities
+Promise.all([promise1, promise2]); // wait for all
+Promise.allSettled([promise1, promise2]); // wait for all, don't fail fast
+Promise.race([promise1, promise2]); // first to resolve/reject
+Promise.resolve(value); // resolved promise
+Promise.reject(error); // rejected promise
+```
+
 ## Async/await Style
 
 ```javascript
