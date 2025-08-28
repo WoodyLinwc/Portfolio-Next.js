@@ -8,6 +8,7 @@ import hooks from "./content/hooks.md";
 import customHooks from "./content/custom-hooks.md";
 import component from "./content/component.md";
 import controlledComponent from "./content/controlled-component.md";
+import stateManagement from "./content/state-management.md";
 
 export const reactBasics: BasicTopic[] = [
     {
@@ -71,6 +72,15 @@ export const reactBasics: BasicTopic[] = [
         description:
             "Controlled & Uncontrolled Component, Form Input Value, Single Source of Truth, useState vs useRef",
         content: controlledComponent,
+    },
+
+    {
+        id: "state-management",
+        title: "State Management & Data Flow",
+        category: "React",
+        description:
+            "State Lifting, Common Ancestor, Data Consistency, Share Data",
+        content: stateManagement,
     },
 
     {
