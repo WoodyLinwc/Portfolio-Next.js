@@ -12,11 +12,11 @@ export const reactBasics: BasicTopic[] = [
         content: coreReact,
     },
 
-    // {
-    //     id: "",
-    //     title: "",
-    //     category: "React",
-    //     description: "",
-    //     content: test,
-    // },
+    {
+        id: "",
+        title: "",
+        category: "React",
+        description: "",
+        content: test,
+    },
 ];
