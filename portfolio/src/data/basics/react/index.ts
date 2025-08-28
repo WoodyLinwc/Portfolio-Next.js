@@ -5,13 +5,11 @@ import test from "./content/test.md";
 
 export const reactBasics: BasicTopic[] = [
     {
-        id: "jsx-components",
-        title: "JSX and Components",
+        id: "core-react",
+        title: "React Overview",
         category: "React",
-        description: "Understanding JSX syntax and creating React components.",
+        description: "",
         content: coreReact,
-        exampleUrl: "https://codesandbox.io/p/devbox/react-jsx-components",
-        tags: ["jsx", "components", "props", "functional-components"],
     },
 
     {
