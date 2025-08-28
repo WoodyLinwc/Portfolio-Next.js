@@ -34,11 +34,11 @@ export const otherBasics: BasicTopic[] = [
         content: test,
     },
 
-    {
-        id: "",
-        title: "",
-        category: "Others",
-        description: "",
-        content: test,
-    },
+    // {
+    //     id: "",
+    //     title: "",
+    //     category: "Others",
+    //     description: "",
+    //     content: test,
+    // },
 ];

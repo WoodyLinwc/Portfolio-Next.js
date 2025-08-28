@@ -245,13 +245,13 @@ export const javascriptBasics: BasicTopic[] = [
         content: performance,
     },
 
-    {
-        id: "",
-        title: "",
-        category: "JavaScript",
-        description: "",
-        content: test,
-    },
+    // {
+    //     id: "",
+    //     title: "",
+    //     category: "JavaScript",
+    //     description: "",
+    //     content: test,
+    // },
 
     // {
     //     id: "",
