@@ -1,6 +1,6 @@
 ## Data Types
 
--   **Primitive types**: string, number, boolean, null, undefined, symbol, bigint (**passed by value**), when access method `str.length`, JS temporarily wrap it to `new String('hello').length`, **immutable**.
+-   **Primitive types**: string, number, boolean, null, undefined, symbol, bigint (**passed by value**), when access method `str.length`, JS temporarily wrap it to `new String('hello').length`. They are **immutable**, meaning value cannot be changed once created, predictable and behave consistently.
 -   **Reference types**: object, array, function (**passed by reference**), **mutable**.
 
 ```javascript
