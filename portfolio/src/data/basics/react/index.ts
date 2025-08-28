@@ -59,7 +59,7 @@ export const reactBasics: BasicTopic[] = [
         id: "component",
         title: "Component Patterns",
         category: "React",
-        description: "",
+        description: "Functional vs CLass Component, Component Lifecycle",
         content: component,
     },
 
