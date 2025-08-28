@@ -5,6 +5,7 @@ import coreReact from "./content/core-react.md";
 import jsx from "./content/jsx.md";
 import propsState from "./content/props-state.md";
 import hooks from "./content/hooks.md";
+import customHooks from "./content/custom-hooks.md";
 
 import component from "./content/component.md";
 
@@ -43,6 +44,14 @@ export const reactBasics: BasicTopic[] = [
         description:
             "useEffect, useContext, Prop Drilling, useReducer, useMemo & useCallback, React.memo, useRef",
         content: hooks,
+    },
+
+    {
+        id: "custom-hooks",
+        title: "Custom Hooks",
+        category: "React",
+        description: "",
+        content: customHooks,
     },
 
     {
