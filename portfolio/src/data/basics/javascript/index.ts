@@ -1,7 +1,7 @@
 import type { BasicTopic } from "../types";
 
 // Import markdown files as raw text
-import test from "./content/test.md";
+// import test from "./content/test.md";
 import jsOverview from "./content/js-overview.md";
 import es6 from "./content/es6.md";
 import executionContext from "./content/execution-context.md";
@@ -245,13 +245,13 @@ export const javascriptBasics: BasicTopic[] = [
         content: performance,
     },
 
-    {
-        id: "",
-        title: "",
-        category: "JavaScript",
-        description: "",
-        content: test,
-    },
+    // {
+    //     id: "",
+    //     title: "",
+    //     category: "JavaScript",
+    //     description: "",
+    //     content: test,
+    // },
 
     // {
     //     id: "",
