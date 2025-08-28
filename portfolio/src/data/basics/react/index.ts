@@ -57,9 +57,10 @@ export const reactBasics: BasicTopic[] = [
 
     {
         id: "component",
-        title: "Component Patterns",
+        title: "Component Patterns & Event Handling",
         category: "React",
-        description: "Functional vs CLass Component, Component Lifecycle",
+        description:
+            "Functional vs CLass Component, Component Lifecycle, SyntheticEvent, Native Event",
         content: component,
     },
 

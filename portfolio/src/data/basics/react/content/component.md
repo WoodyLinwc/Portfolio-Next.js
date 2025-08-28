@@ -18,3 +18,26 @@
 -   **componentDidMount**: After **first render** (API calls, subscriptions)
 -   **componentDidUpdate**: After **every update** (side effects based on changes)
 -   **componentWillUnmount**: Before component removal (**cleanup**)
+
+## Event Handling
+
+-   React uses **SyntheticEvents** - a wrapper around **native events** that provides consistent behavior across browsers (`preventDefault`, `stopPropagation`)
+
+```javascript
+function Button() {
+    const handleClick = (event) => {
+        event.preventDefault(); // SyntheticEvent method
+        console.log("Button clicked");
+    };
+
+    return <button onClick={handleClick}>Click me</button>;
+}
+```
+
+## Passing Arguments
+
+```javascript
+<button onClick={() => handleClick(id)}>Click</button>
+<button onClick={handleClick.bind(null, id)}>Click</button>
+
+```
