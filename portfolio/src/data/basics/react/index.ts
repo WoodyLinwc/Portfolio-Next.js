@@ -19,7 +19,7 @@ export const reactBasics: BasicTopic[] = [
         title: "JSX (JavaScript XML)",
         category: "React",
         description:
-            "Syntax Extension, HTML-like, JSX Rules, Conditional Rendering Patterns",
+            "Syntax Extension, HTML-like, Transpilation, JSX Rules, Conditional Rendering Patterns",
         content: jsx,
     },
 
