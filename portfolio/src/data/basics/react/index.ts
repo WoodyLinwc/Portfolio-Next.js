@@ -1,7 +1,8 @@
 import type { BasicTopic } from "../types";
 
-import coreReact from "./content/core-react.md";
 import test from "./content/test.md";
+import coreReact from "./content/core-react.md";
+import jsx from "./content/jsx.md";
 
 export const reactBasics: BasicTopic[] = [
     {
@@ -11,6 +12,14 @@ export const reactBasics: BasicTopic[] = [
         description:
             "Declarative UI, Component-based Architecture, Virtual DOM, Unidirectional Data Flow, React Fiber, Before React",
         content: coreReact,
+    },
+
+    {
+        id: "jsx",
+        title: "JSX (JavaScript XML)",
+        category: "React",
+        description: "",
+        content: jsx,
     },
 
     {
