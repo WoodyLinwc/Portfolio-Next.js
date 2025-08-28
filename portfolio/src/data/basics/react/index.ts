@@ -3,6 +3,7 @@ import type { BasicTopic } from "../types";
 import test from "./content/test.md";
 import coreReact from "./content/core-react.md";
 import jsx from "./content/jsx.md";
+import propsState from "./content/props-state.md";
 
 export const reactBasics: BasicTopic[] = [
     {
@@ -21,6 +22,14 @@ export const reactBasics: BasicTopic[] = [
         description:
             "Syntax Extension, HTML-like, Transpilation, JSX Rules, Conditional Rendering Patterns",
         content: jsx,
+    },
+
+    {
+        id: "props-state",
+        title: "Props & State",
+        category: "React",
+        description: "",
+        content: propsState,
     },
 
     {
