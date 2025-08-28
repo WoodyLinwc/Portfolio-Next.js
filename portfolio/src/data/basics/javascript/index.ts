@@ -231,7 +231,8 @@ export const javascriptBasics: BasicTopic[] = [
         id: "web-api",
         title: "Web APIs & Browser Environment",
         category: "JavaScript",
-        description: "",
+        description:
+            "Local Storage & Session Storage, URL & URLSearchParams, Intersection Observer, Mutation Observer",
         content: webAPI,
     },
 
@@ -239,7 +240,8 @@ export const javascriptBasics: BasicTopic[] = [
         id: "performance-optimization",
         title: "Performance & Optimization",
         category: "JavaScript",
-        description: "",
+        description:
+            "Debounce & Throttle, WeakMap & WeakSet, Lazy Loading, Code Splitting, Preloading, Caching",
         content: performance,
     },
 
