@@ -8,7 +8,8 @@ export const reactBasics: BasicTopic[] = [
         id: "core-react",
         title: "React Overview",
         category: "React",
-        description: "",
+        description:
+            "Declarative UI, Component-based Architecture, Virtual DOM, Unidirectional Data Flow, React Fiber, Before React",
         content: coreReact,
     },
 
