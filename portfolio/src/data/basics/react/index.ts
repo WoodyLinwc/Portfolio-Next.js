@@ -6,8 +6,8 @@ import jsx from "./content/jsx.md";
 import propsState from "./content/props-state.md";
 import hooks from "./content/hooks.md";
 import customHooks from "./content/custom-hooks.md";
-
 import component from "./content/component.md";
+import controlledComponent from "./content/controlled-component.md";
 
 export const reactBasics: BasicTopic[] = [
     {
@@ -62,6 +62,15 @@ export const reactBasics: BasicTopic[] = [
         description:
             "Functional vs CLass Component, Component Lifecycle, SyntheticEvent, Native Event",
         content: component,
+    },
+
+    {
+        id: "controlled-component",
+        title: "Forms & Controlled Component",
+        category: "React",
+        description:
+            "Controlled & Uncontrolled Component, Form Input Value, Single Source of Truth, useState vs useRef",
+        content: controlledComponent,
     },
 
     {
