@@ -50,7 +50,8 @@ export const reactBasics: BasicTopic[] = [
         id: "custom-hooks",
         title: "Custom Hooks",
         category: "React",
-        description: "",
+        description:
+            "Encapsulate and Reuse Stateful Logic, Data Fetching, Local Storage, Form Handling, Window Size",
         content: customHooks,
     },
 
