@@ -9,6 +9,7 @@ import customHooks from "./content/custom-hooks.md";
 import component from "./content/component.md";
 import controlledComponent from "./content/controlled-component.md";
 import stateManagement from "./content/state-management.md";
+import reactRouter from "./content/react-router.md";
 
 export const reactBasics: BasicTopic[] = [
     {
@@ -79,8 +80,17 @@ export const reactBasics: BasicTopic[] = [
         title: "State Management & Data Flow",
         category: "React",
         description:
-            "State Lifting, Common Ancestor, Data Consistency, Share Data",
+            "State Lifting, Common Ancestor, Data Consistency, Share Data, Redux, Zustand, Context",
         content: stateManagement,
+    },
+
+    {
+        id: "react-router",
+        title: "React Router",
+        category: "React",
+        description:
+            "BrowserRouter, Routers, Route, Link, Navigate, useNavigate",
+        content: reactRouter,
     },
 
     {
