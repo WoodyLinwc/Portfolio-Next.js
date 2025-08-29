@@ -1,6 +1,6 @@
 import type { BasicTopic } from "../types";
 
-import test from "./content/test.md";
+// import test from "./content/test.md";
 import coreReact from "./content/core-react.md";
 import jsx from "./content/jsx.md";
 import propsState from "./content/props-state.md";
