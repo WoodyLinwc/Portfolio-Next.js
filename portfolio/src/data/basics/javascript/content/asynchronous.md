@@ -74,6 +74,7 @@ promiseObj.then((result) => console.log(result));
 ## Async/await - syntactic sugar of promise
 
 -   It makes asynchronous code look **synchronous** and still use **promise behind the scene**, use with **try/catch**.
+-   An `async` function always returns a Promise, and `await` pauses the execution until the Promise resolves.
 -   Early days: **XMLHttpRequest (XHR)** is the original browser API for making HTTP requests. Verbose and callback-based
 -   ES6+: **Fetch API**, promise-based, cleaner syntax
 -   Libraries: **Axios**, automatic JSON handling, automatically catches 404, 500 errors, request and response interceptors (middleware function)

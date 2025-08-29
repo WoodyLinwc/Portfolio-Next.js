@@ -19,7 +19,7 @@ boundGreet("Hey"); // "Hey, Bob!"
 ```
 
 -   **Regular Function**: `this` depends on HOW the function is called. Method call, `this` refers to the object. Regular function call, `this` refers to global object, `undefined` in strict mode.
--   **Arrow Function**: A function that **doesn't have its own `this`** - instead inherits this from the lexical scope where it's defined.
+-   **Arrow Function**: A function that **doesn't have its own `this`** - instead inherits `this` from the enclosing scope and cannot be used as constructors.
 
 ```javascript
 const obj = {
@@ -41,3 +41,8 @@ const obj = {
     },
 };
 ```
+
+## undefined vs null
+
+-   `undefined` means variable has been declared but not assigned a value. `typeof undefined` is undefined
+-   `null` is an **intentional** assignment representing "no value", `typeof null` is **object**.

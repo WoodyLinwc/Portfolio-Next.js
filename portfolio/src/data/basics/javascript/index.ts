@@ -72,7 +72,8 @@ export const javascriptBasics: BasicTopic[] = [
         id: "object-content-system",
         title: "The Object Content System",
         category: "JavaScript",
-        description: "'this', 'this' binding, call(), apply(), bind() ",
+        description:
+            "'this', 'this' binding, call(), apply(), bind(), undefined vs null ",
         content: objectContentSystem,
     },
 
