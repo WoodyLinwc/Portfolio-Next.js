@@ -148,7 +148,7 @@ export const javascriptBasics: BasicTopic[] = [
         title: "Function & Datatype",
         category: "JavaScript",
         description:
-            "Primitive & Reference Datatypes, Falsy Value, Type Coercion, Function Declaration, Expression, Arrow Function",
+            "Primitive & Reference Datatypes, Falsy Value, Type Coercion, Pure Function, Function Declaration, Expression, Arrow Function",
         content: functionDatatype,
     },
 

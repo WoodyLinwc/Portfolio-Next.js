@@ -67,20 +67,20 @@ new Date() instanceof Date // true
 ({}) instanceof Object    // true
 ```
 
+# Pure Function
+
+-   A **pure function** is a function that **always returns the same output for the same input** and has no side effects (doesn't modify external state, make API calls, or log to console). Pure functions are predictable, testable, and essential in functional programming.
+
 ## Function Declaration
 
 ```javascript
-function greet(name) {
-    return `Hello, ${name}!`;
-}
+function greet(name) {}
 ```
 
 ## Function Expression
 
 ```javascript
-const bye = function (name) {
-    return `Bye, ${name}!`;
-};
+const bye = function (name) {};
 ```
 
 ## Arrow Functions
