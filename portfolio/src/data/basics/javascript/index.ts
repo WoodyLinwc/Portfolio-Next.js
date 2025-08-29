@@ -89,7 +89,8 @@ export const javascriptBasics: BasicTopic[] = [
         id: "asynchronous",
         title: "Asynchronous Code: Callback - Promise - async/await",
         category: "JavaScript",
-        description: "Asynchronous, Promise, Callback, async/await",
+        description:
+            "Asynchronous, Promise, Callback, async/await, Promise.all, Promise.allSettled",
         content: asynchronous,
     },
 
