@@ -18,6 +18,15 @@ export const otherBasics: BasicTopic[] = [
         description: "",
         content: test,
     },
+
+    {
+        id: "nextjs",
+        title: "Next.js",
+        category: "Others",
+        description: "",
+        content: test,
+    },
+
     {
         id: "testing",
         title: "Testing & Debugging",

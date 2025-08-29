@@ -12,6 +12,7 @@ import stateManagement from "./content/state-management.md";
 import reactRouter from "./content/react-router.md";
 import errorBoundaries from "./content/error-boundaries.md";
 import reactPatterns from "./content/react-patterns.md";
+import reactEcosystem from "./content/react-ecosystem.md";
 
 export const reactBasics: BasicTopic[] = [
     {
@@ -19,7 +20,7 @@ export const reactBasics: BasicTopic[] = [
         title: "React Overview",
         category: "React",
         description:
-            "Declarative UI, Component-based Architecture, Virtual DOM, Unidirectional Data Flow, React Fiber, Before React",
+            "Declarative UI, Component-based Architecture, Virtual DOM, Unidirectional Data Flow, React Fiber, React Best Practice, Before React",
         content: coreReact,
     },
 
@@ -108,15 +109,24 @@ export const reactBasics: BasicTopic[] = [
         id: "react-patterns",
         title: "React Patterns",
         category: "React",
-        description: "",
+        description: "Higher Order Function, Wrapper Hell, Render Props",
         content: reactPatterns,
     },
 
     {
-        id: "",
-        title: "",
+        id: "react-ecosystem",
+        title: "React Ecosystem & Tools",
         category: "React",
-        description: "",
-        content: test,
+        description:
+            "React Developer Tools, Components Tab, Profiler Tab, Testing, React Testing Library, React 18, Concurrent Rendering, Batch Updates",
+        content: reactEcosystem,
     },
+
+    // {
+    //     id: "",
+    //     title: "",
+    //     category: "React",
+    //     description: "",
+    //     content: test,
+    // },
 ];

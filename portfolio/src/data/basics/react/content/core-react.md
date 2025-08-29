@@ -33,6 +33,40 @@ This process is call **reconciliation** and makes React fast.
 -   Ability to pause, abort, or reuse work
 -   Priority assignment to different types of updates
 
+## React Best Practices
+
+Component Design:
+
+-   **Single responsibility**: One component, one purpose
+-   **Composition over inheritance**: Build complex UIs by combining simple components
+-   **Props interface**: Clear, minimal prop APIs
+
+State Management:
+
+-   **Local state first**: Keep state as local as possible
+-   **Lift state when needed**: Only when multiple components need it
+-   **Immutable updates**: Never mutate state directly
+
+Performance:
+
+-   **Measure before optimizing**: Use React DevTools Profiler
+-   **Memoize appropriately**: React.memo, useMemo, useCallback when beneficial
+-   **Code splitting**: Lazy load routes and heavy components
+-   **Optimize lists**: Use proper keys, virtualization for large lists
+
+Code Organization:
+
+-   **Folder structure**: Group by feature, not by file type
+-   **Custom hooks:** Extract reusable stateful logic
+-   **TypeScript**: Use for larger projects
+
+Accessibility:
+
+-   **Semantic HTML**: Use proper HTML elements
+-   **ARIA attributes**: When semantic HTML isn't enough
+-   **Keyboard navigation**: Ensure all interactions work with keyboard
+-   **Screen reader testing**: Test with actual screen readers
+
 ## Before React
 
 -   In vanilla JS:
