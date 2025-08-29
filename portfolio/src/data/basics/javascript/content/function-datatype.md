@@ -23,9 +23,12 @@ console.log(b); // Still 5
 
 // Objects, arrays, functions are reference types
 const obj1 = { name: "Alice" };
-const obj2 = obj1; // Copy of reference, not value
+const obj2 = obj1; // Reference Assignment
+const obj3 = { ...obj1 }; // Shallow copying
+
 obj1.name = "Bob";
 console.log(obj2.name); // "Bob" - same object!
+console.log(obj3.name); // "Alice"
 ```
 
 ## == vs ===
