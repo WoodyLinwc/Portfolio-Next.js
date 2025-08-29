@@ -18,7 +18,7 @@ const boundGreet = greet.bind(person);
 boundGreet("Hey"); // "Hey, Bob!"
 ```
 
--   **Regular Function**: A function that gets its **own `this` binding** determined by how it's called, following the standard this binding rules.
+-   **Regular Function**: `this` depends on HOW the function is called. Method call, `this` refers to the object. Regular function call, `this` refers to global object, `undefined` in strict mode.
 -   **Arrow Function**: A function that **doesn't have its own `this`** - instead inherits this from the lexical scope where it's defined.
 
 ```javascript
