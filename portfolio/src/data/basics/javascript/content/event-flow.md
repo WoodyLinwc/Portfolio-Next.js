@@ -10,7 +10,7 @@
 
 ## Event Delegation
 
-Event delegation is a technique where instead of attaching a handler to **each child element**, you attach a **single handler** to a common ancestor and use the event’s **bubbling** to detect which child triggered it.
+Event delegation is a technique where instead of attaching an event listener to **each child element**, you attach a **single event listener** to a common ancestor and use the event’s **bubbling** to detect which child triggered it.
 
 ```javascript
 <ul id="list">
