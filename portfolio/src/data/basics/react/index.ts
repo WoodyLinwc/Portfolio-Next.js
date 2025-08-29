@@ -11,6 +11,7 @@ import controlledComponent from "./content/controlled-component.md";
 import stateManagement from "./content/state-management.md";
 import reactRouter from "./content/react-router.md";
 import errorBoundaries from "./content/error-boundaries.md";
+import reactPatterns from "./content/react-patterns.md";
 
 export const reactBasics: BasicTopic[] = [
     {
@@ -99,8 +100,16 @@ export const reactBasics: BasicTopic[] = [
         title: "Error Boundaries, Suspense & Lazy Loading",
         category: "React",
         description:
-            "Render Methods & Lifecycle Methods, getDerivedStateFromError, componentDidCatch, React.lazy",
+            "Error in Render Methods & Lifecycle Methods, getDerivedStateFromError, componentDidCatch, React.lazy",
         content: errorBoundaries,
+    },
+
+    {
+        id: "react-patterns",
+        title: "React Patterns",
+        category: "React",
+        description: "",
+        content: reactPatterns,
     },
 
     {

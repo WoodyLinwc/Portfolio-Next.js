@@ -39,7 +39,11 @@ function App() {
 }
 ```
 
+## Suspense & Lazy Loadings
+
 -   **Suspense** allows components to **wait for something** before rendering, commonly used with **code splitting** and **data fetching**.
+-   Code Splitting: Split large bundles into smaller, manageable pieces.
+-   Lazy Loading: Defer loading of resources until they're actually required.
 -   **Code Splitting with React.lazy**
 
 ```javascript
@@ -52,6 +56,26 @@ function App() {
                 <LazyComponent />
             </Suspense>
         </div>
+    );
+}
+```
+
+-   **Route-based Code Splitting**:
+
+```javascript
+const Home = React.lazy(() => import("./routes/Home"));
+const About = React.lazy(() => import("./routes/About"));
+
+function App() {
+    return (
+        <Router>
+            <Suspense fallback={<div>Loading page...</div>}>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                </Routes>
+            </Suspense>
+        </Router>
     );
 }
 ```
