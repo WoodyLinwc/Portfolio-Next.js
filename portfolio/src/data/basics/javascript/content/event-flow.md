@@ -6,7 +6,7 @@
 
 **Default behavior**: Events **bubble up** (child → parent → grandparent)
 
-**Bubbling**: Most event listeners use bubbling (default behavior), which enables **event delegation**
+**Bubbling**: The default event listener behavior is bubbling, which enables **event delegation**
 
 ## Event Delegation
 
