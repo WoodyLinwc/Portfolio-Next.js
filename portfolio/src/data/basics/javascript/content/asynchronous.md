@@ -59,6 +59,18 @@ const promiseObj = new Promise((resolve) => resolve("Hello!"));
 promiseObj.then((result) => console.log(result));
 ```
 
+`Promise.all`
+
+-   Takes **an array of promises**.
+-   Returns a **single promise** that:
+-   Resolves → when **all promises succeed** → with an array of results.
+-   Rejects → immediately when any **one promise fails**.
+
+`Promise.allSettled`
+
+-   Takes **an array of promises**.
+-   Returns a **single promise** that **always resolves**
+
 ## Async/await - syntactic sugar of promise
 
 -   It makes asynchronous code look **synchronous** and still use **promise behind the scene**, use with **try/catch**.
