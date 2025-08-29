@@ -27,7 +27,7 @@ function Card({ title, children }) {
 }
 ```
 
-## State & useState
+## State
 
 -   State is **internal data** that belongs to a component and can **trigger re-renders** when changed.
 -   State is **immutable** - always create **new objects/arrays**
@@ -47,6 +47,10 @@ function handleClick() {
     setCount((prev) => prev + 1);
 }
 ```
+
+## useState
+
+-   **useState** is a hook that adds state to functional components. It returns an array with the **current state value and a setter function**. When the setter is called, it triggers a re-render with the new state value.
 
 ## Updating Objects/Arrays:
 
