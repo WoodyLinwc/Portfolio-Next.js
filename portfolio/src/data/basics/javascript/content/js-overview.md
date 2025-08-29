@@ -20,6 +20,4 @@ JavaScript Engine:
 └── Function Types:
     ├── Regular Functions (own 'this', own execution context)
     └── Arrow Functions (inherited 'this', own execution context)
-
-
 ```
