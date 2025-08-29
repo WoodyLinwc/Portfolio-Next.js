@@ -2,6 +2,7 @@
 
 -   **Higher-Order Components** are functions that **take a component** and return a new component with **additional functionality**
 -   HOCs can create **wrapper hell** with deeply nested components, make debugging harder
+-   HOC for **error boundaries**
 
 Common Use Cases:
 

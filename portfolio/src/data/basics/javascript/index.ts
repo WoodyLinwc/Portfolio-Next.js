@@ -129,9 +129,9 @@ export const javascriptBasics: BasicTopic[] = [
 
     {
         id: "firstClass",
-        title: "First-class and Higher-order Function",
+        title: "First-class, Higher-order Function, Static and Instance Methods",
         category: "JavaScript",
-        description: "",
+        description: "Utility Function",
         content: firstClass,
     },
 
