@@ -29,7 +29,7 @@ function Card({ title, children }) {
 
 ## State & useState
 
--   State is **internal mutable data** that belongs to a component and can **trigger re-renders** when changed.
+-   State is **internal data** that belongs to a component and can **trigger re-renders** when changed.
 -   State is **immutable** - always create **new objects/arrays**
 -   State updates are **asynchronous**
 -   Multiple state updates may be **batched**
