@@ -4,4 +4,17 @@
 ## Static method vs Instance method
 
 **Static methods**: For **utility functions**, factory methods, or operations that don't depend on instance state
+
 **Instance methods**: For operations that work with or modify the specific data of an object instance
+
+```javascript
+// Static - Called on `Array` constructor
+Array.isArray(something);
+Array.from(nodeList); // Creates array from array-like object
+Array.of(1, 2, 3); // Creates array from arguments
+
+// Instance - works with existing array
+const myArray = [1, 2, 3];
+myArray.push(4); // Modifies the array
+myArray.length; // Accesses array property
+```
