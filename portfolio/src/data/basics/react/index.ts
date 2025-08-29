@@ -10,6 +10,7 @@ import component from "./content/component.md";
 import controlledComponent from "./content/controlled-component.md";
 import stateManagement from "./content/state-management.md";
 import reactRouter from "./content/react-router.md";
+import errorBoundaries from "./content/error-boundaries.md";
 
 export const reactBasics: BasicTopic[] = [
     {
@@ -91,6 +92,15 @@ export const reactBasics: BasicTopic[] = [
         description:
             "BrowserRouter, Routers, Route, Link, Navigate, useNavigate",
         content: reactRouter,
+    },
+
+    {
+        id: "error-boundaries",
+        title: "Error Boundaries, Suspense & Lazy Loading",
+        category: "React",
+        description:
+            "Render Methods & Lifecycle Methods, getDerivedStateFromError, componentDidCatch, React.lazy",
+        content: errorBoundaries,
     },
 
     {
