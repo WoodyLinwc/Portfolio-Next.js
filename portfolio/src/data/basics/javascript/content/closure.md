@@ -1,4 +1,5 @@
 -   **Closure**: When an **inner function retains access** to variables from its outer function, even after the outer function has finished executing.
+-   Closures are created when a **function is defined inside another function** and references variables from the outer function.
 
 ```javascript
 function createCounter() {
