@@ -1,4 +1,4 @@
--   **DOM**: The programming interface for HTML documents - represents the page structure as a **tree of objects** that JavaScript can manipulate.
+-   **DOM**: The **programming interface** for HTML documents - represents the page structure as a **tree of objects** that JavaScript can manipulate.
 -   **DOM Node**: An individual element in the DOM tree (elements, text, attributes, etc.).
 
 ```javascript
