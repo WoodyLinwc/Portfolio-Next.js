@@ -2,7 +2,7 @@
 -   **'this' binding**: The **process** of determining what object `this` points to at **runtime** based on **how** the function was invoked.
 -   **call()**: A method that **immediately invokes** a function with a specified `this` value and individual argument.
 -   **apply()**: A method that **immediately invokes** a function with a specified `this` value and an array of arguments.
--   **bind()**: A method that creates a **new function** with a permanently bound `this` value and optionally pre-filled arguments.
+-   **bind()**: A method that creates a **new function** with `this` bound to the specified value.
 
 ```javascript
 function greet(greeting) {
