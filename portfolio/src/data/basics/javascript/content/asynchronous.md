@@ -1,41 +1,41 @@
--   Asynchronous behavior means some operation **take time to complete**, not immediately(fetch data from a server), but we don't want to **freeze** the program.
+- Asynchronous behavior means some operation **take time to complete**, not immediately(fetch data from a server), but we don't want to **freeze** the program.
 
 ## Callback - the original solution
 
--   A callback is simply a **function passed to another function**.
--   **Callback hell**: when you have multiple asynchronous functions that depends on each other, nested callback, hard to read and maintain
+- A callback is simply a **function passed to another function**.
+- **Callback hell**: when you have multiple asynchronous functions that depends on each other, nested callback, hard to read and maintain
 
 ```javascript
 function fetchUserData(userId, callback) {
-    setTimeout(() => {
-        const userData = { id: userId, name: "Alice" };
-        callback(null, userData); // First param: error, second: data
-    }, 1000);
+  setTimeout(() => {
+    const userData = { id: userId, name: "Alice" };
+    callback(null, userData); // First param: error, second: data
+  }, 1000);
 }
 
 fetchUserData(123, (error, user) => {
-    if (error) {
-        console.log("Error:", error);
-    } else {
-        console.log("User:", user);
-    }
+  if (error) {
+    console.log("Error:", error);
+  } else {
+    console.log("User:", user);
+  }
 });
 // User: { id: 123, name: 'Alice' }
 ```
 
 ## Promise - a better way
 
--   Promise is the **eventual completion** of asynchronous operation.
--   It has 3 states, **pending, rejected, fulfilled**.
--   Promise is **chainable**, attach .then() to handle result, .catch() to handle error or rejection
+- Promise is the **eventual completion** of asynchronous operation.
+- It has 3 states, **pending, rejected, fulfilled**.
+- Promise is **chainable**, attach .then() to handle result, .catch() to handle error or rejection
 
 ```javascript
 function wait(ms) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(`Waited ${ms}ms`);
-        }, ms);
-    });
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Waited ${ms}ms`);
+    }, ms);
+  });
 }
 
 wait(1000).then(console.log); // "Waited 1000ms" after 1 second
@@ -43,13 +43,19 @@ wait(1000).then(console.log); // "Waited 1000ms" after 1 second
 
 //can use async/await:
 async function demo() {
-    console.log("Start");
-    const msg = await wait(5000); // ⏸ pauses here
-    console.log(msg); // " Waited 5000ms"
-    console.log("End");
+  console.log("Start");
+  const msg = await wait(5000); // ⏸ pauses here
+  console.log(msg); // " Waited 5000ms"
+  console.log("End");
 }
 
 demo();
+```
+
+Add function to microtask queue
+
+```javascript
+Promise.resolve().then(fn);
 ```
 
 Promise object
@@ -61,20 +67,20 @@ promiseObj.then((result) => console.log(result));
 
 `Promise.all`
 
--   Takes **an array of promises**.
--   Returns a **single promise** that:
--   Resolves → when **all promises succeed** → with an array of results.
--   Rejects → immediately when any **one promise fails**.
+- Takes **an array of promises**.
+- Returns a **single promise** that:
+- Resolves → when **all promises succeed** → with an array of results.
+- Rejects → immediately when any **one promise fails**.
 
 `Promise.allSettled`
 
--   Takes **an array of promises**.
--   Returns a **single promise** that **always resolves**
+- Takes **an array of promises**.
+- Returns a **single promise** that **always resolves**
 
 ## Async/await - syntactic sugar of promise
 
--   It makes asynchronous code look **synchronous** and still use **promise behind the scene**, use with **try/catch**.
--   An `async` function always returns a Promise, and `await` pauses the execution until the Promise resolves.
--   Early days: **XMLHttpRequest (XHR)** is the original browser API for making HTTP requests. Verbose and callback-based
--   ES6+: **Fetch API**, promise-based, cleaner syntax
--   Libraries: **Axios**, automatic JSON handling, automatically catches 404, 500 errors, request and response interceptors (middleware function)
+- It makes asynchronous code look **synchronous** and still use **promise behind the scene**, use with **try/catch**.
+- An `async` function always returns a Promise, and `await` pauses the execution until the Promise resolves.
+- Early days: **XMLHttpRequest (XHR)** is the original browser API for making HTTP requests. Verbose and callback-based
+- ES6+: **Fetch API**, promise-based, cleaner syntax
+- Libraries: **Axios**, automatic JSON handling, automatically catches 404, 500 errors, request and response interceptors (middleware function)

@@ -1,9 +1,9 @@
 ## Data Types
 
--   **Primitive types**: string, number, boolean, null, undefined, symbol, bigint (**passed by value**)
--   When access method `str.length`, JS temporarily create a **wrapper object**, allowing access to **String.prototype methods**, then **unboxes** it, `new String('hello').length`.
--   They are **immutable**, meaning value cannot be changed once created, predictable and behave consistently.
--   **Reference types**: object, array, function (**passed by reference**), **mutable**.
+- **Primitive types**: string, number, boolean, null, undefined, symbol, bigint (**passed by value**)
+- When access method `str.length`, JS temporarily create a **wrapper object**, allowing access to **String.prototype methods**, then **unboxes** it, `new String('hello').length`.
+- They are **immutable**, meaning value cannot be changed once created, predictable and behave consistently.
+- **Reference types**: object, array, function (**passed by reference**), **mutable**.
 
 ```javascript
 // 7 primitive types
@@ -33,8 +33,8 @@ console.log(obj3.name); // "Alice"
 
 ## == vs ===
 
--   == (Loose Equality): Compares values **after type coercion**.
--   === (Strict Equality): Compares values **without type coercion**.
+- == (Loose Equality): Compares values **after type coercion**.
+- === (Strict Equality): Compares values **without type coercion**.
 
 ## Falsy value
 
@@ -52,8 +52,8 @@ console.log(Boolean(NaN));
 
 ## `typeof` vs `instanceof`
 
--   `typeof` works with **Primitive** types and **function**.
--   `instanceof` returns true/false, works with **Reference** types
+- `typeof` works with **Primitive** types and **function**.
+- `instanceof` returns true/false, works with **Reference** types
 
 ```javascript
 typeof 42;          // "number"
@@ -69,7 +69,7 @@ new Date() instanceof Date // true
 
 # Pure Function
 
--   A **pure function** is a function that **always returns the same output for the same input** and has no side effects (doesn't modify external state, make API calls, or log to console). Pure functions are predictable, testable, and essential in functional programming.
+- A **pure function** is a function that **always returns the same output for the same input** and has no side effects (doesn't modify external state, make API calls, or log to console). Pure functions are predictable, testable, and essential in functional programming.
 
 ## Function Declaration
 

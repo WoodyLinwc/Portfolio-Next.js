@@ -22,7 +22,7 @@ console.log(result[2]); // "example.com" (second group)
 
 ## String Methods with Regex
 
--   `match()` - Find matches
+- `match()` - Find matches
 
 ```javascript
 const text = "Phone: 123-456-7890 or 987-654-3210";
@@ -32,7 +32,7 @@ console.log(text.match(phoneRegex));
 // ["123-456-7890", "987-654-3210"]
 ```
 
--   `replace()`- Replace matches, $ means capture group
+- `replace()`- Replace matches, $ means capture group
 
 ```javascript
 const text = "Hello World";
@@ -45,7 +45,7 @@ console.log(name.replace(/(\w+) (\w+)/, "$2, $1"));
 // "Doe, John"
 ```
 
--   `search()` - Find position
+- `search()` - Find position
 
 ```javascript
 const text = "Find the word here";
@@ -54,7 +54,7 @@ console.log(text.search(/word/)); // 9 (index position)
 console.log(text.search(/xyz/)); // -1 (not found)
 ```
 
--   `split()` - Split string, [] for multiple punctuation
+- `split()` - Split string, [] for multiple punctuation
 
 ```javascript
 const csv = "apple,banana;orange:grape";
@@ -64,7 +64,7 @@ console.log(csv.split(/[,;:]/));
 
 ## Common Patterns
 
--   Extract Numbers
+- Extract Numbers
 
 ```javascript
 const text = "I have 5 apples and 10 oranges";
@@ -72,7 +72,7 @@ const numbers = text.match(/\d+/g);
 console.log(numbers); // ["5", "10"]
 ```
 
--   Remove All Numbers/Letters
+- Remove All Numbers/Letters
 
 ```javascript
 const text = "0He1ll2o345!";

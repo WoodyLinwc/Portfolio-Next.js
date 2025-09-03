@@ -1,5 +1,5 @@
--   **Prototype**: An object that serves as a **template** for other objects, containing properties and methods that **can be shared**.
--   **Prototype Chain**: The **lookup mechanism** JavaScript uses to find properties - if not found on the object, it looks up the prototype chain.
+- **Prototype**: An object that serves as a **template** for other objects, containing properties and methods that **can be shared**.
+- **Prototype Chain**: The **lookup mechanism** JavaScript uses to find properties - if not found on the object, it looks up the prototype chain.
 
 The internal property that points to an object's prototype (accessed via `__proto__` or `Object.getPrototypeOf()`).
 
@@ -17,7 +17,7 @@ console.log(arr.__proto__.__proto__); // Object.prototype
 console.log(arr.__proto__.__proto__.__proto__); // null (end of chain)
 ```
 
--   **Constructor Function**: A function used with `new` keyword to create objects and set up prototype relationships.
+- **Constructor Function**: A function used with `new` keyword to create objects and set up prototype relationships.
 
 `prototype` property: A property on constructor functions that becomes the prototype for instances created by that constructor.
 
@@ -25,32 +25,32 @@ console.log(arr.__proto__.__proto__.__proto__); // null (end of chain)
 
 ```javascript
 class Animal {
-    constructor(name) {
-        this.name = name;
-    }
+  constructor(name) {
+    this.name = name;
+  }
 
-    speak() {
-        return `${this.name} makes a sound`;
-    }
+  speak() {
+    return `${this.name} makes a sound`;
+  }
 
-    sleep() {
-        return `${this.name} is sleeping`;
-    }
+  sleep() {
+    return `${this.name} is sleeping`;
+  }
 }
 
 class Dog extends Animal {
-    constructor(name, breed) {
-        super(name); // Call parent constructor
-        this.breed = breed;
-    }
+  constructor(name, breed) {
+    super(name); // Call parent constructor
+    this.breed = breed;
+  }
 
-    speak() {
-        return `${this.name} barks`;
-    }
+  speak() {
+    return `${this.name} barks`;
+  }
 
-    fetch() {
-        return `${this.name} fetches the ball`;
-    }
+  fetch() {
+    return `${this.name} fetches the ball`;
+  }
 }
 
 const buddy = new Dog("Buddy", "Golden Retriever");

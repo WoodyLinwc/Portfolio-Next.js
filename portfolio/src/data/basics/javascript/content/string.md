@@ -34,11 +34,12 @@ trim(), trimStart(), toLowerCase(), toUpperCase(), replace(), replaceAll()
 const str = "  Hello World  ";
 const trimStart = str.trimStart(); // "Hello World  "
 
-str.trim()
-    .toLowerCase()
-    .toUpperCase()
-    .replace("WORLD", "JS")
-    .replaceAll("L", "l");
+str
+  .trim()
+  .toLowerCase()
+  .toUpperCase()
+  .replace("WORLD", "JS")
+  .replaceAll("L", "l");
 // HEllO JS
 ```
 
@@ -58,8 +59,8 @@ str.charAt(0); // "a"
 
 ## String() vs toString()
 
--   **String()**: global function, **safe**, never throws error, most common.
--   **toString()**: method, **throws error** on null or undefined, accepts **radix parameter**.
+- **String()**: global function, **safe**, never throws error, most common.
+- **toString()**: method, **throws error** on null or undefined, accepts **radix parameter**.
 
 ```javascript
 String(null); // "null"

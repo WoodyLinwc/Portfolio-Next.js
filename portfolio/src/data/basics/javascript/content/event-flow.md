@@ -1,8 +1,8 @@
 ## Event Flow has 3 Phase
 
--   **Capture Phase**: Event travels **down** from document **root to target** element.
--   **Target Phase**: Event **reaches the actual** target element
--   **Bubble Phase**: Event travels up from **target element back** to document root
+- **Capture Phase**: Event travels **down** from document **root to target** element.
+- **Target Phase**: Event **reaches the actual** target element
+- **Bubble Phase**: Event travels up from **target element back** to document root
 
 **Default behavior**: Events **bubble up** (child → parent → grandparent)
 
@@ -37,16 +37,16 @@ A modal has a close button — clicking the button shouldn’t also trigger the 
 ```javascript
 // prevent page refresh
 form.addEventListener("submit", function (event) {
-    event.preventDefault();
+  event.preventDefault();
 });
 
 // stop navigation
 link.addEventListener("click", function (event) {
-    event.preventDefault();
+  event.preventDefault();
 });
 
 // right click - disable context menu, no Back, Reload, Inspect
 document.addEventListener("contextmenu", function (event) {
-    event.preventDefault();
+  event.preventDefault();
 });
 ```

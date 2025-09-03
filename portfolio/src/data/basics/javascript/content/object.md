@@ -45,24 +45,24 @@ const entries = Object.entries(obj); // [['a', 1], ['b', 2], ['c', 3]]
 
 // iteration methods
 for (const key in obj) {
-    /* iterate keys */
+  /* iterate keys */
 }
 for (const [key, value] of Object.entries(obj)) {
-    /* iterate entries */
+  /* iterate entries */
 }
 
 Object.values(obj).forEach((value) => {
-    /* iterate values */
+  /* iterate values */
 });
 Object.entries(obj).forEach(([key, value]) => {
-    /* iterate entries*/
+  /* iterate entries*/
 });
 ```
 
 ## for...of vs for...in
 
--   **for...of** works on **iterable** (Map, Set, Array, String, Object.entries)
--   **for...in** works on Objects, iterating on Keys
+- **for...of** works on **iterable** (Map, Set, Array, String, Object.entries)
+- **for...in** works on Objects, iterating on Keys
 
 ## Convert Map to Object
 
@@ -70,8 +70,8 @@ Object.fromEntries()
 
 ```javascript
 const map = new Map([
-    ["language", "JavaScript"],
-    ["type", "dynamic"],
+  ["language", "JavaScript"],
+  ["type", "dynamic"],
 ]);
 
 const obj = Object.fromEntries(map);

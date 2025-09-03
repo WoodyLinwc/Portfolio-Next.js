@@ -16,9 +16,9 @@ _Italic text_
 
 ### Bullet List
 
--   Item 1
--   Item 2
-    -   Sub item
+- Item 1
+- Item 2
+  - Sub item
 
 ## Links and Images
 
@@ -29,7 +29,7 @@ _Italic text_
 
 ```javascript
 function hello() {
-    console.log("Hello World!");
+  console.log("Hello World!");
 }
 ```
 

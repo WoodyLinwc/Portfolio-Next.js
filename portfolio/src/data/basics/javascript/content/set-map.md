@@ -17,7 +17,7 @@ Array.from(set); // convert to array
 
 ## Set Operations
 
--   Union, Intersection, Difference
+- Union, Intersection, Difference
 
 ```javascript
 const set1 = new Set([1, 2, 3]);
@@ -50,8 +50,8 @@ map.size; // number of entries
 
 // From array of arrays
 const map2 = new Map([
-    ["a", 1],
-    ["b", 2],
+  ["a", 1],
+  ["b", 2],
 ]);
 ```
 
@@ -61,27 +61,27 @@ for...of, forEach()
 
 ```javascript
 const map = new Map([
-    ["a", 1],
-    ["b", 2],
+  ["a", 1],
+  ["b", 2],
 ]);
 for (const [key, value] of map) {
-    /* iterate entries */
+  /* iterate entries */
 }
 for (const key of map.keys()) {
-    /* iterate keys */
+  /* iterate keys */
 }
 for (const value of map.values()) {
-    /* iterate values */
+  /* iterate values */
 }
 
 map.forEach((value, key) => {
-    /* iterate */
+  /* iterate */
 });
 ```
 
 ## Convert Map to Array to Object
 
--   `Array.from(map) or [...map]`
+- `Array.from(map) or [...map]`
 
 ```javascript
 const objArr = Array.from(map, ([key, value]) => ({ key, value }));

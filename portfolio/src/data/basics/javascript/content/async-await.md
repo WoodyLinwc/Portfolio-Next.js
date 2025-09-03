@@ -2,20 +2,20 @@
 
 ```javascript
 function fetchData(url) {
-    return fetch(url)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("❌ Network response was not ok");
-            }
-            return response.json();
-        })
-        .then((data) => {
-            console.log("✅ Data:", data);
-            return data; // pass data to the next .then() if needed
-        })
-        .catch((error) => {
-            console.error("❌ Fetch error:", error);
-        });
+  return fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("❌ Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("✅ Data:", data);
+      return data; // pass data to the next .then() if needed
+    })
+    .catch((error) => {
+      console.error("❌ Fetch error:", error);
+    });
 }
 ```
 
@@ -23,7 +23,7 @@ function fetchData(url) {
 
 ```javascript
 const promise = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("done"), 1000);
+  setTimeout(() => resolve("done"), 1000);
 });
 
 promise.then((result) => console.log(result));
@@ -42,16 +42,16 @@ Promise.reject(error); // rejected promise
 
 ```javascript
 async function fetchData(url) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error("❌ Network response was not ok");
-        }
-        const data = await response.json();
-        console.log("✅ Data:", data);
-        return data; // still returns a Promise
-    } catch (error) {
-        console.error("❌ Fetch error:", error);
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("❌ Network response was not ok");
     }
+    const data = await response.json();
+    console.log("✅ Data:", data);
+    return data; // still returns a Promise
+  } catch (error) {
+    console.error("❌ Fetch error:", error);
+  }
 }
 ```

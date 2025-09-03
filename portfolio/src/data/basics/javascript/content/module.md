@@ -1,7 +1,7 @@
 ## Differences between ESM and CommonJS
 
--   **ESM**: **asynchronous loading** (doesn't block execution), good support of **tree shaking** (bundler can determine where to eliminate dead code), works natively in browser `<script type="module">`
--   **CommonJS**: synchronous loading, fully support ESM after version 12
+- **ESM**: **asynchronous loading** (doesn't block execution), good support of **tree shaking** (bundler can determine where to eliminate dead code), works natively in browser `<script type="module">`
+- **CommonJS**: synchronous loading, fully support ESM after version 12
 
 ## ES6 Modules (ESM)
 
@@ -15,13 +15,13 @@
 // math.js - CommonJS exports
 const PI = 3.14159;
 function add(a, b) {
-    return a + b;
+  return a + b;
 }
 
 module.exports = {
-    PI,
-    add,
-    subtract: (a, b) => a - b,
+  PI,
+  add,
+  subtract: (a, b) => a - b,
 };
 
 // app.js - CommonJS imports

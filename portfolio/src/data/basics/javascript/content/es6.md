@@ -1,8 +1,8 @@
--   **Class**: the syntactic sugar over prototype inheritance
--   **spread operator**: shallow copy, convert set/string to array
--   **Destructuring**: extract multiple values at once
--   **Symbols** are a primitive data type that creates unique identifiers. For example, a library might use symbols for internal methods that users shouldn't accidentally override.
--   **Iterator**: a standard way to traverse through a collection of data one at a time. For example, for...of uses iterators under the hood, calls Symbol.iterator to get an iterator object
--   **Generator**: a special function that can pause and resume its execution with 'yield', lazy evaluation, and generate value on demand, not all at once.
--   **Template literal**: embedding expressions and variables directly within the string
--   **Arrow function**
+- **Class**: the syntactic sugar over prototype inheritance
+- **spread operator**: shallow copy, convert set/string to array
+- **Destructuring**: extract multiple values at once
+- **Symbols** are a primitive data type that creates unique identifiers. For example, a library might use symbols for internal methods that users shouldn't accidentally override.
+- **Iterator**: a standard way to traverse through a collection of data one at a time. For example, for...of uses iterators under the hood, calls Symbol.iterator to get an iterator object
+- **Generator**: a special function that can pause and resume its execution with 'yield', lazy evaluation, and generate value on demand, not all at once.
+- **Template literal**: embedding expressions and variables directly within the string
+- **Arrow function**
