@@ -3,6 +3,7 @@ import type { BasicTopic } from "../types";
 import test from "./content/test.md";
 import typescript from "./content/typescript.md";
 import interfaceType from "./content/interface-type.md";
+import generic from "./content/generic.md";
 
 export const otherBasics: BasicTopic[] = [
   {
@@ -20,6 +21,14 @@ export const otherBasics: BasicTopic[] = [
     description:
       "Object Shape, Declaration Merging, Extends, Union Types, Aliasing, Computed Properties",
     content: interfaceType,
+  },
+
+  {
+    id: "generic",
+    title: "Generic",
+    category: "Others",
+    description: "Placeholder, <T,>",
+    content: generic,
   },
 
   {
