@@ -4,6 +4,13 @@ import test from "./content/test.md";
 import typescript from "./content/typescript.md";
 import interfaceType from "./content/interface-type.md";
 import generic from "./content/generic.md";
+import testing from "./content/testing-debugging.md";
+import frontendProblems from "./content/frontend-problems.md";
+import jwt from "./content/jwt.md";
+import webAttacks from "./content/web-attacks.md";
+import websocket from "./content/websocket.md";
+import nextjs from "./content/nextjs.md";
+import reactNative from "./content/react-native.md";
 
 export const otherBasics: BasicTopic[] = [
   {
@@ -36,7 +43,7 @@ export const otherBasics: BasicTopic[] = [
     title: "React Native",
     category: "Others",
     description: "",
-    content: test,
+    content: reactNative,
   },
 
   {
@@ -44,7 +51,40 @@ export const otherBasics: BasicTopic[] = [
     title: "Next.js",
     category: "Others",
     description: "",
-    content: test,
+    content: nextjs,
+  },
+
+  {
+    id: "jwt",
+    title: "JWT (JSON Web Token), Session, Cookie",
+    category: "Others",
+    description: "JWT, Session, Cookie, Storing JWT",
+    content: jwt,
+  },
+
+  {
+    id: "websocket",
+    title: "WebSocket",
+    category: "Others",
+    description: "",
+    content: websocket,
+  },
+
+  {
+    id: "web-attacks",
+    title: "Web Attacks",
+    category: "Others",
+    description:
+      "XSS (HttpOnly), CSRF(SameSite), SQLi(Parameterized Queries), MITM(Https), Clickjacking, CSP",
+    content: webAttacks,
+  },
+
+  {
+    id: "frontend-problems",
+    title: "Frontend Common Problems",
+    category: "Others",
+    description: "",
+    content: frontendProblems,
   },
 
   {
@@ -52,7 +92,7 @@ export const otherBasics: BasicTopic[] = [
     title: "Testing & Debugging",
     category: "Others",
     description: "Jest",
-    content: test,
+    content: testing,
   },
 
   {
