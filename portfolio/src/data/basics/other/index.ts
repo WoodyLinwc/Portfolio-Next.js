@@ -5,12 +5,15 @@ import typescript from "./content/typescript.md";
 import interfaceType from "./content/interface-type.md";
 import generic from "./content/generic.md";
 import testing from "./content/testing-debugging.md";
-import frontendProblems from "./content/frontend-problems.md";
 import jwt from "./content/jwt.md";
 import webAttacks from "./content/web-attacks.md";
 import websocket from "./content/websocket.md";
 import nextjs from "./content/nextjs.md";
 import reactNative from "./content/react-native.md";
+import dataNetwork from "./content/data-network-challenges.md";
+import dependency from "./content/denpendency-deployment-challenges.md";
+import performance from "./content/performance-challenges.md";
+import uiux from "./content/ui-ux-challenges.md";
 
 export const otherBasics: BasicTopic[] = [
   {
@@ -80,11 +83,39 @@ export const otherBasics: BasicTopic[] = [
   },
 
   {
-    id: "frontend-problems",
-    title: "Frontend Common Problems",
+    id: "uiux",
+    title: "UI/UX Challenges",
     category: "Others",
-    description: "",
-    content: frontendProblems,
+    description:
+      "Virtualization, Server-Side Pagination, requestAnimationFrame, Responsive Design (Median Queries), Accessibility",
+    content: uiux,
+  },
+
+  {
+    id: "performance",
+    title: "Performance Challenges",
+    category: "Others",
+    description:
+      "React.memo, Profiler, CDN, Lazy Loading, Clean Up in useEffect, Tree-Shaking, Modular Import, Web Worker",
+    content: performance,
+  },
+
+  {
+    id: "dataNetwork",
+    title: "Data & Network & Security Challenges",
+    category: "Others",
+    description:
+      "Service Workers, PWA, Exponential backoff, Optimistic updates, Event sourcing, SWR, React Query, RBAC, MFA",
+    content: dataNetwork,
+  },
+
+  {
+    id: "dependency",
+    title: "Dependency & Deployment Challenges",
+    category: "Others",
+    description:
+      "Version Auditing, Automated Testing, .env, Secret Manager, Feature Flags, Sentry, Polyfill",
+    content: dependency,
   },
 
   {
