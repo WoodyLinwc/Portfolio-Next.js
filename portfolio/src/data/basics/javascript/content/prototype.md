@@ -1,4 +1,4 @@
-- **Prototype**: An object that serves as a **template** for other objects, containing properties and methods that **can be shared**.
+- **Prototype**: An object directly inherit from other object. An object can be designated as a prototype for another object.
 - **Prototype Chain**: The **lookup mechanism** JavaScript uses to find properties - if not found on the object, it looks up the prototype chain.
 
 The internal property that points to an object's prototype (accessed via `__proto__` or `Object.getPrototypeOf()`).
