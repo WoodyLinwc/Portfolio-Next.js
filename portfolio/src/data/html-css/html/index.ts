@@ -27,7 +27,8 @@ export const htmlTopics: HtmlCssTopic[] = [
     id: "sementic-html2",
     title: "Sementic HTML 2",
     category: "HTML",
-    description: "",
+    description:
+      "Forms, form, fieldset, label for, input type id name, select id name, option value ",
     content: semanticHTML2,
   },
   {
