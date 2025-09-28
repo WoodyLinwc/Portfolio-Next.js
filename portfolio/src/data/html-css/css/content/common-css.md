@@ -1,5 +1,7 @@
 ## Common CSS Properties Reference
 
+- color, background-color, font-weight, text-align, display, cursor, border, box-sizing
+
 ```css
 .container {
   color: red; /* text color */
