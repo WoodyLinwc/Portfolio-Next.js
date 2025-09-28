@@ -28,7 +28,7 @@ export const cssTopics: HtmlCssTopic[] = [
   },
   {
     id: "flexbox",
-    title: "Flex Box Axis",
+    title: "Flexbox Axis",
     category: "CSS",
     description:
       "display, flex-direction, justify-content, align-items, align-self, box-sizing",
@@ -36,7 +36,7 @@ export const cssTopics: HtmlCssTopic[] = [
   },
   {
     id: "flexbox-grow",
-    title: "Flex Box Grow",
+    title: "Flexbox Grow",
     category: "CSS",
     description: "flex, flex-grow, flex-shrink, flex-basis",
     content: flexboxGrow,
