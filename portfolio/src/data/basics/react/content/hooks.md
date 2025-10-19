@@ -48,7 +48,7 @@ Reducer Pattern:
 ## useMemo & useCallback Hooks vs React.memo
 
 - Performance optimization hooks that **prevent unnecessary recalculations and re-renders** through memoization.
-- **useMemo**: Memoizes the **result** of expensive calculations. **useCallback**: Memoizes **functions** to prevent child re-renders
+- **useMemo**: Memoizes the **result** of expensive calculations. **useCallback**: Memoizes **functions**.
 - **React.memo**: **HOC** that wraps a functional component. Prevent re-render of **child component** if props unchanged.
 
 ```javascript
