@@ -1,4 +1,4 @@
-- It is a **just-in-time** compiled language that runs everywhere, from browsers to servers to mobile apps.
+- It is a **just-in-time** compiled language where code is translated into machine code during run time.
 - JS supports **dynamic typing**, meaning variables don't need a type declaration. It introduces type safety concerns, but now we have TS, a superset of JS has static typing also with better IDE support.
 - It's **prototype-based**, meaning objects inherit directly from other objects.
 - It's **single-threaded**; JS uses the event loop for concurrency.
