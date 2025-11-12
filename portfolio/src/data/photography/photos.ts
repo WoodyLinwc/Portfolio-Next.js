@@ -261,7 +261,7 @@ export const photos: Photo[] = [
   },
 
   {
-    src: "/images/album/B&W/black_beach-min.jpg",
+    src: "/images/album/B&W/black_beach-min.JPG",
     category: "bw",
     alt: "George Lane Beach black and white",
   },
