@@ -1,0 +1,45 @@
+React Flight / Next.js RCE Advisory Fix Implementation
+
+VULNERABILITY ASSESSMENT:
+This Next.js portfolio project was affected by the React Flight / Next.js RCE advisory.
+
+ORIGINAL STATE:
+- Next.js Version: 15.3.3 (VULNERABLE)
+- eslint-config-next: 15.3.3 (VULNERABLE)
+- React Version: 19.0.0
+- React Flight Packages: None detected
+
+VULNERABILITY DETAILS:
+- Next.js 15.3.3 is in the 15.3.x range, which had an RCE vulnerability in React Flight
+- According to the advisory, 15.3.x should be upgraded to 15.3.6
+- The project does not use React Flight packages directly (react-server-dom-*)
+
+CHANGES IMPLEMENTED:
+1. Upgraded Next.js from 15.3.3 to 15.3.6:
+   - Updated package.json: "next": "15.3.3" → "15.3.6"
+   - Updated package.json: "eslint-config-next": "15.3.3" → "15.3.6"
+
+2. Updated lockfiles:
+   - Ran `npm install` to resolve dependencies
+   - package-lock.json updated with patched Next.js 15.3.6 and all related packages
+
+FINAL STATE:
+✓ Next.js upgraded to patched version: 15.3.6
+✓ No React Flight packages detected (none needed patching)
+✓ React and React-DOM remain at 19.0.0 (managed by Next.js)
+✓ All dependencies resolved correctly
+
+VERIFICATION RESULTS:
+✓ Build succeeds: `npm run build` completed successfully
+✓ Linting passes: `npm run lint` with no errors or warnings
+✓ Lockfile is consistent and reflects the patched versions
+
+FILES MODIFIED:
+- package.json: Updated next and eslint-config-next from 15.3.3 to 15.3.6
+- package-lock.json: Updated to reflect dependency resolution with patched versions
+
+SECURITY STATUS:
+✓ Project is now protected against the React Flight / Next.js RCE advisory
+✓ Using recommended patched version: Next.js 15.3.6
+✓ No breaking changes introduced
+✓ Build and linting verified successful
