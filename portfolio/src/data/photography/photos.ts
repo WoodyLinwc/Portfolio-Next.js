@@ -82,6 +82,7 @@ export const photos: Photo[] = [
     category: "travel",
     alt: "Concert photographer travel",
   },
+
   {
     src: "/images/album/Travel/canon_staff-min.JPG",
     category: "travel",
@@ -91,6 +92,11 @@ export const photos: Photo[] = [
     src: "/images/album/Travel/winter_dusk-min.JPG",
     category: "travel",
     alt: "Winter dusk travel",
+  },
+  {
+    src: "/images/album/Travel/park_feeding-min.JPG",
+    category: "travel",
+    alt: "Man feeding squall",
   },
   {
     src: "/images/album/Travel/night_beach-min.JPG",
@@ -235,6 +241,11 @@ export const photos: Photo[] = [
     alt: "Old man black and white",
   },
   {
+    src: "/images/album/B&W/black_fish-min.JPG",
+    category: "bw",
+    alt: "Old man fishing",
+  },
+  {
     src: "/images/album/B&W/museum_statue-min.jpg",
     category: "bw",
     alt: "Museum statue black and white",
@@ -359,7 +370,11 @@ export const photos: Photo[] = [
     category: "event",
     alt: "Hanfu man event",
   },
-
+  {
+    src: "/images/album/Event/girl_turnback-min.JPG",
+    category: "event",
+    alt: "Girl look back",
+  },
   {
     src: "/images/album/Event/ab_glasses-min.JPG",
     category: "event",
@@ -447,22 +462,6 @@ export const photos: Photo[] = [
     src: "/images/album/Event/serena_dance-min.JPG",
     category: "event",
     alt: "Serena and Stephenie",
-  },
-  {
-    src: "/images/album/Event/man_hanfu-min.JPG",
-    category: "event",
-    alt: "Man in Hanfu",
-  },
-  {
-    src: "/images/album/Event/selfie_hanfu-min.JPG",
-    category: "event",
-    alt: "Selfie Hanfu",
-  },
-
-  {
-    src: "/images/album/Event/black_girl-min.JPG",
-    category: "event",
-    alt: "Black Girl",
   },
 
   {
