@@ -14,13 +14,13 @@ export interface AIProject {
 export const aiProjects: AIProject[] = [
   // Add your AI projects here
   // Example:
-  // {
-  //     icon: "fa-brain",
-  //     title: "Sentiment Analysis Tool",
-  //     description: "AI-powered sentiment analysis that processes text to determine emotional tone and context using natural language processing.",
-  //     link: "https://example.com/sentiment-analysis",
-  //     category: "nlp",
-  // },
+  {
+    icon: "fa-dice",
+    title: "Dice Throw Simulator",
+    description:
+      "A realistic 3D physics-based dice rolling simulator built with React Three Fiber and Cannon.js.",
+    link: "https://woody-lin-dice-throw-simulator.vercel.app/",
+  },
 ];
 
 // Helper function to get projects by category
