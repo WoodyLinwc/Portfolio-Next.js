@@ -29,7 +29,7 @@ export const aiProjects: AIProject[] = [
     link: "https://woody-lin-mini-solar-system.vercel.app/",
   },
   {
-    icon: "fa-comments-dollar",
+    icon: "fa-coins",
     title: "Texas Hold'em Simulator",
     description:
       "A React-based Texas Hold'em poker simulator that lets you play against AI opponents and analyze your hands with detailed equity calculations at each stage of the game.",
