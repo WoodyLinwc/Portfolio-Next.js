@@ -36,6 +36,13 @@ export const aiProjects: AIProject[] = [
     link: "https://woody-lin-texas-hold-em-simulator.vercel.app/",
   },
   {
+    icon: "fa-note-sticky",
+    title: "Draggable Notes",
+    description:
+      "A beautiful, interactive sticky notes application with drag-and-drop functionality and persistent storage per browser.",
+    link: "https://woody-lin-draggable-notes.vercel.app/",
+  },
+  {
     icon: "fa-arrow-down-1-9",
     title: "Zenith Sudoku",
     description:
