@@ -13,10 +13,20 @@ export interface AIProject {
 }
 
 export const aiProjects: AIProject[] = [
+  // https://fontawesome.com/search
   // Add your AI projects here
   // Example:
   // https://github.com/WoodyLinwc/dice-throw-simulator/blob/main/img/dice.png
   // https://raw.githubusercontent.com/WoodyLinwc/dice-throw-simulator/main/img/dice.png
+  {
+    icon: "fa-fish",
+    title: "3D Pixel Aquarium",
+    description:
+      "A tranquil 3D aquarium experience where pixel-art marine life swims gracefully in a realistic glass tank. Raise your own pixel fish in a browser!",
+    link: "https://woody-lin-3d-pixel-aquarium.vercel.app/",
+    image:
+      "https://raw.githubusercontent.com/WoodyLinwc/3d-pixel-aquarium/main/img/aquarium.png",
+  },
   {
     icon: "fa-dice",
     title: "Dice Throw Simulator",
