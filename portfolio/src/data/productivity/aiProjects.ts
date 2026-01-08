@@ -55,6 +55,15 @@ export const aiProjects: AIProject[] = [
       "https://raw.githubusercontent.com/WoodyLinwc/texas-hold-em-simulator/main/img/result.png",
   },
   {
+    icon: "fa-face-grin-squint-tears",
+    title: "Emoji Splash",
+    description:
+      "An interactive physics playground where emojis burst from your cursor and interact with realistic collision physics.",
+    link: "https://woody-lin-emoji-splash.vercel.app/",
+    image:
+      "https://raw.githubusercontent.com/WoodyLinwc/emoji-splash/main/img/pileEmoji.png",
+  },
+  {
     icon: "fa-note-sticky",
     title: "Draggable Notes",
     description:
