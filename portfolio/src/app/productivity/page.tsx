@@ -12,7 +12,7 @@ import QuoteWidget from "@/components/widgets/QuoteWidget";
 export default function ProductivityPage() {
   const [showTools, setShowTools] = useState(false);
   const [showWebsites, setShowWebsites] = useState(false);
-  const [showAIProjects, setShowAIProjects] = useState(false);
+  const [showAIProjects, setShowAIProjects] = useState(true);
 
   const getButtonText = (tool: { title: string }) => {
     // Web services that you "try out" vs downloadable software
