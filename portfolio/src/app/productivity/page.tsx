@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import DisqusComments from "@/components/widgets/DisqusComments";
 import SectionTitle from "@/components/SectionTitle";
 import { tools } from "@/data/productivity/tools";
@@ -242,6 +243,22 @@ export default function ProductivityPage() {
                     <p className="text-gray-600 mb-6 leading-relaxed">
                       {project.description}
                     </p>
+                    {/* Project Image */}
+                    <div className="mb-6 bg-gray-200 rounded-lg overflow-hidden aspect-video relative">
+                      {project.image ? (
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <i className="fa fa-image text-gray-400 text-4xl"></i>
+                        </div>
+                      )}
+                    </div>
                     <a
                       href={project.link}
                       target="_blank"
