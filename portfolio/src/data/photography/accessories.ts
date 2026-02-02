@@ -86,7 +86,7 @@ export const accessories: Accessory[] = [
     brand: "Promatic",
     model: "FTD 4000",
     specs: ["Hot shoe mount"],
-    description: "Super oooold flashlight, only around $20",
+    description: "Super oooold flashlight, cost only around $20",
     image: "/images/camera/promatic_ftd_4000.jpg",
     purchaseYear: 2026,
   },
