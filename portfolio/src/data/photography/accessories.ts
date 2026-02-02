@@ -92,9 +92,9 @@ export const accessories: Accessory[] = [
   },
   {
     id: "22",
-    name: "NiSi Circular Black Mist Filter 1/4 Strength",
+    name: "NiSi 82mm Circular Black Mist Filter 1/4 Strength",
     brand: "NiSi",
-    model: "Black Mist Filter 1/4 Strength",
+    model: "82mm Black Mist Filter 1/4 Strength",
     specs: ["Soften images", "Diffusion filter", "Dream-like cinematic effect"],
     description:
       "Reduce highlights, lower contrast, great for portrait photography!",
