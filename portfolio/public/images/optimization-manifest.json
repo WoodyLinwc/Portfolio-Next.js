@@ -1,5 +1,5 @@
 {
-  "generated": "2025-12-14T18:25:39.265Z",
+  "generated": "2026-04-13T04:03:07.699Z",
   "config": {
     "inputDir": "./public/images/album",
     "thumbnailDir": "./public/images/thumbnails",
@@ -43,7 +43,7 @@
         "jpeg": "public/images/thumbnails/B&W/black_fish-min.jpg",
         "size": 15
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "public/images/album/B&W/cloud_mountain-min.JPG",
@@ -280,6 +280,15 @@
       "skipped": true
     },
     {
+      "original": "public/images/album/Event/ab_starring-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/ab_starring-min.webp",
+        "jpeg": "public/images/thumbnails/Event/ab_starring-min.jpg",
+        "size": 20
+      },
+      "skipped": false
+    },
+    {
       "original": "public/images/album/Event/black_girl-min.JPG",
       "thumbnail": {
         "webp": "public/images/thumbnails/Event/black_girl-min.webp",
@@ -334,11 +343,65 @@
       "skipped": true
     },
     {
+      "original": "public/images/album/Event/ding_cos-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/ding_cos-min.webp",
+        "jpeg": "public/images/thumbnails/Event/ding_cos-min.jpg",
+        "size": 22
+      },
+      "skipped": false
+    },
+    {
+      "original": "public/images/album/Event/fox_girl-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/fox_girl-min.webp",
+        "jpeg": "public/images/thumbnails/Event/fox_girl-min.jpg",
+        "size": 31
+      },
+      "skipped": false
+    },
+    {
+      "original": "public/images/album/Event/girl_team-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/girl_team-min.webp",
+        "jpeg": "public/images/thumbnails/Event/girl_team-min.jpg",
+        "size": 15
+      },
+      "skipped": false
+    },
+    {
+      "original": "public/images/album/Event/girl_team2-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/girl_team2-min.webp",
+        "jpeg": "public/images/thumbnails/Event/girl_team2-min.jpg",
+        "size": 21
+      },
+      "skipped": false
+    },
+    {
       "original": "public/images/album/Event/girl_turnback-min.JPG",
       "thumbnail": {
         "webp": "public/images/thumbnails/Event/girl_turnback-min.webp",
         "jpeg": "public/images/thumbnails/Event/girl_turnback-min.jpg",
         "size": 16
+      },
+      "skipped": true
+    },
+    {
+      "original": "public/images/album/Event/grey_cos-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/grey_cos-min.webp",
+        "jpeg": "public/images/thumbnails/Event/grey_cos-min.jpg",
+        "size": 18
+      },
+      "skipped": false
+    },
+    {
+      "original": "public/images/album/Event/grey_cos2-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/grey_cos2-min.webp",
+        "jpeg": "public/images/thumbnails/Event/grey_cos2-min.jpg",
+        "size": 18
       },
       "skipped": false
     },
@@ -442,6 +505,24 @@
       "skipped": true
     },
     {
+      "original": "public/images/album/Event/lin_cos-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/lin_cos-min.webp",
+        "jpeg": "public/images/thumbnails/Event/lin_cos-min.jpg",
+        "size": 25
+      },
+      "skipped": false
+    },
+    {
+      "original": "public/images/album/Event/lin_cos2-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/lin_cos2-min.webp",
+        "jpeg": "public/images/thumbnails/Event/lin_cos2-min.jpg",
+        "size": 15
+      },
+      "skipped": false
+    },
+    {
       "original": "public/images/album/Event/man_hanfu-min.JPG",
       "thumbnail": {
         "webp": "public/images/thumbnails/Event/man_hanfu-min.webp",
@@ -458,6 +539,24 @@
         "size": 23
       },
       "skipped": true
+    },
+    {
+      "original": "public/images/album/Event/red_cos-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/red_cos-min.webp",
+        "jpeg": "public/images/thumbnails/Event/red_cos-min.jpg",
+        "size": 29
+      },
+      "skipped": false
+    },
+    {
+      "original": "public/images/album/Event/red_cos2-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Event/red_cos2-min.webp",
+        "jpeg": "public/images/thumbnails/Event/red_cos2-min.jpg",
+        "size": 23
+      },
+      "skipped": false
     },
     {
       "original": "public/images/album/Event/selfie_hanfu-min.JPG",
@@ -898,6 +997,15 @@
         "jpeg": "public/images/thumbnails/Travel/park_feeding-min.jpg",
         "size": 32
       },
+      "skipped": true
+    },
+    {
+      "original": "public/images/album/Travel/red_behind-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/red_behind-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/red_behind-min.jpg",
+        "size": 18
+      },
       "skipped": false
     },
     {
@@ -991,6 +1099,15 @@
       "skipped": true
     },
     {
+      "original": "public/images/album/Travel/three_men-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/three_men-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/three_men-min.jpg",
+        "size": 11
+      },
+      "skipped": false
+    },
+    {
       "original": "public/images/album/Travel/train_couple-min.jpg",
       "thumbnail": {
         "webp": "public/images/thumbnails/Travel/train_couple-min.webp",
@@ -998,6 +1115,15 @@
         "size": 26
       },
       "skipped": true
+    },
+    {
+      "original": "public/images/album/Travel/train_girl-min.JPG",
+      "thumbnail": {
+        "webp": "public/images/thumbnails/Travel/train_girl-min.webp",
+        "jpeg": "public/images/thumbnails/Travel/train_girl-min.jpg",
+        "size": 17
+      },
+      "skipped": false
     },
     {
       "original": "public/images/album/Travel/train_outside-min.JPG",

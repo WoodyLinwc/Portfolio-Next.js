@@ -149,9 +149,25 @@ export const photos: Photo[] = [
     alt: "Cloud shadow travel",
   },
   {
+    src: "/images/album/Travel/red_behind-min.JPG",
+    category: "travel",
+    alt: "ICA travel",
+  },
+  {
+    src: "/images/album/Travel/three_men-min.JPG",
+    category: "travel",
+    alt: "Snow Boston Common",
+  },
+
+  {
     src: "/images/album/Travel/back_hands-min.JPG",
     category: "travel",
     alt: "Back hands travel",
+  },
+  {
+    src: "/images/album/Travel/train_girl-min.JPG",
+    category: "travel",
+    alt: "MBTA girl",
   },
   {
     src: "/images/album/Travel/hat_beach-min.JPG",
@@ -193,6 +209,7 @@ export const photos: Photo[] = [
     category: "travel",
     alt: "Reflection walk travel",
   },
+
   // {
   //     src: "/images/album/Travel/moon_light-min.JPG",
   //     category: "travel",
@@ -459,11 +476,67 @@ export const photos: Photo[] = [
   },
 
   {
+    src: "/images/album/Event/ab_starring-min.JPG",
+    category: "event",
+    alt: "Anime Boston",
+  },
+  {
+    src: "/images/album/Event/ding_cos-min.JPG",
+    category: "event",
+    alt: "Anime Boston",
+  },
+  {
+    src: "/images/album/Event/fox_girl-min.JPG",
+    category: "event",
+    alt: "Anime Boston",
+  },
+
+  {
+    src: "/images/album/Event/grey_cos-min.JPG",
+    category: "event",
+    alt: "Anime Boston",
+  },
+  {
+    src: "/images/album/Event/grey_cos2-min.JPG",
+    category: "event",
+    alt: "Anime Boston",
+  },
+  {
+    src: "/images/album/Event/lin_cos-min.JPG",
+    category: "event",
+    alt: "Anime Boston",
+  },
+  {
+    src: "/images/album/Event/lin_cos2-min.JPG",
+    category: "event",
+    alt: "Anime Boston",
+  },
+  {
+    src: "/images/album/Event/red_cos-min.JPG",
+    category: "event",
+    alt: "Anime Boston",
+  },
+  {
+    src: "/images/album/Event/red_cos2-min.JPG",
+    category: "event",
+    alt: "Anime Boston",
+  },
+
+  {
     src: "/images/album/Event/serena_dance-min.JPG",
     category: "event",
     alt: "Serena and Stephenie",
   },
-
+  {
+    src: "/images/album/Event/girl_team-min.JPG",
+    category: "event",
+    alt: "Anime Boston",
+  },
+  {
+    src: "/images/album/Event/girl_team2-min.JPG",
+    category: "event",
+    alt: "Anime Boston",
+  },
   {
     src: "/images/album/Event/sign_keshi-min.JPG",
     category: "event",
