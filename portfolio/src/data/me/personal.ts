@@ -15,20 +15,20 @@ export const personalInfo: PersonalInfo = {
   skills: {
     languages: "JavaScript, TypeScript, SQL, HTML & CSS, Java, Python, Bash",
     frameworks:
-      "React, Next.js, React Native, Express.js, Fastify, AngularJS, Tailwind CSS, Bootstrap, One App, Holocron, Jekyll",
+      "React, Next.js, React Native, Express.js, Fastify, Tailwind CSS, Bootstrap, Jekyll",
     tools:
       "AWS, Vercel, Vite, Webpack, Babel, Chrome DevTools, ESLint, Prettier, Jest, Figma, Docker, Git, Postman, VS Code, Node.js, Miniconda, Expo, Google Play Console, PM2, Jira",
   },
   links: {
-    resume: "https://woodylinwc.github.io/pdf/WoodyLinResume.pdf",
-    linkedin: "https://www.linkedin.com/in/woody-lin-32ab48161/",
+    resume: "h",
+    linkedin: "https://www.linkedin.com/in/woody-lin/",
     github: "https://github.com/WoodyLinwc",
     gitlab: "https://gitlab.com/WoodyLinwc",
     discord: "http://discordapp.com/users/Until_Dawn#0751",
     steam: "https://steamcommunity.com/profiles/76561198373609638/",
     weibo: "https://weibo.com/u/5660627747?is_all=1",
     blog: "https://WoodyLinwc.blogspot.com/",
-    portfolio: "https://github.com/WoodyLinwc/WoodyLinwc.github.io",
+    portfolio: "",
   },
   hero: {
     greeting: "Hello, my name",
@@ -41,7 +41,7 @@ export const personalInfo: PersonalInfo = {
     ],
   },
   about: {
-    title: "A Passionate Software Developer",
+    title: "A Passionate Biotech Associate and Software Developer",
     description: "",
   },
   certificates: [
