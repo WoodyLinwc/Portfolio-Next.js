@@ -18,9 +18,14 @@ export const personalInfo: PersonalInfo = {
       "React, Next.js, React Native, Express.js, Fastify, Tailwind CSS, Bootstrap, Jekyll",
     tools:
       "AWS, Vercel, Vite, Webpack, Babel, Chrome DevTools, ESLint, Prettier, Jest, Figma, Docker, Git, Postman, VS Code, Node.js, Miniconda, Expo, Google Play Console, PM2, Jira",
+    laboratory:
+      "Aseptic technique, cell culture, gel electrophoresis, spectrophotometry, buffer preparation, centrifugation, chromatography, colorimetry, device calibration, TFF/DF, cleanroom, gowning, GMP & SOP compliance",
+    equipment:
+      "Microscopes, pipettes, micropipettes, centrifuges, bioreactor, spectrophotometers",
   },
+
   links: {
-    resume: "h",
+    resume: "",
     linkedin: "https://www.linkedin.com/in/woody-lin/",
     github: "https://github.com/WoodyLinwc",
     gitlab: "https://gitlab.com/WoodyLinwc",
