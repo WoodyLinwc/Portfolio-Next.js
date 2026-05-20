@@ -287,11 +287,15 @@ export const photos: Photo[] = [
     category: "bw",
     alt: "Couple dog black and white",
   },
-
   {
     src: "/images/album/B&W/black_beach-min.JPG",
     category: "bw",
     alt: "George Lane Beach black and white",
+  },
+  {
+    src: "/images/album/B&W/metro-flag-min.JPG",
+    category: "bw",
+    alt: "A man waiting for train",
   },
   {
     src: "/images/album/B&W/island_boat-min.JPG",
@@ -303,7 +307,6 @@ export const photos: Photo[] = [
     category: "bw",
     alt: "Island walk black and white",
   },
-
   {
     src: "/images/album/B&W/side_look-min.JPG",
     category: "bw",
@@ -334,6 +337,7 @@ export const photos: Photo[] = [
     category: "bw",
     alt: "Museum glass black and white",
   },
+
   {
     src: "/images/album/B&W/island_bird-min.JPG",
     category: "bw",
@@ -352,6 +356,82 @@ export const photos: Photo[] = [
   },
 
   // Event Photos
+  {
+    src: "/images/album/Event/Alexandra1-min.jpg",
+    category: "event",
+    alt: "2026 BU graduation",
+  },
+  {
+    src: "/images/album/Event/Alexandra5-min.jpg",
+    category: "event",
+    alt: "2026 BU graduation",
+  },
+  {
+    src: "/images/album/Event/Alexandra3-min.jpg",
+    category: "event",
+    alt: "2026 BU graduation",
+  },
+  {
+    src: "/images/album/Event/Alexandra2-min.jpg",
+    category: "event",
+    alt: "2026 BU graduation",
+  },
+  {
+    src: "/images/album/Event/Alexandra4-min.jpg",
+    category: "event",
+    alt: "2026 BU graduation",
+  },
+  {
+    src: "/images/album/Event/Alexandra6-min.jpg",
+    category: "event",
+    alt: "2026 BU graduation",
+  },
+  {
+    src: "/images/album/Event/Sophia1-min.jpg",
+    category: "event",
+    alt: "2026 BU graduation",
+  },
+  {
+    src: "/images/album/Event/Sophia2-min.jpg",
+    category: "event",
+    alt: "2026 BU graduation",
+  },
+  {
+    src: "/images/album/Event/Lilian1-min.jpg",
+    category: "event",
+    alt: "2026 BU graduation",
+  },
+  {
+    src: "/images/album/Event/Lilian2-min.jpg",
+    category: "event",
+    alt: "2026 BU graduation",
+  },
+  {
+    src: "/images/album/Event/Jenifer2-min.jpg",
+    category: "event",
+    alt: "2026 BU graduation",
+  },
+  {
+    src: "/images/album/Event/Jenifer1-min.jpg",
+    category: "event",
+    alt: "2026 BU graduation",
+  },
+  {
+    src: "/images/album/Event/as1-min.jpg",
+    category: "event",
+    alt: "Japan Festival",
+  },
+  {
+    src: "/images/album/Event/as2-min.jpg",
+    category: "event",
+    alt: "Japan Festival",
+  },
+  {
+    src: "/images/album/Event/as3-min.jpg",
+    category: "event",
+    alt: "Japan Festival",
+  },
+
   {
     src: "/images/album/Event/cos_three-min.PNG",
     category: "event",
