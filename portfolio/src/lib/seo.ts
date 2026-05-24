@@ -2,7 +2,7 @@
 import { Metadata } from "next";
 
 const baseUrl = "https://woody-lin-personal.vercel.app";
-const siteName = "Woody Lin - Software Developer Portfolio";
+const siteName = "Woody Lin - Personal Portfolio";
 
 interface SEOProps {
   title: string;
@@ -31,8 +31,10 @@ export function generateMetadata({
     keywords: [
       "Woody Lin",
       "Software Developer",
+      "Biotech",
       "React Developer",
       "TypeScript",
+      "Photographer",
       ...keywords,
     ],
     authors: [{ name: "Woody Lin", url: "https://github.com/WoodyLinwc" }],
