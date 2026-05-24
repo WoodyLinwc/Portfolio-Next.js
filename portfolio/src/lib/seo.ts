@@ -31,7 +31,7 @@ export function generateMetadata({
     keywords: [
       "Woody Lin",
       "Software Developer",
-      "Biotech",
+      "Biotech Associate",
       "React Developer",
       "TypeScript",
       "Photographer",
@@ -80,7 +80,7 @@ export const seoConfig = {
     keywords: [
       "Portfolio",
       "AWS Certified",
-      "Biotech",
+      "Biotech Associate",
       "Woody Lin",
       "Photographer",
       "UMass Boston",
