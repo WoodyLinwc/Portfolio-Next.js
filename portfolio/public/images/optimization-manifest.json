@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-20T20:42:39.138Z",
+  "generated": "2026-08-13T22:08:51.911Z",
   "config": {
     "inputDir": "../public/images/album",
     "thumbnailDir": "../public/images/thumbnails",
@@ -25,7 +25,7 @@
         "jpeg": "./images/thumbnails/B&W/beach_kid-min.jpg",
         "size": 16
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/black_beach-min.JPG",
@@ -34,7 +34,7 @@
         "jpeg": "./images/thumbnails/B&W/black_beach-min.jpg",
         "size": 22
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/black_fish-min.JPG",
@@ -42,6 +42,15 @@
         "webp": "./images/thumbnails/B&W/black_fish-min.webp",
         "jpeg": "./images/thumbnails/B&W/black_fish-min.jpg",
         "size": 15
+      },
+      "skipped": true
+    },
+    {
+      "original": "./images/album/B&W/cave_reflection-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/B&W/cave_reflection-min.webp",
+        "jpeg": "./images/thumbnails/B&W/cave_reflection-min.jpg",
+        "size": 26
       },
       "skipped": false
     },
@@ -52,7 +61,7 @@
         "jpeg": "./images/thumbnails/B&W/cloud_mountain-min.jpg",
         "size": 5
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/couple_dog-min.JPG",
@@ -61,7 +70,7 @@
         "jpeg": "./images/thumbnails/B&W/couple_dog-min.jpg",
         "size": 11
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/distant_island-min.JPG",
@@ -70,7 +79,7 @@
         "jpeg": "./images/thumbnails/B&W/distant_island-min.jpg",
         "size": 23
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/glass_man-min.JPG",
@@ -79,7 +88,7 @@
         "jpeg": "./images/thumbnails/B&W/glass_man-min.jpg",
         "size": 9
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/island_bird-min.JPG",
@@ -88,7 +97,7 @@
         "jpeg": "./images/thumbnails/B&W/island_bird-min.jpg",
         "size": 7
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/island_boat-min.JPG",
@@ -97,7 +106,7 @@
         "jpeg": "./images/thumbnails/B&W/island_boat-min.jpg",
         "size": 13
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/island_walk-min.JPG",
@@ -106,7 +115,7 @@
         "jpeg": "./images/thumbnails/B&W/island_walk-min.jpg",
         "size": 21
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/john_cena-min.jpg",
@@ -115,7 +124,7 @@
         "jpeg": "./images/thumbnails/B&W/john_cena-min.jpg",
         "size": 55
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/metro-flag-min.jpg",
@@ -124,7 +133,7 @@
         "jpeg": "./images/thumbnails/B&W/metro-flag-min.jpg",
         "size": 19
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/museum_exposure-min.JPG",
@@ -133,7 +142,7 @@
         "jpeg": "./images/thumbnails/B&W/museum_exposure-min.jpg",
         "size": 13
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/museum_glass-min.JPG",
@@ -142,7 +151,7 @@
         "jpeg": "./images/thumbnails/B&W/museum_glass-min.jpg",
         "size": 16
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/museum_reflection-min.JPG",
@@ -151,7 +160,7 @@
         "jpeg": "./images/thumbnails/B&W/museum_reflection-min.jpg",
         "size": 11
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/museum_shadow-min.jpg",
@@ -160,7 +169,7 @@
         "jpeg": "./images/thumbnails/B&W/museum_shadow-min.jpg",
         "size": 9
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/museum_statue-min.jpg",
@@ -169,7 +178,7 @@
         "jpeg": "./images/thumbnails/B&W/museum_statue-min.jpg",
         "size": 10
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/museum_view-min.JPG",
@@ -178,7 +187,7 @@
         "jpeg": "./images/thumbnails/B&W/museum_view-min.jpg",
         "size": 11
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/nine_grid-min.JPG",
@@ -187,7 +196,7 @@
         "jpeg": "./images/thumbnails/B&W/nine_grid-min.jpg",
         "size": 17
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/old_man-min.JPG",
@@ -196,7 +205,7 @@
         "jpeg": "./images/thumbnails/B&W/old_man-min.jpg",
         "size": 10
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/side_look-min.JPG",
@@ -205,7 +214,7 @@
         "jpeg": "./images/thumbnails/B&W/side_look-min.jpg",
         "size": 7
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/train_smoke-min.jpg",
@@ -214,7 +223,7 @@
         "jpeg": "./images/thumbnails/B&W/train_smoke-min.jpg",
         "size": 23
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/trunk_beach-min.JPG",
@@ -223,7 +232,7 @@
         "jpeg": "./images/thumbnails/B&W/trunk_beach-min.jpg",
         "size": 20
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/waiting_train-min.JPG",
@@ -232,7 +241,7 @@
         "jpeg": "./images/thumbnails/B&W/waiting_train-min.jpg",
         "size": 19
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/wheel_museum-min.JPG",
@@ -241,7 +250,7 @@
         "jpeg": "./images/thumbnails/B&W/wheel_museum-min.jpg",
         "size": 13
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/whip_men-min.JPG",
@@ -250,7 +259,7 @@
         "jpeg": "./images/thumbnails/B&W/whip_men-min.jpg",
         "size": 5
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/Alexandra1-min.jpg",
@@ -602,6 +611,33 @@
         "size": 34
       },
       "skipped": true
+    },
+    {
+      "original": "./images/album/Event/hannah_cream-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/hannah_cream-min.webp",
+        "jpeg": "./images/thumbnails/Event/hannah_cream-min.jpg",
+        "size": 15
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/hannah_tea-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/hannah_tea-min.webp",
+        "jpeg": "./images/thumbnails/Event/hannah_tea-min.jpg",
+        "size": 19
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/hannah_yoga-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/hannah_yoga-min.webp",
+        "jpeg": "./images/thumbnails/Event/hannah_yoga-min.jpg",
+        "size": 16
+      },
+      "skipped": false
     },
     {
       "original": "./images/album/Event/katie_fuji-min.JPG",
@@ -973,6 +1009,15 @@
       "skipped": true
     },
     {
+      "original": "./images/album/Travel/back_head-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Travel/back_head-min.webp",
+        "jpeg": "./images/thumbnails/Travel/back_head-min.jpg",
+        "size": 7
+      },
+      "skipped": false
+    },
+    {
       "original": "./images/album/Travel/blue_beach-min.JPG",
       "thumbnail": {
         "webp": "./images/thumbnails/Travel/blue_beach-min.webp",
@@ -980,6 +1025,24 @@
         "size": 17
       },
       "skipped": true
+    },
+    {
+      "original": "./images/album/Travel/boat_flag-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Travel/boat_flag-min.webp",
+        "jpeg": "./images/thumbnails/Travel/boat_flag-min.jpg",
+        "size": 17
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Travel/boat_shadow-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Travel/boat_shadow-min.webp",
+        "jpeg": "./images/thumbnails/Travel/boat_shadow-min.jpg",
+        "size": 8
+      },
+      "skipped": false
     },
     {
       "original": "./images/album/Travel/boat_starring-min.JPG",
@@ -1063,6 +1126,15 @@
       "skipped": true
     },
     {
+      "original": "./images/album/Travel/flower_cloud-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Travel/flower_cloud-min.webp",
+        "jpeg": "./images/thumbnails/Travel/flower_cloud-min.jpg",
+        "size": 16
+      },
+      "skipped": false
+    },
+    {
       "original": "./images/album/Travel/hat_beach-min.JPG",
       "thumbnail": {
         "webp": "./images/thumbnails/Travel/hat_beach-min.webp",
@@ -1070,6 +1142,15 @@
         "size": 9
       },
       "skipped": true
+    },
+    {
+      "original": "./images/album/Travel/helicopter_flag-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Travel/helicopter_flag-min.webp",
+        "jpeg": "./images/thumbnails/Travel/helicopter_flag-min.jpg",
+        "size": 10
+      },
+      "skipped": false
     },
     {
       "original": "./images/album/Travel/hill_person-min.JPG",
@@ -1097,6 +1178,15 @@
         "size": 10
       },
       "skipped": true
+    },
+    {
+      "original": "./images/album/Travel/looking_boat-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Travel/looking_boat-min.webp",
+        "jpeg": "./images/thumbnails/Travel/looking_boat-min.jpg",
+        "size": 17
+      },
+      "skipped": false
     },
     {
       "original": "./images/album/Travel/moon_light-min.JPG",
@@ -1313,6 +1403,15 @@
         "size": 10
       },
       "skipped": true
+    },
+    {
+      "original": "./images/album/Travel/window_boat-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Travel/window_boat-min.webp",
+        "jpeg": "./images/thumbnails/Travel/window_boat-min.jpg",
+        "size": 7
+      },
+      "skipped": false
     },
     {
       "original": "./images/album/Travel/winter_dusk-min.JPG",

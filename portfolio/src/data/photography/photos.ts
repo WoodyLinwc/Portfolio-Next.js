@@ -58,15 +58,23 @@ export const photos: Photo[] = [
     alt: "Watching window travel",
   },
   {
+    src: "/images/album/Travel/boat_flag-min.jpg",
+    category: "travel",
+    alt: "Star Island travel",
+  },
+
+  {
     src: "/images/album/Travel/train_outside-min.JPG",
     category: "travel",
     alt: "Train outside travel",
   },
+
   {
     src: "/images/album/Travel/seaport_family-min.JPG",
     category: "travel",
     alt: "Seaport family travel",
   },
+
   {
     src: "/images/album/Travel/concert_man-min.JPG",
     category: "travel",
@@ -164,6 +172,7 @@ export const photos: Photo[] = [
     category: "travel",
     alt: "Back hands travel",
   },
+
   {
     src: "/images/album/Travel/train_girl-min.JPG",
     category: "travel",
@@ -175,6 +184,32 @@ export const photos: Photo[] = [
     alt: "singing beach at manchester-by-the-sea",
   },
   {
+    src: "/images/album/Travel/back_head-min.jpg",
+    category: "travel",
+    alt: "Boston travel",
+  },
+
+  {
+    src: "/images/album/Travel/helicopter_flag-min.jpg",
+    category: "travel",
+    alt: "Boston travel",
+  },
+  {
+    src: "/images/album/Travel/looking_boat-min.jpg",
+    category: "travel",
+    alt: "Star Island travel",
+  },
+  {
+    src: "/images/album/Travel/window_boat-min.jpg",
+    category: "travel",
+    alt: "Star Island travel",
+  },
+  {
+    src: "/images/album/Travel/boat_shadow-min.jpg",
+    category: "travel",
+    alt: "Star Island travel",
+  },
+  {
     src: "/images/album/Travel/island_window-min.JPG",
     category: "travel",
     alt: "Island window travel",
@@ -184,6 +219,7 @@ export const photos: Photo[] = [
     category: "travel",
     alt: "Sailing view travel",
   },
+
   {
     src: "/images/album/Travel/side_look-min.JPG",
     category: "travel",
@@ -199,10 +235,16 @@ export const photos: Photo[] = [
     category: "travel",
     alt: "Bow Market travel",
   },
+
   {
     src: "/images/album/Travel/hill_person-min.JPG",
     category: "travel",
     alt: "Hill person travel",
+  },
+  {
+    src: "/images/album/Travel/flower_cloud-min.jpg",
+    category: "travel",
+    alt: "Boston travel",
   },
   {
     src: "/images/album/Travel/reflection_walk-min.JPG",
@@ -344,6 +386,11 @@ export const photos: Photo[] = [
     alt: "Island bird black and white",
   },
   {
+    src: "/images/album/B&W/cave_reflection-min.jpg",
+    category: "bw",
+    alt: "Fort McClary",
+  },
+  {
     src: "/images/album/B&W/train_smoke-min.jpg",
     category: "bw",
     alt: "Train smoke black and white",
@@ -416,6 +463,23 @@ export const photos: Photo[] = [
     category: "event",
     alt: "2026 BU graduation",
   },
+
+  {
+    src: "/images/album/Event/hannah_cream-min.jpg",
+    category: "event",
+    alt: "Hannah photography",
+  },
+  {
+    src: "/images/album/Event/hannah_yoga-min.jpg",
+    category: "event",
+    alt: "Hannah photography",
+  },
+  {
+    src: "/images/album/Event/hannah_tea-min.jpg",
+    category: "event",
+    alt: "Hannah photography",
+  },
+
   {
     src: "/images/album/Event/as1-min.jpg",
     category: "event",
