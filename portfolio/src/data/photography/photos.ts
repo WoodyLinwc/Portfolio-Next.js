@@ -172,17 +172,6 @@ export const photos: Photo[] = [
     category: "travel",
     alt: "Back hands travel",
   },
-
-  {
-    src: "/images/album/Travel/train_girl-min.JPG",
-    category: "travel",
-    alt: "MBTA girl",
-  },
-  {
-    src: "/images/album/Travel/hat_beach-min.JPG",
-    category: "travel",
-    alt: "singing beach at manchester-by-the-sea",
-  },
   {
     src: "/images/album/Travel/back_head-min.jpg",
     category: "travel",
@@ -194,6 +183,18 @@ export const photos: Photo[] = [
     category: "travel",
     alt: "Boston travel",
   },
+
+  {
+    src: "/images/album/Travel/train_girl-min.JPG",
+    category: "travel",
+    alt: "MBTA girl",
+  },
+  {
+    src: "/images/album/Travel/hat_beach-min.JPG",
+    category: "travel",
+    alt: "singing beach at manchester-by-the-sea",
+  },
+
   {
     src: "/images/album/Travel/looking_boat-min.jpg",
     category: "travel",
@@ -210,14 +211,20 @@ export const photos: Photo[] = [
     alt: "Star Island travel",
   },
   {
+    src: "/images/album/Travel/sailing_view-min.JPG",
+    category: "travel",
+    alt: "Sailing view travel",
+  },
+  {
     src: "/images/album/Travel/island_window-min.JPG",
     category: "travel",
     alt: "Island window travel",
   },
+
   {
-    src: "/images/album/Travel/sailing_view-min.JPG",
+    src: "/images/album/Travel/starring_beach-min.JPG",
     category: "travel",
-    alt: "Sailing view travel",
+    alt: "George Lane Beach travel",
   },
 
   {
@@ -225,11 +232,7 @@ export const photos: Photo[] = [
     category: "travel",
     alt: "Bow Market travel",
   },
-  {
-    src: "/images/album/Travel/starring_beach-min.JPG",
-    category: "travel",
-    alt: "George Lane Beach travel",
-  },
+
   {
     src: "/images/album/Travel/warm_smile-min.JPG",
     category: "travel",
