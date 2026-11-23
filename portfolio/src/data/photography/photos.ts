@@ -303,6 +303,12 @@ export const photos: Photo[] = [
     alt: "Old man black and white",
   },
   {
+    src: "/images/album/B&W/winnie2-min.jpg",
+    category: "bw",
+    alt: "Winnie",
+  },
+
+  {
     src: "/images/album/B&W/black_fish-min.JPG",
     category: "bw",
     alt: "Old man fishing",
@@ -465,6 +471,86 @@ export const photos: Photo[] = [
     src: "/images/album/Event/Jenifer1-min.jpg",
     category: "event",
     alt: "2026 BU graduation",
+  },
+  {
+    src: "/images/album/Event/winnie7-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie8-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie9-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie19-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie3-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie4-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie5-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie6-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie11-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie12-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie13-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie14-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie16-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie17-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie18-min.jpg",
+    category: "event",
+    alt: "Winnie",
+  },
+  {
+    src: "/images/album/Event/winnie1-min.jpg",
+    category: "event",
+    alt: "Winnie",
   },
 
   {
@@ -721,10 +807,16 @@ export const photos: Photo[] = [
     category: "night",
     alt: "Men kiss 2 night",
   },
+
   {
     src: "/images/album/Night/blue_love-min.JPG",
     category: "night",
     alt: "Water lantern night",
+  },
+  {
+    src: "/images/album/Night/winnie10-min.jpg",
+    category: "night",
+    alt: "Winnie",
   },
 
   {
@@ -737,6 +829,7 @@ export const photos: Photo[] = [
     category: "night",
     alt: "Night shadow",
   },
+
   {
     src: "/images/album/Night/concert_shadow-min.JPG",
     category: "night",

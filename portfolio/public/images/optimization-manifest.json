@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-13T22:08:51.911Z",
+  "generated": "2026-11-23T15:42:09.447Z",
   "config": {
     "inputDir": "../public/images/album",
     "thumbnailDir": "../public/images/thumbnails",
@@ -52,7 +52,7 @@
         "jpeg": "./images/thumbnails/B&W/cave_reflection-min.jpg",
         "size": 26
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/B&W/cloud_mountain-min.JPG",
@@ -260,6 +260,15 @@
         "size": 5
       },
       "skipped": true
+    },
+    {
+      "original": "./images/album/B&W/winnie2-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/B&W/winnie2-min.webp",
+        "jpeg": "./images/thumbnails/B&W/winnie2-min.jpg",
+        "size": 10
+      },
+      "skipped": false
     },
     {
       "original": "./images/album/Event/Alexandra1-min.jpg",
@@ -619,7 +628,7 @@
         "jpeg": "./images/thumbnails/Event/hannah_cream-min.jpg",
         "size": 15
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/hannah_tea-min.jpg",
@@ -628,7 +637,7 @@
         "jpeg": "./images/thumbnails/Event/hannah_tea-min.jpg",
         "size": 19
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/hannah_yoga-min.jpg",
@@ -637,7 +646,7 @@
         "jpeg": "./images/thumbnails/Event/hannah_yoga-min.jpg",
         "size": 16
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/katie_fuji-min.JPG",
@@ -784,6 +793,150 @@
       "skipped": true
     },
     {
+      "original": "./images/album/Event/winnie1-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie1-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie1-min.jpg",
+        "size": 12
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie11-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie11-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie11-min.jpg",
+        "size": 24
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie12-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie12-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie12-min.jpg",
+        "size": 38
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie13-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie13-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie13-min.jpg",
+        "size": 27
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie14-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie14-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie14-min.jpg",
+        "size": 24
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie16-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie16-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie16-min.jpg",
+        "size": 52
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie17-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie17-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie17-min.jpg",
+        "size": 35
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie18-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie18-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie18-min.jpg",
+        "size": 28
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie19-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie19-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie19-min.jpg",
+        "size": 41
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie3-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie3-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie3-min.jpg",
+        "size": 44
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie4-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie4-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie4-min.jpg",
+        "size": 31
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie5-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie5-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie5-min.jpg",
+        "size": 25
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie6-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie6-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie6-min.jpg",
+        "size": 18
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie7-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie7-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie7-min.jpg",
+        "size": 32
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie8-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie8-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie8-min.jpg",
+        "size": 21
+      },
+      "skipped": false
+    },
+    {
+      "original": "./images/album/Event/winnie9-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Event/winnie9-min.webp",
+        "jpeg": "./images/thumbnails/Event/winnie9-min.jpg",
+        "size": 41
+      },
+      "skipped": false
+    },
+    {
       "original": "./images/album/Event/xinyu_katie-min.JPG",
       "thumbnail": {
         "webp": "./images/thumbnails/Event/xinyu_katie-min.webp",
@@ -881,6 +1034,15 @@
         "size": 9
       },
       "skipped": true
+    },
+    {
+      "original": "./images/album/Night/winnie10-min.jpg",
+      "thumbnail": {
+        "webp": "./images/thumbnails/Night/winnie10-min.webp",
+        "jpeg": "./images/thumbnails/Night/winnie10-min.jpg",
+        "size": 42
+      },
+      "skipped": false
     },
     {
       "original": "./images/album/Photojournalism/american_dream-min.JPG",
@@ -1015,7 +1177,7 @@
         "jpeg": "./images/thumbnails/Travel/back_head-min.jpg",
         "size": 7
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Travel/blue_beach-min.JPG",
@@ -1033,7 +1195,7 @@
         "jpeg": "./images/thumbnails/Travel/boat_flag-min.jpg",
         "size": 17
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Travel/boat_shadow-min.jpg",
@@ -1042,7 +1204,7 @@
         "jpeg": "./images/thumbnails/Travel/boat_shadow-min.jpg",
         "size": 8
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Travel/boat_starring-min.JPG",
@@ -1132,7 +1294,7 @@
         "jpeg": "./images/thumbnails/Travel/flower_cloud-min.jpg",
         "size": 16
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Travel/hat_beach-min.JPG",
@@ -1150,7 +1312,7 @@
         "jpeg": "./images/thumbnails/Travel/helicopter_flag-min.jpg",
         "size": 10
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Travel/hill_person-min.JPG",
@@ -1186,7 +1348,7 @@
         "jpeg": "./images/thumbnails/Travel/looking_boat-min.jpg",
         "size": 17
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Travel/moon_light-min.JPG",
@@ -1411,7 +1573,7 @@
         "jpeg": "./images/thumbnails/Travel/window_boat-min.jpg",
         "size": 7
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Travel/winter_dusk-min.JPG",
