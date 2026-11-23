@@ -101,5 +101,40 @@ export const accessories: Accessory[] = [
     image: "/images/camera/nisi_black_mist_1:4.jpg",
     purchaseYear: 2026,
   },
+  {
+    id: "23",
+    name: "Godox iT32 TTL Mini Flash",
+    brand: "Godox",
+    model: "iT32",
+    specs: [
+      "GN18 compact flash",
+      "Tilt & swivel head",
+      "2.4GHz X wireless system",
+      "Come with flash trigger",
+    ],
+    description:
+      "Pocket-sized flash with full TTL and HSS, great for on- and off-camera lighting!",
+    image: "/images/camera/godox_it32.webp",
+    purchaseYear: 2026,
+  },
+  {
+    id: "25",
+    name: "Godox V1 Pro Round Head Flash",
+    brand: "Godox",
+    model: "V1 Pro",
+    specs: [
+      "76Ws round head flash",
+      "28–105mm auto zoom",
+      "Tilt -7° to 120°, swivel 330°",
+      "TTL & HSS up to 1/8000s",
+      "Detachable sub-flash",
+      "~500 full-power flashes per charge",
+      "1.5s recycle time",
+    ],
+    description:
+      "A powerful round-head flash with soft, natural light, my go-to for serious portrait shoots!",
+    image: "/images/camera/godox_v1pro.jpg",
+    purchaseYear: 2026,
+  },
   // Add more accessories as needed
 ];

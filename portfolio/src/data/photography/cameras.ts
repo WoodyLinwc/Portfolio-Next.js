@@ -164,6 +164,28 @@ export const cameras: Camera[] = [
     purchaseYear: 2026,
     favorite: false,
   },
+  {
+    id: "24",
+    name: "Ricoh GR IV HDF",
+    brand: "Ricoh",
+    model: "GR IV HDF",
+    specs: [
+      "Compact digital camera",
+      "25.7MP APS-C BSI CMOS sensor",
+      "18.3mm f/2.8 lens (28mm equivalent)",
+      "Built-in Highlight Diffusion Filter (HDF), toggled with one button",
+      "Sensor-shift image stabilization",
+      "ISO 100–204,800",
+      "Full HD 1080p video at up to 60p",
+      "0.6s start-up time",
+      "262g weight (with battery & card)",
+    ],
+    description:
+      "A pocket street camera with a built-in glow, soft, dreamy highlights at the press of a button!",
+    image: "/images/camera/ricoh_gr4_hdf.jpg",
+    purchaseYear: 2026,
+    favorite: true,
+  },
 
   // Add more cameras here as needed
 ];

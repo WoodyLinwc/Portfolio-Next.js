@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-23T15:42:09.447Z",
+  "generated": "2026-11-23T15:58:00.242Z",
   "config": {
     "inputDir": "../public/images/album",
     "thumbnailDir": "../public/images/thumbnails",
@@ -268,7 +268,7 @@
         "jpeg": "./images/thumbnails/B&W/winnie2-min.jpg",
         "size": 10
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/Alexandra1-min.jpg",
@@ -799,7 +799,7 @@
         "jpeg": "./images/thumbnails/Event/winnie1-min.jpg",
         "size": 12
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie11-min.jpg",
@@ -808,7 +808,7 @@
         "jpeg": "./images/thumbnails/Event/winnie11-min.jpg",
         "size": 24
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie12-min.jpg",
@@ -817,7 +817,7 @@
         "jpeg": "./images/thumbnails/Event/winnie12-min.jpg",
         "size": 38
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie13-min.jpg",
@@ -826,7 +826,7 @@
         "jpeg": "./images/thumbnails/Event/winnie13-min.jpg",
         "size": 27
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie14-min.jpg",
@@ -835,7 +835,7 @@
         "jpeg": "./images/thumbnails/Event/winnie14-min.jpg",
         "size": 24
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie16-min.jpg",
@@ -844,7 +844,7 @@
         "jpeg": "./images/thumbnails/Event/winnie16-min.jpg",
         "size": 52
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie17-min.jpg",
@@ -853,7 +853,7 @@
         "jpeg": "./images/thumbnails/Event/winnie17-min.jpg",
         "size": 35
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie18-min.jpg",
@@ -862,7 +862,7 @@
         "jpeg": "./images/thumbnails/Event/winnie18-min.jpg",
         "size": 28
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie19-min.jpg",
@@ -871,7 +871,7 @@
         "jpeg": "./images/thumbnails/Event/winnie19-min.jpg",
         "size": 41
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie3-min.jpg",
@@ -880,7 +880,7 @@
         "jpeg": "./images/thumbnails/Event/winnie3-min.jpg",
         "size": 44
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie4-min.jpg",
@@ -889,7 +889,7 @@
         "jpeg": "./images/thumbnails/Event/winnie4-min.jpg",
         "size": 31
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie5-min.jpg",
@@ -898,7 +898,7 @@
         "jpeg": "./images/thumbnails/Event/winnie5-min.jpg",
         "size": 25
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie6-min.jpg",
@@ -907,7 +907,7 @@
         "jpeg": "./images/thumbnails/Event/winnie6-min.jpg",
         "size": 18
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie7-min.jpg",
@@ -916,7 +916,7 @@
         "jpeg": "./images/thumbnails/Event/winnie7-min.jpg",
         "size": 32
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie8-min.jpg",
@@ -925,7 +925,7 @@
         "jpeg": "./images/thumbnails/Event/winnie8-min.jpg",
         "size": 21
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/winnie9-min.jpg",
@@ -934,7 +934,7 @@
         "jpeg": "./images/thumbnails/Event/winnie9-min.jpg",
         "size": 41
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Event/xinyu_katie-min.JPG",
@@ -1042,7 +1042,7 @@
         "jpeg": "./images/thumbnails/Night/winnie10-min.jpg",
         "size": 42
       },
-      "skipped": false
+      "skipped": true
     },
     {
       "original": "./images/album/Photojournalism/american_dream-min.JPG",
